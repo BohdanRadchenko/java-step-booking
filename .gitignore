@@ -1,5 +1,4 @@
 .idea/
 *.iml
-#*.xml
 target/
 .DS_Store
