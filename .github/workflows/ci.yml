@@ -20,8 +20,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+          cache: 'maven'
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
       - name: Compile and run tests with Maven
-        shell: bash
         run: mvn clean test
