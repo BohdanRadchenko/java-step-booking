@@ -6,6 +6,5 @@ public class Main {
     public static void main(String[] args) {
         Logger.start();
         System.out.println("Hello world!");
-
     }
 }

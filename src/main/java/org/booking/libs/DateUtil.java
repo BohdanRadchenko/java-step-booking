@@ -20,6 +20,7 @@ public class DateUtil {
 
     /**
      * DateUtil.of() create DateUtil instance of current time
+     *
      * @return DateUtil
      */
     public static DateUtil of() {
@@ -28,7 +29,8 @@ public class DateUtil {
 
     /**
      * DateUtil.of() create DateUtil instance from string by format pattern
-     * @param pattern  pattern like "yyyy-MM-dd HH:mm:ss" or "dd/MM/yyyy HH:mm:ss" or "dd/MM/yyyy" e.g
+     *
+     * @param pattern pattern like "yyyy-MM-dd HH:mm:ss" or "dd/MM/yyyy HH:mm:ss" or "dd/MM/yyyy" e.g
      * @return DateUtil
      */
     public static DateUtil of(String string, String pattern) {
@@ -47,7 +49,8 @@ public class DateUtil {
 
     /**
      * DateUtil.formatter(Sting pattern)
-     * @param pattern  pattern like "yyyy-MM-dd HH:mm:ss" or "dd/MM/yyyy HH:mm:ss" or "dd/MM/yyyy" e.g
+     *
+     * @param pattern pattern like "yyyy-MM-dd HH:mm:ss" or "dd/MM/yyyy HH:mm:ss" or "dd/MM/yyyy" e.g
      * @return String
      */
     public String formatter(String pattern) {
@@ -57,12 +60,12 @@ public class DateUtil {
 
     /**
      * DateUtil.formatter(FormatStyle formatStyle)
-     * @param formatStyle  FULL/LONG/MEDIUM/SHORT
+     *
+     * @param formatStyle FULL/LONG/MEDIUM/SHORT
      * @return String
      */
     public String formatter(FormatStyle formatStyle) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(formatStyle);
         return localDateTime.format(formatter);
     }
-
 }
