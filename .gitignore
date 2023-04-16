@@ -2,7 +2,4 @@
 *.iml
 #*.xml
 target/
-out/
 .DS_Store
-/docker/pgdata/
-node_modules/
