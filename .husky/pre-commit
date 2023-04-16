@@ -1,11 +1,8 @@
 #!/usr/bin/env sh
 
 . "$(dirname -- "$0")/_/husky.sh"
-
-echo "=========================\n"
 echo "Running pre-commit hook \n"
 
-echo "=========================\n"
 echo "Running test \n"
 mvn clean test
 
@@ -14,7 +11,6 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 
-echo "=========================\n"
 echo "Running code style validation \n"
 mvn validate
 
