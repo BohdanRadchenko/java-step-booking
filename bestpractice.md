@@ -8,6 +8,7 @@
     - #### Do not use string concatenation (+), use String.format or StringBuilder
     - #### Use component inside menu/menu item. Use controller inside component
     - #### Think about computational complexity.(e.g map.get() - O1, forEah/for/fori - On)
+    - #### Tests
 
 - ### Operators
     - #### if-else
