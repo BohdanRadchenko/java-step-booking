@@ -23,7 +23,7 @@ sh .gitconfig.sh
 other
 
 ```
-git config --local include.path '../.gitconfig'
+git config core.hookPath .githooks
 ```
 
 include.path=../.gitconfig <br>
