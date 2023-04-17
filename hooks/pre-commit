@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+echo "Running pre-commit hook \n"
+
+echo "Running test \n"
+mvn clean test
+
+if [ $? -ne 0 ]; then
+ echo "Tests must pass before commit!\n"
+ exit 1
+fi
+
+echo "Running code style validation \n"
+mvn validate
+
+if [ $? -ne 0 ]; then
+ echo "Code style validation warning\n"
+ exit 1
+fi
+
+
