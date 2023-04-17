@@ -2,6 +2,7 @@
 
 - ### Use javadoc for description your methods [[javadoc]](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html)
 - ### Using TODO of you need [ // TODO: *todo ]
+- ### Use branch name from trello task SB-xxx
 
 - ### Java
     - #### Use stream/map/list/set
