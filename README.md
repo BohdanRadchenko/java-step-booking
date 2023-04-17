@@ -14,8 +14,16 @@ git clone https://github.com/BohdanRadchenko/java-step-booking.git booking
 
 ### Enable custom git config
 
+mac
+
 ```
 sh .gitconfig.sh
+```
+
+other
+
+```
+git config --local include.path '../.gitconfig'
 ```
 
 include.path=../.gitconfig <br>
