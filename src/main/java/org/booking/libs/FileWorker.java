@@ -28,7 +28,7 @@ public class FileWorker {
     }
 
     /**
-     * Write binary file.
+     * Read binary file.
      *
      * @param filePath enum path to file
      * @param <T>      type of data, extends List.
