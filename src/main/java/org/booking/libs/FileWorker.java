@@ -11,6 +11,17 @@ import java.util.List;
 
 public class FileWorker {
     /**
+     * Check if file exist
+     *
+     * @param filePath enum path to file
+     * @return file.exist() boolean
+     */
+    public static boolean exist(FilePath filePath) {
+        File file = new File(filePath.path);
+        return file.exists();
+    }
+
+    /**
      * Write binary file.
      *
      * @param filePath enum path to file
