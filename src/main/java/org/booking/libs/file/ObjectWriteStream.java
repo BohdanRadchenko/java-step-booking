@@ -21,5 +21,4 @@ public class ObjectWriteStream implements AutoCloseable {
     public void close() throws IOException {
         objectOutputStream.close();
     }
-
 }
