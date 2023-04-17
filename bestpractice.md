@@ -23,6 +23,8 @@
 
 - ### Class
     - #### One file - one class
+    - #### Use private fields
+    - #### Use getter and setter
 
 - ### Enums
     - #### Create enums with constructor
@@ -31,8 +33,9 @@
     - #### KISS - Keep It Stupid Simple
     - #### DRY - Do not Repeat Yourself
     - #### SLAP - Single Level of Abstraction Principle
-    - #### SRP - Single Responsibility Principle
-    - #### OCP - Open-Closed Principle
-    - #### LSP - Liskov Substitution Principle
-    - #### ISP - Interface Segregation Principle
-    - #### DIP - Dependency Inversion Principle
+    - #### SOLID
+        - #### SRP - Single Responsibility Principle
+        - #### OCP - Open-Closed Principle
+        - #### LSP - Liskov Substitution Principle
+        - #### ISP - Interface Segregation Principle
+        - #### DIP - Dependency Inversion Principle
