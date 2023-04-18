@@ -14,4 +14,8 @@ public class MenuItem {
     public String getTitle() {
         return title;
     }
+
+    public void run() {
+        command.execute();
+    }
 }
