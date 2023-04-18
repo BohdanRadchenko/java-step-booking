@@ -20,7 +20,6 @@ public class BookingManager {
     }
 
     private void start() {
-        // TODO: 17.04.2023 start main app menu
         Menu menu = new MainMenu();
         while (!menu.isExit()) {
             menu.run();
