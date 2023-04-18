@@ -30,7 +30,7 @@ public class FileWorker {
      */
     public static <T extends List> void writeBinary(FilePath filePath, T data) throws IOException {
         File file = new File(filePath.path);
-        if (!file.exists()) {
+        if (!exist(filePath)) {
             file.createNewFile();
         }
         try (ObjectWriteStream ows = new ObjectWriteStream(file)) {
