@@ -45,7 +45,6 @@
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
         </module>
         <module name="NeedBraces">
-            <property name="tokens" value="LITERAL_IF"/>
             <property name="allowSingleLineStatement" value="true"/>
         </module>
         <module name="LeftCurly">
