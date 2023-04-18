@@ -45,9 +45,10 @@ public abstract class Menu implements IMenu {
         // TODO: 18.04.2023 add help menu item to backlog in mvp2
         // System.out.print("- or Help;\n");
         System.out.print("- or Exit;\n\n");
+        System.out.println("-".repeat(100));
     }
 
-    private int inputMenu() {
+    private int enterMenu() {
         // TODO: 18.04.2023 System.out to Console method;
         System.out.println(Message.MENU_ENTER_NUMBER);
         // TODO: 18.04.2023 refactor to Console.readString
@@ -62,14 +63,14 @@ public abstract class Menu implements IMenu {
             return n;
         } catch (RuntimeException ex) {
             // TODO: 18.04.2023 System.out to Console error method;
-            System.out.printf("%s. %s\n", Message.PARSE_INT_FROM_STRING, ex.getMessage());
-            return inputMenu();
+            System.out.printf("%s\n", ex.getMessage());
+            return enterMenu();
         }
     }
 
     public void run() {
         displayMenu();
-        int menuNum = inputMenu();
+        int menuNum = enterMenu();
         if (menuNum == exitCode) {
             setIsExit(true);
             return;
