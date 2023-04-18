@@ -1,7 +1,5 @@
 package org.booking.enums;
 
-import java.io.File;
-
 public enum FilePath {
     LOG("application.log"),
     USER("user.bin"),
