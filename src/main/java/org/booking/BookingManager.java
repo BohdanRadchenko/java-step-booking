@@ -1,5 +1,8 @@
 package org.booking;
 
+import org.booking.ui.menu.MainMenu;
+import org.booking.ui.menu.Menu;
+
 public class BookingManager {
     /**
      * read data from files , create init data if db is empty
@@ -18,6 +21,10 @@ public class BookingManager {
 
     private void start() {
         // TODO: 17.04.2023 start main app menu
+        Menu menu = new MainMenu();
+        while (!menu.isExit()) {
+            menu.run();
+        }
     }
 
     public void run() {

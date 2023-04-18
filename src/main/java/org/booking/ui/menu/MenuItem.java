@@ -1,13 +1,14 @@
-package org.booking.ui;
+package org.booking.ui.menu;
 
 import org.booking.command.Command;
+import org.booking.enums.MenuName;
 
 public class MenuItem {
     private final String title;
     private final Command command;
 
-    public MenuItem(String title, Command command) {
-        this.title = title;
+    public MenuItem(MenuName menuName, Command command) {
+        this.title = menuName.title;
         this.command = command;
     }
 
