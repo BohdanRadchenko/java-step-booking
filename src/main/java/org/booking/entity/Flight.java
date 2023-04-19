@@ -8,6 +8,7 @@ public class Flight {
     private LocalDateTime flightDate;
     private LocalDateTime arrivalDate;
 
+
     public Flight(LocalDateTime flightDate, LocalDateTime arrivalDate) {
         this.flightDate = flightDate;
         this.arrivalDate = arrivalDate;
