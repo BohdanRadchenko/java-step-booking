@@ -9,6 +9,11 @@ public class MenuDescription {
     }
 
     public static String booking() {
-        return "Enter FLIGHT data or Exit (0, q).\n";
+        return "Enter FLIGHT data or 'Back' to main menu";
     }
+
+    public static String bookingCancel() {
+        return "Enter the Booking ID or 'Back' to main menu";
+    }
+
 }
