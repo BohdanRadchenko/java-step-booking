@@ -1,23 +1,43 @@
 package org.booking.dao;
 
+import org.booking.entity.Entity;
+import org.booking.interfaces.IDao;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public interface Dao<T> extends AutoCloseable {
-    //создание нового объекта
-    void create(T object);
+public abstract class Dao<T extends Entity> implements IDao<T> {
+    private final Map<String, T> db = new HashMap<>();
 
-    //Получение объекта по идентификатору
-    void getById(int id);
+    @Override
+    public List<T> getAll() {
+        return new ArrayList<>(db.values());
+    }
 
-    //Получение всех объектов в базе данных
-    List<T> getAll();
+    @Override
+    public T getById(String id) {
+        return db.get(id);
+    }
 
-    //Обновление объектов
-    void update(T object);
+    @Override
+    public void create(T object) {
+        db.put(object.getId(), object);
+    }
 
-    //Удаление объектов
-    void delete(T object);
+    @Override
+    public void update(T object) {
+        db.put(object.getId(), object);
+    }
 
-    //закрытие ресурса используемого для работы с базой данных
-    void close();
+    @Override
+    public void delete(T object) {
+        db.remove(object.getId());
+    }
+
+    public abstract void save() throws IOException;
+
+    public abstract List<T> read() throws ClassNotFoundException, IOException;
 }

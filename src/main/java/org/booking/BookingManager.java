@@ -1,5 +1,10 @@
 package org.booking;
 
+import org.booking.dao.BookingDao;
+import org.booking.entity.Booking;
+
+import java.io.IOException;
+
 public class BookingManager {
     /**
      * read data from files , create init data if db is empty
@@ -13,6 +18,14 @@ public class BookingManager {
      * saves all data to files
      */
     private void save() {
+        // TODO: 19.04.2023 for example. This code must be in service and call from controller
+        BookingDao bookingDao = new BookingDao();
+        try {
+            bookingDao.create(new Booking());
+            bookingDao.save();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         // TODO: 17.04.2023 save data from controller to files
     }
 
