@@ -7,7 +7,6 @@ import org.booking.helpers.MenuDescription;
 public class MainMenu extends Menu {
     public MainMenu() {
         super("Main menu");
-
         add(MenuName.FLIGHT_SCHEDULES, FlightSchedules.of());
         add(MenuName.FLIGHT_INFO, FlightInfo.of(), MenuDescription.flightInfo());
         add(MenuName.BOOKING, Booking.of(), MenuDescription.booking());
