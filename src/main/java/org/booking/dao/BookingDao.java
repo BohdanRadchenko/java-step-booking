@@ -9,12 +9,20 @@ import java.util.List;
 
 public class BookingDao extends Dao<Booking> {
     @Override
-    public void save() throws IOException {
-        FileWorker.writeBinary(FilePath.BOOKING, getAll());
+    public void save() throws RuntimeException {
+        try {
+            FileWorker.writeBinary(FilePath.BOOKING, getAll());
+        } catch (IOException ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
     }
 
     @Override
-    public List<Booking> read() throws ClassNotFoundException, IOException {
-        return FileWorker.readBinary(FilePath.BOOKING);
+    public List<Booking> read() throws RuntimeException {
+        try {
+            return FileWorker.readBinary(FilePath.BOOKING);
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
     }
 }

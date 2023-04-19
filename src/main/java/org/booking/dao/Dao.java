@@ -37,7 +37,7 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
         db.remove(object.getId());
     }
 
-    public abstract void save() throws IOException;
+    public abstract void save() throws RuntimeException;
 
-    public abstract List<T> read() throws ClassNotFoundException, IOException;
+    public abstract List<T> read() throws RuntimeException;
 }

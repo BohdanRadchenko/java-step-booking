@@ -23,7 +23,7 @@ public class BookingManager {
         try {
             bookingDao.create(new Booking());
             bookingDao.save();
-        } catch (IOException ex) {
+        } catch (RuntimeException ex) {
             System.out.println(ex.getMessage());
         }
         // TODO: 17.04.2023 save data from controller to files

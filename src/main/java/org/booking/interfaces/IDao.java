@@ -19,4 +19,9 @@ public interface IDao<T extends Entity> {
 
     //Удаление объектов
     void delete(T object);
+
+    void save() throws RuntimeException;
+
+    List<T> read() throws RuntimeException;
+
 }
