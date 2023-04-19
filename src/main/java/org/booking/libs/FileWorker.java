@@ -42,13 +42,14 @@ public class FileWorker {
      * Read binary file.
      *
      * @param filePath enum path to file
-     * @param <T>      type of data, extends List.
+     * @param <E>      entity object extends Entity
+     * @param <L>      List of E
      * @return array data T
      * @throws FileNotFoundException  if the file from file path is not found
      * @throws ClassNotFoundException if the data in file can`t parsed to object type T
      * @throws IOException            other exception from file read
      */
-    public static <E extends Entity, T extends List<E>> T readBinary(FilePath filePath)
+    public static <E extends Entity, L extends List<E>> L readBinary(FilePath filePath)
             throws ClassNotFoundException, IOException {
         File file = new File(filePath.path);
         if (!file.exists()) {
