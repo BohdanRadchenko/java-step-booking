@@ -1,7 +1,9 @@
-package org.booking.libs;
+package org.booking.utils;
 
 import java.util.Arrays;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Parser {
     private static final Set<String> exitWords = Set.of("exit", "ex", "e", "quit", "q");
@@ -25,5 +27,17 @@ public class Parser {
         } catch (NumberFormatException ex) {
             throw new NumberFormatException(ex.getMessage());
         }
+    }
+
+    public static String parseRegex(String str, String regex) throws RuntimeException {
+        boolean status = Pattern.matches(regex, str);
+        if (!status) {
+            throw new RuntimeException("Error parse format");
+        }
+        return str;
+    }
+
+    public static String parseUtm(String utm) throws RuntimeException {
+        return parseRegex(utm, "\\d{2}\\w{1}");
     }
 }

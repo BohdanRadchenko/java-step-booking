@@ -2,7 +2,7 @@ package org.booking.dao;
 
 import org.booking.entity.Booking;
 import org.booking.enums.FilePath;
-import org.booking.libs.FileWorker;
+import org.booking.utils.FileWorker;
 
 import java.io.IOException;
 import java.util.List;

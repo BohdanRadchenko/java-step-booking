@@ -4,9 +4,8 @@ import org.booking.command.Command;
 import org.booking.enums.MenuName;
 import org.booking.enums.Message;
 import org.booking.interfaces.IMenu;
-import org.booking.libs.Console;
-import org.booking.libs.Input;
-import org.booking.libs.Parser;
+import org.booking.utils.Console;
+import org.booking.utils.Parser;
 
 import java.util.HashMap;
 import java.util.Map;

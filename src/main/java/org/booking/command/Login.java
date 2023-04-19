@@ -1,6 +1,6 @@
 package org.booking.command;
 
-import org.booking.libs.Input;
+import org.booking.utils.Input;
 
 // TODO: 18.04.2023 Example class. Remove.
 public class Login extends Command {
