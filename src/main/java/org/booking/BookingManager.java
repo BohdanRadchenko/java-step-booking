@@ -1,9 +1,12 @@
 package org.booking;
 
+import org.booking.controllers.Controller;
 import org.booking.ui.menu.MainMenu;
 import org.booking.ui.menu.Menu;
 
 public class BookingManager {
+    private final Controller controller = new Controller();
+
     /**
      * read data from files , create init data if db is empty
      */
@@ -20,7 +23,7 @@ public class BookingManager {
     }
 
     private void start() {
-        Menu menu = new MainMenu();
+        Menu menu = new MainMenu(controller);
         while (!menu.isExit()) {
             menu.run();
         }

@@ -1,12 +1,13 @@
 package org.booking.command;
 
-public abstract class Command {
+import org.booking.controllers.Controller;
 
-    // TODO: 18.04.2023 Uncomment this code in SB-038
-    //    private final Controller controller;
-    //    public Command(Controller controller) {
-    //        this.controller = controller;
-    //    }
+public abstract class Command {
+    public final Controller controller;
+
+    public Command(Controller controller) {
+        this.controller = controller;
+    }
 
     /**
      * Start commands method
