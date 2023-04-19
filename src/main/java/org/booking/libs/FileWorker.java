@@ -4,9 +4,7 @@ import org.booking.enums.FilePath;
 import org.booking.libs.file.ObjectReadStream;
 import org.booking.libs.file.ObjectWriteStream;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 public class FileWorker {
@@ -56,5 +54,68 @@ public class FileWorker {
         try (ObjectReadStream ors = new ObjectReadStream(file)) {
             return ors.read();
         }
+    }
+
+    /**
+     * Read text from file.
+     *
+     * @param filePath enum path to file
+     * @return String
+     * @throws IOException other exception from file read
+     */
+    public static String readText(FilePath filePath) throws IOException {
+        File file = new File(filePath.path);
+        if (!exist(filePath)) {
+            file.createNewFile();
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            try (BufferedReader in = new BufferedReader(new FileReader(file.getAbsoluteFile()))) {
+                String s;
+                while ((s = in.readLine()) != null) {
+                    sb.append(s);
+                    sb.append("\n");
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Write text file.
+     *
+     * @param filePath enum path to file
+     * @param text     string
+     * @throws IOException other exception from file read
+     */
+    public static void writeText(FilePath filePath, String text) throws IOException {
+        File file = new File(filePath.path);
+        if (!exist(filePath)) {
+            file.createNewFile();
+        }
+
+        try (PrintWriter out = new PrintWriter(file.getAbsoluteFile())) {
+            out.print(text);
+        }
+    }
+
+    /**
+     * Update text file. Write readText + text
+     *
+     * @param filePath enum path to file
+     * @param text     string
+     * @throws IOException other exception from file read
+     */
+    public static void updateText(FilePath filePath, String text) throws IOException {
+        if (!exist(filePath)) {
+            writeText(filePath, text);
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(readText(filePath));
+        sb.append(text);
+        writeText(filePath, new String(sb));
     }
 }
