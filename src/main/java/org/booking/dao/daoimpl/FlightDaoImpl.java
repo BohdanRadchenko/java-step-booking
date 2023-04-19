@@ -2,10 +2,15 @@ package org.booking.dao.daoimpl;
 
 import org.booking.dao.FlightDao;
 import org.booking.entity.Flight;
+import org.booking.entity.FlightList;
 
 import java.util.List;
 
 public class FlightDaoImpl implements FlightDao{
+    FlightList flightList = new FlightList();
+    List<Flight> getflightList = flightList.getAllFlight();
+
+
 
 
     @Override
