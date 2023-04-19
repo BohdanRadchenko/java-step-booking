@@ -18,19 +18,12 @@ public class BookingManager {
      * saves all data to files
      */
     private void save() {
-        // TODO: 19.04.2023 for example. This code must be in service and call from controller
-        BookingDao bookingDao = new BookingDao();
-        try {
-            bookingDao.create(new Booking());
-            bookingDao.save();
-        } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
-        }
         // TODO: 17.04.2023 save data from controller to files
     }
 
     private void start() {
         // TODO: 17.04.2023 start main app menu
+
     }
 
     public void run() {
