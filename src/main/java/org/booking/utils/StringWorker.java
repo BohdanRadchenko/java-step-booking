@@ -16,6 +16,14 @@ public class StringWorker {
                 .reduce("", String::concat);
     }
 
+    public static String toUpperCase(String string) {
+        return toChars(string)
+                .stream()
+                .map(Character::toUpperCase)
+                .map(String::valueOf)
+                .reduce("", String::concat);
+    }
+
     public static String toCapitalize(String string) {
         List<Character> characters = toChars(toLowerCase(string));
         characters.set(0, Character.toUpperCase(characters.get(0)));

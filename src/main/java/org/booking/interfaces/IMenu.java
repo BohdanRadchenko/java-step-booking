@@ -1,20 +1,43 @@
 package org.booking.interfaces;
 
 import org.booking.utils.Console;
+import org.booking.helpers.Constants;
+
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public interface IMenu {
-    int exitCode = -10;
-    String sep1 = "=";
-    String sep2 = "-";
-    String logo = "BOOKING";
-    int repeatSpaceCount = 100;
+
+    default void showSeparator() {
+        Console.hide(String.format("%s\n", Constants.sep1.repeat(Constants.repeatSpaceCount)));
+    }
+
+    default void showSubSeparator() {
+        Console.hide(String.format("\n%s\n\n", Constants.sep2.repeat(Constants.repeatSpaceCount)));
+    }
+
+    default void displayTitle(String title) {
+        int titleSpaceCount = Constants.calcSpaceCount(title);
+
+        showSeparator();
+        Console.accept(String.format("%s %s\n", " ".repeat(titleSpaceCount), title));
+        showSeparator();
+    }
+
+    default void displayDescription(String description) {
+        int min = Arrays.stream(description.split("\n"))
+                .mapToInt(Constants::calcSpaceCount)
+                .min()
+                .orElse(0);
+        Arrays.stream(description.split("\n"))
+                .forEach(s -> {
+                    Console.hide(String.format("%s%s\n", " ".repeat(min), s));
+                });
+        showSeparator();
+    }
 
     default void displayLogo() {
-        int logoSpaceCount = repeatSpaceCount / 2 - logo.length() / 2;
-
-        Console.hide(String.format("%s\n", sep1.repeat(repeatSpaceCount)));
-        Console.accept(String.format("%s %s\n", " ".repeat(logoSpaceCount), logo));
-        Console.hide(String.format("%s\n", sep1.repeat(repeatSpaceCount)));
+        displayTitle(Constants.logo);
     }
 
     void run();

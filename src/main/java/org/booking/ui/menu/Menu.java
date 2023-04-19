@@ -5,6 +5,7 @@ import org.booking.enums.MenuName;
 import org.booking.enums.Message;
 import org.booking.interfaces.IMenu;
 import org.booking.utils.Console;
+import org.booking.helpers.Constants;
 import org.booking.utils.Parser;
 
 import java.util.HashMap;
@@ -16,13 +17,33 @@ public abstract class Menu implements IMenu {
 
     private boolean isExit = false;
 
+    private int count = 0;
+
     public Menu(String title) {
         this.title = title;
         this.items = new HashMap<>();
     }
 
+    public void add(Integer number, MenuItem menuItem) {
+        items.put(number, menuItem);
+    }
+
     public void add(Integer number, MenuName menuName, Command command) {
-        items.put(number, new MenuItem(menuName, command));
+        add(number, new MenuItem(menuName, command));
+    }
+
+    public void add(Integer number, MenuName menuName, Command command, String description) {
+        add(number, new MenuItem(menuName, command, description));
+    }
+
+    public void add(MenuName menuName, Command command) {
+        count++;
+        add(count, menuName, command);
+    }
+
+    public void add(MenuName menuName, Command command, String description) {
+        count++;
+        add(count, menuName, command, description);
     }
 
     private void setIsExit(boolean isExit) {
@@ -43,7 +64,7 @@ public abstract class Menu implements IMenu {
         this.items.forEach(this::displayItem);
         Console.print("- or ");
         Console.msg("Exit\n");
-        Console.hide(String.format("%s\n\n", sep2.repeat(repeatSpaceCount)));
+        showSubSeparator();
     }
 
     private int enterMenu() {
@@ -51,7 +72,7 @@ public abstract class Menu implements IMenu {
         String str = Console.readString();
         try {
             boolean isExit = Parser.parseIsExit(str);
-            if (isExit) return exitCode;
+            if (isExit) return Constants.exitCode;
             int n = Parser.parseInt(str);
             if (!items.containsKey(n)) {
                 throw new RuntimeException(Message.MENU_NOT_EXIST.message);
@@ -67,7 +88,7 @@ public abstract class Menu implements IMenu {
     public void run() {
         displayMenu();
         int menuNum = enterMenu();
-        if (menuNum == exitCode) {
+        if (menuNum == Constants.exitCode) {
             setIsExit(true);
             return;
         }
