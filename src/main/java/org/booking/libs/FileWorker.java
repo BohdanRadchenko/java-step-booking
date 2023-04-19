@@ -1,5 +1,6 @@
 package org.booking.libs;
 
+import org.booking.entity.Entity;
 import org.booking.enums.FilePath;
 import org.booking.libs.file.ObjectReadStream;
 import org.booking.libs.file.ObjectWriteStream;
@@ -23,10 +24,11 @@ public class FileWorker {
      * Write binary file.
      *
      * @param filePath enum path to file
-     * @param <T>      type of data, extends List.
+     * @param <E>      entity object extends Entity
+     * @param <L>      List of E
      * @throws IOException other exception from file write
      */
-    public static <T extends List> void writeBinary(FilePath filePath, T data) throws IOException {
+    public static <E extends Entity, L extends List<E>> void writeBinary(FilePath filePath, L data) throws IOException {
         File file = new File(filePath.path);
         if (!exist(filePath)) {
             file.createNewFile();
@@ -46,7 +48,8 @@ public class FileWorker {
      * @throws ClassNotFoundException if the data in file can`t parsed to object type T
      * @throws IOException            other exception from file read
      */
-    public static <T extends List> T readBinary(FilePath filePath) throws ClassNotFoundException, IOException {
+    public static <E extends Entity, T extends List<E>> T readBinary(FilePath filePath)
+            throws ClassNotFoundException, IOException {
         File file = new File(filePath.path);
         if (!file.exists()) {
             throw new FileNotFoundException(String.format("File %s is not exists", file.getAbsolutePath()));
