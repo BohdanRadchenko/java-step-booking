@@ -10,7 +10,7 @@ public class MainMenu extends Menu {
 
         add(MenuName.FLIGHT_SCHEDULES, FlightSchedules.of());
         add(MenuName.FLIGHT_INFO, FlightInfo.of(), MenuDescription.flightInfo());
-        add(MenuName.FLIGHT_BOOKING, Booking.of());
+        add(MenuName.BOOKING, Booking.of(), MenuDescription.booking());
         add(MenuName.BOOKING_CANCEL, BookingCancel.of());
         add(MenuName.BOOKING_VIEW, BookingView.of());
     }

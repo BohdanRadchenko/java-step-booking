@@ -21,14 +21,6 @@ public class MenuItem implements IMenu {
         this(menuName, command, null);
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -40,7 +32,6 @@ public class MenuItem implements IMenu {
     private void showTitle() {
         Console.ln();
         displayTitle(getTitleUppercase());
-        Console.ln();
     }
 
     public void run() {
@@ -48,6 +39,7 @@ public class MenuItem implements IMenu {
         if (description != null) {
             displayDescription(description);
         }
+        Console.ln();
         command.execute();
         showSubSeparator();
     }

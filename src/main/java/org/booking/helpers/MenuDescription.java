@@ -7,4 +7,8 @@ public class MenuDescription {
         String row3 = "or 'Back' to main menu";
         return String.format("%s%s%s", row1, row2, row3);
     }
+
+    public static String booking() {
+        return "Enter FLIGHT data or Exit (0, q).\n";
+    }
 }
