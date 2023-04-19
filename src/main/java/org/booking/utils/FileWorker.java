@@ -1,8 +1,8 @@
-package org.booking.libs;
+package org.booking.utils;
 
 import org.booking.enums.FilePath;
-import org.booking.libs.file.ObjectReadStream;
-import org.booking.libs.file.ObjectWriteStream;
+import org.booking.utils.file.ObjectReadStream;
+import org.booking.utils.file.ObjectWriteStream;
 
 import java.io.File;
 import java.io.FileNotFoundException;

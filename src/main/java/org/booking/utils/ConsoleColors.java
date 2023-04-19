@@ -1,4 +1,4 @@
-package org.booking.libs;
+package org.booking.utils;
 
 public final class ConsoleColors {
 

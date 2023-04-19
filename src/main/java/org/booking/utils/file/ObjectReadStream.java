@@ -1,4 +1,4 @@
-package org.booking.libs.file;
+package org.booking.utils.file;
 
 import java.io.File;
 import java.io.FileInputStream;
