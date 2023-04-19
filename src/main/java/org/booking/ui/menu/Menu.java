@@ -4,7 +4,7 @@ import org.booking.command.Command;
 import org.booking.enums.MenuName;
 import org.booking.enums.Message;
 import org.booking.interfaces.IMenu;
-import org.booking.utils.Input;
+import org.booking.utils.Console;
 import org.booking.utils.Parser;
 
 import java.util.HashMap;
@@ -34,25 +34,21 @@ public abstract class Menu implements IMenu {
     }
 
     private void displayItem(Integer number, MenuItem item) {
-        // TODO: 18.04.2023 System.out to Console method;
-        System.out.printf("- %d - %s;\n", number, item.getTitle());
+        Console.title(String.format("- %d. ", number));
+        Console.msg(String.format("%s;\n", item.getTitle()));
     }
 
     private void displayMenu() {
         displayLogo();
         this.items.forEach(this::displayItem);
-        // TODO: 18.04.2023 System.out to Console method;
-        // TODO: 18.04.2023 add help menu item to backlog in mvp2
-        // System.out.print("- or Help;\n");
-        System.out.print("- or Exit;\n\n");
-        System.out.println("-".repeat(100));
+        Console.print("- or ");
+        Console.msg("Exit\n");
+        Console.hide(String.format("%s\n\n", sep2.repeat(repeatSpaceCount)));
     }
 
     private int enterMenu() {
-        // TODO: 18.04.2023 System.out to Console method;
-        System.out.println(Message.MENU_ENTER_NUMBER);
-        // TODO: 18.04.2023 refactor to Console.readString
-        String str = Input.readString();
+        Console.input(String.format("%s:\n", Message.MENU_ENTER_NUMBER.message));
+        String str = Console.readString();
         try {
             boolean isExit = Parser.parseIsExit(str);
             if (isExit) return exitCode;
@@ -62,8 +58,8 @@ public abstract class Menu implements IMenu {
             }
             return n;
         } catch (RuntimeException ex) {
-            // TODO: 18.04.2023 System.out to Console error method;
-            System.out.printf("%s\n", ex.getMessage());
+            Console.error(String.format("Error: %s\n", ex.getMessage()));
+
             return enterMenu();
         }
     }

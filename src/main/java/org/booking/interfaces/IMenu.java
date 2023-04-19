@@ -1,19 +1,20 @@
 package org.booking.interfaces;
 
+import org.booking.utils.Console;
+
 public interface IMenu {
     int exitCode = -10;
-    int helpCode = -20;
-    String separator = "=";
+    String sep1 = "=";
+    String sep2 = "-";
     String logo = "BOOKING";
+    int repeatSpaceCount = 100;
 
     default void displayLogo() {
-        // TODO: 18.04.2023 System.out to Console method;
-        int repeatSpaceCount = 100;
         int logoSpaceCount = repeatSpaceCount / 2 - logo.length() / 2;
 
-        System.out.printf("%s\n", separator.repeat(repeatSpaceCount));
-        System.out.printf("%s %s\n", " ".repeat(logoSpaceCount), logo);
-        System.out.printf("%s\n", separator.repeat(repeatSpaceCount));
+        Console.hide(String.format("%s\n", sep1.repeat(repeatSpaceCount)));
+        Console.accept(String.format("%s %s\n", " ".repeat(logoSpaceCount), logo));
+        Console.hide(String.format("%s\n", sep1.repeat(repeatSpaceCount)));
     }
 
     void run();
