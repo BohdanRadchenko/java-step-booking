@@ -2,6 +2,7 @@ package org.booking;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!888");
+        BookingManager bookingManager = new BookingManager();
+        bookingManager.run();
     }
 }
