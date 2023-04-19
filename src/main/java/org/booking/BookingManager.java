@@ -1,9 +1,7 @@
 package org.booking;
 
-import org.booking.dao.BookingDao;
-import org.booking.entity.Booking;
-
-import java.io.IOException;
+import org.booking.ui.menu.MainMenu;
+import org.booking.ui.menu.Menu;
 
 public class BookingManager {
     /**
@@ -22,8 +20,10 @@ public class BookingManager {
     }
 
     private void start() {
-        // TODO: 17.04.2023 start main app menu
-
+        Menu menu = new MainMenu();
+        while (!menu.isExit()) {
+            menu.run();
+        }
     }
 
     public void run() {

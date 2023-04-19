@@ -23,11 +23,7 @@ public class Input {
      */
     public static int readInt() throws NumberFormatException {
         String str = nextLine();
-        try {
-            return Integer.parseInt(str);
-        } catch (NumberFormatException ex) {
-            throw new NumberFormatException(ex.getMessage());
-        }
+        return Parser.parseInt(str);
     }
 
     /**
