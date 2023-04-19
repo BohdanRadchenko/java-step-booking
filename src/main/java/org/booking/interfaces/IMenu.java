@@ -4,7 +4,6 @@ import org.booking.libs.Console;
 
 public interface IMenu {
     int exitCode = -10;
-    int helpCode = -20;
     String sep1 = "=";
     String sep2 = "-";
     String logo = "BOOKING";
