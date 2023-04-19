@@ -11,7 +11,7 @@ public enum Message {
     public final String message;
 
     Message(String msg) {
-        this.message = String.format("%s:", msg);
+        this.message = msg;
     }
 
     @Override
