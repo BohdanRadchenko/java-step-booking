@@ -16,4 +16,7 @@ public class MenuDescription {
         return "Enter the Booking ID or 'Back' to main menu";
     }
 
+    public static String bookingView() {
+        return "Enter passenger first name and last name or 'Back' to main menu";
+    }
 }
