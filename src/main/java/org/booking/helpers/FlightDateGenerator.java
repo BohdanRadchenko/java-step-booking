@@ -1,4 +1,4 @@
-package org.booking.components;
+package org.booking.helpers;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

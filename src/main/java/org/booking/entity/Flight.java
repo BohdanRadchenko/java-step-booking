@@ -1,7 +1,5 @@
 package org.booking.entity;
 
-import org.booking.components.FlightDateGenerator;
-
 import java.time.LocalDateTime;
 
 public class Flight {

@@ -1,6 +1,6 @@
 package org.booking;
 
-import org.booking.components.FlightDateGenerator;
+import org.booking.helpers.FlightDateGenerator;
 import org.booking.entity.Flight;
 
 import java.time.LocalDateTime;
