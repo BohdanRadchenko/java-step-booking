@@ -67,7 +67,7 @@ public abstract class Menu implements IMenu {
     }
 
     private int enterMenu() {
-        Console.input(String.format("%s:\n", Message.MENU_ENTER_NUMBER.message));
+        Console.input(String.format("%s:", Message.MENU_ENTER_NUMBER.message));
         String str = Console.readString();
         try {
             boolean isExit = Parser.parseIsExit(str);

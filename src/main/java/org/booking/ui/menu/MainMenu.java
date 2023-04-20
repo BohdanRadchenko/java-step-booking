@@ -13,6 +13,6 @@ public class MainMenu extends Menu {
         add(MenuName.BOOKING, Booking.of(controller), MenuDescription.booking());
         add(MenuName.BOOKING_CANCEL, BookingCancel.of(controller), MenuDescription.bookingCancel());
         add(MenuName.BOOKING_VIEW, BookingView.of(controller), MenuDescription.bookingView());
-        add(1, MenuName.LOGIN, Login.of(controller));
+        add(MenuName.LOGIN, Login.of(controller));
     }
 }

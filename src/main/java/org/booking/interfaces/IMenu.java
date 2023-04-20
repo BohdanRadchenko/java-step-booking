@@ -37,6 +37,7 @@ public interface IMenu {
 
     default void displayLogo() {
         displayTitle(Constants.logo);
+        Console.ln();
     }
 
     void run();
