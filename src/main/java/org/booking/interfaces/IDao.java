@@ -5,23 +5,44 @@ import org.booking.entity.Entity;
 import java.util.List;
 
 public interface IDao<T extends Entity> {
-    //создание нового объекта
-    void create(T object);
+    /**
+     * Method for add entity to map.
+     *
+     * @param entity instance of entity
+     */
+    boolean add(T entity);
 
-    //Получение объекта по идентификатору
+    /**
+     * Method for get element from map by id
+     *
+     * @param id unique id in string format
+     * @return instance of entity
+     */
     T getById(String id);
 
-    //Получение всех объектов в базе данных
+    /**
+     * Method for get all
+     *
+     * @return List of entity
+     */
     List<T> getAll();
 
-    //Обновление объектов
-    void update(T object);
+    /**
+     * Method for update entity in map
+     *
+     * @param entity instance of entity
+     */
+    boolean update(T entity);
 
-    //Удаление объектов
-    void delete(T object);
+    /**
+     * Method for delete instance from map
+     *
+     * @param id unique id in string format
+     */
+    boolean delete(String id);
 
-    void save() throws RuntimeException;
-
-    List<T> read() throws RuntimeException;
-
+    /**
+     * @return int db size
+     */
+    int size();
 }

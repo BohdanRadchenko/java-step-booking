@@ -3,14 +3,14 @@ package org.booking.dao;
 import org.booking.entity.Entity;
 import org.booking.interfaces.IDao;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class Dao<T extends Entity> implements IDao<T> {
     private final Map<String, T> db = new HashMap<>();
+
+    public boolean exist(String id) {
+        return db.containsKey(id);
+    }
 
     @Override
     public List<T> getAll() {
@@ -23,21 +23,28 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
     }
 
     @Override
-    public void create(T object) {
-        db.put(object.getId(), object);
+    public boolean add(T entity) {
+        if (exist(entity.getId())) return false;
+        db.put(entity.getId(), entity);
+        return true;
     }
 
     @Override
-    public void update(T object) {
-        db.put(object.getId(), object);
+    public boolean update(T entity) {
+        if (!exist(entity.getId())) return false;
+        db.put(entity.getId(), entity);
+        return true;
     }
 
     @Override
-    public void delete(T object) {
-        db.remove(object.getId());
+    public boolean delete(String id) {
+        if (!exist(id)) return false;
+        db.remove(id);
+        return true;
     }
 
-    public abstract void save() throws RuntimeException;
-
-    public abstract List<T> read() throws RuntimeException;
+    @Override
+    public int size() {
+        return db.size();
+    }
 }
