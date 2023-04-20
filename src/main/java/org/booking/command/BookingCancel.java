@@ -1,12 +1,14 @@
 package org.booking.command;
 
+import org.booking.controllers.Controller;
+
 public class BookingCancel extends Command {
-    public BookingCancel() {
-        super();
+    public BookingCancel(Controller controller) {
+        super(controller);
     }
 
-    public static Command of() {
-        return new BookingCancel();
+    public static Command of(Controller controller) {
+        return new BookingCancel(controller);
     }
 
     @Override

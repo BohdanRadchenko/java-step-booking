@@ -1,12 +1,14 @@
 package org.booking.command;
 
+import org.booking.controllers.Controller;
+
 public class FlightInfo extends Command {
-    public FlightInfo() {
-        super();
+    public FlightInfo(Controller controller) {
+        super(controller);
     }
 
-    public static Command of() {
-        return new FlightInfo();
+    public static Command of(Controller controller) {
+        return new FlightInfo(controller);
     }
 
     @Override

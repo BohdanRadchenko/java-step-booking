@@ -1,6 +1,6 @@
 package org.booking.utils;
 
-public final class Console extends Input implements ConsoleColors {
+public class Console extends Input implements ConsoleColors {
 
     public static void print(String str) {
         System.out.print(str);

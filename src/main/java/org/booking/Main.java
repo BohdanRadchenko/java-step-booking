@@ -5,5 +5,4 @@ public class Main {
         BookingManager bookingManager = new BookingManager();
         bookingManager.run();
     }
-
 }

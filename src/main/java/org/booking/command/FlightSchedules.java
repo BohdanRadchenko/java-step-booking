@@ -1,12 +1,14 @@
 package org.booking.command;
 
+import org.booking.controllers.Controller;
+
 public class FlightSchedules extends Command {
-    public FlightSchedules() {
-        super();
+    public FlightSchedules(Controller controller) {
+        super(controller);
     }
 
-    public static Command of() {
-        return new FlightSchedules();
+    public static Command of(Controller controller) {
+        return new FlightSchedules(controller);
     }
 
     @Override
