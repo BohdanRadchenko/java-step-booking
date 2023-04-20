@@ -16,8 +16,8 @@ public enum Aircraft {
     private final String code;
     private final String company;
     private final String model;
-    private final int coefficient;
-    private final int passenger;
+    public final int coefficient;
+    public final int passenger;
 
     Aircraft(String company, String model, int coefficient, int passenger) {
         this.code = this.name();

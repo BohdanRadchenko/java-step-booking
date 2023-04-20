@@ -12,6 +12,7 @@ import java.util.Map;
 public abstract class Dao<T extends Entity> implements IDao<T> {
     private final Map<String, T> db = new HashMap<>();
 
+
     @Override
     public List<T> getAll() {
         return new ArrayList<>(db.values());

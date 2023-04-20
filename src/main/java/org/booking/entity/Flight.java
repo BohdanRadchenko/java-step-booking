@@ -2,100 +2,64 @@ package org.booking.entity;
 
 import org.booking.dao.Dao;
 import org.booking.dao.FlightDao;
+import org.booking.enums.Aircraft;
 import org.booking.enums.Airline;
 import org.booking.enums.Airport;
+import org.booking.helpers.Utm;
+import org.booking.utils.DateUtil;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Flight extends Entity {
-    private Long flightDate; //Дата вылета
-    private Long arrivalDate; //Дата прилёта
-    private Airport arrivalAirPortFrom; //Город вылета
-    private Airport arrivalAirPortTo; //Город прилёта
+    public DateUtil date; //Дата вылета
+    private Airport from; //Город вылета
+    private Airport to; //Город прилёта
     private Airline airline; // авиалинии
-    private String flight; //номер рейса
+    private Aircraft aircraft; // авиалинии
+    public String flight; //номер рейса
     private int freeSeat; //свободные места
-    private String id; //id рейса
+    public List<String> reserved = new ArrayList<>();
+//    Map<Integer, String> String = place passenger id
 
-    public Flight(Long flightDate, Long arrivalDate, String terminalToArrival, String timeToFly, String airline, String flight, int freeSeat, String id) {
-        this.flightDate = flightDate;
-        this.arrivalDate = arrivalDate;
-        this.terminalToArrival = terminalToArrival;
-        this.timeToFly = timeToFly;
+    public Flight(DateUtil date, Airport from, Airport to, Airline airline, Aircraft aircraft) {
+        this.date = date;
+        this.from = from;
+        this.to = to;
         this.airline = airline;
-        this.flight = flight;
-        this.freeSeat = freeSeat;
-        this.id = id;
+        this.aircraft = aircraft;
+        String random = "023";
+        this.flight = String.format("%s%s", airline.getCode(), random);
     }
 
-    public Long getFlightDate() {
-        return flightDate;
+    public int time() {
+        return Utm.distance(from, to) * 200 * aircraft.coefficient;
     }
 
-    public void setFlightDate(Long flightDate) {
-        this.flightDate = flightDate;
+    public void insertPassenger() {
+        reserved.add("1");
+        reserved.add("2");
+        reserved.add("3");
     }
 
-    public Long getArrivalDate() {
-        return arrivalDate;
+    public int maxSeat() {
+        return aircraft.passenger;
     }
 
-    public void setArrivalDate(Long arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
-
-    public String getTerminalToArrival() {
-        return terminalToArrival;
-    }
-
-    public void setTerminalToArrival(String terminalToArrival) {
-        this.terminalToArrival = terminalToArrival;
-    }
-
-    public String getTimeToFly() {
-        return timeToFly;
-    }
-
-    public void setTimeToFly(String timeToFly) {
-        this.timeToFly = timeToFly;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
-
-    public void setAirline(String airline) {
-        this.airline = airline;
-    }
-
-    public String getFlight() {
-        return flight;
-    }
-
-    public void setFlight(String flight) {
-        this.flight = flight;
-    }
+//    public long arrTime() {
+//        return flightDate + (time() * 10);
+//    }
 
     public int getFreeSeat() {
-        return freeSeat;
-    }
-
-    public void setFreeSeat(int freeSeat) {
-        this.freeSeat = freeSeat;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = super.getId();
+        reserved.add("1");
+        reserved.add("2");
+        reserved.add("3");
+        return maxSeat() - reserved.size();
     }
 
     @Override
     public String toString() {
-        return String.format("Flight{flightDate=%s, arrivalDate=%s, terminalToArrival='%s', timeToFly='%s', airline='%s', flight='%s', freeSeat=%d, id='%s'}",
-                flightDate, arrivalDate, terminalToArrival, timeToFly, airline, flight, freeSeat, id);
+        return String.format("%s", flight);
     }
 }
