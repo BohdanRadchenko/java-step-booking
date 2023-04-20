@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flight extends Entity {
-    public DateUtil date; //Дата вылета
+    public long date; //Дата вылета
     private Airport from; //Город вылета
     private Airport to; //Город прилёта
     private Airline airline; // авиалинии
@@ -23,7 +23,7 @@ public class Flight extends Entity {
     public List<String> reserved = new ArrayList<>();
 //    Map<Integer, String> String = place passenger id
 
-    public Flight(DateUtil date, Airport from, Airport to, Airline airline, Aircraft aircraft) {
+    public Flight(long date, Airport from, Airport to, Airline airline, Aircraft aircraft) {
         this.date = date;
         this.from = from;
         this.to = to;
@@ -34,6 +34,7 @@ public class Flight extends Entity {
     }
 
     public int time() {
+//        DateUtil.of(date).formatter("yyyy-MM-dd HH:mm:ss");
         return Utm.distance(from, to) * 200 * aircraft.coefficient;
     }
 
