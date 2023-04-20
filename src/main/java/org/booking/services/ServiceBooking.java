@@ -10,8 +10,9 @@ public class ServiceBooking implements IServices<Booking> {
     private final BookingDao db = new BookingDao();
 
     @Override
-    public void upload(List<Booking> lists) {
-        lists.forEach(db::add);
+    public void upload(List<Booking> bookings) {
+        if (bookings.size() == 0) return;
+        db.upload(bookings);
     }
 
     @Override
@@ -20,7 +21,7 @@ public class ServiceBooking implements IServices<Booking> {
     }
 
     @Override
-    public Booking get(String id) throws RuntimeException {
+    public Booking getById(String id) throws RuntimeException {
         if (id.length() == 0) {
             throw new RuntimeException("Invalid id");
         }

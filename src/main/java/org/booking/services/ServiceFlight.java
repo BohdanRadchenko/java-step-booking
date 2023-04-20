@@ -10,8 +10,9 @@ public class ServiceFlight implements IServices<Flight> {
     private final FlightDao db = new FlightDao();
 
     @Override
-    public void upload(List<Flight> lists) {
-        lists.forEach(db::add);
+    public void upload(List<Flight> flights) {
+        if (flights.size() == 0) return;
+        db.upload(flights);
     }
 
     @Override
@@ -20,7 +21,7 @@ public class ServiceFlight implements IServices<Flight> {
     }
 
     @Override
-    public Flight get(String id) throws RuntimeException {
+    public Flight getById(String id) throws RuntimeException {
         if (id.length() == 0) {
             throw new RuntimeException("Invalid id");
         }

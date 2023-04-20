@@ -14,11 +14,13 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
 
     @Override
     public List<T> getAll() {
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         return new ArrayList<>(db.values());
     }
 
     @Override
     public T getById(String id) {
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         return db.get(id);
     }
 
@@ -26,6 +28,7 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
     public boolean add(T entity) {
         if (exist(entity.getId())) return false;
         db.put(entity.getId(), entity);
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         return true;
     }
 
@@ -33,6 +36,7 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
     public boolean update(T entity) {
         if (!exist(entity.getId())) return false;
         db.put(entity.getId(), entity);
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         return true;
     }
 
@@ -40,6 +44,7 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
     public boolean delete(String id) {
         if (!exist(id)) return false;
         db.remove(id);
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         return true;
     }
 
@@ -47,4 +52,12 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
     public int size() {
         return db.size();
     }
+
+    @Override
+    public void upload(List<T> entities) {
+        // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
+        entities.forEach(this::add);
+    }
+
+
 }

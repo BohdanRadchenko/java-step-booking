@@ -5,6 +5,7 @@ import org.booking.entity.User;
 import org.booking.interfaces.IServices;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ServiceUser implements IServices<User> {
     private final UserDao db = new UserDao();
@@ -14,8 +15,9 @@ public class ServiceUser implements IServices<User> {
     }
 
     @Override
-    public void upload(List<User> lists) {
-        lists.forEach(db::add);
+    public void upload(List<User> users) {
+        if (users.size() == 0) return;
+        db.upload(users);
     }
 
     @Override
@@ -24,7 +26,7 @@ public class ServiceUser implements IServices<User> {
     }
 
     @Override
-    public User get(String id) throws RuntimeException {
+    public User getById(String id) throws RuntimeException {
         if (id.length() == 0) {
             throw new RuntimeException("Invalid id");
         }
@@ -33,6 +35,17 @@ public class ServiceUser implements IServices<User> {
             throw new RuntimeException("No data in db");
         }
         return f;
+    }
+
+    public User getByLogin(String login) throws RuntimeException {
+        Optional<User> user = getAll()
+                .stream()
+                .filter(u -> u.getLogin().equals(login))
+                .findFirst();
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        return user.get();
     }
 
     @Override

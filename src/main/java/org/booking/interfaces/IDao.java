@@ -45,4 +45,11 @@ public interface IDao<T extends Entity> {
      * @return int db size
      */
     int size();
+
+    /**
+     * Method to add all data
+     *
+     * @param entities List of t
+     */
+    void upload(List<T> entities);
 }

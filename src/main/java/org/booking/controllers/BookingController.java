@@ -4,7 +4,7 @@ import org.booking.interfaces.IController;
 import org.booking.services.ServiceBooking;
 
 public class BookingController implements IController {
-    private ServiceBooking service = new ServiceBooking();
+    private final ServiceBooking service = new ServiceBooking();
 
     @Override
     public void load() throws RuntimeException {

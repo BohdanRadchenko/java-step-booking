@@ -10,7 +10,7 @@ public interface IServices<T extends Entity> {
 
     List<T> getAll();
 
-    T get(String id) throws RuntimeException;
+    T getById(String id) throws RuntimeException;
 
     void add(T entity) throws RuntimeException;
 
