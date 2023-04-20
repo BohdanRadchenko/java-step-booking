@@ -1,4 +1,4 @@
-package org.booking.libs;
+package org.booking.utils;
 
 import java.io.Console;
 import java.util.Scanner;

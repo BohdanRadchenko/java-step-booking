@@ -1,6 +1,6 @@
 package org.booking.interfaces;
 
-import org.booking.libs.Console;
+import org.booking.utils.Console;
 
 public interface IMenu {
     int exitCode = -10;

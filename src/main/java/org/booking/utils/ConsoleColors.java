@@ -1,4 +1,4 @@
-package org.booking.libs;
+package org.booking.utils;
 
 public interface ConsoleColors {
     // TODO: 19.04.2023 Remove unused colours
