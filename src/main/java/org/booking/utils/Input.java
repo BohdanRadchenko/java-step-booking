@@ -1,5 +1,9 @@
 package org.booking.utils;
 
+import org.booking.exceptions.ValidateException;
+import org.booking.helpers.Constants;
+import org.booking.helpers.Validation;
+
 import java.io.Console;
 import java.util.Scanner;
 
@@ -30,12 +34,38 @@ public class Input {
      * Read password. If System.console() == null ? call readString : call System.console().readPassword();
      *
      * @return String value from user input
+     * @throws ValidateException if password invalid
      */
-    public static String readPassword() {
+    public static String readPassword() throws ValidateException {
+        String pass;
         if (console == null) {
-            return readString();
+            pass = readString();
+        } else {
+            char[] pc = console.readPassword();
+            pass = String.valueOf(pc);
         }
-        char[] pc = console.readPassword();
-        return String.valueOf(pc);
+        if (!Validation.passwordLength(pass)) {
+            throw new ValidateException(
+                    String.format(
+                            "Invalid input '%s'. Password must be more than %d length.\n",
+                            pass, Constants.MIN_PASSWORD_LENGTH));
+        }
+        return pass;
+    }
+
+    /**
+     * Read user login.
+     *
+     * @return String value from user input
+     * @throws ValidateException if login invalid
+     */
+    public static String readLogin() throws ValidateException {
+        String login = readString();
+        if (!Validation.login(login)) {
+            throw new ValidateException(
+                    String.format(
+                            "Invalid input '%s'. Login must be more than %d length.\n", login, Constants.MIN_LOGIN_LENGTH));
+        }
+        return login;
     }
 }

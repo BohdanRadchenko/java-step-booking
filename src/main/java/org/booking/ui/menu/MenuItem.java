@@ -6,19 +6,47 @@ import org.booking.interfaces.IMenu;
 import org.booking.utils.Console;
 import org.booking.utils.StringWorker;
 
+import java.util.Objects;
+
 public class MenuItem implements IMenu {
     private final String title;
     private String description;
     private final Command command;
+    private final boolean showTitle;
 
-    public MenuItem(MenuName menuName, Command command, String description) {
+    public MenuItem(MenuName menuName, Command command, String description, boolean showTitle) {
         this.title = menuName.title;
         this.command = command;
+        this.showTitle = showTitle;
         this.description = description;
     }
 
+    public MenuItem(MenuName menuName, Command command, boolean showTitle) {
+        this(menuName, command, null, showTitle);
+    }
+
+    public MenuItem(MenuName menuName, Command command, String description) {
+        this(menuName, command, description, true);
+    }
+
     public MenuItem(MenuName menuName, Command command) {
-        this(menuName, command, null);
+        this(menuName, command, null, true);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MenuItem)) return false;
+        MenuItem that = (MenuItem) o;
+        return showTitle == that.showTitle
+                && Objects.equals(title, that.title)
+                && Objects.equals(description, that.description)
+                && Objects.equals(command, that.command);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description, command, showTitle);
     }
 
     public String getTitle() {
@@ -35,12 +63,16 @@ public class MenuItem implements IMenu {
     }
 
     public void run() {
-        showTitle();
-        if (description != null) {
+        if (showTitle) {
+            showTitle();
+        }
+        if (showTitle && description != null) {
             displayDescription(description);
         }
         Console.ln();
         command.execute();
-        showSubSeparator();
+        if (showTitle) {
+            showSubSeparator();
+        }
     }
 }

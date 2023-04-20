@@ -1,12 +1,14 @@
 package org.booking.utils;
 
+import org.booking.helpers.Constants;
+
 import java.util.Arrays;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
-    private static final Set<String> exitWords = Set.of("exit", "ex", "e", "quit", "q");
+    private static final Set<String> exitWords = Set.of("exit", "ex", "e", "quit", "q", String.valueOf(Constants.exitCode));
     private static final Set<String> backWords = Set.of("back", "b");
 
     private static boolean containsWords(String str, Set<String> words) {

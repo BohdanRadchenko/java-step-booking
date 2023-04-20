@@ -10,4 +10,7 @@ public class Constants {
     public static int calcSpaceCount(String string) {
         return repeatSpaceCount / 2 - string.length() / 2;
     }
+
+    public static int MIN_LOGIN_LENGTH = 5;
+    public static int MIN_PASSWORD_LENGTH = 8;
 }

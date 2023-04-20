@@ -4,18 +4,22 @@ package org.booking.entity;
 public class User extends Entity {
     private final String login;
     private final String password;
-    private final String name;
-    private final String surname;
+    private final String firstName;
+    private final String lastName;
 
-    public User(String login, String password, String name, String surname) {
+    public User(String login, String password, String firstName, String lastName) {
         this.login = login;
         this.password = password;
-        this.name = name;
-        this.surname = surname;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public User(String name, String surname) {
-        this(null, null, name, surname);
+    public User(String login, String password) {
+        this(login, password, "First name", "Last name");
+    }
+
+    public String getFullName() {
+        return String.format("%s %s", firstName, lastName);
     }
 
     public String getLogin() {
@@ -26,11 +30,11 @@ public class User extends Entity {
         return password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 }

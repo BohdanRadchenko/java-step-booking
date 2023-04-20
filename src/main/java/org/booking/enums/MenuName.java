@@ -6,7 +6,10 @@ public enum MenuName {
     BOOKING("Search & booking"),
     BOOKING_CANCEL("Cancel the reservation"),
     BOOKING_VIEW("View bookings"),
-    LOGIN("Login");
+    LOGIN("Login"),
+    REGISTER("Register"),
+    GUEST("continue as Guest"),
+    LOGOUT("Logout");
 
     public final String title;
 
