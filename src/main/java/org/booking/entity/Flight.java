@@ -19,7 +19,6 @@ public class Flight extends Entity {
     private Airline airline; // авиалинии
     private Aircraft aircraft; // авиалинии
     public String flight; //номер рейса
-    private int freeSeat; //свободные места
     public List<String> reserved = new ArrayList<>();
 //    Map<Integer, String> String = place passenger id
 
