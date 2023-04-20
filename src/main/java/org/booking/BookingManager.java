@@ -30,8 +30,9 @@ public class BookingManager {
                 Airport to = Airport.KBP;
                 Airline al = Airline.QATAR_AIRWAYS;
                 Aircraft ac = Aircraft.PC24;
+                String random = "023";
 
-                Flight flight = new Flight(DateUtil.of(), from, to, al, ac);
+                Flight flight = new Flight(1l, from, to, al, ac, random);
                 flights.add(flight);
 //                in service
 //                flight.create(flight);

@@ -22,14 +22,13 @@ public class Flight extends Entity {
     public List<String> reserved = new ArrayList<>();
 //    Map<Integer, String> String = place passenger id
 
-    public Flight(long date, Airport from, Airport to, Airline airline, Aircraft aircraft) {
+    public Flight(long date, Airport from, Airport to, Airline airline, Aircraft aircraft, String fId) {
         this.date = date;
         this.from = from;
         this.to = to;
         this.airline = airline;
         this.aircraft = aircraft;
-        String random = "023";
-        this.flight = String.format("%s%s", airline.getCode(), random);
+        this.flight = String.format("%s%s", airline.getCode(), fId);
     }
 
     public int time() {
