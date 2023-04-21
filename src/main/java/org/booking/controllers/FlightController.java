@@ -7,29 +7,30 @@ import org.booking.entity.Flight;
 import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
+import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Randomize;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class FlightController implements IController {
     private final ServiceFlight service = new ServiceFlight();
 
-    private long generateTime() {
+    private List<Long> generateTime(int count) {
         long currentTime = System.currentTimeMillis();
-        return currentTime / (15 * 60 * 1000) * (15 * 60 * 1000);
+        List<Long> listTime = new ArrayList<>();
+        long time = currentTime / (15 * 60 * 1000) * (15 * 60 * 1000);
+        for (int i = 0; i < count; i++) {
+            listTime.add(time);
+            time += 15 * 60 * 1000;
+        }
+        return listTime;
     }
 
 
     private List<Flight> generateFlights(int count) {
-        // TODO: 21.04.2023 MVP1
-        // TODO: 21.04.2023 create time generator
-
         // TODO: 21.04.2023 MVP2
         // TODO: 21.04.2023 create airport from generator
         // TODO: 21.04.2023 create airport to generator
@@ -37,7 +38,8 @@ public class FlightController implements IController {
         // TODO: 21.04.2023 create generator with MVP2 task
 
         List<Flight> flights = new ArrayList<>();
-        long time = generateTime();
+
+        List<Long> times = generateTime(count);
         for (int i = 0; i < count; i++) {
             int id = Randomize.num(999);
             Aircraft aircraft = Aircraft.values()[Randomize.num(Aircraft.values().length)];
@@ -45,13 +47,9 @@ public class FlightController implements IController {
             int fromIdx = 0;
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[Randomize.num(0, Airport.values().length, fromIdx)];
-
-            flights.add(new Flight(time, from, to, airline, aircraft, id));
-            time += 15 * 60 * 1000;
-            Date date = new Date(time);
+            flights.add(new Flight(times.get(i), from, to, airline, aircraft, id));
         }
         return flights;
-
     }
 
     @Override
@@ -60,9 +58,7 @@ public class FlightController implements IController {
             service.upload(generateFlights(100));
             return;
         }
-        // TODO: 20.04.2023 load data from file.
-        ArrayList<Flight> f = new ArrayList<>();
-        service.upload(f);
+        // TODO: 20.04.2023 load data from file. загрузка данных с файла
     }
 
     @Override

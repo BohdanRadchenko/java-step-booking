@@ -53,9 +53,19 @@ public class Flight extends Entity {
         return this.arrivalTimeStamp;
     }
 
-    @Override
     public String toString() {
-        return String.format("Flight{departureTimeStamp=%d, arrivalTimeStamp=%d, departureAirport=%s, arrivalAirport=%s}",
-                departureTimeStamp, arrivalTimeStamp, departureAirport, arrivalAirport);
+        String departureTime = String.format("departureTimeStamp=%d", departureTimeStamp);
+        String arrivalTime = String.format("arrivalTimeStamp=%d", arrivalTimeStamp);
+        String depAirport = String.format("departureAirport=%d", departureAirport);
+        String arrAirport = String.format("arrivalAirport=%d", arrivalAirport);
+        String airLine = String.format("airline=%d", airline);
+        String airCraft = String.format("aircraft=%d", aircraft);
+        String fltId = String.format("flightId=%d", flightId);
+        String res = String.format("reserved=%d", reserved);
+        String freeSeat = String.format("freeSeats=%d", freeSeats);
+        return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
+                departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
     }
+
 }
+
