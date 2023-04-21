@@ -31,8 +31,16 @@ public class BookingView extends Command {
         Console.log(booking.getId());
     }
 
-    private void displayBookings(List<Booking> booking) {
-
+    private void displayBookings(List<Booking> bookingByPassenger, List<Booking> bookingByCreator) {
+        if (bookingByPassenger.size() != 0) {
+            bookingByPassenger.forEach(this::displayBooking);
+        }
+        if (bookingByCreator.size() != 0) {
+            bookingByCreator
+                    .stream()
+                    .filter(b -> !b.getCreatorId().equals(b.getPassengerId()))
+                    .forEach(this::displayBooking);
+        }
     }
 
     @Override
@@ -45,7 +53,7 @@ public class BookingView extends Command {
         }
         List<Booking> bookingListByPassenger = controller.booking.getBookingsByPassengerId(user.getId());
         List<Booking> bookingListByCreator = controller.booking.getBookingsByCreatorId(user.getId());
-        bookingListByPassenger.forEach(this::displayBooking);
+        displayBookings(bookingListByPassenger, bookingListByCreator);
         /*
          * Пользователю предлагается ввести фамилию и имя.
          * После этого на экран выводится список всех бронирований,
