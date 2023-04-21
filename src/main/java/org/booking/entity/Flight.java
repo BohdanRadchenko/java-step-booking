@@ -12,12 +12,12 @@ public class Flight extends Entity {
     private Airline airline;
     private Aircraft aircraft;
     private String flightId;
-    private Map<String, Passenger> passengers;
+    private Set<String> passengers;
     private int freeSeats;
 
 
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport, Airline airline,
-                  Aircraft aircraft, int flightId, Map<String, Passenger> reserved) {
+                  Aircraft aircraft, int flightId, Set<String> reserved) {
         this.departureTimeStamp = departureTimeStamp;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
@@ -31,7 +31,7 @@ public class Flight extends Entity {
 
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport,
                   Airline airline, Aircraft aircraft, int flightId) {
-        this(departureTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, new HashMap<>());
+        this(departureTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, new HashSet<>());
     }
 
     private long arrivalTimeMls() {
