@@ -17,19 +17,27 @@ public enum Aircraft {
     private final String company;
     private final String model;
     private final int coefficient;
-    private final int passenger;
+    private final int seats;
 
     Aircraft(String company, String model, int coefficient, int passenger) {
         this.code = this.name();
         this.company = company;
         this.model = model;
         this.coefficient = coefficient;
-        this.passenger = passenger;
+        this.seats = passenger;
 
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public int getCoefficient() {
+        return coefficient;
     }
 
     @Override
     public String toString() {
-        return String.format("%s: %s - %s, %d. %d;", code, company, model, passenger, coefficient);
+        return String.format("%s: %s - %s, %d. %d;", code, company, model, seats, coefficient);
     }
 }
