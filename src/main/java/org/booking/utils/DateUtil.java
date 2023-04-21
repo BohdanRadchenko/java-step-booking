@@ -28,6 +28,17 @@ public class DateUtil {
     }
 
     /**
+     * Create date from LocalDateTime
+     *
+     * @param date date in LocalDateTime
+     * @return DateUtil instance
+     */
+    public static DateUtil of(LocalDateTime date) {
+        long ms = date.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        return new DateUtil(ms);
+    }
+
+    /**
      * Create date from string by pattern
      *
      * @param string  data in string format
@@ -87,9 +98,122 @@ public class DateUtil {
     }
 
     /**
-     * @return long time millisecond
+     * DateUtil instance.getYear().
+     *
+     * @return int value from = -999999999, to = 999999999
      */
-    public long timeMillis() {
+    public int getYear() {
+        return localDateTime.getYear();
+    }
+
+    /**
+     * DateUtil instance.getMonth().
+     *
+     * @return int value from = 1, to = 12
+     */
+    public int getMonth() {
+        return localDateTime.getMonth().getValue();
+    }
+
+    /**
+     * DateUtil instance.getDayOfMonth().
+     *
+     * @return int value from = 1, to = 31
+     */
+    public int getDayOfMonth() {
+        return localDateTime.getDayOfMonth();
+    }
+
+    /**
+     * DateUtil instance.getHour().
+     *
+     * @return int value from = 0, to = 23
+     */
+    public int getHour() {
+        return localDateTime.getHour();
+    }
+
+    /**
+     * DateUtil instance.getMinute().
+     *
+     * @return int value from = 0, to = 59
+     */
+    public int getMinute() {
+        return localDateTime.getMinute();
+    }
+
+    /**
+     * DateUtil instance.getSecond().
+     *
+     * @return int value from = 0, to = 59
+     */
+    public int getSecond() {
+        return localDateTime.getSecond();
+    }
+
+    /**
+     * DateUtil instance.getSecond().
+     *
+     * @return long time millisecond from 1970.01.01 00:00
+     */
+    public long getMillis() {
         return timestamp;
+    }
+
+    /**
+     * DateUtil instance.plusDays
+     *
+     * @param days int param days. if value > 0 : plus : minus
+     * @return DateUtil instance
+     */
+    public DateUtil plusDays(int days) {
+        if (days == 0) return this;
+
+        LocalDateTime time;
+        if (days > 0) {
+            time = this.localDateTime.plusDays(days);
+        } else {
+            time = this.localDateTime.minusDays(Math.abs(days));
+        }
+
+        return DateUtil.of(time);
+    }
+
+    /**
+     * DateUtil instance.plusHours
+     *
+     * @param hours int param hours. if value > 0 : plus : minus
+     * @return DateUtil instance
+     */
+    public DateUtil plusHours(int hours) {
+        if (hours == 0) return this;
+
+        LocalDateTime time;
+        if (hours > 0) {
+            time = this.localDateTime.plusHours(hours);
+        } else {
+            time = this.localDateTime.minusHours(Math.abs(hours));
+        }
+
+        return DateUtil.of(time);
+    }
+
+    /**
+     * DateUtil instance.plusMinutes
+     *
+     * @param minutes int param  hours. if value > 0 : plus : minus
+     * @return DateUtil instance
+     */
+    public DateUtil plusMinutes(int minutes) {
+        if (minutes == 0) return this;
+
+        LocalDateTime time;
+        if (minutes > 0) {
+            time = this.localDateTime.plusMinutes(minutes);
+        } else {
+            time = this.localDateTime.minusMinutes(Math.abs(minutes));
+        }
+
+        return DateUtil.of(time);
     }
 }
