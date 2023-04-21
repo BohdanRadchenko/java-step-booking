@@ -52,4 +52,20 @@ public class Flight extends Entity {
     public long getArrivalTimeStamp() {
         return this.arrivalTimeStamp;
     }
+
+    public String toString() {
+        String departureTime = String.format("departureTimeStamp=%d", departureTimeStamp);
+        String arrivalTime = String.format("arrivalTimeStamp=%d", arrivalTimeStamp);
+        String depAirport = String.format("departureAirport=%s", departureAirport);
+        String arrAirport = String.format("arrivalAirport=%s", arrivalAirport);
+        String airLine = String.format("airline=%s", airline);
+        String airCraft = String.format("aircraft=%s", aircraft);
+        String fltId = String.format("flightId=%s", flightId);
+        String res = String.format("reserved=%s", reserved);
+        String freeSeat = String.format("freeSeats=%d", freeSeats);
+        return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
+                departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
+    }
+
 }
+
