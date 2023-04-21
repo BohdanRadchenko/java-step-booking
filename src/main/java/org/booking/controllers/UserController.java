@@ -16,7 +16,7 @@ public class UserController implements IController {
     private User user;
     private boolean isAuth = false;
 
-    private void in(User user) {
+    private void loginCurrentUser(User user) {
         this.isAuth = true;
         this.user = user;
         try {
@@ -26,7 +26,7 @@ public class UserController implements IController {
         }
     }
 
-    private void out() {
+    private void logoutCurrentUser() {
         this.isAuth = false;
         this.user = null;
     }
@@ -44,7 +44,7 @@ public class UserController implements IController {
             if (!u.getPassword().equals(password)) {
                 throw new RuntimeException("Invalid password");
             }
-            in(u);
+            loginCurrentUser(u);
             return u;
         } catch (RuntimeException ex) {
             // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
@@ -56,18 +56,22 @@ public class UserController implements IController {
     public User registration(String login, String password, String firstName, String lastName) {
         User u = new User(login, password, firstName, lastName);
         service.add(u);
-        in(u);
+        loginCurrentUser(u);
         return u;
     }
 
     public boolean logout() {
-        out();
-        // TODO: 21.04.2023 insert Logger.
+        // TODO: 21.04.2023 insert Logger. Insert user id
+        logoutCurrentUser();
         return true;
     }
 
     public boolean isAuth() {
         return this.isAuth;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override
