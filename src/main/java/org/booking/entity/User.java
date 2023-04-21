@@ -1,7 +1,10 @@
 package org.booking.entity;
 
 import org.booking.utils.StringWorker;
+
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class User extends Entity {
@@ -10,6 +13,8 @@ public class User extends Entity {
     private final String firstName;
     private final String lastName;
     private final String fullName;
+
+    private final Set<String> bookings = new HashSet<>();
 
     public User(String login, String password, String firstName, String lastName) {
         this.login = login;
@@ -41,5 +46,11 @@ public class User extends Entity {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public boolean addBooking(Booking booking) {
+        if (bookings.contains(booking.getId())) return false;
+        bookings.add(booking.getId());
+        return true;
     }
 }
