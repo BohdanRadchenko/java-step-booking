@@ -2,26 +2,35 @@ package org.booking.entity;
 
 import org.booking.utils.StringWorker;
 
-// TODO: example class
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class User extends Entity {
     private final String login;
     private final String password;
     private final String firstName;
     private final String lastName;
 
+    private final String fullName;
+
     public User(String login, String password, String firstName, String lastName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.fullName = createFullName();
     }
 
-    public User(String login, String password) {
-        this(login, password, "First name", "Last name");
-    }
-
-    public String getFullName() {
-        return String.format("%s %s", StringWorker.toCapitalize(firstName), StringWorker.toCapitalize(lastName));
+    private String createFullName() {
+        String first = Arrays
+                .stream(firstName.split(" "))
+                .map(StringWorker::toCapitalize)
+                .collect(Collectors.joining(" "));
+        String last = Arrays
+                .stream(lastName.split(" "))
+                .map(StringWorker::toCapitalize)
+                .collect(Collectors.joining(" "));
+        return String.format("%s %s", first, last);
     }
 
     public String getLogin() {
@@ -32,11 +41,7 @@ public class User extends Entity {
         return password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getFullName() {
+        return fullName;
     }
 }
