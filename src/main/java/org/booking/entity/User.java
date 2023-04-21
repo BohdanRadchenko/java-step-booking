@@ -1,5 +1,7 @@
 package org.booking.entity;
 
+import org.booking.utils.StringWorker;
+
 // TODO: example class
 public class User extends Entity {
     private final String login;
@@ -19,7 +21,7 @@ public class User extends Entity {
     }
 
     public String getFullName() {
-        return String.format("%s %s", firstName, lastName);
+        return String.format("%s %s", StringWorker.toCapitalize(firstName), StringWorker.toCapitalize(lastName));
     }
 
     public String getLogin() {

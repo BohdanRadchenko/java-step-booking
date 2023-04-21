@@ -42,8 +42,10 @@ public class AuthLogin extends Command {
         String login = enterLogin();
         String pass = enterPassword();
         User user = controller.user.login(login, pass);
-        if (user != null) {
-            Console.accept(String.format("\nWelcome back %s", user.getFullName()));
+        if (user == null) {
+            execute();
+            return;
         }
+        Console.accept(String.format("\nWelcome back %s", user.getFullName()));
     }
 }

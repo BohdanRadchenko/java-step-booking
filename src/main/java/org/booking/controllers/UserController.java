@@ -19,6 +19,11 @@ public class UserController implements IController {
     private void in(User user) {
         this.isAuth = true;
         this.user = user;
+        try {
+            service.add(user);
+        } catch (RuntimeException ignored) {
+            save();
+        }
     }
 
     private void out() {
@@ -43,7 +48,7 @@ public class UserController implements IController {
             return u;
         } catch (RuntimeException ex) {
             // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
-            Console.error("Invalid login or password");
+            Console.error("Invalid login or password\n");
             return null;
         }
     }
