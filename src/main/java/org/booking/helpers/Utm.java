@@ -1,6 +1,6 @@
 package org.booking.helpers;
 
-import org.booking.enums.Airport;
+import org.booking.entity.Airport;
 import org.booking.utils.Parser;
 import org.booking.utils.StringWorker;
 

@@ -1,4 +1,4 @@
-package org.booking.enums;
+package org.booking.entity;
 
 public enum Airline {
     UKRAINE_INTERNATIONAL("Ukraine International Airlines", "AUI", "566", "PS", "Europe"),
@@ -13,12 +13,12 @@ public enum Airline {
     TURKISH_AIRLINES("Turkish Airlines Inc.", "THY", "235", "TK", "Europe"),
     CHARTER_FLY("NULL", "CHR", "000", "CF", "NULL");
 
-    private final String name;
-    private final String legalName;
-    private final String cao;
-    private final String airline;
-    private final String code; //Код для номера рейса
-    private final String region;
+    public final String name;
+    public final String legalName;
+    public final String cao;
+    public final String airline;
+    public final String code; //Код для номера рейса
+    public final String region;
 
     Airline(String legalName, String cao, String airline, String code, String region) {
         this.name = this.name();
@@ -32,29 +32,5 @@ public enum Airline {
     @Override
     public String toString() {
         return String.format("%s[code: %s; airline: %s; region: %s]", cao, code, airline, region);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLegalName() {
-        return legalName;
-    }
-
-    public String getCao() {
-        return cao;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getRegion() {
-        return region;
     }
 }
