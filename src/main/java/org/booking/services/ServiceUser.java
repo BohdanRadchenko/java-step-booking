@@ -49,8 +49,8 @@ public class ServiceUser implements IServices<User> {
     }
 
     @Override
-    public void add(User entity) throws RuntimeException {
-        throw new RuntimeException("Create method");
+    public void add(User user) throws RuntimeException {
+        db.add(user);
     }
 
     @Override

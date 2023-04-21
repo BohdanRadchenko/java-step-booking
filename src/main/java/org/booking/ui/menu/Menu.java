@@ -1,6 +1,7 @@
 package org.booking.ui.menu;
 
 import org.booking.command.Command;
+import org.booking.controllers.Controller;
 import org.booking.enums.MenuName;
 import org.booking.enums.Message;
 import org.booking.interfaces.IMenu;
@@ -12,19 +13,22 @@ import java.util.Map;
 import java.util.Objects;
 
 public abstract class Menu implements IMenu {
+
+    public final Controller controller;
     private final Map<Integer, MenuItem> items;
     private final String title;
     private final boolean hasExit;
     private int count = 0;
 
-    public Menu(String title, boolean hasExit) {
+    public Menu(String title, Controller controller, boolean hasExit) {
         this.title = title;
+        this.controller = controller;
         this.hasExit = hasExit;
         this.items = new HashMap<>();
     }
 
-    public Menu(String title) {
-        this(title, true);
+    public Menu(String title, Controller controller) {
+        this(title, controller, true);
     }
 
     @Override
@@ -64,6 +68,13 @@ public abstract class Menu implements IMenu {
     public void add(MenuName menuName, Command command) {
         count++;
         add(count, menuName, command, null, true);
+    }
+
+    protected abstract void set();
+
+    private void reset() {
+        count = 0;
+        items.clear();
     }
 
     private void displayItem(Integer number, MenuItem item) {
@@ -115,6 +126,8 @@ public abstract class Menu implements IMenu {
 
     public void run() {
         MenuStack.add(this);
+        reset();
+        set();
         show();
     }
 }

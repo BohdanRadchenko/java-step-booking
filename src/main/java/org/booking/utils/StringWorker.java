@@ -1,5 +1,6 @@
 package org.booking.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,8 +26,9 @@ public class StringWorker {
     }
 
     public static String toCapitalize(String string) {
-        List<Character> characters = toChars(toLowerCase(string));
-        characters.set(0, Character.toUpperCase(characters.get(0)));
+        List<Character> characters = new ArrayList<>(toChars(toLowerCase(string)));
+        Character upper = Character.toUpperCase(characters.get(0));
+        characters.set(0, upper);
         return characters
                 .stream()
                 .map(String::valueOf)
