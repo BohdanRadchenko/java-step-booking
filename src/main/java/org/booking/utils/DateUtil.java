@@ -85,4 +85,11 @@ public class DateUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(formatStyle);
         return localDateTime.format(formatter);
     }
+
+    /**
+     * @return long time millisecond
+     */
+    public long timeMillis() {
+        return timestamp;
+    }
 }
