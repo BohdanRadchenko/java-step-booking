@@ -10,6 +10,11 @@ public class ServiceBooking implements IServices<Booking> {
     private final BookingDao db = new BookingDao();
 
     @Override
+    public int size() {
+        return db.size();
+    }
+
+    @Override
     public void upload(List<Booking> bookings) {
         if (bookings.size() == 0) return;
         db.upload(bookings);

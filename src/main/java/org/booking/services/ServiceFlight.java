@@ -10,6 +10,11 @@ public class ServiceFlight implements IServices<Flight> {
     private final FlightDao db = new FlightDao();
 
     @Override
+    public int size() {
+        return db.size();
+    }
+
+    @Override
     public void upload(List<Flight> flights) {
         if (flights.size() == 0) return;
         db.upload(flights);
