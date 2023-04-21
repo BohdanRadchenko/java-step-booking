@@ -1,101 +1,85 @@
 package org.booking.entity;
 
-import org.booking.dao.Dao;
-import org.booking.dao.FlightDao;
 import org.booking.enums.Airline;
 import org.booking.enums.Airport;
+import org.booking.helpers.FlightDateTimeGenerator;
 
-import java.time.LocalDateTime;
+import java.util.*;
 
 public class Flight extends Entity {
-    private Long flightDate; //Дата вылета
-    private Long arrivalDate; //Дата прилёта
-    private Airport arrivalAirPortFrom; //Город вылета
+    public Long flightDate; //Дата вылета
+    private Airport departureAirport; //Город вылета
     private Airport arrivalAirPortTo; //Город прилёта
     private Airline airline; // авиалинии
     private String flight; //номер рейса
-    private int freeSeat; //свободные места
-    private String id; //id рейса
+    
+    //добавить массив reserved мест(бронирование)
+    Random random = new Random();
 
-    public Flight(Long flightDate, Long arrivalDate, String terminalToArrival, String timeToFly, String airline, String flight, int freeSeat, String id) {
+    // TODO: 20.04.2023 добавить aircraft в конструктор  и віевсти места вильни =взагали-рез'рведюсайз 
+    public Flight(Long flightDate, Airport departureAirport, Airport arrivalAirPortTo, Airline airline, String flight) {
         this.flightDate = flightDate;
-        this.arrivalDate = arrivalDate;
-        this.terminalToArrival = terminalToArrival;
-        this.timeToFly = timeToFly;
+        this.departureAirport = departureAirport;
+        this.arrivalAirPortTo = arrivalAirPortTo;
         this.airline = airline;
         this.flight = flight;
-        this.freeSeat = freeSeat;
-        this.id = id;
+        
     }
 
-    public Long getFlightDate() {
-        return flightDate;
+    private Flight() {}
+
+    // TODO: 20.04.2023 все генерация в контроллере 
+    public long flightDate() {
+        return FlightDateTimeGenerator.generateRandomFlightDateTimeInMillis();
     }
 
-    public void setFlightDate(Long flightDate) {
-        this.flightDate = flightDate;
+//    public String getRandomAirport() {
+//        Airport[] airports = Airport.values();
+//        int randomIndex = new Random().nextInt(airports.length);
+//        return airports[randomIndex].city;
+//    }
+public Airport getRandomAirport() {
+    Airport[] airports = Airport.values();
+    Random random = new Random();
+    Airport randomAirport = airports[random.nextInt(airports.length)];
+    return randomAirport;
+}
+
+
+    public Airport getRandomArrivalAirport(Airport departureAirport) {
+        Airport[] airports = Airport.values();
+        int randomIndex;
+        do {
+            randomIndex = new Random().nextInt(airports.length);
+        } while (airports[randomIndex].equals(departureAirport));
+        return airports[randomIndex];
+    }
+    public Airline getAirline() {
+        Airline[] airlines = Airline.values();
+        Random random = new Random();
+        return airlines[random.nextInt(airlines.length - 1)];
     }
 
-    public Long getArrivalDate() {
-        return arrivalDate;
+    public String getRandomCodeWithRandomNumber() {
+        Airline[] airlines = Airline.values();
+        Airline randomAirline = airlines[new Random().nextInt(airlines.length)];
+        String code = randomAirline.getCode();
+        String randomNumber = String.format("%03d", new Random().nextInt(1000));
+        return code + randomNumber;
+    }
+    public static Date getDateFromMillis(long millis) {
+        // Convert milliseconds to a Date object
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+        calendar.setTimeInMillis(millis);
+        return calendar.getTime();
     }
 
-    public void setArrivalDate(Long arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
-
-    public String getTerminalToArrival() {
-        return terminalToArrival;
-    }
-
-    public void setTerminalToArrival(String terminalToArrival) {
-        this.terminalToArrival = terminalToArrival;
-    }
-
-    public String getTimeToFly() {
-        return timeToFly;
-    }
-
-    public void setTimeToFly(String timeToFly) {
-        this.timeToFly = timeToFly;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
-
-    public void setAirline(String airline) {
-        this.airline = airline;
-    }
-
-    public String getFlight() {
-        return flight;
-    }
-
-    public void setFlight(String flight) {
-        this.flight = flight;
-    }
-
-    public int getFreeSeat() {
-        return freeSeat;
-    }
-
-    public void setFreeSeat(int freeSeat) {
-        this.freeSeat = freeSeat;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = super.getId();
-    }
 
     @Override
     public String toString() {
-        return String.format("Flight{flightDate=%s, arrivalDate=%s, terminalToArrival='%s', timeToFly='%s', airline='%s', flight='%s', freeSeat=%d, id='%s'}",
-                flightDate, arrivalDate, terminalToArrival, timeToFly, airline, flight, freeSeat, id);
+        return String.format("Flight{flightDate=%s, departureAirport=%s, arrivalAirPortTo=%s, airline=%s, flight='%s'}",
+                FlightDateTimeGenerator.getDateFromMillis(flightDate), departureAirport.name(), arrivalAirPortTo.name(), airline.getLegalName(), flight);
     }
+
 }
