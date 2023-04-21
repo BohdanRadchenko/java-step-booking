@@ -10,15 +10,21 @@ import org.booking.services.ServiceFlight;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Randomize;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class FlightController implements IController {
     private final ServiceFlight service = new ServiceFlight();
 
     private long generateTime() {
-        return System.currentTimeMillis();
+        long currentTime = System.currentTimeMillis();
+        return currentTime / (15 * 60 * 1000) * (15 * 60 * 1000);
     }
+
 
     private List<Flight> generateFlights(int count) {
         // TODO: 21.04.2023 MVP1
@@ -31,6 +37,7 @@ public class FlightController implements IController {
         // TODO: 21.04.2023 create generator with MVP2 task
 
         List<Flight> flights = new ArrayList<>();
+        long time = generateTime();
         for (int i = 0; i < count; i++) {
             int id = Randomize.num(999);
             Aircraft aircraft = Aircraft.values()[Randomize.num(Aircraft.values().length)];
@@ -39,9 +46,12 @@ public class FlightController implements IController {
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[Randomize.num(0, Airport.values().length, fromIdx)];
 
-            flights.add(new Flight(generateTime(), from, to, airline, aircraft, id));
+            flights.add(new Flight(time, from, to, airline, aircraft, id));
+            time += 15 * 60 * 1000;
+            Date date = new Date(time);
         }
         return flights;
+
     }
 
     @Override

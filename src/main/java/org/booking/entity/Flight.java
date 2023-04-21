@@ -52,4 +52,10 @@ public class Flight extends Entity {
     public long getArrivalTimeStamp() {
         return this.arrivalTimeStamp;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Flight{departureTimeStamp=%d, arrivalTimeStamp=%d, departureAirport=%s, arrivalAirport=%s, airline=%s, aircraft=%s, flightId='%s', reserved=%d, freeSeats=%d}",
+                departureTimeStamp, arrivalTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, reserved, freeSeats);
+    }
 }
