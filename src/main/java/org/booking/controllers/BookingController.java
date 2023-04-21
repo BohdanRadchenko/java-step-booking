@@ -8,10 +8,29 @@ import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingController implements IController {
     private final ServiceBooking service = new ServiceBooking();
+
+    public List<Booking> getBookingsByPassengerId(String id) {
+        try {
+            return service.getBookingsByPassengerId(id);
+        } catch (RuntimeException ex) {
+            // TODO: 21.04.2023 insert logger
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Booking> getBookingsByCreatorId(String id) {
+        try {
+            return service.getBookingsByCreatorId(id);
+        } catch (RuntimeException ex) {
+            // TODO: 21.04.2023 insert logger
+            return new ArrayList<>();
+        }
+    }
 
     @Override
     public void load() throws RuntimeException {

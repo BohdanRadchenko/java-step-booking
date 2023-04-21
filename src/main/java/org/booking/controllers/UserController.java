@@ -9,6 +9,7 @@ import org.booking.utils.FileWorker;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class UserController implements IController {
 
@@ -73,6 +74,17 @@ public class UserController implements IController {
     public User getUser() {
         return user;
     }
+
+    public User getUserByFullName(String fullName) {
+        try {
+            return service.getByFullName(fullName);
+        } catch (RuntimeException ex) {
+            // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
+            Console.error(String.format("%s\n", ex.getMessage()));
+            return null;
+        }
+    }
+
 
     @Override
     public void load() throws RuntimeException {

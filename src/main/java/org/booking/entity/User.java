@@ -24,6 +24,10 @@ public class User extends Entity {
         this.fullName = createFullName();
     }
 
+    public User(String firstName, String lastName) {
+        this(null, null, firstName, lastName);
+    }
+
     private String createFullName() {
         String first = Arrays
                 .stream(firstName.split(" "))
@@ -46,6 +50,14 @@ public class User extends Entity {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public boolean addBooking(Booking booking) {

@@ -5,9 +5,35 @@ import org.booking.entity.Booking;
 import org.booking.interfaces.IServices;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class ServiceBooking implements IServices<Booking> {
     private final BookingDao db = new BookingDao();
+
+    public List<Booking> getBookingsByPassengerId(String id) throws RuntimeException {
+        List<Booking> bookings = db
+                .getAll()
+                .stream()
+                .filter(b -> Objects.equals(b.getPassengerId(), id))
+                .toList();
+        if (bookings.size() == 0) {
+            throw new NoSuchElementException();
+        }
+        return bookings;
+    }
+
+    public List<Booking> getBookingsByCreatorId(String id) throws RuntimeException {
+        List<Booking> bookings = db
+                .getAll()
+                .stream()
+                .filter(b -> Objects.equals(b.getCreatorId(), id))
+                .toList();
+        if (bookings.size() == 0) {
+            throw new NoSuchElementException();
+        }
+        return bookings;
+    }
 
     @Override
     public int size() {
