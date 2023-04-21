@@ -103,6 +103,7 @@ public abstract class Menu implements IMenu {
     }
 
     private void show() {
+        Console.ln();
         displayMenu();
         int menuNum = enterMenu();
         if (menuNum == Constants.exitCode) {
