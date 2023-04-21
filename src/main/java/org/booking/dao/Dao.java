@@ -59,5 +59,4 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
         entities.forEach(this::add);
     }
 
-
 }

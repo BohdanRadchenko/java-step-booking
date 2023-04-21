@@ -14,8 +14,8 @@ public class MainMenu extends Menu {
     protected void set() {
         boolean isAuth = controller.user.isAuth();
         MenuName bookingTitle = isAuth
-                ? MenuName.BOOKING_VIEW
-                : MenuName.BOOKING_VIEW_LOGIN;
+                ? MenuName.BOOKING_VIEW_LOGIN
+                : MenuName.BOOKING_VIEW;
         add(MenuName.FLIGHT_SCHEDULES, FlightSchedules.of(controller));
         add(MenuName.FLIGHT_INFO, FlightInfo.of(controller), MenuDescription.flightInfo());
         add(MenuName.BOOKING, Booking.of(controller), MenuDescription.booking());
