@@ -23,5 +23,6 @@ public final class Controller {
 
     public void save() {
         user.save();
+        booking.save();
     }
 }

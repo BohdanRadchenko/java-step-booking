@@ -10,6 +10,7 @@ import java.util.Optional;
 public class ServiceUser implements IServices<User> {
     private final UserDao db = new UserDao();
 
+    @Override
     public int size() {
         return db.size();
     }
