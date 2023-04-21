@@ -4,8 +4,6 @@ import org.booking.helpers.Constants;
 import org.booking.utils.DateUtil;
 import org.booking.utils.Parser;
 
-import java.util.Arrays;
-
 public class Booking extends Entity {
     private final String code;
     private final long time;

@@ -58,5 +58,4 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
         // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         entities.forEach(this::add);
     }
-
 }
