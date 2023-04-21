@@ -1,6 +1,6 @@
 package org.booking.helpers;
 
-import org.booking.enums.Airport;
+import org.booking.entity.Airport;
 import org.booking.utils.Parser;
 import org.booking.utils.StringWorker;
 
@@ -53,7 +53,7 @@ public class Utm {
         if (u1.getUtm() == null || u2.getUtm() == null) return 0;
         int a = Math.abs(u1.parsedUtm.utmCoordX - u2.parsedUtm.utmCoordX);
         int b = Math.abs(u1.parsedUtm.utmCoordY - u2.parsedUtm.utmCoordY);
-        return (int) Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+        return (int) Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)) * 200;
     }
 
     public static int distance(Airport a1, Airport a2) {

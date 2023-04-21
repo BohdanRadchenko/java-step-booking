@@ -1,4 +1,4 @@
-package org.booking.enums;
+package org.booking.entity;
 
 import org.booking.helpers.Utm;
 
