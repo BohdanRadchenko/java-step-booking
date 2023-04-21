@@ -14,6 +14,29 @@ import java.util.List;
 public class BookingController implements IController {
     private final ServiceBooking service = new ServiceBooking();
 
+    public boolean isEmpty() {
+        return service.size() == 0;
+    }
+
+    public Booking getByCode(String code) {
+        try {
+            return service.getByCode(code);
+        } catch (RuntimeException ex) {
+            // TODO: 22.04.2023 Insert logger
+            return null;
+        }
+    }
+
+    public boolean cancelBooking(Booking booking) {
+        try {
+            service.delete(booking.getId());
+            return true;
+        } catch (RuntimeException exception) {
+            // TODO: 22.04.2023 Insert logger
+            return false;
+        }
+    }
+
     public List<Booking> getBookingsByPassengerId(String id) {
         try {
             return service.getBookingsByPassengerId(id);

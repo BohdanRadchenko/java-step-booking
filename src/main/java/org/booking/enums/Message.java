@@ -15,6 +15,9 @@ public enum Message {
     USER_ENTER_FIRST_NAME("Enter first name"),
     USER_ENTER_LAST_NAME("Enter last name"),
 
+    // BOOKING,
+    BOOKING_ENTER_CODE("Enter booking id"),
+
     //    PASSENGER
     PASSENGER_ENTER_FULL_NAME("Enter passenger full name");
 

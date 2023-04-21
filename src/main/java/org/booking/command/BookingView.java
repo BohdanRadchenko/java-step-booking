@@ -51,6 +51,7 @@ public class BookingView extends Command {
         } else {
             user = getUserByFullName();
         }
+        if (user == null) return;
         List<Booking> bookingListByPassenger = controller.booking.getBookingsByPassengerId(user.getId());
         List<Booking> bookingListByCreator = controller.booking.getBookingsByCreatorId(user.getId());
         displayBookings(bookingListByPassenger, bookingListByCreator);

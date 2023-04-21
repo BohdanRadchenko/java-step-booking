@@ -13,4 +13,9 @@ public class Constants {
 
     public static int MIN_LOGIN_LENGTH = 5;
     public static int MIN_PASSWORD_LENGTH = 8;
+
+    // Booking createCode constants
+    public static int CHARS = 26;
+    public static int SLICE_LENGTH = 4;
+    public static int WORD_LENGTH = SLICE_LENGTH / 2 + 1;
 }

@@ -44,7 +44,7 @@ public class Input {
             char[] pc = console.readPassword();
             pass = String.valueOf(pc);
         }
-        if (!Validation.passwordLength(pass)) {
+        if (!Validation.password(pass)) {
             throw new ValidateException(
                     String.format(
                             "Invalid input '%s'. Password must be more than %d length.\n",
