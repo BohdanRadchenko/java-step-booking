@@ -1,5 +1,4 @@
 package org.booking.controllers;
-
 import org.booking.entity.Aircraft;
 import org.booking.entity.Airline;
 import org.booking.entity.Airport;
@@ -7,11 +6,8 @@ import org.booking.entity.Flight;
 import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
-import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Randomize;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
