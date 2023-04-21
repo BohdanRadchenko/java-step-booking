@@ -76,6 +76,7 @@ public class UserController implements IController {
 
     @Override
     public void load() throws RuntimeException {
+        // TODO: 21.04.2023 Add logger
         FilePath path = FilePath.USER;
         if (!FileWorker.exist(path)) return;
         try {
@@ -88,6 +89,7 @@ public class UserController implements IController {
 
     @Override
     public void save() {
+        // TODO: 21.04.2023 Add logger with data.
         if (isEmpty()) return;
         try {
             FileWorker.writeBinary(FilePath.USER, service.getAll());
