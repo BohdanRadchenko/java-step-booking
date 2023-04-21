@@ -12,18 +12,18 @@ public class Flight extends Entity {
     private Airline airline;
     private Aircraft aircraft;
     private String flightId;
-    private List<String> reserved;
+    private Map<String, Passenger> passengers;
     private int freeSeats;
 
 
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport, Airline airline,
-                  Aircraft aircraft, int flightId, List<String> reserved) {
+                  Aircraft aircraft, int flightId, Map<String, Passenger> reserved) {
         this.departureTimeStamp = departureTimeStamp;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
         this.airline = airline;
         this.flightId = String.format("%03d", flightId);
-        this.reserved = reserved;
+        this.passengers = reserved;
         this.aircraft = aircraft;
         this.freeSeats = aircraft.seats - reserved.size();
         this.arrivalTimeStamp = arrivalTimeMls();
@@ -31,7 +31,7 @@ public class Flight extends Entity {
 
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport,
                   Airline airline, Aircraft aircraft, int flightId) {
-        this(departureTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, new ArrayList<>());
+        this(departureTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, new HashMap<>());
     }
 
     private long arrivalTimeMls() {
@@ -61,7 +61,7 @@ public class Flight extends Entity {
         String airLine = String.format("airline=%s", airline);
         String airCraft = String.format("aircraft=%s", aircraft);
         String fltId = String.format("flightId=%s", flightId);
-        String res = String.format("reserved=%s", reserved);
+        String res = String.format("reserved=%s", passengers);
         String freeSeat = String.format("freeSeats=%d", freeSeats);
         return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
                 departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
