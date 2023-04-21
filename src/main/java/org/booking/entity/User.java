@@ -1,7 +1,6 @@
 package org.booking.entity;
 
 import org.booking.utils.StringWorker;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -10,7 +9,6 @@ public class User extends Entity {
     private final String password;
     private final String firstName;
     private final String lastName;
-
     private final String fullName;
 
     public User(String login, String password, String firstName, String lastName) {

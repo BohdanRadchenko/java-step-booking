@@ -66,6 +66,5 @@ public class Flight extends Entity {
         return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
                 departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
     }
-
 }
 
