@@ -39,14 +39,7 @@ public class FlightController implements IController {
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[Randomize.num(0, Airport.values().length, fromIdx)];
 
-            Flight f = new Flight(
-                    generateTime(),
-                    from,
-                    to,
-                    airline,
-                    aircraft,
-                    id);
-            flights.add(f);
+            flights.add(new Flight(generateTime(), from, to, airline, aircraft, id));
         }
         return flights;
     }
