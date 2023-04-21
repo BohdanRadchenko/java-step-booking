@@ -35,11 +35,9 @@ public class BookingManager {
     private void start() {
         Console.ln();
         Menu authMenu = new AuthMenu(controller);
-        Menu mainMenu = new MainMenu(controller);
+        authMenu.run();
 
-        if (controller.user.canAuth()) {
-            authMenu.run();
-        }
+        Menu mainMenu = new MainMenu(controller);
         while (!MenuStack.isExit()) {
             mainMenu.run();
         }

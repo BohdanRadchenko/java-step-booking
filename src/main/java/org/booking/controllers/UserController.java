@@ -1,15 +1,20 @@
 package org.booking.controllers;
 
 import org.booking.entity.User;
+import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceUser;
 import org.booking.utils.Console;
+import org.booking.utils.FileWorker;
+
+import java.io.IOException;
+import java.util.List;
 
 public class UserController implements IController {
 
     private final ServiceUser service = new ServiceUser();
     private User user;
-    private boolean isAuth = true;
+    private boolean isAuth = false;
 
     private void in(User user) {
         this.isAuth = true;
@@ -21,18 +26,21 @@ public class UserController implements IController {
         this.user = null;
     }
 
-    public boolean canAuth() {
-        return service.size() > 0;
+    public boolean isEmpty() {
+        return service.size() == 0;
     }
 
     public User login(String login, String password) {
         try {
             User u = service.getByLogin(login);
-            if (!user.getPassword().equals(password)) {
+            if (u == null) {
+                throw new RuntimeException("User not found");
+            }
+            if (!u.getPassword().equals(password)) {
                 throw new RuntimeException("Invalid password");
             }
-            in(user);
-            return user;
+            in(u);
+            return u;
         } catch (RuntimeException ex) {
             // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
             Console.error("Invalid login or password");
@@ -44,7 +52,6 @@ public class UserController implements IController {
         User u = new User(login, password, firstName, lastName);
         service.add(u);
         in(u);
-        // TODO: 21.04.2023 insert Logger.
         return u;
     }
 
@@ -60,12 +67,23 @@ public class UserController implements IController {
 
     @Override
     public void load() throws RuntimeException {
-        // TODO: 20.04.2023 load data from file
-        // service.upload();
+        FilePath path = FilePath.USER;
+        if (!FileWorker.exist(path)) return;
+        try {
+            List<User> entities = FileWorker.readBinary(path);
+            service.upload(entities);
+        } catch (IOException | ClassNotFoundException ex) {
+            Console.error(ex.getMessage());
+        }
     }
 
     @Override
     public void save() {
-        // TODO: 20.04.2023 save data to file
+        if (isEmpty()) return;
+        try {
+            FileWorker.writeBinary(FilePath.USER, service.getAll());
+        } catch (IOException ex) {
+            Console.error(ex.getMessage());
+        }
     }
 }

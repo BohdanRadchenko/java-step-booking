@@ -7,7 +7,11 @@ import org.booking.helpers.MenuDescription;
 
 public class MainMenu extends Menu {
     public MainMenu(Controller controller) {
-        super("Main menu");
+        super("Main menu", controller);
+    }
+
+    @Override
+    protected void set() {
         add(MenuName.FLIGHT_SCHEDULES, FlightSchedules.of(controller));
         add(MenuName.FLIGHT_INFO, FlightInfo.of(controller), MenuDescription.flightInfo());
         add(MenuName.BOOKING, Booking.of(controller), MenuDescription.booking());
