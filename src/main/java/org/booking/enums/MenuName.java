@@ -6,6 +6,7 @@ public enum MenuName {
     BOOKING("Search & booking"),
     BOOKING_CANCEL("Cancel the reservation"),
     BOOKING_VIEW("View bookings"),
+    BOOKING_VIEW_LOGIN("My bookings"),
     LOGIN("Login"),
     REGISTER("Registration"),
     GUEST("Continue as Guest"),
