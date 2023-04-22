@@ -1,9 +1,6 @@
 package org.booking.controllers;
 
-import org.booking.entity.Aircraft;
-import org.booking.entity.Airline;
-import org.booking.entity.Airport;
-import org.booking.entity.Flight;
+import org.booking.entity.*;
 import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
@@ -12,6 +9,7 @@ import org.booking.utils.FileWorker;
 import org.booking.utils.Logger;
 import org.booking.utils.Randomize;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,13 +59,33 @@ public class FlightController implements IController {
             return service.size();
         }
         // TODO: 20.04.2023 load data from file. загрузка данных с файла
+        try {
+            List<Flight> flights = FileWorker.readBinary(FilePath.FLIGHT);
+            service.upload(flights);
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         return 0;
     }
 
     @Override
     public int save() {
         // TODO: 20.04.2023 save data
+        try {
+            FileWorker.writeBinary(FilePath.FLIGHT, service.getAll());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return 0;
+    }
+
+    public Flight getByFlightId(String flightId) {
+        try {
+            return service.getByFlightId(flightId);
+        } catch (RuntimeException ex) {
+            Logger.error(ex.getMessage());
+            return null;
+        }
     }
 
     public List<Flight> getFlightNextDay() {

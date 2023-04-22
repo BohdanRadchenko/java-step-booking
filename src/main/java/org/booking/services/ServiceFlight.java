@@ -7,6 +7,7 @@ import org.booking.utils.Console;
 import org.booking.utils.DateUtil;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ServiceFlight implements IServices<Flight> {
@@ -48,6 +49,18 @@ public class ServiceFlight implements IServices<Flight> {
     @Override
     public void delete(String id) throws RuntimeException {
         throw new RuntimeException("Create method");
+    }
+
+    public Flight getByFlightId(String flightId) throws RuntimeException {
+        Optional<Flight> flight = db.getAll()
+                .stream()
+                .filter(f -> f.getCode().equals(flightId))
+                .findAny();
+
+        if (flight.isEmpty()) {
+            throw new RuntimeException("Nothing found!");
+        }
+        return flight.get();
     }
 
     public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
