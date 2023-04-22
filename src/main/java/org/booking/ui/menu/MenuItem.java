@@ -4,6 +4,7 @@ import org.booking.command.Command;
 import org.booking.enums.MenuName;
 import org.booking.interfaces.IMenu;
 import org.booking.utils.Console;
+import org.booking.utils.Logger;
 import org.booking.utils.StringWorker;
 
 import java.util.Objects;
@@ -63,6 +64,7 @@ public class MenuItem implements IMenu {
     }
 
     public void run() {
+        Logger.info(String.format("Menu Item: %s", title));
         if (showTitle) {
             showTitle();
         }

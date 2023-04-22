@@ -19,4 +19,13 @@ public class Validation {
             return false;
         }
     }
+
+    public static boolean flightId(String str) {
+        try {
+            Parser.parseRegex(str, "\\w{2}\\d{3}");
+            return true;
+        } catch (RuntimeException ignored) {
+            return false;
+        }
+    }
 }

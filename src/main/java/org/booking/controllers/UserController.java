@@ -48,7 +48,7 @@ public class UserController implements IController {
             return u;
         } catch (RuntimeException ex) {
             // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
-            Console.error("Invalid login or password\n");
+            Console.error("Invalid login or password");
             return null;
         }
     }
@@ -79,7 +79,7 @@ public class UserController implements IController {
             return service.getByFullName(fullName);
         } catch (RuntimeException ex) {
             // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
-            Console.error(String.format("%s\n", ex.getMessage()));
+            Console.error(ex.getMessage());
             return null;
         }
     }
@@ -94,8 +94,7 @@ public class UserController implements IController {
             service.upload(entities);
             return service.size();
         } catch (IOException | ClassNotFoundException ex) {
-            Console.error(ex.getMessage());
-            return 0;
+            throw new RuntimeException(ex.getMessage());
         }
     }
 

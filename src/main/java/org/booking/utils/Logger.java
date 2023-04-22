@@ -1,20 +1,22 @@
 package org.booking.utils;
 
 import org.booking.enums.FilePath;
+import org.booking.helpers.Constants;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class Logger {
+
+    private static final int pre = 34;
 
     enum LogType {
         START,
         ERROR,
         INFO,
-        DEBUG,
         EXIT,
-        INPUT;
+        MESSAGE,
+        COMMAND,
+        CLEAR;
 
         public final String name;
 
@@ -42,7 +44,9 @@ public final class Logger {
         @Override
         public String toString() {
             String formattedTime = DateUtil.of(timestamp).formatter("dd.MM.yyyy HH:mm:ss");
-            return String.format("%s %-8s: %s\r\n", formattedTime, logType, message);
+            return this.logType == LogType.CLEAR
+                    ? message
+                    : String.format("%s %-12s: %s\r\n", formattedTime, logType, message);
         }
     }
 
@@ -64,7 +68,7 @@ public final class Logger {
         try {
             save(log);
         } catch (RuntimeException ex) {
-            Console.error(String.format("Save log error. %s", ex.getMessage()));
+            Console.error(String.format("Insert log error. %s", ex.getMessage()));
         }
     }
 
@@ -77,24 +81,31 @@ public final class Logger {
     }
 
     public static void input(String msg) {
-        insertLog(LogType.INPUT, msg);
+        insertLog(LogType.COMMAND, msg);
     }
 
     public static void info(String msg) {
         insertLog(LogType.INFO, msg);
     }
 
+    public static void out(String msg) {
+        insertLog(LogType.MESSAGE, msg);
+    }
+
     public static void error(String msg) {
         insertLog(LogType.ERROR, msg);
     }
 
-    public static void debug(String msg) {
-        insertLog(LogType.DEBUG, msg);
+    public static void start() {
+        String msg = " Application started ";
+        int sepLength = (Constants.repeatSpaceCount - pre) / 2 - (msg.length() / 2);
+        String sep = Constants.sep1.repeat(sepLength);
+        String res = String.format("%s%s%s", sep, msg, sep);
+        insertLog(LogType.START, res);
     }
 
-    public static void start() {
-        String sep = "=".repeat(13);
-        String msg = String.format("%s Application started %s", sep, sep);
-        insertLog(LogType.START, msg);
+    public static void separator() {
+        String sep = Constants.sep2.repeat(Constants.repeatSpaceCount);
+        insertLog(LogType.CLEAR, sep);
     }
 }
