@@ -85,7 +85,7 @@ public class DateUtil {
      */
     public String formatter(String pattern) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        return localDateTime.format(formatter);
+        return this.localDateTime.format(formatter);
     }
 
     /**
@@ -96,7 +96,6 @@ public class DateUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(formatStyle);
         return localDateTime.format(formatter);
     }
-
 
     /**
      * Formatter with default pattern
