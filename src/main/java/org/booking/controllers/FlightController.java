@@ -54,17 +54,19 @@ public class FlightController implements IController {
     }
 
     @Override
-    public void load() throws RuntimeException {
+    public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
             service.upload(generateFlights(100));
-            return;
+            return service.size();
         }
         // TODO: 20.04.2023 load data from file. загрузка данных с файла
+        return 0;
     }
 
     @Override
-    public void save() {
+    public int save() {
         // TODO: 20.04.2023 save data
+        return 0;
     }
 
     public List<Flight> getFlightNextDay() {

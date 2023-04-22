@@ -1,7 +1,7 @@
 package org.booking.interfaces;
 
 public interface IController {
-    void load() throws RuntimeException;
+    int load() throws RuntimeException;
 
-    void save();
+    int save();
 }

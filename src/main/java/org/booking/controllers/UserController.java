@@ -9,7 +9,6 @@ import org.booking.utils.FileWorker;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class UserController implements IController {
 
@@ -87,26 +86,28 @@ public class UserController implements IController {
 
 
     @Override
-    public void load() throws RuntimeException {
-        // TODO: 21.04.2023 Add logger
+    public int load() throws RuntimeException {
         FilePath path = FilePath.USER;
-        if (!FileWorker.exist(path)) return;
+        if (!FileWorker.exist(path)) return 0;
         try {
             List<User> entities = FileWorker.readBinary(path);
             service.upload(entities);
+            return service.size();
         } catch (IOException | ClassNotFoundException ex) {
             Console.error(ex.getMessage());
+            return 0;
         }
     }
 
     @Override
-    public void save() {
-        // TODO: 21.04.2023 Add logger with data.
-        if (isEmpty()) return;
+    public int save() {
+        if (isEmpty()) return 0;
         try {
             FileWorker.writeBinary(FilePath.USER, service.getAll());
+            return service.size();
         } catch (IOException ex) {
             Console.error(ex.getMessage());
+            return 0;
         }
     }
 }

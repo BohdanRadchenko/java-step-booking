@@ -6,6 +6,7 @@ import org.booking.ui.menu.MainMenu;
 import org.booking.ui.menu.Menu;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.Console;
+import org.booking.utils.Logger;
 
 public class BookingManager {
     private final Controller controller = new Controller();
@@ -15,11 +16,15 @@ public class BookingManager {
      */
     private void init() {
         Console.ln();
-        Console.hide("Loading data...");
+        String msg = "Loading data...";
+        Logger.info(msg);
+        Console.hide(msg);
         try {
             controller.load();
         } catch (RuntimeException ex) {
-            Console.error(String.format("Init data error. %s", ex.getMessage()));
+            String exMessage = String.format("Init data error. %s", ex.getMessage());
+            Logger.error(msg);
+            Console.error(exMessage);
         }
     }
 
@@ -28,7 +33,9 @@ public class BookingManager {
      */
     private void save() {
         Console.ln();
-        Console.hide("Data storage...");
+        String msg = "Data storage...";
+        Logger.info(msg);
+        Console.hide(msg);
         controller.save();
     }
 

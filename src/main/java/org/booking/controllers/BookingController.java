@@ -56,26 +56,28 @@ public class BookingController implements IController {
     }
 
     @Override
-    public void load() throws RuntimeException {
-        // TODO: 21.04.2023 add logger
+    public int load() throws RuntimeException {
         FilePath path = FilePath.BOOKING;
-        if (!FileWorker.exist(path)) return;
+        if (!FileWorker.exist(path)) return 0;
         try {
             List<Booking> entities = FileWorker.readBinary(path);
             service.upload(entities);
+            return service.size();
         } catch (IOException | ClassNotFoundException ex) {
             Console.error(ex.getMessage());
+            return 0;
         }
     }
 
     @Override
-    public void save() {
-        // TODO: 21.04.2023 add logger
-        if (service.size() == 0) return;
+    public int save() {
+        if (service.size() == 0) return 0;
         try {
             FileWorker.writeBinary(FilePath.BOOKING, service.getAll());
+            return service.size();
         } catch (IOException ex) {
             Console.error(ex.getMessage());
+            return 0;
         }
     }
 }
