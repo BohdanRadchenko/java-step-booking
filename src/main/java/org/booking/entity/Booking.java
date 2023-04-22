@@ -4,10 +4,13 @@ import org.booking.helpers.Constants;
 import org.booking.utils.DateUtil;
 import org.booking.utils.Parser;
 
+import java.util.List;
+import java.util.Set;
+
 public class Booking extends Entity {
     private final String code;
     private final long time;
-    private final Flight flight;
+    private final List<Flight> flights;
     private final User creator;
     private final User passenger;
 
@@ -15,16 +18,16 @@ public class Booking extends Entity {
         bookingCounter++;
     }
 
-    public Booking(Flight flight, User creater, User passenger) {
+    public Booking(List<Flight> flights, User creator, User passenger) {
         this.code = createCode();
         this.time = DateUtil.of().getMillis();
-        this.flight = flight;
-        this.creator = creater;
+        this.flights = flights;
+        this.creator = creator;
         this.passenger = passenger;
     }
 
-    public Booking(Flight flight, User user) {
-        this(flight, user, user);
+    public Booking(List<Flight> flights, User user) {
+        this(flights, user, user);
     }
 
     private String createCode() {
@@ -60,5 +63,16 @@ public class Booking extends Entity {
 
     public String getPassengerId() {
         return passenger.getId();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(Flight.prettyFormatShortHead());
+        flights.forEach(f -> {
+            stringBuilder.append(f.prettyFormatShort());
+            stringBuilder.append("\n");
+        });
+        return new String(stringBuilder);
     }
 }

@@ -1,6 +1,7 @@
 package org.booking.services;
 
 import org.booking.dao.FlightDao;
+import org.booking.entity.Airport;
 import org.booking.entity.Flight;
 import org.booking.interfaces.IServices;
 import org.booking.utils.Console;
@@ -41,8 +42,12 @@ public class ServiceFlight implements IServices<Flight> {
         return f;
     }
 
+    public boolean update(Flight flight) {
+        return db.update(flight);
+    }
+
     @Override
-    public void add(Flight entity) throws RuntimeException {
+    public Flight add(Flight entity) throws RuntimeException {
         throw new RuntimeException("Create method");
     }
 
@@ -63,20 +68,39 @@ public class ServiceFlight implements IServices<Flight> {
         return flight.get();
     }
 
-    public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
-        long time = DateUtil
-                .of()
-                .round((3600000))
-                .plusHours(hour)
-                .getMillis();
-
+    public List<Flight> getFlightFromTo(long start, long end) throws RuntimeException {
         List<Flight> list = getAll()
                 .stream()
-                .filter(f -> f.getDepartureTimeStamp() <= time)
+                .filter(f -> f.getDepartureTimeStamp() >= start && f.getDepartureTimeStamp() <= end)
                 .toList();
         if (list.size() == 0) {
             throw new RuntimeException("Nothing to found");
         }
         return list;
+    }
+
+    public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
+        long startTime = DateUtil.of().getMillis();
+        long endTime = DateUtil.of(startTime).plusHours(hour).getMillis();
+        return getFlightFromTo(startTime, endTime);
+    }
+
+    public List<Flight> getFlightOnTime(long time) throws RuntimeException {
+        long startTime = DateUtil.of(time).getMillis();
+        long endTime = DateUtil.of(startTime).plusHours(23).getMillis();
+        return getFlightFromTo(startTime, endTime);
+    }
+
+    public List<Flight> getFlightsForBooking(Airport from, Airport to, long time, int seats)
+            throws RuntimeException {
+        try {
+            List<Flight> flightOnTime = getFlightOnTime(time);
+            return flightOnTime
+                    .stream()
+                    .filter(f -> f.getFrom() == from && f.getTo() == to && f.getFreeSeats() >= seats)
+                    .toList();
+        } catch (RuntimeException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

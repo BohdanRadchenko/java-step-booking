@@ -11,7 +11,7 @@ public class AuthMenu extends Menu {
 
     @Override
     protected void set() {
-        if (!controller.user.isEmpty()) {
+        if (controller.user.canAuth()) {
             add(MenuName.LOGIN, AuthLogin.of(controller));
         }
         add(MenuName.REGISTER, AuthRegistration.of(controller));

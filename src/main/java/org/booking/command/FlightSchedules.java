@@ -34,6 +34,7 @@ public class FlightSchedules extends Command {
             Console.warning(msg);
             return;
         }
+        Console.table1(String.format("| %-3s | %s", "ID", Flight.prettyFormatHead()));
         for (int i = 0; i < flightNextDay.size(); i++) {
             displayFlight(i + 1, flightNextDay.get(i));
         }

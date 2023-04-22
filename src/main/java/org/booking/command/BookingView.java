@@ -28,7 +28,7 @@ public class BookingView extends Command {
     }
 
     private void displayBooking(Booking booking) {
-        Console.log(booking.getId());
+        Console.title(booking.toString());
     }
 
     private void displayBookings(List<Booking> bookingByPassenger, List<Booking> bookingByCreator) {
@@ -55,10 +55,5 @@ public class BookingView extends Command {
         List<Booking> bookingListByPassenger = controller.booking.getBookingsByPassengerId(user.getId());
         List<Booking> bookingListByCreator = controller.booking.getBookingsByCreatorId(user.getId());
         displayBookings(bookingListByPassenger, bookingListByCreator);
-        /*
-         * Пользователю предлагается ввести фамилию и имя.
-         * После этого на экран выводится список всех бронирований,
-         * которые были сделаны данным пользователем или в которых он является пассажиром.
-         * */
     }
 }

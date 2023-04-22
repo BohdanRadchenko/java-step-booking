@@ -1,6 +1,8 @@
 package org.booking.controllers;
 
 import org.booking.entity.Booking;
+import org.booking.entity.Flight;
+import org.booking.entity.User;
 import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceBooking;
@@ -10,6 +12,7 @@ import org.booking.utils.FileWorker;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class BookingController implements IController {
     private final ServiceBooking service = new ServiceBooking();
@@ -53,6 +56,13 @@ public class BookingController implements IController {
             // TODO: 21.04.2023 insert logger
             return new ArrayList<>();
         }
+    }
+
+    public Booking createBooking(Flight flight, User creator, User passenger) {
+        // TODO: 22.04.2023 to MVP2
+        List<Flight> flights = new ArrayList<>();
+        flights.add(flight);
+        return service.add(new Booking(flights, creator, passenger));
     }
 
     @Override

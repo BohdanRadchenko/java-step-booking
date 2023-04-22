@@ -1,7 +1,8 @@
 package org.booking.helpers;
 
 public class Constants {
-    public static int exitCode = 0;
+    public static int exitCode = -1;
+    public static int helpCode = 0;
     public static String sep1 = "=";
     public static String sep2 = "-";
     public static String logo = "BOOKING MANAGER";

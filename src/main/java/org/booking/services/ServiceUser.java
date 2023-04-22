@@ -3,6 +3,7 @@ package org.booking.services;
 import org.booking.dao.UserDao;
 import org.booking.entity.User;
 import org.booking.interfaces.IServices;
+import org.booking.utils.StringWorker;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,11 +42,11 @@ public class ServiceUser implements IServices<User> {
     }
 
     public User getByFullName(String fullName) throws RuntimeException {
-        String[] strings = fullName.split(" ");
+        String[] strings = StringWorker.toLowerCase(fullName).split(" ");
         Optional<User> user = getAll()
                 .stream()
-                .filter(u -> Arrays.stream(strings).anyMatch(u.getFirstName()::contains))
-                .filter(u -> Arrays.stream(strings).anyMatch(u.getLastName()::contains))
+                .filter(u -> Arrays.stream(strings).anyMatch(StringWorker.toLowerCase(u.getFirstName())::contains))
+                .filter(u -> Arrays.stream(strings).anyMatch(StringWorker.toLowerCase(u.getLastName())::contains))
                 .findFirst();
         if (user.isEmpty()) {
             throw new RuntimeException("User not found");
@@ -66,8 +67,19 @@ public class ServiceUser implements IServices<User> {
     }
 
     @Override
-    public void add(User user) throws RuntimeException {
-        db.add(user);
+    public User add(User user) throws RuntimeException {
+        if (db.add(user)) {
+            return user;
+        }
+        return null;
+    }
+    
+    public User add(String firstName, String lastName) throws RuntimeException {
+        User user = new User(firstName, lastName);
+        if (db.add(user)) {
+            return user;
+        }
+        return null;
     }
 
     @Override

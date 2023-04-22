@@ -114,4 +114,18 @@ public class FlightController implements IController {
         sortedList.addAll(mustFlights);
         return sortedList.stream().limit(Math.max(flights.size(), 100)).toList();
     }
+
+    public List<Flight> getFlightsForBooking(Airport from, Airport to, long time, int seats) {
+        try {
+            return service.getFlightsForBooking(from, to, time, seats);
+        } catch (RuntimeException ex) {
+            System.out.println(ex.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+    public boolean addPassenger(Flight flight, User passenger) {
+        flight.addPassenger(passenger);
+        return service.update(flight);
+    }
 }

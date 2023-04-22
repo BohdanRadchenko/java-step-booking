@@ -53,8 +53,7 @@ public class BookingManager {
         Console.ln();
         Menu authMenu = new AuthMenu(controller);
         Menu mainMenu = new MainMenu(controller);
-
-
+        
         authMenu.run();
 
         while (!MenuStack.isExit()) {

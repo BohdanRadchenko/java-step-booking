@@ -14,7 +14,7 @@ public class User extends Entity {
     private final String lastName;
     private final String fullName;
 
-    private final Set<String> bookings = new HashSet<>();
+    private final Set<Booking> bookings = new HashSet<>();
 
     public User(String login, String password, String firstName, String lastName) {
         this.login = login;
@@ -61,8 +61,6 @@ public class User extends Entity {
     }
 
     public boolean addBooking(Booking booking) {
-        if (bookings.contains(booking.getId())) return false;
-        bookings.add(booking.getId());
-        return true;
+        return bookings.add(booking);
     }
 }
