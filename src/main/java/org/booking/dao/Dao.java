@@ -2,6 +2,7 @@ package org.booking.dao;
 
 import org.booking.entity.Entity;
 import org.booking.interfaces.IDao;
+import org.booking.utils.Console;
 
 import java.util.*;
 
