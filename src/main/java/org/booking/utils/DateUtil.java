@@ -97,6 +97,16 @@ public class DateUtil {
         return localDateTime.format(formatter);
     }
 
+
+    /**
+     * Formatter with default pattern
+     *
+     * @return string from data formatted by yyyy-MM-dd HH:mm:ss
+     */
+    public String formatter() {
+        return formatter("yyyy-MM-dd HH:mm:ss");
+    }
+
     /**
      * DateUtil instance.getYear().
      *
@@ -223,10 +233,21 @@ public class DateUtil {
         return withOverflow(time);
     }
 
+    /**
+     * Round time
+     *
+     * @param ms value to round
+     * @return new DateUtil instance
+     */
     public DateUtil round(long ms) {
         return new DateUtil(this.timestamp / ms * ms);
     }
 
+    /**
+     * Round time to 15 min
+     *
+     * @return new DateUtil instance
+     */
     public DateUtil round() {
         return round(15 * 60 * 1000);
     }

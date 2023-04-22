@@ -22,6 +22,7 @@ public class FlightController implements IController {
         List<Long> timeList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
+            System.out.println(date.formatter());
             timeList.add(date.getMillis());
             date.plusMinutes(15);
         }
