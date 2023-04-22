@@ -64,7 +64,7 @@ public class MenuItem implements IMenu {
     }
 
     public void run() {
-        Logger.info(String.format("Item: %s", title));
+        Logger.info(String.format("Menu Item: %s", title));
         if (showTitle) {
             showTitle();
         }

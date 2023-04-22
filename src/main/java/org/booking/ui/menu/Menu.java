@@ -110,7 +110,7 @@ public abstract class Menu implements IMenu {
             }
             return n;
         } catch (RuntimeException ex) {
-            String exMsg = String.format("Enter menu error: %s\n", ex.getMessage());
+            String exMsg = String.format("Enter menu error: %s", ex.getMessage());
             Logger.error(exMsg);
             Console.error(exMsg);
             return enterMenu();
@@ -134,5 +134,12 @@ public abstract class Menu implements IMenu {
         reset();
         set();
         show();
+    }
+
+    public void run(int i) {
+        MenuStack.add(this);
+        reset();
+        set();
+        items.get(i).run();
     }
 }

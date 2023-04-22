@@ -9,6 +9,7 @@ import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
 import org.booking.utils.DateUtil;
 import org.booking.utils.FileWorker;
+import org.booking.utils.Logger;
 import org.booking.utils.Randomize;
 
 import java.util.ArrayList;
@@ -81,8 +82,18 @@ public class FlightController implements IController {
             refreshCount = 0;
             // TODO: 22.04.2023 insert logger nothing to next 24 * REFRESH_COUNT hours
         }
+        List<Flight> mustFlights = new ArrayList<>();
+        if (flights.size() < 100) {
+            try {
+                mustFlights.addAll(service.getFlightNextHour(24 * refreshCount + 24));
+            } catch (RuntimeException ignored) {
+                Logger.error("Must upload exception");
+            }
+        }
         List<Flight> sortedList = new ArrayList<>(flights);
         Collections.sort(sortedList);
-        return sortedList;
+        Collections.sort(mustFlights);
+        sortedList.addAll(mustFlights);
+        return sortedList.stream().limit(Math.max(flights.size(), 100)).toList();
     }
 }
