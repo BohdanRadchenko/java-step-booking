@@ -2,6 +2,9 @@ package org.booking.utils;
 
 import org.booking.enums.Message;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 public class Console extends Input implements ConsoleColors {
 
     public static void print(String str) {
@@ -53,6 +56,21 @@ public class Console extends Input implements ConsoleColors {
     public static void input(Message msg) {
         input(msg.message);
     }
+
+    public static void table1(String string) {
+        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
+        print(String.format("%s%s", WHITE, BLACK_BACKGROUND));
+        print(String.format("%-110s%s", reduce, RESET));
+        ln();
+    }
+
+    public static void table2(String string) {
+        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
+        print(String.format("%s%s", BLACK, WHITE_BACKGROUND));
+        print(String.format("%-110s%s", reduce, RESET));
+        ln();
+    }
+
 
     public static void accept(String string) {
         print(GREEN);

@@ -6,9 +6,9 @@ import java.time.format.FormatStyle;
 import java.util.Date;
 
 public class DateUtil {
-    private final long timestamp;
-    private final LocalDateTime localDateTime;
-    private final Date date;
+    private long timestamp;
+    private LocalDateTime localDateTime;
+    private Date date;
 
     private DateUtil(long timestamp) {
         this.timestamp = timestamp;
@@ -85,7 +85,7 @@ public class DateUtil {
      */
     public String formatter(String pattern) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        return localDateTime.format(formatter);
+        return this.localDateTime.format(formatter);
     }
 
     /**
@@ -95,6 +95,15 @@ public class DateUtil {
     public String formatter(FormatStyle formatStyle) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(formatStyle);
         return localDateTime.format(formatter);
+    }
+
+    /**
+     * Formatter with default pattern
+     *
+     * @return string from data formatted by yyyy-MM-dd HH:mm:ss
+     */
+    public String formatter() {
+        return formatter("yyyy-MM-dd HH:mm:ss");
     }
 
     /**
@@ -160,6 +169,13 @@ public class DateUtil {
         return timestamp;
     }
 
+    private DateUtil withOverflow(LocalDateTime localDateTime) {
+        long ms = localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        this.date = new Date(ms);
+        this.localDateTime = localDateTime;
+        return DateUtil.of(ms);
+    }
+
     /**
      * DateUtil instance.plusDays
      *
@@ -176,7 +192,7 @@ public class DateUtil {
             time = this.localDateTime.minusDays(Math.abs(days));
         }
 
-        return DateUtil.of(time);
+        return withOverflow(time);
     }
 
     /**
@@ -195,7 +211,7 @@ public class DateUtil {
             time = this.localDateTime.minusHours(Math.abs(hours));
         }
 
-        return DateUtil.of(time);
+        return withOverflow(time);
     }
 
     /**
@@ -213,7 +229,25 @@ public class DateUtil {
         } else {
             time = this.localDateTime.minusMinutes(Math.abs(minutes));
         }
+        return withOverflow(time);
+    }
 
-        return DateUtil.of(time);
+    /**
+     * Round time
+     *
+     * @param ms value to round
+     * @return new DateUtil instance
+     */
+    public DateUtil round(long ms) {
+        return new DateUtil(this.timestamp / ms * ms);
+    }
+
+    /**
+     * Round time to 15 min
+     *
+     * @return new DateUtil instance
+     */
+    public DateUtil round() {
+        return round(15 * 60 * 1000);
     }
 }

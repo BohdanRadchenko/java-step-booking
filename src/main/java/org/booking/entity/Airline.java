@@ -11,7 +11,7 @@ public enum Airline {
     AMERICAN_AIRLINES("American Airlines", "AAL", "001", "AA", "The Americas"),
     BRITISH_AIRWAYS("British Airways Plc.", "BAW", "125", "BA", "Europe"),
     TURKISH_AIRLINES("Turkish Airlines Inc.", "THY", "235", "TK", "Europe"),
-    CHARTER_FLY("NULL", "CHR", "000", "CF", "NULL");
+    CHARTER_FLY("Charter", "CHR", "000", "CF", "NULL");
 
     public final String name;
     public final String legalName;
