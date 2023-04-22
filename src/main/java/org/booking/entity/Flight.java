@@ -16,7 +16,6 @@ public class Flight extends Entity implements Comparable<Flight> {
     private String flightId;
     private Set<String> passengers;
     private int freeSeats;
-
     private final String code;
 
 
@@ -57,6 +56,10 @@ public class Flight extends Entity implements Comparable<Flight> {
         return this.arrivalTimeStamp;
     }
 
+    public String getCode() {
+        return code;
+    }
+
     public String prettyFormat() {
         String depTime = DateUtil.of(departureTimeStamp).formatter("yyyy-MM-dd HH:mm");
         String from = String.format("%s", StringWorker.toUpperCase(departureAirport.city));
@@ -64,7 +67,6 @@ public class Flight extends Entity implements Comparable<Flight> {
         String aLine = String.format("%s", StringWorker.toUpperCase(airline.legalName));
         return String.format("%s | %s | %-12s ---> %12s | %s\n", code, depTime, from, to, aLine);
     }
-
 
     public String toString() {
         String departureTime = String.format("departureTimeStamp=%d", departureTimeStamp);

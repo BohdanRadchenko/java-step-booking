@@ -96,6 +96,7 @@ public class Console extends Input implements ConsoleColors {
         print(RED);
         print(string);
         reset();
+        ln();
     }
 
     public static void error(Message msg) {

@@ -21,7 +21,7 @@ public class BookingCancel extends Command {
         if (Validation.bookingId(str)) {
             return str;
         }
-        Console.error("Invalid booking id\n");
+        Console.error("Invalid booking id");
         return enterBookingId();
     }
 

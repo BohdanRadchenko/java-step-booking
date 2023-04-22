@@ -16,10 +16,15 @@ public final class Controller {
 
     public void load() throws RuntimeException {
         try {
-            String msg = "Loading user data...";
+            String msg = "Loading user data";
             Logger.info(msg);
             Console.hide(msg);
-            user.load();
+            Console.ln();
+            int load = user.load();
+            String loaded = String.format("Loaded %d users", load);
+            Logger.info(loaded);
+            Console.hide(loaded);
+            Console.ln();
         } catch (RuntimeException ex) {
             String exceptionMessage = String.format("Load user data error. %s", ex.getMessage());
             Logger.error(exceptionMessage);
@@ -27,10 +32,15 @@ public final class Controller {
         }
 
         try {
-            String msg = "Loading flight data...";
+            String msg = "Loading flight data";
             Logger.info(msg);
             Console.hide(msg);
-            flight.load();
+            Console.ln();
+            int load = flight.load();
+            String loaded = String.format("Loaded %d flights", load);
+            Logger.info(loaded);
+            Console.hide(loaded);
+            Console.ln();
         } catch (RuntimeException ex) {
             String exceptionMessage = String.format("Load flight data error. %s", ex.getMessage());
             Logger.error(exceptionMessage);
@@ -38,10 +48,15 @@ public final class Controller {
         }
 
         try {
-            String msg = "Loading booking data...";
+            String msg = "Loading booking data";
             Logger.info(msg);
             Console.hide(msg);
-            booking.load();
+            Console.ln();
+            int load = booking.load();
+            String loaded = String.format("Loaded %d bookings", load);
+            Logger.info(loaded);
+            Console.hide(loaded);
+            Console.ln();
         } catch (RuntimeException ex) {
             String exceptionMessage = String.format("Load booking data error. %s", ex.getMessage());
             Logger.error(exceptionMessage);
