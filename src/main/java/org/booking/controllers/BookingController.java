@@ -64,8 +64,7 @@ public class BookingController implements IController {
             service.upload(entities);
             return service.size();
         } catch (IOException | ClassNotFoundException ex) {
-            Console.error(ex.getMessage());
-            return 0;
+            throw new RuntimeException(ex.getMessage());
         }
     }
 

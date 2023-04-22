@@ -1,6 +1,7 @@
 package org.booking;
 
 import org.booking.controllers.Controller;
+import org.booking.entity.User;
 import org.booking.ui.menu.AuthMenu;
 import org.booking.ui.menu.MainMenu;
 import org.booking.ui.menu.Menu;
@@ -19,6 +20,7 @@ public class BookingManager {
         String msg = "Loading data...";
         Logger.info(msg);
         Console.hide(msg);
+        Console.ln();
         try {
             controller.load();
         } catch (RuntimeException ex) {
@@ -26,6 +28,7 @@ public class BookingManager {
             Logger.error(msg);
             Console.error(exMessage);
         }
+        Logger.separator();
     }
 
     /**
@@ -36,7 +39,14 @@ public class BookingManager {
         String msg = "Data storage...";
         Logger.info(msg);
         Console.hide(msg);
+        Console.ln();
         controller.save();
+        User user = controller.user.getUser();
+        String byeMsg = user != null
+                ? String.format("See you %s!", user.getFullName())
+                : "See you again!";
+        Console.accept(byeMsg);
+        Logger.separator();
     }
 
     private void start() {
@@ -49,6 +59,7 @@ public class BookingManager {
         while (!MenuStack.isExit()) {
             mainMenu.run();
         }
+        Logger.separator();
     }
 
     public void run() {

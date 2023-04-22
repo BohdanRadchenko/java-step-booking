@@ -98,7 +98,9 @@ public abstract class Menu implements IMenu {
 
     private int enterMenu() {
         Console.input(Message.MENU_ENTER_NUMBER);
+        Logger.out(Message.MENU_ENTER_NUMBER.message);
         String str = Console.readString();
+        Logger.input(str);
         try {
             boolean isExit = Parser.parseIsExit(str);
             if (isExit) return Constants.exitCode;
@@ -108,12 +110,15 @@ public abstract class Menu implements IMenu {
             }
             return n;
         } catch (RuntimeException ex) {
-            Console.error(String.format("Error: %s\n", ex.getMessage()));
+            String exMsg = String.format("Enter menu error: %s\n", ex.getMessage());
+            Logger.error(exMsg);
+            Console.error(exMsg);
             return enterMenu();
         }
     }
 
     private void show() {
+        Logger.info(String.format("Show: %s", title));
         Console.ln();
         displayMenu();
         int menuNum = enterMenu();
