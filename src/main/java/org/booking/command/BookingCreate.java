@@ -8,24 +8,23 @@ import org.booking.entity.User;
 import org.booking.enums.Message;
 import org.booking.helpers.Constants;
 import org.booking.helpers.Validation;
-import org.booking.ui.menu.Menu;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.*;
 
+import java.awt.*;
 import java.time.format.FormatStyle;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BookingCommand extends Command {
-    public BookingCommand(Controller controller) {
+public class BookingCreate extends Command {
+    public BookingCreate(Controller controller) {
         super(controller);
     }
 
     public static Command of(Controller controller) {
-        return new BookingCommand(controller);
+        return new BookingCreate(controller);
     }
 
     private void displayAirport(int n, Airport a) {
@@ -227,7 +226,28 @@ public class BookingCommand extends Command {
         return enterSeatsInt();
     }
 
-    private Flight chooseFlight(List<Flight> flight) {
+    private void displayFlights(int i, List<Flight> flights) {
+        List<String> strings = new ArrayList<>();
+        IntStream
+                .range(0, flights.size())
+                .forEach(idx -> {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    if (idx == 0) {
+                        stringBuilder.append(String.format("| %-3d |", i));
+                    } else {
+                        stringBuilder.append(String.format("%-5s |", " "));
+                    }
+                    stringBuilder.append(flights.get(idx).prettyFormatFull());
+                    strings.add(new String(stringBuilder));
+                });
+        if (i % 2 == 0) {
+            strings.forEach(idx -> Console.table2(idx, true));
+        } else {
+            strings.forEach(idx -> Console.table1(idx, true));
+        }
+    }
+
+    private List<Flight> chooseFlight(List<List<Flight>> flights) {
         String readString = Console.readString();
         if (Parser.parseIsBack(readString)) {
             MenuStack.refresh();
@@ -237,46 +257,46 @@ public class BookingCommand extends Command {
             MenuStack.exit();
             return null;
         }
-        if (Validation.flightId(readString)) {
-            Optional<Flight> fl = flight
+        int maxFlightsInOne = flights.stream().mapToInt(List::size).reduce(Integer::max).orElse(0);
+
+        if (Validation.flightId(readString) && maxFlightsInOne == 1) {
+            List<Flight> flightsOne = new ArrayList<>();
+            flights.forEach(f -> flightsOne.add(f.get(0)));
+            Optional<Flight> fl = flightsOne
                     .stream()
                     .filter(f -> StringWorker.toLowerCase(f.getCode()).equals(StringWorker.toLowerCase(readString)))
                     .findFirst();
             if (fl.isEmpty()) {
                 Console.warning(String.format("Not found %s\n", readString));
                 Console.caret();
-                return chooseFlight(flight);
+                return chooseFlight(flights);
             }
-            return fl.get();
+            List<Flight> res = new ArrayList<>();
+            res.add(fl.get());
+            return res;
         }
 
         try {
             int idx = Parser.parseInt(readString);
-            if (idx <= 0 || idx > flight.size()) {
+            if (idx <= 0 || idx > flights.size()) {
                 throw new RuntimeException(String.format("Invalid value %s\n", readString));
             }
-            return flight.get(idx - 1);
+            return flights.get(idx - 1);
         } catch (RuntimeException ex) {
             Console.warning(ex.getMessage());
             Console.caret();
-            return chooseFlight(flight);
+            return chooseFlight(flights);
         }
     }
 
-    private Flight enterFlight(List<Flight> flight) {
+    private List<Flight> enterFlight(List<List<Flight>> flights) {
         Console.table1(String.format("| %-3s | %s", "ID", Flight.prettyFormatHead()), true);
-        IntStream
-                .range(0, flight.size())
+        IntStream.range(0, flights.size())
                 .forEach(i -> {
-                    String info = String.format("|%-3d | %s\n", i + 1, flight.get(i).prettyFormatFull());
-                    if (i % 2 == 0) {
-                        Console.table2(info, true);
-                    } else {
-                        Console.table1(info, true);
-                    }
+                    displayFlights(i, flights.get(i));
                 });
         Console.input(Message.BOOKING_CHOOSE_FLIGHT);
-        return chooseFlight(flight);
+        return chooseFlight(flights);
     }
 
     private User enterPassenger(int i) {
@@ -291,6 +311,9 @@ public class BookingCommand extends Command {
     }
 
     private List<User> enterPassengers(int count) {
+        if (count == 1 && controller.user.isAuth()) {
+            return new ArrayList<>(Collections.singletonList(controller.user.getUser()));
+        }
         return IntStream
                 .range(0, count)
                 .mapToObj(this::enterPassenger)
@@ -310,21 +333,33 @@ public class BookingCommand extends Command {
 
         int seats = enterSeats();
 
-        List<Flight> flightsForBooking = controller.flight.getFlightsForBooking(from, to, time, seats);
+        // TODO: 23.04.2023 Test data. remove
+        // Airport from = Airport.KBP;
+        // Airport to = Airport.LHR;
+        // long time = DateUtil.of().getMillis();
+        // int seats = 2;
+
+        List<List<Flight>> flightsForBooking = controller.flight.getFlightsForBooking(from, to, time, seats);
 
         if (flightsForBooking.size() == 0) {
             Console.warning("Nothing found!");
             return;
         }
 
-        Flight flight = enterFlight(flightsForBooking);
+        List<Flight> flights = enterFlight(flightsForBooking);
+        if (flights == null) {
+            Console.error(Message.UE);
+            return;
+        }
 
         List<User> passengers = enterPassengers(seats);
 
         passengers.forEach(p -> {
-            Booking booking = controller.booking.createBooking(flight, passengers.get(0), p);
+            Booking booking = controller.booking.createBooking(flights, passengers.get(0), p);
             if (booking == null) return;
-            flight.addPassenger(p);
+            flights.forEach(f -> {
+                f.addPassenger(p);
+            });
             p.addBooking(booking);
         });
 

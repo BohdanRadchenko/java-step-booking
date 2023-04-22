@@ -7,7 +7,7 @@ import org.booking.utils.Parser;
 import java.util.List;
 import java.util.Set;
 
-public class Booking extends Entity {
+public class Booking extends Entity implements Comparable<Booking> {
     private final String code;
     private final long time;
     private final List<Flight> flights;
@@ -65,14 +65,21 @@ public class Booking extends Entity {
         return passenger.getId();
     }
 
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(Flight.prettyFormatShortHead());
-        flights.forEach(f -> {
-            stringBuilder.append(f.prettyFormatShort());
-            stringBuilder.append("\n");
-        });
+        flights.forEach(f -> stringBuilder.append(f.prettyFormatShort()));
         return new String(stringBuilder);
+    }
+
+    @Override
+    public int compareTo(Booking that) {
+        if (this.time < that.time) return -1;
+        if (this.time > that.time) return +1;
+        return 0;
     }
 }

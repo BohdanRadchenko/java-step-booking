@@ -41,7 +41,7 @@ public class ServiceBooking implements IServices<Booking> {
         List<Booking> bookings = db
                 .getAll()
                 .stream()
-                .filter(b -> Objects.equals(b.getCreatorId(), id))
+                .filter(b -> b.getCreatorId().equals(id))
                 .toList();
         if (bookings.size() == 0) {
             throw new NoSuchElementException();

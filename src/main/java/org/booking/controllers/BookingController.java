@@ -10,9 +10,9 @@ import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BookingController implements IController {
     private final ServiceBooking service = new ServiceBooking();
@@ -58,10 +58,28 @@ public class BookingController implements IController {
         }
     }
 
-    public Booking createBooking(Flight flight, User creator, User passenger) {
-        // TODO: 22.04.2023 to MVP2
-        List<Flight> flights = new ArrayList<>();
-        flights.add(flight);
+    public List<Booking> getBookingsByUserId(String userId) {
+        List<Booking> bookingListByPassenger = getBookingsByPassengerId(userId);
+        List<Booking> bookingListByCreator = getBookingsByCreatorId(userId);
+        if (bookingListByPassenger.size() == 0 && bookingListByCreator.size() == 0) {
+            return new ArrayList<>();
+        }
+        // TODO: 22.04.2023 Example code for next time using
+        // Booking[] spread = (Booking[]) Stream.of(bookingListByCreator, bookingListByPassenger)
+        // .flatMap(Stream::of)
+        // .toArray();
+        // ArrayList<Booking> bookings = new ArrayList<>(Set.of(spread));
+        List<Booking> res;
+        if (bookingListByPassenger.size() != 0) {
+            res = new ArrayList<>(bookingListByPassenger);
+        } else {
+            res = new ArrayList<>(bookingListByCreator);
+        }
+        Collections.sort(res);
+        return res;
+    }
+
+    public Booking createBooking(List<Flight> flights, User creator, User passenger) {
         return service.add(new Booking(flights, creator, passenger));
     }
 

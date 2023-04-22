@@ -4,12 +4,11 @@ import org.booking.dao.FlightDao;
 import org.booking.entity.Airport;
 import org.booking.entity.Flight;
 import org.booking.interfaces.IServices;
-import org.booking.utils.Console;
 import org.booking.utils.DateUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class ServiceFlight implements IServices<Flight> {
     private final FlightDao db = new FlightDao();
@@ -68,7 +67,7 @@ public class ServiceFlight implements IServices<Flight> {
         return flight.get();
     }
 
-    public List<Flight> getFlightFromTo(long start, long end) throws RuntimeException {
+    public List<Flight> getFlightByFromToTime(long start, long end) throws RuntimeException {
         List<Flight> list = getAll()
                 .stream()
                 .filter(f -> f.getDepartureTimeStamp() >= start && f.getDepartureTimeStamp() <= end)
@@ -82,19 +81,18 @@ public class ServiceFlight implements IServices<Flight> {
     public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
         long startTime = DateUtil.of().getMillis();
         long endTime = DateUtil.of(startTime).plusHours(hour).getMillis();
-        return getFlightFromTo(startTime, endTime);
+        return getFlightByFromToTime(startTime, endTime);
     }
 
-    public List<Flight> getFlightOnTime(long time) throws RuntimeException {
+    public List<Flight> getFlightNextTime(long time) throws RuntimeException {
         long startTime = DateUtil.of(time).getMillis();
         long endTime = DateUtil.of(startTime).plusHours(23).getMillis();
-        return getFlightFromTo(startTime, endTime);
+        return getFlightByFromToTime(startTime, endTime);
     }
 
-    public List<Flight> getFlightsForBooking(Airport from, Airport to, long time, int seats)
-            throws RuntimeException {
+    public List<Flight> getFlightsForBooking(Airport from, Airport to, long time, int seats) throws RuntimeException {
         try {
-            List<Flight> flightOnTime = getFlightOnTime(time);
+            List<Flight> flightOnTime = getFlightNextTime(time);
             return flightOnTime
                     .stream()
                     .filter(f -> f.getFrom() == from && f.getTo() == to && f.getFreeSeats() >= seats)
@@ -102,5 +100,31 @@ public class ServiceFlight implements IServices<Flight> {
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    public List<List<Flight>> getFlightsForBookingWithTrans(Airport from, Airport to, long time, int seats) {
+        List<Flight> flightsFrom = getFlightNextTime(time)
+                .stream()
+                .filter(f -> f.getFrom() == from && f.getFreeSeats() >= seats)
+                .toList();
+        List<Flight> flightsTo = getAll()
+                .stream()
+                .filter(f -> f.getTo() == to && f.getFreeSeats() >= seats)
+                .toList();
+        ArrayList<List<Flight>> flights = new ArrayList<>();
+
+        for (Flight ff : flightsFrom) {
+            for (Flight ft : flightsTo) {
+                if (ff.getTo() != ft.getFrom()) continue;
+                long arrMaxTime = DateUtil.of(ff.getArrivalTimeStamp()).plusHours(12).getMillis();
+                if (ft.getDepartureTimeStamp() < ff.getArrivalTimeStamp()
+                        || ft.getDepartureTimeStamp() < arrMaxTime) continue;
+                ArrayList<Flight> res = new ArrayList<>();
+                res.add(ff);
+                res.add(ft);
+                flights.add(res);
+            }
+        }
+        return flights;
     }
 }

@@ -266,7 +266,7 @@ public class DateUtil {
      * @return new DateUtil instance
      */
     public DateUtil round() {
-        return round(15 * 60 * 1000);
+        return round(30 * 60 * 1000);
     }
 
     /**
