@@ -6,9 +6,9 @@ import java.time.format.FormatStyle;
 import java.util.Date;
 
 public class DateUtil {
-    private final long timestamp;
-    private final LocalDateTime localDateTime;
-    private final Date date;
+    private long timestamp;
+    private LocalDateTime localDateTime;
+    private Date date;
 
     private DateUtil(long timestamp) {
         this.timestamp = timestamp;
@@ -160,6 +160,13 @@ public class DateUtil {
         return timestamp;
     }
 
+    private DateUtil withOverflow(LocalDateTime localDateTime) {
+        long ms = localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        this.date = new Date(ms);
+        this.localDateTime = localDateTime;
+        return DateUtil.of(ms);
+    }
+
     /**
      * DateUtil instance.plusDays
      *
@@ -176,7 +183,7 @@ public class DateUtil {
             time = this.localDateTime.minusDays(Math.abs(days));
         }
 
-        return DateUtil.of(time);
+        return withOverflow(time);
     }
 
     /**
@@ -195,7 +202,7 @@ public class DateUtil {
             time = this.localDateTime.minusHours(Math.abs(hours));
         }
 
-        return DateUtil.of(time);
+        return withOverflow(time);
     }
 
     /**
@@ -213,7 +220,14 @@ public class DateUtil {
         } else {
             time = this.localDateTime.minusMinutes(Math.abs(minutes));
         }
+        return withOverflow(time);
+    }
 
-        return DateUtil.of(time);
+    public DateUtil round(long ms) {
+        return new DateUtil(this.timestamp / ms * ms);
+    }
+
+    public DateUtil round() {
+        return round(15 * 60 * 1000);
     }
 }

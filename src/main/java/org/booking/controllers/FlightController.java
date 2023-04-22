@@ -7,8 +7,10 @@ import org.booking.entity.Flight;
 import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
+import org.booking.utils.DateUtil;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Randomize;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +18,14 @@ public class FlightController implements IController {
     private final ServiceFlight service = new ServiceFlight();
 
     private List<Long> generateTime(int count) {
-        long currentTime = System.currentTimeMillis();
-        List<Long> listTime = new ArrayList<>();
-        long time = currentTime / (15 * 60 * 1000) * (15 * 60 * 1000);
+        DateUtil date = DateUtil.of().round();
+        List<Long> timeList = new ArrayList<>();
+
         for (int i = 0; i < count; i++) {
-            listTime.add(time);
-            time += 15 * 60 * 1000;
+            timeList.add(date.getMillis());
+            date.plusMinutes(15);
         }
-        return listTime;
+        return timeList;
     }
 
 
