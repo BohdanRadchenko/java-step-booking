@@ -5,9 +5,53 @@ import org.booking.entity.Booking;
 import org.booking.interfaces.IServices;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Optional;
 
 public class ServiceBooking implements IServices<Booking> {
     private final BookingDao db = new BookingDao();
+
+    public Booking getByCode(String code) throws RuntimeException {
+        Optional<Booking> booking = db
+                .getAll()
+                .stream()
+                .filter(b -> b.getCode().equals(code))
+                .findFirst();
+        if (booking.isEmpty()) {
+            throw new RuntimeException("Booking not found!");
+        }
+        return booking.get();
+    }
+
+    public List<Booking> getBookingsByPassengerId(String id) throws RuntimeException {
+        List<Booking> bookings = db
+                .getAll()
+                .stream()
+                .filter(b -> Objects.equals(b.getPassengerId(), id))
+                .toList();
+        if (bookings.size() == 0) {
+            throw new NoSuchElementException();
+        }
+        return bookings;
+    }
+
+    public List<Booking> getBookingsByCreatorId(String id) throws RuntimeException {
+        List<Booking> bookings = db
+                .getAll()
+                .stream()
+                .filter(b -> Objects.equals(b.getCreatorId(), id))
+                .toList();
+        if (bookings.size() == 0) {
+            throw new NoSuchElementException();
+        }
+        return bookings;
+    }
+
+    @Override
+    public int size() {
+        return db.size();
+    }
 
     @Override
     public void upload(List<Booking> bookings) {
@@ -39,6 +83,8 @@ public class ServiceBooking implements IServices<Booking> {
 
     @Override
     public void delete(String id) throws RuntimeException {
-        throw new RuntimeException("Create method");
+        if (!db.delete(id)) {
+            throw new RuntimeException(String.format("Error delete booking with ID:%s", id));
+        }
     }
 }

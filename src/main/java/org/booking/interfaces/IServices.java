@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IServices<T extends Entity> {
 
+    int size();
+
     void upload(List<T> lists);
 
     List<T> getAll();

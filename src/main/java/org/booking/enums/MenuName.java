@@ -4,11 +4,12 @@ public enum MenuName {
     FLIGHT_SCHEDULES("Flight schedules"),
     FLIGHT_INFO("View flight information"),
     BOOKING("Search & booking"),
-    BOOKING_CANCEL("Cancel the reservation"),
+    BOOKING_CANCEL("Cancel booking"),
     BOOKING_VIEW("View bookings"),
+    BOOKING_VIEW_LOGIN("My bookings"),
     LOGIN("Login"),
-    REGISTER("Register"),
-    GUEST("continue as Guest"),
+    REGISTER("Registration"),
+    GUEST("Continue as Guest"),
     LOGOUT("Logout");
 
     public final String title;

@@ -2,6 +2,7 @@ package org.booking.dao;
 
 import org.booking.entity.Entity;
 import org.booking.interfaces.IDao;
+import org.booking.utils.Console;
 
 import java.util.*;
 
@@ -58,6 +59,4 @@ public abstract class Dao<T extends Entity> implements IDao<T> {
         // TODO: 21.04.2023 insert Logger. Use getSimpleName() for get entity classname.
         entities.forEach(this::add);
     }
-
-
 }

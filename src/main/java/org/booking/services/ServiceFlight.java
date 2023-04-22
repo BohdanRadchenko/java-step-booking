@@ -3,11 +3,19 @@ package org.booking.services;
 import org.booking.dao.FlightDao;
 import org.booking.entity.Flight;
 import org.booking.interfaces.IServices;
+import org.booking.utils.Console;
+import org.booking.utils.DateUtil;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ServiceFlight implements IServices<Flight> {
     private final FlightDao db = new FlightDao();
+
+    @Override
+    public int size() {
+        return db.size();
+    }
 
     @Override
     public void upload(List<Flight> flights) {
@@ -40,5 +48,22 @@ public class ServiceFlight implements IServices<Flight> {
     @Override
     public void delete(String id) throws RuntimeException {
         throw new RuntimeException("Create method");
+    }
+
+    public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
+        long time = DateUtil
+                .of()
+                .round((3600000))
+                .plusHours(hour)
+                .getMillis();
+
+        List<Flight> list = getAll()
+                .stream()
+                .filter(f -> f.getDepartureTimeStamp() <= time)
+                .toList();
+        if (list.size() == 0) {
+            throw new RuntimeException("Nothing to found");
+        }
+        return list;
     }
 }

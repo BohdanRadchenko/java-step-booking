@@ -4,12 +4,15 @@ import org.booking.dao.UserDao;
 import org.booking.entity.User;
 import org.booking.interfaces.IServices;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ServiceUser implements IServices<User> {
     private final UserDao db = new UserDao();
 
+    @Override
     public int size() {
         return db.size();
     }
@@ -37,9 +40,23 @@ public class ServiceUser implements IServices<User> {
         return f;
     }
 
+    public User getByFullName(String fullName) throws RuntimeException {
+        String[] strings = fullName.split(" ");
+        Optional<User> user = getAll()
+                .stream()
+                .filter(u -> Arrays.stream(strings).anyMatch(u.getFirstName()::contains))
+                .filter(u -> Arrays.stream(strings).anyMatch(u.getLastName()::contains))
+                .findFirst();
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        return user.get();
+    }
+
     public User getByLogin(String login) throws RuntimeException {
         Optional<User> user = getAll()
                 .stream()
+                .filter(u -> u.getLogin() != null)
                 .filter(u -> u.getLogin().equals(login))
                 .findFirst();
         if (user.isEmpty()) {
@@ -49,8 +66,8 @@ public class ServiceUser implements IServices<User> {
     }
 
     @Override
-    public void add(User entity) throws RuntimeException {
-        throw new RuntimeException("Create method");
+    public void add(User user) throws RuntimeException {
+        db.add(user);
     }
 
     @Override
