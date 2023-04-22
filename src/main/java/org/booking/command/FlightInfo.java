@@ -40,8 +40,7 @@ public class FlightInfo extends Command {
         String flightId = enterFlightId();
         Flight flight = controller.flight.getByFlightId(flightId);
         displayFlight(flight);
-
-
+        
         /*
          * Пользователю предлагается ввести айди рейса.
          * Далее по этому рейсу выводится вся информация
