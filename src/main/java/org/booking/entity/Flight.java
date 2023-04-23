@@ -1,6 +1,8 @@
 package org.booking.entity;
 
 import org.booking.helpers.Utm;
+import org.booking.utils.DateUtil;
+import org.booking.utils.StringWorker;
 
 import java.util.*;
 

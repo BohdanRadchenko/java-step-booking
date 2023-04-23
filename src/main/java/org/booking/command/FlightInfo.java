@@ -33,7 +33,7 @@ public class FlightInfo extends Command {
             Console.warning("Nothing found!");
             return;
         }
-        Console.title(PrettyFormat.flight(flight));
+        Console.title(flight.toString());
     }
 
     @Override

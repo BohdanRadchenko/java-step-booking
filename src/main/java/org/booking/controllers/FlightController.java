@@ -5,7 +5,6 @@ import org.booking.enums.FilePath;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
 import org.booking.utils.DateUtil;
-import org.booking.utils.DateUtil;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Logger;
 import org.booking.utils.Randomize;
@@ -69,7 +68,7 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(10));
+            service.upload(generateFlights(100));
             return service.size();
         }
         ArrayList<Flight> f = new ArrayList<>();
@@ -80,9 +79,8 @@ public class FlightController implements IController {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return 0;
+        return service.size();
         // TODO: 20.04.2023 load data from file.
-
 
     }
 
