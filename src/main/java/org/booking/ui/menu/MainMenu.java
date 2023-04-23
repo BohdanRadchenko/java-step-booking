@@ -16,10 +16,11 @@ public class MainMenu extends Menu {
         MenuName bookingTitle = isAuth
                 ? MenuName.BOOKING_VIEW_LOGIN
                 : MenuName.BOOKING_VIEW;
+        String bookingsViewDesc = isAuth ? null : MenuDescription.bookingView();
         add(MenuName.FLIGHT_SCHEDULES, FlightSchedules.of(controller));
         add(MenuName.FLIGHT_INFO, FlightInfo.of(controller), MenuDescription.flightInfo());
-        add(MenuName.BOOKING, Booking.of(controller), MenuDescription.booking());
-        add(bookingTitle, BookingView.of(controller), MenuDescription.bookingView());
+        add(MenuName.BOOKING, BookingCreate.of(controller), MenuDescription.booking());
+        add(bookingTitle, BookingView.of(controller), bookingsViewDesc);
         add(MenuName.BOOKING_CANCEL, BookingCancel.of(controller), MenuDescription.bookingCancel());
         if (isAuth) {
             add(MenuName.LOGOUT, AuthLogout.of(controller), false);

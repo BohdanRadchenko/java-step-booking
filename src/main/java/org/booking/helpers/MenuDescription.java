@@ -9,7 +9,7 @@ public class MenuDescription {
     }
 
     public static String booking() {
-        return "Enter FLIGHT data or 'Back' to main menu";
+        return String.format("'%d' - show airports or 'Back' to main menu", Constants.helpCode);
     }
 
     public static String bookingCancel() {

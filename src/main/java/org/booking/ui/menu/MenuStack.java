@@ -33,10 +33,14 @@ public class MenuStack {
 
     public static void back() {
         stack.pop();
-        if (!isEmpty()) {
-            stack.peek().run();
+        if (isEmpty()) {
+            setIsExit(true);
             return;
         }
-        setIsExit(true);
+        stack.peek().run();
+    }
+
+    public static void refresh() {
+        stack.peek().run();
     }
 }

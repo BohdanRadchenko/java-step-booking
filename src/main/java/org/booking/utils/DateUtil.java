@@ -74,9 +74,17 @@ public class DateUtil {
         return DateUtil.of(timeStamp);
     }
 
+    public static DateUtil of(int year, int month, int day) {
+        return of(year, month, day, 0, 0);
+    }
+
     @Override
     public int hashCode() {
         return new Date(this.timestamp).hashCode();
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 
     /**
@@ -176,6 +184,15 @@ public class DateUtil {
         return DateUtil.of(ms);
     }
 
+    private DateUtil withOverflow(long timestamp) {
+        this.timestamp = timestamp;
+        this.date = new Date(timestamp);
+        localDateTime = Instant.ofEpochMilli(timestamp)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+        return DateUtil.of(timestamp);
+    }
+
     /**
      * DateUtil instance.plusDays
      *
@@ -239,6 +256,7 @@ public class DateUtil {
      * @return new DateUtil instance
      */
     public DateUtil round(long ms) {
+        withOverflow(this.timestamp / ms * ms);
         return new DateUtil(this.timestamp / ms * ms);
     }
 
@@ -248,6 +266,50 @@ public class DateUtil {
      * @return new DateUtil instance
      */
     public DateUtil round() {
-        return round(15 * 60 * 1000);
+        return round(30 * 60 * 1000);
+    }
+
+    /**
+     * Round to current dat
+     *
+     * @return new DateUtil instance
+     */
+    public DateUtil roundDay() {
+        return round(86400000);
+    }
+
+    /**
+     * Get length of moth
+     *
+     * @param year  int year
+     * @param month int month from 1 to 12
+     * @return int length of this month
+     */
+    public static int lengthOfMonth(int year, int month) {
+        return YearMonth.of(year, month).lengthOfMonth();
+    }
+
+    /**
+     * Get different between time in Duration
+     *
+     * @param start long time in ms
+     * @param end   long time in ms
+     * @return Duration
+     */
+    public static Duration betweenDuration(long start, long end) {
+        return Duration.between(Instant.ofEpochMilli(start), Instant.ofEpochMilli(end));
+    }
+
+    /**
+     * Get different between time in Period
+     *
+     * @param start long time in ms
+     * @param end   long time in ms
+     * @return Period
+     */
+    public static Period betweenPeriod(long start, long end) {
+        LocalDate localStart = DateUtil.of(start).getLocalDateTime().toLocalDate();
+        LocalDate localEnd = DateUtil.of(end).getLocalDateTime().toLocalDate();
+        return Period.between(localStart, localEnd);
     }
 }

@@ -10,18 +10,24 @@ import java.util.regex.Pattern;
 public class Parser {
     private static final Set<String> exitWords = Set.of("exit", "ex", "e", "quit", "q", String.valueOf(Constants.exitCode));
     private static final Set<String> backWords = Set.of("back", "b");
+    private static final Set<String> helpWords = Set.of("help", "h", String.valueOf(Constants.helpCode));
 
-    private static boolean containsWords(String str, Set<String> words) {
+    public static boolean containsWords(String str, Set<String> words) {
         return Arrays.stream(str.split(" ")).anyMatch(words::contains);
     }
 
     public static boolean parseIsExit(String str) {
-        return containsWords(str, exitWords);
+        return containsWords(StringWorker.toLowerCase(str), exitWords);
     }
 
     public static boolean parseIsBack(String str) {
-        return containsWords(str, backWords);
+        return containsWords(StringWorker.toLowerCase(str), backWords);
     }
+
+    public static boolean parseIsHelp(String str) {
+        return containsWords(StringWorker.toLowerCase(str), helpWords);
+    }
+
 
     public static int parseInt(String str) throws NumberFormatException {
         try {

@@ -2,11 +2,17 @@ package org.booking.command;
 
 import org.booking.controllers.Controller;
 import org.booking.entity.Booking;
+import org.booking.entity.Flight;
 import org.booking.entity.User;
 import org.booking.enums.Message;
 import org.booking.utils.Console;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class BookingView extends Command {
     public BookingView(Controller controller) {
@@ -27,21 +33,22 @@ public class BookingView extends Command {
         return controller.user.getUserByFullName(fullName);
     }
 
-    private void displayBooking(Booking booking) {
-        Console.log(booking.getId());
+    private void displayBooking(int i, Booking booking) {
+        List<String> stringList = Arrays.stream(booking.toString().split("\n")).toList();
+        if (i % 2 == 0) {
+            stringList.forEach(Console::table2);
+        } else {
+            stringList.forEach(Console::table1);
+        }
     }
 
-    private void displayBookings(List<Booking> bookingByPassenger, List<Booking> bookingByCreator) {
-        if (bookingByPassenger.size() != 0) {
-            bookingByPassenger.forEach(this::displayBooking);
-        }
-        if (bookingByCreator.size() != 0) {
-            bookingByCreator
-                    .stream()
-                    .filter(b -> !b.getCreatorId().equals(b.getPassengerId()))
-                    .forEach(this::displayBooking);
-        }
+    private void displayBookings(List<Booking> bookings) {
+        Console.table1(Flight.prettyFormatShortHead());
+        IntStream
+                .range(0, bookings.size())
+                .forEach(i -> displayBooking(i, bookings.get(i)));
     }
+
 
     @Override
     public void execute() {
@@ -52,13 +59,7 @@ public class BookingView extends Command {
             user = getUserByFullName();
         }
         if (user == null) return;
-        List<Booking> bookingListByPassenger = controller.booking.getBookingsByPassengerId(user.getId());
-        List<Booking> bookingListByCreator = controller.booking.getBookingsByCreatorId(user.getId());
-        displayBookings(bookingListByPassenger, bookingListByCreator);
-        /*
-         * Пользователю предлагается ввести фамилию и имя.
-         * После этого на экран выводится список всех бронирований,
-         * которые были сделаны данным пользователем или в которых он является пассажиром.
-         * */
+        List<Booking> bookings = controller.booking.getBookingsByUserId(user.getId());
+        displayBookings(bookings);
     }
 }

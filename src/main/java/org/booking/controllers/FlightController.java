@@ -25,13 +25,13 @@ public class FlightController implements IController {
         List<Long> timeList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
-            timeList.add(date.plusMinutes(15).getMillis());
+            timeList.add(date.plusMinutes(30).getMillis());
         }
         return timeList;
     }
 
     private List<Flight> generateFlights(int count) {
-        // TODO: 21.04.2023 MVP2
+        // TODO: 21.04.2023 MVP2 in SB-087
         // TODO: 21.04.2023 create airport from generator
         // TODO: 21.04.2023 create airport to generator
         // TODO: 21.04.2023 create flight id generator
@@ -44,9 +44,22 @@ public class FlightController implements IController {
             int id = Randomize.num(999);
             Aircraft aircraft = Aircraft.values()[Randomize.num(Aircraft.values().length)];
             Airline airline = Airline.values()[Randomize.num(Airline.values().length)];
-            int fromIdx = 0;
+            int fromIdx = Randomize.num(0, Airport.values().length);
+            int toIdx = Randomize.num(0, Airport.values().length, fromIdx);
+
+            // TODO: 23.04.2023 Remove test code in release
+            if (i == 0) {
+                fromIdx = 0;
+                toIdx = 6;
+            } else if (i == 1) {
+                fromIdx = 6;
+                toIdx = 2;
+                long t = DateUtil.of(times.get(i)).plusHours(5).getMillis();
+                times.set(i, t);
+            }
+
             Airport from = Airport.values()[fromIdx];
-            Airport to = Airport.values()[Randomize.num(0, Airport.values().length, fromIdx)];
+            Airport to = Airport.values()[toIdx];
             flights.add(new Flight(times.get(i), from, to, airline, aircraft, id));
         }
         return flights;
@@ -55,7 +68,7 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(100));
+            service.upload(generateFlights(10));
             return service.size();
         }
         // TODO: 20.04.2023 load data from file. загрузка данных с файла
@@ -88,30 +101,46 @@ public class FlightController implements IController {
         }
     }
 
-    public List<Flight> getFlightNextDay() {
-        List<Flight> flights = new ArrayList<>();
+    public List<Flight> getFlightByTime(long start, long end, int limit) {
         refreshCount++;
+        DateUtil s = DateUtil.of(start);
+        DateUtil e = DateUtil.of(end);
         try {
-            flights = service.getFlightNextHour(24 * refreshCount);
+            List<Flight> flights = service.getFlightsByTime(s.getMillis(), e.getMillis());
+            if (flights.size() < limit && refreshCount <= maxRefreshCount) {
+                return getFlightByTime(start, e.plusHours(24).getMillis(), limit);
+            }
+            return flights.stream().limit(limit).toList();
         } catch (RuntimeException ex) {
-            if (refreshCount < maxRefreshCount) {
-                return getFlightNextDay();
-            }
-            refreshCount = 0;
-            // TODO: 22.04.2023 insert logger nothing to next 24 * REFRESH_COUNT hours
+            return getFlightByTime(start, e.plusHours(24).getMillis(), limit);
         }
-        List<Flight> mustFlights = new ArrayList<>();
-        if (flights.size() < 100) {
-            try {
-                mustFlights.addAll(service.getFlightNextHour(24 * refreshCount + 24));
-            } catch (RuntimeException ignored) {
-                Logger.error("Must upload exception");
-            }
-        }
+    }
+
+    public List<Flight> getFlightNextDay() {
+        DateUtil now = DateUtil.of();
+        DateUtil next = DateUtil.of().plusDays(1);
+        int limit = 100;
+        List<Flight> flights = getFlightByTime(now.getMillis(), next.getMillis(), limit);
         List<Flight> sortedList = new ArrayList<>(flights);
         Collections.sort(sortedList);
-        Collections.sort(mustFlights);
-        sortedList.addAll(mustFlights);
-        return sortedList.stream().limit(Math.max(flights.size(), 100)).toList();
+        return sortedList;
+    }
+
+    public List<List<Flight>> getFlightsForBooking(Airport from, Airport to, long time, int seats) {
+        try {
+            List<List<Flight>> res = new ArrayList<>();
+            service.getFlightsForBooking(from, to, time, seats)
+                    .forEach(f -> {
+                        ArrayList<Flight> fls = new ArrayList<>();
+                        fls.add(f);
+                        res.add(fls);
+                    });
+            if (res.size() == 0) {
+                throw new RuntimeException("Nothing found!");
+            }
+            return res;
+        } catch (RuntimeException ex) {
+            return service.getFlightsForBookingWithTrans(from, to, time, seats);
+        }
     }
 }
