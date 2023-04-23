@@ -13,7 +13,7 @@ public class Validation {
 
     public static boolean bookingId(String str) {
         try {
-            Parser.parseRegex(str, "\\w{3}\\d{1}");
+            Parser.parseRegex(str, "\\w{2}\\d{4}");
             return true;
         } catch (RuntimeException ignored) {
             return false;
@@ -30,8 +30,8 @@ public class Validation {
     }
 
     public static boolean bookingDate(String str) {
-        String separatorPattern = "[/.-_ ]{1}";
-        String pattern = String.format("\\d{1,2}%s\\d{1,2}%s\\d{4}", separatorPattern, separatorPattern);
+        String separatorPattern = "[/.\\-_ ]{1}";
+        String pattern = String.format("\\d{1,2}%s\\d{1,2}%s\\d{2,4}", separatorPattern, separatorPattern);
         try {
             Parser.parseRegex(str, pattern);
             return true;

@@ -58,7 +58,7 @@ public class Console extends Input implements ConsoleColors {
 
     public static void table1(String string, boolean full) {
         String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
-        String format = full ? String.format("%s\n", reduce) : String.format("%-120s%s\n", reduce, RESET);
+        String format = full ? String.format("%s\n", reduce) : String.format("%-131s%s\n", reduce, RESET);
         print(format);
         reset();
     }
@@ -70,7 +70,7 @@ public class Console extends Input implements ConsoleColors {
     public static void table2(String string, boolean full) {
         String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
         String c = String.format("%s%s", BLACK, WHITE_BACKGROUND);
-        String text = full ? String.format("%s\n", reduce) : String.format("%-120s%s\n", reduce, RESET);
+        String text = full ? String.format("%s\n", reduce) : String.format("%-131s%s\n", reduce, RESET);
         print(String.format("%s%s", c, text));
         reset();
     }

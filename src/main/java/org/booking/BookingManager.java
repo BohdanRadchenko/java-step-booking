@@ -2,6 +2,7 @@ package org.booking;
 
 import org.booking.controllers.Controller;
 import org.booking.entity.User;
+import org.booking.helpers.PrettyFormat;
 import org.booking.ui.menu.AuthMenu;
 import org.booking.ui.menu.MainMenu;
 import org.booking.ui.menu.Menu;

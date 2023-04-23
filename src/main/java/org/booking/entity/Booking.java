@@ -1,9 +1,7 @@
 package org.booking.entity;
 
-import org.booking.helpers.Constants;
 import org.booking.helpers.PrettyFormat;
 import org.booking.utils.DateUtil;
-import org.booking.utils.Parser;
 
 public class Booking extends Entity implements Comparable<Booking> {
     private final String code;
@@ -13,11 +11,11 @@ public class Booking extends Entity implements Comparable<Booking> {
     private final User passenger;
 
     public Booking(Flight flight, User creator, User passenger) {
-        this.code = createCode();
         this.time = DateUtil.of().getMillis();
         this.flight = flight;
         this.creator = creator;
         this.passenger = passenger;
+        this.code = createCode();
     }
 
     public Booking(Flight flight, User user) {
@@ -25,26 +23,18 @@ public class Booking extends Entity implements Comparable<Booking> {
     }
 
     private String createCode() {
-        String[] split = String.valueOf(String.format("%04d", bookingCounter)).split("");
-        StringBuilder stringBuilder = new StringBuilder();
+        int nano = DateUtil.of(time).getNano();
 
-        for (int i = split.length - Constants.SLICE_LENGTH; i < split.length; i++) {
-            int num;
-            try {
-                num = Parser.parseInt(split[i]);
-            } catch (NumberFormatException ignored) {
-                num = 0;
-            }
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.flight.getFrom().countryShort);
+        sb.append(bookingCounter);
 
-            int idx = split.length - i;
-            if (idx <= Constants.WORD_LENGTH) {
-                stringBuilder.append(num);
-                continue;
-            }
-            stringBuilder.append((char) ((num % Constants.CHARS) + 'A'));
+        String[] splitTime = String.valueOf(nano).split("");
+
+        for (int i = 0; i < (4 - String.valueOf(bookingCounter).length()); i++) {
+            sb.append(splitTime[i]);
         }
-
-        return new String(stringBuilder);
+        return new String(sb);
     }
 
     public String getCode() {
@@ -61,6 +51,11 @@ public class Booking extends Entity implements Comparable<Booking> {
 
     public Flight getFlight() {
         return flight;
+    }
+
+    public void cancel() {
+        this.flight.removePassenger(this.passenger);
+        this.passenger.cancelBooking(this);
     }
 
     @Override

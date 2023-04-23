@@ -1,14 +1,14 @@
 package org.booking.enums;
 
 public enum MenuName {
-    FLIGHT_SCHEDULES("Flight schedules"),
-    FLIGHT_INFO("View flight information"),
+    FLIGHT_SCHEDULES("Departure board"),
+    FLIGHT_INFO("Flight info"),
     BOOKING("Search & booking"),
     BOOKING_CANCEL("Cancel booking"),
-    BOOKING_VIEW("View bookings"),
+    BOOKING_VIEW("Bookings"),
     BOOKING_VIEW_LOGIN("My bookings"),
-    LOGIN("Login"),
-    REGISTER("Registration"),
+    LOGIN("Sigh in"),
+    REGISTER("Sign up"),
     GUEST("Continue as Guest"),
     LOGOUT("Logout");
 

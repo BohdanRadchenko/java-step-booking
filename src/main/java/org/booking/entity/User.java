@@ -63,4 +63,8 @@ public class User extends Entity {
     public boolean addBooking(Booking booking) {
         return bookings.add(booking);
     }
+
+    public boolean cancelBooking(Booking booking) {
+        return bookings.remove(booking);
+    }
 }

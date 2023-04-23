@@ -1,7 +1,5 @@
 package org.booking.controllers;
 
-import org.booking.entity.Booking;
-import org.booking.entity.Flight;
 import org.booking.utils.Console;
 import org.booking.utils.Logger;
 

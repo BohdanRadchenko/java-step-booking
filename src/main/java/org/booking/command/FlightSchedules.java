@@ -18,7 +18,7 @@ public class FlightSchedules extends Command {
     }
 
     private void displayFlight(int n, Flight f) {
-        String res = String.format("| %-3d | %s", n, PrettyFormat.flight(f));
+        String res = String.format("| %-3d | %s", n, PrettyFormat.flightFull(f));
 
         if (n % 2 == 0) {
             Console.table1(res);
@@ -35,7 +35,7 @@ public class FlightSchedules extends Command {
             Console.warning(msg);
             return;
         }
-        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightHead()));
+        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead()));
         for (int i = 0; i < flightNextDay.size(); i++) {
             displayFlight(i + 1, flightNextDay.get(i));
         }

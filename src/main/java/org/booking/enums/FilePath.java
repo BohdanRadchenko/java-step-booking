@@ -13,6 +13,6 @@ public enum FilePath {
 
     FilePath(String name) {
         this.name = name;
-        this.path = String.format("%s/%s", Constants.dir, name);
+        this.path = String.format("%s/%s", Constants.dbDir, name);
     }
 }

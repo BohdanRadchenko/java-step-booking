@@ -2,6 +2,7 @@ package org.booking.controllers;
 
 import org.booking.entity.*;
 import org.booking.enums.FilePath;
+import org.booking.helpers.Constants;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
 import org.booking.utils.DateUtil;
@@ -25,18 +26,12 @@ public class FlightController implements IController {
         List<Long> timeList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
-            timeList.add(date.plusMinutes(30).getMillis());
+            timeList.add(date.plusMinutes(15).getMillis());
         }
         return timeList;
     }
 
     private List<Flight> generateFlights(int count) {
-        // TODO: 21.04.2023 MVP2 in SB-087
-        // TODO: 21.04.2023 create airport from generator
-        // TODO: 21.04.2023 create airport to generator
-        // TODO: 21.04.2023 create flight id generator
-        // TODO: 21.04.2023 create generator with MVP2 task
-
         List<Flight> flights = new ArrayList<>();
 
         List<Long> times = generateTime(count);
@@ -46,18 +41,6 @@ public class FlightController implements IController {
             Airline airline = Airline.values()[Randomize.num(Airline.values().length)];
             int fromIdx = Randomize.num(0, Airport.values().length);
             int toIdx = Randomize.num(0, Airport.values().length, fromIdx);
-
-            // TODO: 23.04.2023 Remove test code in release
-            if (i == 0) {
-                fromIdx = 0;
-                toIdx = 6;
-            } else if (i == 1) {
-                fromIdx = 6;
-                toIdx = 2;
-                long t = DateUtil.of(times.get(i)).plusHours(5).getMillis();
-                times.set(i, t);
-            }
-
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[toIdx];
             flights.add(new Flight(times.get(i), from, to, airline, aircraft, id));
@@ -68,17 +51,19 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(10));
+            service.upload(generateFlights(Constants.FLIGHT_RANDOM_COUNT));
             return service.size();
         }
-        // TODO: 20.04.2023 load data from file. загрузка данных с файла
         try {
             List<Flight> flights = FileWorker.readBinary(FilePath.FLIGHT);
             service.upload(flights);
+            if (flights.size() < Constants.FLIGHT_RANDOM_COUNT) {
+                service.upload(generateFlights(Constants.FLIGHT_RANDOM_COUNT));
+            }
+            return service.size();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return 0;
     }
 
     @Override
@@ -140,7 +125,13 @@ public class FlightController implements IController {
             }
             return res;
         } catch (RuntimeException ex) {
-            return service.getFlightsForBookingWithTrans(from, to, time, seats);
+            Logger.error(ex.getMessage());
+            try {
+                return service.getFlightsForBookingWithTrans(from, to, time, seats);
+            } catch (RuntimeException exception) {
+                Logger.error(exception.getMessage());
+                return new ArrayList<>();
+            }
         }
     }
 }

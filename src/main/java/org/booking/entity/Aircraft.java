@@ -18,11 +18,11 @@ public enum Aircraft {
     public final int speed;
     public final int seats;
 
-    Aircraft(String company, String model, int coefficient, int passenger) {
+    Aircraft(String company, String model, int speed, int passenger) {
         this.code = this.name();
         this.company = company;
         this.model = model;
-        this.speed = coefficient;
+        this.speed = speed;
         this.seats = passenger;
 
     }

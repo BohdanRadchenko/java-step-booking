@@ -8,6 +8,7 @@ import org.booking.interfaces.IController;
 import org.booking.services.ServiceBooking;
 import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
+import org.booking.utils.Logger;
 
 import java.io.IOException;
 import java.util.*;
@@ -23,13 +24,14 @@ public class BookingController implements IController {
         try {
             return service.getByCode(code);
         } catch (RuntimeException ex) {
-            // TODO: 22.04.2023 Insert logger
+            Logger.error(ex.getMessage());
             return null;
         }
     }
 
     public boolean cancelBooking(Booking booking) {
         try {
+            booking.cancel();
             service.delete(booking.getId());
             return true;
         } catch (RuntimeException exception) {
