@@ -5,6 +5,7 @@ import org.booking.entity.Airport;
 import org.booking.entity.Flight;
 import org.booking.interfaces.IServices;
 import org.booking.utils.DateUtil;
+import org.booking.utils.StringWorker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class ServiceFlight implements IServices<Flight> {
     public Flight getByFlightId(String flightId) throws RuntimeException {
         Optional<Flight> flight = db.getAll()
                 .stream()
-                .filter(f -> f.getCode().equals(flightId))
+                .filter(f -> StringWorker.toLowerCase(f.getCode()).equals(StringWorker.toLowerCase(flightId)))
                 .findAny();
 
         if (flight.isEmpty()) {
@@ -73,7 +74,7 @@ public class ServiceFlight implements IServices<Flight> {
                 .filter(f -> f.getDepartureTimeStamp() >= start && f.getDepartureTimeStamp() <= end)
                 .toList();
         if (list.size() == 0) {
-            throw new RuntimeException("Nothing to found");
+            throw new RuntimeException("Nothing found!");
         }
         return list;
     }
@@ -111,7 +112,7 @@ public class ServiceFlight implements IServices<Flight> {
                 .toList();
 
         List<List<Flight>> flights = new ArrayList<>();
-        int idx = 0;
+
         for (Flight ff : flightsFrom) {
             for (Flight ft : flightsTo) {
                 if (ff.getTo() != ft.getFrom()) continue;
@@ -126,6 +127,7 @@ public class ServiceFlight implements IServices<Flight> {
                 flights.add(res);
             }
         }
+
         return flights;
     }
 }

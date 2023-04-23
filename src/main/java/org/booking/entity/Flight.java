@@ -1,5 +1,6 @@
 package org.booking.entity;
 
+import org.booking.helpers.PrettyFormat;
 import org.booking.helpers.Utm;
 
 import java.util.*;
@@ -41,9 +42,14 @@ public class Flight extends Entity implements Comparable<Flight> {
         return passengers.add(passenger);
     }
 
+    public boolean removePassenger(User passenger) {
+        return passengers.remove(passenger);
+    }
+
     private long arrivalTimeMls() {
         int distance = Utm.distance(departureAirport, arrivalAirport);
-        long cruiserTime = (long) (distance / aircraft.speed) * 3600000;
+        double cruiser = (double) distance / aircraft.speed;
+        long cruiserTime = cruiser > 1 ? 3600000 : (long) (cruiser * 3600000);
         return this.departureTimeStamp + cruiserTime + 3600000;
     }
 
@@ -75,18 +81,12 @@ public class Flight extends Entity implements Comparable<Flight> {
         return airline;
     }
 
+    public Aircraft getAircraft() {
+        return aircraft;
+    }
+
     public String toString() {
-        String departureTime = String.format("departureTimeStamp=%d", departureTimeStamp);
-        String arrivalTime = String.format("arrivalTimeStamp=%d", arrivalTimeStamp);
-        String depAirport = String.format("departureAirport=%s", departureAirport);
-        String arrAirport = String.format("arrivalAirport=%s", arrivalAirport);
-        String airLine = String.format("airline=%s", airline);
-        String airCraft = String.format("aircraft=%s", aircraft);
-        String fltId = String.format("flightId=%s", flightId);
-        String res = String.format("reserved=%s", passengers);
-        String freeSeat = String.format("freeSeats=%d", freeSeats);
-        return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
-                departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
+        return PrettyFormat.flightFull(this);
     }
 
     @Override

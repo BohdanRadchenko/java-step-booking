@@ -12,19 +12,19 @@ public class Parser {
     private static final Set<String> helpWords = Set.of("help", "h", String.valueOf(Constants.helpCode));
 
     public static boolean containsWords(String str, Set<String> words) {
-        return Arrays.stream(str.split(" ")).anyMatch(words::contains);
+        return Arrays.stream(StringWorker.toLowerCase(str).split(" ")).anyMatch(words::contains);
     }
 
     public static boolean parseIsExit(String str) {
-        return containsWords(StringWorker.toLowerCase(str), exitWords);
+        return containsWords(str, exitWords);
     }
 
     public static boolean parseIsBack(String str) {
-        return containsWords(StringWorker.toLowerCase(str), backWords);
+        return containsWords(str, backWords);
     }
 
     public static boolean parseIsHelp(String str) {
-        return containsWords(StringWorker.toLowerCase(str), helpWords);
+        return containsWords(str, helpWords);
     }
 
     public static boolean parseIsCode(String str) {

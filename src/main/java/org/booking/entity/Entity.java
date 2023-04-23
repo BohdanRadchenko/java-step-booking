@@ -13,10 +13,7 @@ public abstract class Entity implements IEntity, Serializable {
     public static long bookingCounter = 0;
 
     {
-        String className = this.getClass().getSimpleName();
-        if (className.equals("Booking")) {
-            bookingCounter++;
-        }
+        bookingCounter++;
         id = UUID.randomUUID().toString();
     }
 

@@ -8,6 +8,9 @@ import org.booking.helpers.Validation;
 import org.booking.utils.Console;
 
 public class FlightInfo extends Command {
+    private int refreshCounter = 0;
+    private int maxRefresh = 3;
+
     public FlightInfo(Controller controller) {
         super(controller);
     }
@@ -17,13 +20,16 @@ public class FlightInfo extends Command {
     }
 
     private String enterFlightId() {
+        refreshCounter++;
         Console.input(Message.FLIGHT_ENTER_CODE);
         String readString = Console.readString();
         boolean b = Validation.flightId(readString);
 
         if (!b) {
             Console.error("Invalid flight id!");
-            return enterFlightId();
+            if (refreshCounter <= maxRefresh) {
+                return enterFlightId();
+            }
         }
         return readString;
     }
@@ -33,7 +39,8 @@ public class FlightInfo extends Command {
             Console.warning("Nothing found!");
             return;
         }
-        Console.title(PrettyFormat.flight(flight));
+        Console.table1(PrettyFormat.flightFullHead());
+        Console.table2(flight.toString());
     }
 
     @Override
@@ -41,12 +48,5 @@ public class FlightInfo extends Command {
         String flightId = enterFlightId();
         Flight flight = controller.flight.getByFlightId(flightId);
         displayFlight(flight);
-
-        /*
-         * Пользователю предлагается ввести айди рейса.
-         * Далее по этому рейсу выводится вся информация
-         * - дата, время, место назначения, количество свободных мест.
-         * После этого снова отображается главное меню.
-         * */
     }
 }

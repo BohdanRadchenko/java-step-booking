@@ -8,7 +8,7 @@ public class PrettyFormat {
     private static final Flight testFlight = new Flight(
             DateUtil.of().getMillis(), Airport.KBP, Airport.LHR, Airline.UKRAINE_INTERNATIONAL, Aircraft.B777, 23);
     private static final User testUser = new User("test", "test");
-    private static final Booking testBooking = new Booking(testFlight, testUser, testUser);
+    public static final Booking testBooking = new Booking(testFlight, testUser, testUser);
     private static final String separator = "|";
 
     private static String createHeaderString(String th, String tb, boolean center) {
@@ -85,9 +85,10 @@ public class PrettyFormat {
 
     public static String flightFull(Flight flight) {
         String f = flightTime(flight);
+        String aircraft = flight.getAircraft().code;
         String seats = String.format("%-3d", flight.getFreeSeats());
         String aLine = String.format("%s", StringWorker.toUpperCase(flight.getAirline().legalName));
-        return String.format("%s %s %s %s %s\n", f, separator, seats, separator, aLine);
+        return String.format("%s %s %s %s %s %s %s\n", f, separator, seats, separator, aircraft, separator, aLine);
     }
 
     public static String flightHeadShort() {
@@ -107,9 +108,9 @@ public class PrettyFormat {
     }
 
 
-    public static String flightHeadFull() {
-        String[] heads = new String[]{"CODE", "DEP TIME", "FROM | ---> | TO", "ARR TIME", "FPS", "AIRLINE"};
-        boolean[] centers = new boolean[]{true, true, false, true, true, false};
+    public static String flightFullHead() {
+        String[] heads = new String[]{"CODE", "DEP TIME", "FROM | ---> | TO", "ARR TIME", "FPS", "AIRC", "AIRLINE"};
+        boolean[] centers = new boolean[]{true, true, false, true, true, true, false};
         return createHeader(heads, centers, flightFull(testFlight));
     }
 

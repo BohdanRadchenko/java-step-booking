@@ -132,7 +132,7 @@ public class BookingCreate extends Command {
 
     private long parseDate(String date) throws RuntimeException {
         if (!Validation.bookingDate(date)) {
-            throw new RuntimeException("Invalid date format");
+            throw new RuntimeException("Invalid date format (e.q dd/MM/yyyy)");
         }
         List<String> splits = Arrays.stream(date
                         .replace("/", " ")
@@ -150,8 +150,11 @@ public class BookingCreate extends Command {
         int day;
         try {
             year = Parser.parseInt(splits.get(2));
+            if (year < 100) {
+                year += 2000;
+            }
             if (year < currentYear) {
-                throw new RuntimeException("Invalid year");
+                throw new RuntimeException("Invalid year!");
             }
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex.getMessage());
@@ -160,7 +163,7 @@ public class BookingCreate extends Command {
         try {
             month = Parser.parseInt(splits.get(1));
             if (year == currentYear && month < currentMonth) {
-                throw new RuntimeException("Invalid month");
+                throw new RuntimeException("Invalid month!");
             }
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex.getMessage());
@@ -171,7 +174,7 @@ public class BookingCreate extends Command {
             int maxDay = DateUtil.lengthOfMonth(year, month);
             int minDay = year == currentYear && month == currentMonth ? currentDay : 1;
             if (day < minDay || day > maxDay) {
-                throw new RuntimeException("Invalid day");
+                throw new RuntimeException("Invalid day!");
             }
         } catch (RuntimeException ex) {
             throw new RuntimeException(ex.getMessage());
@@ -212,7 +215,7 @@ public class BookingCreate extends Command {
         try {
             int n = Parser.parseInt(readString);
             if (n <= 0) {
-                throw new RuntimeException("Invalid number");
+                throw new RuntimeException("Invalid number!");
             }
             return n;
         } catch (RuntimeException ex) {
@@ -244,9 +247,9 @@ public class BookingCreate extends Command {
                     strings.add(new String(stringBuilder));
                 });
         if (i % 2 == 0) {
-            strings.forEach(idx -> Console.table2(idx, true));
+            strings.forEach(idx -> Console.table2(idx));
         } else {
-            strings.forEach(idx -> Console.table1(idx, true));
+            strings.forEach(idx -> Console.table1(idx));
         }
     }
 
@@ -289,12 +292,15 @@ public class BookingCreate extends Command {
     }
 
     private List<Flight> enterFlight(List<List<Flight>> flights) {
-        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightHeadFull()), true);
+        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead()));
         IntStream.range(0, flights.size())
                 .forEach(i -> {
                     displayFlights(i, flights.get(i));
                 });
-        Console.input(Message.BOOKING_CHOOSE_FLIGHT);
+        Message msg = flights.size() == 1
+                ? Message.BOOKING_CHOOSE_FLIGHT_INDEX
+                : Message.BOOKING_CHOOSE_FLIGHT;
+        Console.input(msg);
         return chooseFlight(flights);
     }
 

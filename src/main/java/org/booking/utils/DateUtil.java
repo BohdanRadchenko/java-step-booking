@@ -177,6 +177,15 @@ public class DateUtil {
         return timestamp;
     }
 
+    /**
+     * DateUtil instance.getNano().
+     *
+     * @return nano
+     */
+    public int getNano() {
+        return localDateTime.getNano();
+    }
+
     private DateUtil withOverflow(LocalDateTime localDateTime) {
         long ms = localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
         this.date = new Date(ms);

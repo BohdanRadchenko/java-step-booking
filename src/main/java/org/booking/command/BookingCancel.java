@@ -19,15 +19,13 @@ public class BookingCancel extends Command {
     private String enterBookingId() {
         Console.input(Message.BOOKING_ENTER_CODE);
         String str = Console.readString();
+
         if (Validation.bookingId(str)) {
             return str;
         }
-        Console.error("Invalid booking id");
+
+        Console.error("Invalid booking code");
         return enterBookingId();
-    }
-
-    private void displayBooking(Booking booking) {
-
     }
 
     @Override
@@ -40,6 +38,7 @@ public class BookingCancel extends Command {
         String bookingId = enterBookingId();
 
         Booking booking = controller.booking.getByCode(bookingId);
+
         if (booking == null) {
             Console.error("Booking not found!");
             return;

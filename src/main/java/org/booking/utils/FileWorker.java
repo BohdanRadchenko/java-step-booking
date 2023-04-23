@@ -12,41 +12,33 @@ public class FileWorker {
     /**
      * Check if file exist
      *
-     * @param filePath enum path to file
+     * @param path string absolute path to file
      * @return file.exist() boolean
      */
-    public static boolean exist(FilePath filePath) {
-        File file = new File(filePath.path);
+    public static boolean exist(String path) {
+        File file = new File(path);
         return file.exists();
     }
 
     /**
-     * Create file or folder
-     *
-     * @param path enum path to file
-     * @return file.exist() boolean
-     */
-    public static boolean create(String path) {
-        File file = new File(path);
-
-        try {
-            if (file.isDirectory()) {
-                return file.mkdir();
-            }
-            return file.createNewFile();
-        } catch (IOException ignored) {
-            return false;
-        }
-    }
-
-    /**
-     * Create file or folder
+     * Check if file exist
      *
      * @param filePath enum path to file
      * @return file.exist() boolean
      */
-    public static boolean create(FilePath filePath) {
-        return create(filePath.path);
+    public static boolean exist(FilePath filePath) {
+        return exist(filePath.path);
+    }
+
+
+    /**
+     * Create folder
+     *
+     * @param path string absolute path to folder
+     */
+    public static boolean createFolder(String path) {
+        File file = new File(path);
+        return file.mkdir();
     }
 
     /**
