@@ -86,6 +86,7 @@ public class Flight extends Entity implements Comparable<Flight> {
 
     @Override
     public String toString() {
+        System.out.println();
         String format = "| %1s | %-10s | %-7s | %-18s | %-31s | %-8s | %-10s |\n";
         String header = String.format(format, "№", "Date", "Time", "Arrival", "Airlines", "Flight", "Free Seats");
         String rowSeparator = "----------------------------------------------------------------------------------------------------------%n";
@@ -94,7 +95,7 @@ public class Flight extends Entity implements Comparable<Flight> {
         String to = String.format("%s", StringWorker.toUpperCase(arrivalAirport.city));
         String row = String.format(format, "1", date, time, to, airline.legalName, code, freeSeats);
 
-        String table = header + rowSeparator + row + rowSeparator;
+        String table = "Information about the selected flight\n" +rowSeparator +header + rowSeparator + row + rowSeparator;
 
         return String.format(table);
     }
