@@ -68,25 +68,26 @@ public class Flight extends Entity implements Comparable<Flight> {
         return String.format("%s | %s | %-12s ---> %12s | %s\n", code, depTime, from, to, aLine);
     }
 
-    public String toString() {
-        String departureTime = String.format("departureTimeStamp=%d", departureTimeStamp);
-        String arrivalTime = String.format("arrivalTimeStamp=%d", arrivalTimeStamp);
-        String depAirport = String.format("departureAirport=%s", departureAirport);
-        String arrAirport = String.format("arrivalAirport=%s", arrivalAirport);
-        String airLine = String.format("airline=%s", airline);
-        String airCraft = String.format("aircraft=%s", aircraft);
-        String fltId = String.format("flightId=%s", flightId);
-        String res = String.format("reserved=%s", passengers);
-        String freeSeat = String.format("freeSeats=%d", freeSeats);
-        return String.format("Flight{%s,%s,%s,%s, %s,%s,%s,%s,%s}",
-                departureTime, arrivalTime, depAirport, arrAirport, airLine, airCraft, fltId, res, freeSeat);
-    }
-
     @Override
     public int compareTo(Flight that) {
         if (this.departureTimeStamp < that.departureTimeStamp) return -1;
         if (this.departureTimeStamp > that.departureTimeStamp) return +1;
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        String format = "| %1s | %-10s | %-7s | %-18s | %-31s | %-8s | %-10s |\n";
+        String header = String.format(format, "№", "Date", "Time", "Arrival", "Airlines", "Flight", "Free Seats");
+        String rowSeparator = "----------------------------------------------------------------------------------------------------------%n";
+        String date = DateUtil.of(departureTimeStamp).formatter("yyyy-MM-dd");
+        String time = DateUtil.of(departureTimeStamp).formatter("HH:mm");
+        String to = String.format("%s", StringWorker.toUpperCase(arrivalAirport.city));
+        String row = String.format(format, "1", date, time, to, airline.legalName, code, freeSeats);
+
+        String table = header + rowSeparator + row + rowSeparator;
+
+        return String.format(table);
     }
 }
 

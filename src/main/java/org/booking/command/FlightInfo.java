@@ -32,8 +32,9 @@ public class FlightInfo extends Command {
             Console.warning("Nothing found!");
             return;
         }
-        Console.title(flight.prettyFormat());
+        Console.title(flight.toString());
     }
+
 
     @Override
     public void execute() {

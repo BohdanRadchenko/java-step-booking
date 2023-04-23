@@ -421,3 +421,1089 @@
 22.04.2023 15:08:26 [INFO]      : Saving flight data. 0
 ----------------------------------------------------------------------------------------------------
 22.04.2023 15:08:26 [EXIT]      : System exit code 0.
+
+22.04.2023 16:07:19 [START]     : ======================= Application started =======================
+22.04.2023 16:07:19 [INFO]      : Loading data...
+22.04.2023 16:07:19 [INFO]      : Loading user data
+22.04.2023 16:07:19 [INFO]      : Loaded 1 users
+22.04.2023 16:07:19 [INFO]      : Loading flight data
+22.04.2023 16:07:19 [INFO]      : Loaded 0 flights
+22.04.2023 16:07:19 [INFO]      : Loading booking data
+22.04.2023 16:07:19 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:07:19 [INFO]      : Show: Auth menu
+22.04.2023 16:07:20 [MESSAGE]   : Enter menu number
+22.04.2023 16:07:28 [COMMAND]   : 3
+22.04.2023 16:07:28 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:07:28 [INFO]      : Show: Main menu
+22.04.2023 16:07:28 [MESSAGE]   : Enter menu number
+22.04.2023 16:07:31 [COMMAND]   : 1
+22.04.2023 16:07:31 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:07:31 [INFO]      : Show: Main menu
+22.04.2023 16:07:31 [MESSAGE]   : Enter menu number
+22.04.2023 16:07:40 [COMMAND]   : 2
+22.04.2023 16:07:40 [INFO]      : Menu Item: View flight information
+22.04.2023 16:07:56 [INFO]      : Show: Main menu
+22.04.2023 16:07:56 [MESSAGE]   : Enter menu number
+22.04.2023 16:08:16 [COMMAND]   : ps672
+22.04.2023 16:08:16 [ERROR]     : Enter menu error: For input string: "ps672"
+22.04.2023 16:08:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:08:21 [COMMAND]   : PS672
+22.04.2023 16:08:21 [ERROR]     : Enter menu error: For input string: "PS672"
+22.04.2023 16:08:21 [MESSAGE]   : Enter menu number
+22.04.2023 16:08:25 [COMMAND]   : 2
+22.04.2023 16:08:25 [INFO]      : Menu Item: View flight information
+22.04.2023 16:08:28 [INFO]      : Show: Main menu
+22.04.2023 16:08:28 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:22:19 [START]     : ======================= Application started =======================
+22.04.2023 16:22:20 [INFO]      : Loading data...
+22.04.2023 16:22:20 [INFO]      : Loading user data
+22.04.2023 16:22:20 [INFO]      : Loaded 1 users
+22.04.2023 16:22:20 [INFO]      : Loading flight data
+22.04.2023 16:22:20 [INFO]      : Loaded 0 flights
+22.04.2023 16:22:20 [INFO]      : Loading booking data
+22.04.2023 16:22:20 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:22:20 [INFO]      : Show: Auth menu
+22.04.2023 16:22:20 [MESSAGE]   : Enter menu number
+22.04.2023 16:22:23 [COMMAND]   : 3
+22.04.2023 16:22:23 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:22:23 [INFO]      : Show: Main menu
+22.04.2023 16:22:23 [MESSAGE]   : Enter menu number
+22.04.2023 16:22:25 [COMMAND]   : 2
+22.04.2023 16:22:25 [INFO]      : Menu Item: View flight information
+22.04.2023 16:22:48 [ERROR]     : Nothing found!
+22.04.2023 16:22:48 [INFO]      : Show: Main menu
+22.04.2023 16:22:48 [MESSAGE]   : Enter menu number
+22.04.2023 16:22:51 [COMMAND]   : 1
+22.04.2023 16:22:51 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:22:52 [INFO]      : Show: Main menu
+22.04.2023 16:22:52 [MESSAGE]   : Enter menu number
+22.04.2023 16:22:59 [COMMAND]   : 2
+22.04.2023 16:22:59 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:23:19 [START]     : ======================= Application started =======================
+22.04.2023 16:23:19 [INFO]      : Loading data...
+22.04.2023 16:23:19 [INFO]      : Loading user data
+22.04.2023 16:23:19 [INFO]      : Loaded 1 users
+22.04.2023 16:23:19 [INFO]      : Loading flight data
+22.04.2023 16:23:19 [INFO]      : Loaded 0 flights
+22.04.2023 16:23:19 [INFO]      : Loading booking data
+22.04.2023 16:23:19 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:23:20 [INFO]      : Show: Auth menu
+22.04.2023 16:23:20 [MESSAGE]   : Enter menu number
+22.04.2023 16:23:24 [COMMAND]   : 3
+22.04.2023 16:23:24 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:23:24 [INFO]      : Show: Main menu
+22.04.2023 16:23:24 [MESSAGE]   : Enter menu number
+22.04.2023 16:23:27 [COMMAND]   : 1
+22.04.2023 16:23:27 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:23:27 [INFO]      : Show: Main menu
+22.04.2023 16:23:27 [MESSAGE]   : Enter menu number
+22.04.2023 16:23:29 [COMMAND]   : 2
+22.04.2023 16:23:29 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:25:32 [START]     : ======================= Application started =======================
+22.04.2023 16:25:32 [INFO]      : Loading data...
+22.04.2023 16:25:32 [INFO]      : Loading user data
+22.04.2023 16:25:32 [INFO]      : Loaded 1 users
+22.04.2023 16:25:32 [INFO]      : Loading flight data
+22.04.2023 16:25:32 [INFO]      : Loaded 0 flights
+22.04.2023 16:25:32 [INFO]      : Loading booking data
+22.04.2023 16:25:32 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:25:32 [INFO]      : Show: Auth menu
+22.04.2023 16:25:32 [MESSAGE]   : Enter menu number
+22.04.2023 16:25:36 [COMMAND]   : 3
+22.04.2023 16:25:36 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:25:36 [INFO]      : Show: Main menu
+22.04.2023 16:25:36 [MESSAGE]   : Enter menu number
+22.04.2023 16:25:38 [COMMAND]   : 2
+22.04.2023 16:25:38 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:26:04 [START]     : ======================= Application started =======================
+22.04.2023 16:26:05 [INFO]      : Loading data...
+22.04.2023 16:26:05 [INFO]      : Loading user data
+22.04.2023 16:26:05 [INFO]      : Loaded 1 users
+22.04.2023 16:26:05 [INFO]      : Loading flight data
+22.04.2023 16:26:05 [INFO]      : Loaded 0 flights
+22.04.2023 16:26:05 [INFO]      : Loading booking data
+22.04.2023 16:26:05 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:26:05 [INFO]      : Show: Auth menu
+22.04.2023 16:26:05 [MESSAGE]   : Enter menu number
+22.04.2023 16:26:07 [COMMAND]   : 1
+22.04.2023 16:26:07 [INFO]      : Menu Item: Login
+
+22.04.2023 16:26:18 [START]     : ======================= Application started =======================
+22.04.2023 16:26:18 [INFO]      : Loading data...
+22.04.2023 16:26:18 [INFO]      : Loading user data
+22.04.2023 16:26:18 [INFO]      : Loaded 1 users
+22.04.2023 16:26:18 [INFO]      : Loading flight data
+22.04.2023 16:26:18 [INFO]      : Loaded 0 flights
+22.04.2023 16:26:19 [INFO]      : Loading booking data
+22.04.2023 16:26:19 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:26:19 [INFO]      : Show: Auth menu
+22.04.2023 16:26:19 [MESSAGE]   : Enter menu number
+22.04.2023 16:26:21 [COMMAND]   : 3
+22.04.2023 16:26:21 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:26:21 [INFO]      : Show: Main menu
+22.04.2023 16:26:21 [MESSAGE]   : Enter menu number
+22.04.2023 16:26:31 [COMMAND]   : 1
+22.04.2023 16:26:31 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:26:31 [INFO]      : Show: Main menu
+22.04.2023 16:26:31 [MESSAGE]   : Enter menu number
+22.04.2023 16:26:32 [COMMAND]   : 2
+22.04.2023 16:26:32 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:27:39 [START]     : ======================= Application started =======================
+22.04.2023 16:27:40 [INFO]      : Loading data...
+22.04.2023 16:27:40 [INFO]      : Loading user data
+22.04.2023 16:27:40 [INFO]      : Loaded 1 users
+22.04.2023 16:27:40 [INFO]      : Loading flight data
+22.04.2023 16:27:40 [INFO]      : Loaded 0 flights
+22.04.2023 16:27:40 [INFO]      : Loading booking data
+22.04.2023 16:27:40 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:27:40 [INFO]      : Show: Auth menu
+22.04.2023 16:27:40 [MESSAGE]   : Enter menu number
+22.04.2023 16:27:43 [COMMAND]   : 3
+22.04.2023 16:27:43 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:27:44 [INFO]      : Show: Main menu
+22.04.2023 16:27:44 [MESSAGE]   : Enter menu number
+22.04.2023 16:27:50 [COMMAND]   : 1
+22.04.2023 16:27:50 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:27:50 [INFO]      : Show: Main menu
+22.04.2023 16:27:50 [MESSAGE]   : Enter menu number
+22.04.2023 16:27:51 [COMMAND]   : 2
+22.04.2023 16:27:51 [INFO]      : Menu Item: View flight information
+22.04.2023 16:27:57 [INFO]      : Show: Main menu
+22.04.2023 16:27:57 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:33:37 [START]     : ======================= Application started =======================
+22.04.2023 16:33:38 [INFO]      : Loading data...
+22.04.2023 16:33:38 [INFO]      : Loading user data
+22.04.2023 16:33:38 [INFO]      : Loaded 1 users
+22.04.2023 16:33:38 [INFO]      : Loading flight data
+22.04.2023 16:33:38 [INFO]      : Loaded 0 flights
+22.04.2023 16:33:38 [INFO]      : Loading booking data
+22.04.2023 16:33:38 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:33:38 [INFO]      : Show: Auth menu
+22.04.2023 16:33:38 [MESSAGE]   : Enter menu number
+22.04.2023 16:33:41 [COMMAND]   : 3
+22.04.2023 16:33:41 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:33:41 [INFO]      : Show: Main menu
+22.04.2023 16:33:41 [MESSAGE]   : Enter menu number
+22.04.2023 16:33:43 [COMMAND]   : 1
+22.04.2023 16:33:43 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:33:44 [INFO]      : Show: Main menu
+22.04.2023 16:33:44 [MESSAGE]   : Enter menu number
+22.04.2023 16:33:45 [COMMAND]   : 2
+22.04.2023 16:33:45 [INFO]      : Menu Item: View flight information
+22.04.2023 16:33:56 [INFO]      : Show: Main menu
+22.04.2023 16:33:56 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:36:55 [START]     : ======================= Application started =======================
+22.04.2023 16:36:55 [INFO]      : Loading data...
+22.04.2023 16:36:55 [INFO]      : Loading user data
+22.04.2023 16:36:56 [INFO]      : Loaded 1 users
+22.04.2023 16:36:56 [INFO]      : Loading flight data
+22.04.2023 16:36:56 [INFO]      : Loaded 0 flights
+22.04.2023 16:36:56 [INFO]      : Loading booking data
+22.04.2023 16:36:56 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:36:56 [INFO]      : Show: Auth menu
+22.04.2023 16:36:56 [MESSAGE]   : Enter menu number
+22.04.2023 16:36:58 [COMMAND]   : 3
+22.04.2023 16:36:58 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:36:58 [INFO]      : Show: Main menu
+22.04.2023 16:36:58 [MESSAGE]   : Enter menu number
+22.04.2023 16:37:02 [COMMAND]   : 1
+22.04.2023 16:37:02 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:37:02 [INFO]      : Show: Main menu
+22.04.2023 16:37:02 [MESSAGE]   : Enter menu number
+22.04.2023 16:37:04 [COMMAND]   : 2
+22.04.2023 16:37:04 [INFO]      : Menu Item: View flight information
+22.04.2023 16:37:08 [ERROR]     : Nothing found!
+22.04.2023 16:37:08 [INFO]      : Show: Main menu
+22.04.2023 16:37:08 [MESSAGE]   : Enter menu number
+22.04.2023 16:37:18 [COMMAND]   : PS672
+22.04.2023 16:37:18 [ERROR]     : Enter menu error: For input string: "PS672"
+22.04.2023 16:37:18 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:38:04 [START]     : ======================= Application started =======================
+22.04.2023 16:38:04 [INFO]      : Loading data...
+22.04.2023 16:38:04 [INFO]      : Loading user data
+22.04.2023 16:38:04 [INFO]      : Loaded 1 users
+22.04.2023 16:38:04 [INFO]      : Loading flight data
+22.04.2023 16:38:04 [INFO]      : Loaded 0 flights
+22.04.2023 16:38:04 [INFO]      : Loading booking data
+22.04.2023 16:38:04 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:38:04 [INFO]      : Show: Auth menu
+22.04.2023 16:38:05 [MESSAGE]   : Enter menu number
+22.04.2023 16:38:07 [COMMAND]   : 1
+22.04.2023 16:38:07 [INFO]      : Menu Item: Login
+
+22.04.2023 16:38:16 [START]     : ======================= Application started =======================
+22.04.2023 16:38:16 [INFO]      : Loading data...
+22.04.2023 16:38:16 [INFO]      : Loading user data
+22.04.2023 16:38:16 [INFO]      : Loaded 1 users
+22.04.2023 16:38:17 [INFO]      : Loading flight data
+22.04.2023 16:38:17 [INFO]      : Loaded 0 flights
+22.04.2023 16:38:17 [INFO]      : Loading booking data
+22.04.2023 16:38:17 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:38:17 [INFO]      : Show: Auth menu
+22.04.2023 16:38:17 [MESSAGE]   : Enter menu number
+22.04.2023 16:38:22 [COMMAND]   : 3
+22.04.2023 16:38:22 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:38:22 [INFO]      : Show: Main menu
+22.04.2023 16:38:22 [MESSAGE]   : Enter menu number
+22.04.2023 16:38:25 [COMMAND]   : 2
+22.04.2023 16:38:25 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:39:10 [START]     : ======================= Application started =======================
+22.04.2023 16:39:10 [INFO]      : Loading data...
+22.04.2023 16:39:10 [INFO]      : Loading user data
+22.04.2023 16:39:10 [INFO]      : Loaded 1 users
+22.04.2023 16:39:10 [INFO]      : Loading flight data
+22.04.2023 16:39:10 [INFO]      : Loaded 0 flights
+22.04.2023 16:39:10 [INFO]      : Loading booking data
+22.04.2023 16:39:11 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:39:11 [INFO]      : Show: Auth menu
+22.04.2023 16:39:11 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:40:51 [START]     : ======================= Application started =======================
+22.04.2023 16:40:51 [INFO]      : Loading data...
+22.04.2023 16:40:51 [INFO]      : Loading user data
+22.04.2023 16:40:51 [INFO]      : Loaded 1 users
+22.04.2023 16:40:51 [INFO]      : Loading flight data
+22.04.2023 16:40:52 [INFO]      : Loaded 0 flights
+22.04.2023 16:40:52 [INFO]      : Loading booking data
+22.04.2023 16:40:52 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:40:52 [INFO]      : Show: Auth menu
+22.04.2023 16:40:52 [MESSAGE]   : Enter menu number
+22.04.2023 16:40:54 [COMMAND]   : 3
+22.04.2023 16:40:54 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:40:54 [INFO]      : Show: Main menu
+22.04.2023 16:40:54 [MESSAGE]   : Enter menu number
+22.04.2023 16:40:59 [COMMAND]   : 2
+22.04.2023 16:40:59 [INFO]      : Menu Item: View flight information
+22.04.2023 16:41:05 [ERROR]     : Nothing found!
+22.04.2023 16:41:05 [INFO]      : Show: Main menu
+22.04.2023 16:41:05 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:11 [COMMAND]   : *** Информация о выбранном рейсе №: PS672 ***
+22.04.2023 16:41:11 [ERROR]     : Enter menu error: For input string: "*** Информация о выбранном рейсе №: PS672 ***"
+22.04.2023 16:41:12 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:12 [COMMAND]   : ----------------------------------------------------------------------------------------%n| № | Дата | Время | Место назначения | Авиалинии | Рейс | Свободных мест |
+22.04.2023 16:41:12 [ERROR]     : Enter menu error: For input string: "----------------------------------------------------------------------------------------%n| № | Дата | Время | Место назначения | Авиалинии | Рейс | Свободных мест |"
+22.04.2023 16:41:12 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:12 [COMMAND]   : |--------------------------------------------------------------------------------------|%n| PS672 | 1682254800000 | 1682254800000 | MRS: France Marseille org.booking.helpers.Utm@7bfcd12c | AUI[code: PS; airline: 566; region: Europe] |    672 |              10 |
+22.04.2023 16:41:12 [ERROR]     : Enter menu error: For input string: "|--------------------------------------------------------------------------------------|%n| PS672 | 1682254800000 | 1682254800000 | MRS: France Marseille org.booking.helpers.Utm@7bfcd12c | AUI[code: PS; airline: 566; region: Europe] |    672 |              10 |"
+22.04.2023 16:41:12 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:12 [COMMAND]   : ----------------------------------------------------------------------------------------%n
+22.04.2023 16:41:12 [ERROR]     : Enter menu error: For input string: "----------------------------------------------------------------------------------------%n"
+22.04.2023 16:41:12 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:14 [COMMAND]   : ----------------------------------------------------------------------------------------------------
+22.04.2023 16:41:14 [ERROR]     : Enter menu error: For input string: "----------------------------------------------------------------------------------------------------"
+22.04.2023 16:41:14 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:16 [COMMAND]   : s
+22.04.2023 16:41:16 [ERROR]     : Enter menu error: For input string: "s"
+22.04.2023 16:41:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:16 [COMMAND]   : asd
+22.04.2023 16:41:16 [ERROR]     : Enter menu error: For input string: "asd"
+22.04.2023 16:41:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:16 [COMMAND]   : a
+22.04.2023 16:41:16 [ERROR]     : Enter menu error: For input string: "a"
+22.04.2023 16:41:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:16 [COMMAND]   : sd
+22.04.2023 16:41:16 [ERROR]     : Enter menu error: For input string: "sd"
+22.04.2023 16:41:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:16 [COMMAND]   : as
+22.04.2023 16:41:16 [ERROR]     : Enter menu error: For input string: "as"
+22.04.2023 16:41:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:17 [COMMAND]   : 
+22.04.2023 16:41:17 [ERROR]     : Enter menu error: For input string: ""
+22.04.2023 16:41:17 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:17 [COMMAND]   : f
+22.04.2023 16:41:17 [ERROR]     : Enter menu error: For input string: "f"
+22.04.2023 16:41:17 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:17 [COMMAND]   : s
+22.04.2023 16:41:17 [ERROR]     : Enter menu error: For input string: "s"
+22.04.2023 16:41:17 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:18 [COMMAND]   : gfsd
+22.04.2023 16:41:18 [ERROR]     : Enter menu error: For input string: "gfsd"
+22.04.2023 16:41:18 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:41:26 [START]     : ======================= Application started =======================
+22.04.2023 16:41:26 [INFO]      : Loading data...
+22.04.2023 16:41:26 [INFO]      : Loading user data
+22.04.2023 16:41:26 [INFO]      : Loaded 1 users
+22.04.2023 16:41:26 [INFO]      : Loading flight data
+22.04.2023 16:41:27 [INFO]      : Loaded 0 flights
+22.04.2023 16:41:27 [INFO]      : Loading booking data
+22.04.2023 16:41:27 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:41:27 [INFO]      : Show: Auth menu
+22.04.2023 16:41:27 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:39 [COMMAND]   : 3
+22.04.2023 16:41:39 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:41:39 [INFO]      : Show: Main menu
+22.04.2023 16:41:39 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:40 [COMMAND]   : 1
+22.04.2023 16:41:40 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:41:40 [INFO]      : Show: Main menu
+22.04.2023 16:41:40 [MESSAGE]   : Enter menu number
+22.04.2023 16:41:41 [COMMAND]   : 2
+22.04.2023 16:41:41 [INFO]      : Menu Item: View flight information
+22.04.2023 16:41:51 [INFO]      : Show: Main menu
+22.04.2023 16:41:51 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:42:40 [START]     : ======================= Application started =======================
+22.04.2023 16:42:40 [INFO]      : Loading data...
+22.04.2023 16:42:40 [INFO]      : Loading user data
+22.04.2023 16:42:41 [INFO]      : Loaded 1 users
+22.04.2023 16:42:41 [INFO]      : Loading flight data
+22.04.2023 16:42:41 [INFO]      : Loaded 0 flights
+22.04.2023 16:42:41 [INFO]      : Loading booking data
+22.04.2023 16:42:41 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:42:41 [INFO]      : Show: Auth menu
+22.04.2023 16:42:41 [MESSAGE]   : Enter menu number
+22.04.2023 16:42:45 [COMMAND]   : 3
+22.04.2023 16:42:45 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:42:45 [INFO]      : Show: Main menu
+22.04.2023 16:42:46 [MESSAGE]   : Enter menu number
+22.04.2023 16:42:51 [COMMAND]   : 1
+22.04.2023 16:42:51 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:42:51 [INFO]      : Show: Main menu
+22.04.2023 16:42:51 [MESSAGE]   : Enter menu number
+22.04.2023 16:42:52 [COMMAND]   : 2
+22.04.2023 16:42:52 [INFO]      : Menu Item: View flight information
+22.04.2023 16:42:57 [ERROR]     : Nothing found!
+22.04.2023 16:42:57 [INFO]      : Show: Main menu
+22.04.2023 16:42:57 [MESSAGE]   : Enter menu number
+22.04.2023 16:43:16 [COMMAND]   : AF223
+22.04.2023 16:43:16 [ERROR]     : Enter menu error: For input string: "AF223"
+22.04.2023 16:43:16 [MESSAGE]   : Enter menu number
+22.04.2023 16:43:20 [COMMAND]   : AF223
+22.04.2023 16:43:20 [ERROR]     : Enter menu error: For input string: "AF223"
+22.04.2023 16:43:20 [MESSAGE]   : Enter menu number
+22.04.2023 16:43:24 [COMMAND]   : 2
+22.04.2023 16:43:24 [INFO]      : Menu Item: View flight information
+22.04.2023 16:43:27 [INFO]      : Show: Main menu
+22.04.2023 16:43:27 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:46:10 [START]     : ======================= Application started =======================
+22.04.2023 16:46:10 [INFO]      : Loading data...
+22.04.2023 16:46:10 [INFO]      : Loading user data
+22.04.2023 16:46:10 [INFO]      : Loaded 1 users
+22.04.2023 16:46:10 [INFO]      : Loading flight data
+22.04.2023 16:46:10 [INFO]      : Loaded 0 flights
+22.04.2023 16:46:10 [INFO]      : Loading booking data
+22.04.2023 16:46:10 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:46:10 [INFO]      : Show: Auth menu
+22.04.2023 16:46:10 [MESSAGE]   : Enter menu number
+22.04.2023 16:46:19 [COMMAND]   : 3
+22.04.2023 16:46:19 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:46:19 [INFO]      : Show: Main menu
+22.04.2023 16:46:19 [MESSAGE]   : Enter menu number
+22.04.2023 16:46:22 [COMMAND]   : 1
+22.04.2023 16:46:22 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:46:22 [INFO]      : Show: Main menu
+22.04.2023 16:46:22 [MESSAGE]   : Enter menu number
+22.04.2023 16:46:24 [COMMAND]   : 2
+22.04.2023 16:46:24 [INFO]      : Menu Item: View flight information
+22.04.2023 16:46:31 [INFO]      : Show: Main menu
+22.04.2023 16:46:31 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:48:48 [START]     : ======================= Application started =======================
+22.04.2023 16:48:48 [INFO]      : Loading data...
+22.04.2023 16:48:48 [INFO]      : Loading user data
+22.04.2023 16:48:48 [INFO]      : Loaded 1 users
+22.04.2023 16:48:48 [INFO]      : Loading flight data
+22.04.2023 16:48:48 [INFO]      : Loaded 0 flights
+22.04.2023 16:48:48 [INFO]      : Loading booking data
+22.04.2023 16:48:48 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:48:48 [INFO]      : Show: Auth menu
+22.04.2023 16:48:48 [MESSAGE]   : Enter menu number
+22.04.2023 16:48:53 [COMMAND]   : 3
+22.04.2023 16:48:53 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:48:53 [INFO]      : Show: Main menu
+22.04.2023 16:48:53 [MESSAGE]   : Enter menu number
+22.04.2023 16:48:57 [COMMAND]   : 1
+22.04.2023 16:48:57 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:48:57 [INFO]      : Show: Main menu
+22.04.2023 16:48:57 [MESSAGE]   : Enter menu number
+22.04.2023 16:48:58 [COMMAND]   : 2
+22.04.2023 16:48:58 [INFO]      : Menu Item: View flight information
+
+22.04.2023 16:50:54 [START]     : ======================= Application started =======================
+22.04.2023 16:50:54 [INFO]      : Loading data...
+22.04.2023 16:50:54 [INFO]      : Loading user data
+22.04.2023 16:50:54 [INFO]      : Loaded 1 users
+22.04.2023 16:50:54 [INFO]      : Loading flight data
+22.04.2023 16:50:54 [INFO]      : Loaded 0 flights
+22.04.2023 16:50:54 [INFO]      : Loading booking data
+22.04.2023 16:50:54 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:50:54 [INFO]      : Show: Auth menu
+22.04.2023 16:50:55 [MESSAGE]   : Enter menu number
+22.04.2023 16:50:57 [COMMAND]   : 3
+22.04.2023 16:50:57 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:50:57 [INFO]      : Show: Main menu
+22.04.2023 16:50:57 [MESSAGE]   : Enter menu number
+22.04.2023 16:51:01 [COMMAND]   : 1
+22.04.2023 16:51:01 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:51:01 [INFO]      : Show: Main menu
+22.04.2023 16:51:01 [MESSAGE]   : Enter menu number
+22.04.2023 16:51:02 [COMMAND]   : 2
+22.04.2023 16:51:02 [INFO]      : Menu Item: View flight information
+22.04.2023 16:51:08 [INFO]      : Show: Main menu
+22.04.2023 16:51:08 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:52:27 [START]     : ======================= Application started =======================
+22.04.2023 16:52:27 [INFO]      : Loading data...
+22.04.2023 16:52:27 [INFO]      : Loading user data
+22.04.2023 16:52:27 [INFO]      : Loaded 1 users
+22.04.2023 16:52:27 [INFO]      : Loading flight data
+22.04.2023 16:52:27 [INFO]      : Loaded 0 flights
+22.04.2023 16:52:27 [INFO]      : Loading booking data
+22.04.2023 16:52:27 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:52:27 [INFO]      : Show: Auth menu
+22.04.2023 16:52:27 [MESSAGE]   : Enter menu number
+22.04.2023 16:52:44 [COMMAND]   : 3
+22.04.2023 16:52:44 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:52:44 [INFO]      : Show: Main menu
+22.04.2023 16:52:44 [MESSAGE]   : Enter menu number
+22.04.2023 16:52:46 [COMMAND]   : 1
+22.04.2023 16:52:46 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:52:46 [INFO]      : Show: Main menu
+22.04.2023 16:52:46 [MESSAGE]   : Enter menu number
+22.04.2023 16:52:47 [COMMAND]   : 2
+22.04.2023 16:52:47 [INFO]      : Menu Item: View flight information
+22.04.2023 16:52:48 [INFO]      : Show: Main menu
+22.04.2023 16:52:48 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:54:39 [START]     : ======================= Application started =======================
+22.04.2023 16:54:39 [INFO]      : Loading data...
+22.04.2023 16:54:39 [INFO]      : Loading user data
+22.04.2023 16:54:39 [INFO]      : Loaded 1 users
+22.04.2023 16:54:39 [INFO]      : Loading flight data
+22.04.2023 16:54:39 [INFO]      : Loaded 0 flights
+22.04.2023 16:54:39 [INFO]      : Loading booking data
+22.04.2023 16:54:39 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:54:39 [INFO]      : Show: Auth menu
+22.04.2023 16:54:39 [MESSAGE]   : Enter menu number
+22.04.2023 16:54:43 [COMMAND]   : 3
+22.04.2023 16:54:43 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:54:43 [INFO]      : Show: Main menu
+22.04.2023 16:54:43 [MESSAGE]   : Enter menu number
+22.04.2023 16:54:45 [COMMAND]   : 1
+22.04.2023 16:54:45 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:54:45 [INFO]      : Show: Main menu
+22.04.2023 16:54:45 [MESSAGE]   : Enter menu number
+22.04.2023 16:54:46 [COMMAND]   : 2
+22.04.2023 16:54:46 [INFO]      : Menu Item: View flight information
+22.04.2023 16:54:59 [INFO]      : Show: Main menu
+22.04.2023 16:54:59 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:55:35 [START]     : ======================= Application started =======================
+22.04.2023 16:55:35 [INFO]      : Loading data...
+22.04.2023 16:55:35 [INFO]      : Loading user data
+22.04.2023 16:55:35 [INFO]      : Loaded 1 users
+22.04.2023 16:55:35 [INFO]      : Loading flight data
+22.04.2023 16:55:35 [INFO]      : Loaded 0 flights
+22.04.2023 16:55:35 [INFO]      : Loading booking data
+22.04.2023 16:55:35 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:55:35 [INFO]      : Show: Auth menu
+22.04.2023 16:55:35 [MESSAGE]   : Enter menu number
+22.04.2023 16:55:39 [COMMAND]   : 3
+22.04.2023 16:55:39 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:55:39 [INFO]      : Show: Main menu
+22.04.2023 16:55:39 [MESSAGE]   : Enter menu number
+22.04.2023 16:55:40 [COMMAND]   : 1
+22.04.2023 16:55:40 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:55:40 [INFO]      : Show: Main menu
+22.04.2023 16:55:40 [MESSAGE]   : Enter menu number
+22.04.2023 16:55:40 [COMMAND]   : 2
+22.04.2023 16:55:40 [INFO]      : Menu Item: View flight information
+22.04.2023 16:55:42 [INFO]      : Show: Main menu
+22.04.2023 16:55:42 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:56:04 [START]     : ======================= Application started =======================
+22.04.2023 16:56:05 [INFO]      : Loading data...
+22.04.2023 16:56:05 [INFO]      : Loading user data
+22.04.2023 16:56:05 [INFO]      : Loaded 1 users
+22.04.2023 16:56:05 [INFO]      : Loading flight data
+22.04.2023 16:56:05 [INFO]      : Loaded 0 flights
+22.04.2023 16:56:05 [INFO]      : Loading booking data
+22.04.2023 16:56:05 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:56:05 [INFO]      : Show: Auth menu
+22.04.2023 16:56:05 [MESSAGE]   : Enter menu number
+22.04.2023 16:56:08 [COMMAND]   : 1
+22.04.2023 16:56:08 [INFO]      : Menu Item: Login
+
+22.04.2023 16:56:19 [START]     : ======================= Application started =======================
+22.04.2023 16:56:20 [INFO]      : Loading data...
+22.04.2023 16:56:20 [INFO]      : Loading user data
+22.04.2023 16:56:20 [INFO]      : Loaded 1 users
+22.04.2023 16:56:20 [INFO]      : Loading flight data
+22.04.2023 16:56:20 [INFO]      : Loaded 0 flights
+22.04.2023 16:56:20 [INFO]      : Loading booking data
+22.04.2023 16:56:20 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:56:20 [INFO]      : Show: Auth menu
+22.04.2023 16:56:20 [MESSAGE]   : Enter menu number
+22.04.2023 16:56:30 [COMMAND]   : 3
+22.04.2023 16:56:30 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:56:30 [INFO]      : Show: Main menu
+22.04.2023 16:56:30 [MESSAGE]   : Enter menu number
+22.04.2023 16:57:05 [COMMAND]   : 1
+22.04.2023 16:57:05 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:57:05 [INFO]      : Show: Main menu
+22.04.2023 16:57:05 [MESSAGE]   : Enter menu number
+22.04.2023 16:57:06 [COMMAND]   : 2
+22.04.2023 16:57:06 [INFO]      : Menu Item: View flight information
+22.04.2023 16:57:08 [INFO]      : Show: Main menu
+22.04.2023 16:57:08 [MESSAGE]   : Enter menu number
+
+22.04.2023 16:58:59 [START]     : ======================= Application started =======================
+22.04.2023 16:58:59 [INFO]      : Loading data...
+22.04.2023 16:58:59 [INFO]      : Loading user data
+22.04.2023 16:59:00 [INFO]      : Loaded 1 users
+22.04.2023 16:59:00 [INFO]      : Loading flight data
+22.04.2023 16:59:00 [INFO]      : Loaded 0 flights
+22.04.2023 16:59:00 [INFO]      : Loading booking data
+22.04.2023 16:59:00 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 16:59:00 [INFO]      : Show: Auth menu
+22.04.2023 16:59:00 [MESSAGE]   : Enter menu number
+22.04.2023 16:59:02 [COMMAND]   : 3
+22.04.2023 16:59:02 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 16:59:02 [INFO]      : Show: Main menu
+22.04.2023 16:59:02 [MESSAGE]   : Enter menu number
+22.04.2023 16:59:04 [COMMAND]   : 1
+22.04.2023 16:59:04 [INFO]      : Menu Item: Flight schedules
+22.04.2023 16:59:04 [INFO]      : Show: Main menu
+22.04.2023 16:59:04 [MESSAGE]   : Enter menu number
+22.04.2023 16:59:05 [COMMAND]   : 2
+22.04.2023 16:59:05 [INFO]      : Menu Item: View flight information
+
+22.04.2023 17:00:35 [START]     : ======================= Application started =======================
+22.04.2023 17:00:35 [INFO]      : Loading data...
+22.04.2023 17:00:35 [INFO]      : Loading user data
+22.04.2023 17:00:35 [INFO]      : Loaded 1 users
+22.04.2023 17:00:35 [INFO]      : Loading flight data
+22.04.2023 17:00:35 [INFO]      : Loaded 0 flights
+22.04.2023 17:00:35 [INFO]      : Loading booking data
+22.04.2023 17:00:35 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:00:35 [INFO]      : Show: Auth menu
+22.04.2023 17:00:35 [MESSAGE]   : Enter menu number
+22.04.2023 17:00:38 [COMMAND]   : 3
+22.04.2023 17:00:38 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:00:38 [INFO]      : Show: Main menu
+22.04.2023 17:00:38 [MESSAGE]   : Enter menu number
+22.04.2023 17:00:39 [COMMAND]   : 1
+22.04.2023 17:00:39 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:00:39 [INFO]      : Show: Main menu
+22.04.2023 17:00:39 [MESSAGE]   : Enter menu number
+22.04.2023 17:00:40 [COMMAND]   : 2
+22.04.2023 17:00:40 [INFO]      : Menu Item: View flight information
+22.04.2023 17:00:49 [INFO]      : Show: Main menu
+22.04.2023 17:00:49 [MESSAGE]   : Enter menu number
+
+22.04.2023 17:01:54 [START]     : ======================= Application started =======================
+22.04.2023 17:01:55 [INFO]      : Loading data...
+22.04.2023 17:01:55 [INFO]      : Loading user data
+22.04.2023 17:01:55 [INFO]      : Loaded 1 users
+22.04.2023 17:01:55 [INFO]      : Loading flight data
+22.04.2023 17:01:55 [INFO]      : Loaded 0 flights
+22.04.2023 17:01:55 [INFO]      : Loading booking data
+22.04.2023 17:01:55 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:01:55 [INFO]      : Show: Auth menu
+22.04.2023 17:01:55 [MESSAGE]   : Enter menu number
+22.04.2023 17:01:57 [COMMAND]   : 3
+22.04.2023 17:01:57 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:01:57 [INFO]      : Show: Main menu
+22.04.2023 17:01:57 [MESSAGE]   : Enter menu number
+22.04.2023 17:01:58 [COMMAND]   : 1
+22.04.2023 17:01:58 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:01:58 [INFO]      : Show: Main menu
+22.04.2023 17:01:58 [MESSAGE]   : Enter menu number
+22.04.2023 17:01:58 [COMMAND]   : 2
+22.04.2023 17:01:58 [INFO]      : Menu Item: View flight information
+22.04.2023 17:02:06 [INFO]      : Show: Main menu
+22.04.2023 17:02:06 [MESSAGE]   : Enter menu number
+
+22.04.2023 17:03:04 [START]     : ======================= Application started =======================
+22.04.2023 17:03:04 [INFO]      : Loading data...
+22.04.2023 17:03:04 [INFO]      : Loading user data
+22.04.2023 17:03:04 [INFO]      : Loaded 1 users
+22.04.2023 17:03:04 [INFO]      : Loading flight data
+22.04.2023 17:03:04 [INFO]      : Loaded 0 flights
+22.04.2023 17:03:05 [INFO]      : Loading booking data
+22.04.2023 17:03:05 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:03:05 [INFO]      : Show: Auth menu
+22.04.2023 17:03:05 [MESSAGE]   : Enter menu number
+22.04.2023 17:03:08 [COMMAND]   : 3
+22.04.2023 17:03:08 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:03:08 [INFO]      : Show: Main menu
+22.04.2023 17:03:08 [MESSAGE]   : Enter menu number
+22.04.2023 17:03:09 [COMMAND]   : 1
+22.04.2023 17:03:09 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:03:09 [INFO]      : Show: Main menu
+22.04.2023 17:03:09 [MESSAGE]   : Enter menu number
+22.04.2023 17:03:09 [COMMAND]   : 2
+22.04.2023 17:03:09 [INFO]      : Menu Item: View flight information
+
+22.04.2023 17:05:09 [START]     : ======================= Application started =======================
+22.04.2023 17:05:09 [INFO]      : Loading data...
+22.04.2023 17:05:09 [INFO]      : Loading user data
+22.04.2023 17:05:09 [INFO]      : Loaded 1 users
+22.04.2023 17:05:09 [INFO]      : Loading flight data
+22.04.2023 17:05:10 [INFO]      : Loaded 0 flights
+22.04.2023 17:05:10 [INFO]      : Loading booking data
+22.04.2023 17:05:10 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:05:10 [INFO]      : Show: Auth menu
+22.04.2023 17:05:10 [MESSAGE]   : Enter menu number
+22.04.2023 17:05:12 [COMMAND]   : 3
+22.04.2023 17:05:12 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:05:12 [INFO]      : Show: Main menu
+22.04.2023 17:05:12 [MESSAGE]   : Enter menu number
+22.04.2023 17:05:12 [COMMAND]   : 1
+22.04.2023 17:05:12 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:05:12 [INFO]      : Show: Main menu
+22.04.2023 17:05:12 [MESSAGE]   : Enter menu number
+22.04.2023 17:05:13 [COMMAND]   : 2
+22.04.2023 17:05:13 [INFO]      : Menu Item: View flight information
+
+22.04.2023 17:06:02 [START]     : ======================= Application started =======================
+22.04.2023 17:06:02 [INFO]      : Loading data...
+22.04.2023 17:06:02 [INFO]      : Loading user data
+22.04.2023 17:06:02 [INFO]      : Loaded 1 users
+22.04.2023 17:06:02 [INFO]      : Loading flight data
+22.04.2023 17:06:03 [INFO]      : Loaded 0 flights
+22.04.2023 17:06:03 [INFO]      : Loading booking data
+22.04.2023 17:06:03 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:06:03 [INFO]      : Show: Auth menu
+22.04.2023 17:06:03 [MESSAGE]   : Enter menu number
+22.04.2023 17:06:05 [COMMAND]   : 3
+22.04.2023 17:06:05 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:06:05 [INFO]      : Show: Main menu
+22.04.2023 17:06:05 [MESSAGE]   : Enter menu number
+22.04.2023 17:06:05 [COMMAND]   : 1
+22.04.2023 17:06:05 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:06:05 [INFO]      : Show: Main menu
+22.04.2023 17:06:05 [MESSAGE]   : Enter menu number
+22.04.2023 17:06:05 [COMMAND]   : 2
+22.04.2023 17:06:05 [INFO]      : Menu Item: View flight information
+22.04.2023 17:06:11 [INFO]      : Show: Main menu
+22.04.2023 17:06:11 [MESSAGE]   : Enter menu number
+
+22.04.2023 17:07:20 [START]     : ======================= Application started =======================
+22.04.2023 17:07:20 [INFO]      : Loading data...
+22.04.2023 17:07:20 [INFO]      : Loading user data
+22.04.2023 17:07:20 [INFO]      : Loaded 1 users
+22.04.2023 17:07:20 [INFO]      : Loading flight data
+22.04.2023 17:07:20 [INFO]      : Loaded 0 flights
+22.04.2023 17:07:20 [INFO]      : Loading booking data
+22.04.2023 17:07:20 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:07:20 [INFO]      : Show: Auth menu
+22.04.2023 17:07:20 [MESSAGE]   : Enter menu number
+22.04.2023 17:07:24 [COMMAND]   : 3
+22.04.2023 17:07:24 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:07:24 [INFO]      : Show: Main menu
+22.04.2023 17:07:24 [MESSAGE]   : Enter menu number
+22.04.2023 17:07:26 [COMMAND]   : 1
+22.04.2023 17:07:26 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:07:26 [INFO]      : Show: Main menu
+22.04.2023 17:07:26 [MESSAGE]   : Enter menu number
+22.04.2023 17:07:26 [COMMAND]   : 2
+22.04.2023 17:07:26 [INFO]      : Menu Item: View flight information
+22.04.2023 17:07:33 [INFO]      : Show: Main menu
+22.04.2023 17:07:33 [MESSAGE]   : Enter menu number
+
+22.04.2023 17:10:11 [START]     : ======================= Application started =======================
+22.04.2023 17:10:11 [INFO]      : Loading data...
+22.04.2023 17:10:11 [INFO]      : Loading user data
+22.04.2023 17:10:11 [INFO]      : Loaded 1 users
+22.04.2023 17:10:11 [INFO]      : Loading flight data
+22.04.2023 17:10:11 [INFO]      : Loaded 0 flights
+22.04.2023 17:10:11 [INFO]      : Loading booking data
+22.04.2023 17:10:11 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:10:11 [INFO]      : Show: Auth menu
+22.04.2023 17:10:11 [MESSAGE]   : Enter menu number
+22.04.2023 17:10:14 [COMMAND]   : 3
+22.04.2023 17:10:14 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:10:14 [INFO]      : Show: Main menu
+22.04.2023 17:10:15 [MESSAGE]   : Enter menu number
+22.04.2023 17:10:15 [COMMAND]   : 1
+22.04.2023 17:10:15 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:10:15 [INFO]      : Show: Main menu
+22.04.2023 17:10:15 [MESSAGE]   : Enter menu number
+22.04.2023 17:10:16 [COMMAND]   : 2
+22.04.2023 17:10:16 [INFO]      : Menu Item: View flight information
+22.04.2023 17:10:23 [INFO]      : Show: Main menu
+22.04.2023 17:10:23 [MESSAGE]   : Enter menu number
+
+22.04.2023 17:11:02 [START]     : ======================= Application started =======================
+22.04.2023 17:11:02 [INFO]      : Loading data...
+22.04.2023 17:11:02 [INFO]      : Loading user data
+22.04.2023 17:11:03 [INFO]      : Loaded 1 users
+22.04.2023 17:11:03 [INFO]      : Loading flight data
+22.04.2023 17:11:03 [INFO]      : Loaded 0 flights
+22.04.2023 17:11:03 [INFO]      : Loading booking data
+22.04.2023 17:11:03 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+22.04.2023 17:11:03 [INFO]      : Show: Auth menu
+22.04.2023 17:11:03 [MESSAGE]   : Enter menu number
+22.04.2023 17:11:05 [COMMAND]   : 3
+22.04.2023 17:11:05 [INFO]      : Menu Item: Continue as Guest
+22.04.2023 17:11:05 [INFO]      : Show: Main menu
+22.04.2023 17:11:05 [MESSAGE]   : Enter menu number
+22.04.2023 17:11:06 [COMMAND]   : 1
+22.04.2023 17:11:06 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:11:06 [INFO]      : Show: Main menu
+22.04.2023 17:11:06 [MESSAGE]   : Enter menu number
+22.04.2023 17:11:06 [COMMAND]   : 
+22.04.2023 17:11:06 [ERROR]     : Enter menu error: For input string: ""
+22.04.2023 17:11:06 [MESSAGE]   : Enter menu number
+22.04.2023 17:11:12 [COMMAND]   : 1
+22.04.2023 17:11:12 [INFO]      : Menu Item: Flight schedules
+22.04.2023 17:11:12 [INFO]      : Show: Main menu
+22.04.2023 17:11:12 [MESSAGE]   : Enter menu number
+22.04.2023 17:11:15 [COMMAND]   : 2
+22.04.2023 17:11:15 [INFO]      : Menu Item: View flight information
+22.04.2023 17:11:21 [INFO]      : Show: Main menu
+22.04.2023 17:11:21 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:03:57 [START]     : ======================= Application started =======================
+23.04.2023 14:03:57 [INFO]      : Loading data...
+23.04.2023 14:03:57 [INFO]      : Loading user data
+23.04.2023 14:03:57 [INFO]      : Loaded 1 users
+23.04.2023 14:03:57 [INFO]      : Loading flight data
+23.04.2023 14:03:57 [INFO]      : Loaded 0 flights
+23.04.2023 14:03:58 [INFO]      : Loading booking data
+23.04.2023 14:03:58 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:03:58 [INFO]      : Show: Auth menu
+23.04.2023 14:03:58 [MESSAGE]   : Enter menu number
+23.04.2023 14:04:00 [COMMAND]   : 3
+23.04.2023 14:04:00 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:04:00 [INFO]      : Show: Main menu
+23.04.2023 14:04:01 [MESSAGE]   : Enter menu number
+23.04.2023 14:04:02 [COMMAND]   : 1
+23.04.2023 14:04:02 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:04:02 [INFO]      : Show: Main menu
+23.04.2023 14:04:02 [MESSAGE]   : Enter menu number
+23.04.2023 14:04:03 [COMMAND]   : 2
+23.04.2023 14:04:03 [INFO]      : Menu Item: View flight information
+23.04.2023 14:04:09 [INFO]      : Show: Main menu
+23.04.2023 14:04:09 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:04:47 [START]     : ======================= Application started =======================
+23.04.2023 14:04:47 [INFO]      : Loading data...
+23.04.2023 14:04:47 [INFO]      : Loading user data
+23.04.2023 14:04:47 [INFO]      : Loaded 1 users
+23.04.2023 14:04:47 [INFO]      : Loading flight data
+23.04.2023 14:04:47 [INFO]      : Loaded 0 flights
+23.04.2023 14:04:47 [INFO]      : Loading booking data
+23.04.2023 14:04:47 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:04:47 [INFO]      : Show: Auth menu
+23.04.2023 14:04:47 [MESSAGE]   : Enter menu number
+23.04.2023 14:04:50 [COMMAND]   : 1
+23.04.2023 14:04:50 [INFO]      : Menu Item: Login
+
+23.04.2023 14:06:30 [START]     : ======================= Application started =======================
+23.04.2023 14:06:31 [INFO]      : Loading data...
+23.04.2023 14:06:31 [INFO]      : Loading user data
+23.04.2023 14:06:31 [INFO]      : Loaded 1 users
+23.04.2023 14:06:31 [INFO]      : Loading flight data
+23.04.2023 14:06:31 [INFO]      : Loaded 0 flights
+23.04.2023 14:06:31 [INFO]      : Loading booking data
+23.04.2023 14:06:31 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:06:31 [INFO]      : Show: Auth menu
+23.04.2023 14:06:31 [MESSAGE]   : Enter menu number
+23.04.2023 14:06:34 [COMMAND]   : 3
+23.04.2023 14:06:34 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:06:34 [INFO]      : Show: Main menu
+23.04.2023 14:06:34 [MESSAGE]   : Enter menu number
+23.04.2023 14:06:35 [COMMAND]   : 1
+23.04.2023 14:06:35 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:06:35 [INFO]      : Show: Main menu
+23.04.2023 14:06:35 [MESSAGE]   : Enter menu number
+23.04.2023 14:06:37 [COMMAND]   : 2
+23.04.2023 14:06:37 [INFO]      : Menu Item: View flight information
+23.04.2023 14:06:42 [INFO]      : Show: Main menu
+23.04.2023 14:06:42 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:07:38 [START]     : ======================= Application started =======================
+23.04.2023 14:07:38 [INFO]      : Loading data...
+23.04.2023 14:07:38 [INFO]      : Loading user data
+23.04.2023 14:07:38 [INFO]      : Loaded 1 users
+23.04.2023 14:07:38 [INFO]      : Loading flight data
+23.04.2023 14:07:38 [INFO]      : Loaded 0 flights
+23.04.2023 14:07:38 [INFO]      : Loading booking data
+23.04.2023 14:07:38 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:07:38 [INFO]      : Show: Auth menu
+23.04.2023 14:07:38 [MESSAGE]   : Enter menu number
+23.04.2023 14:07:40 [COMMAND]   : 3
+23.04.2023 14:07:40 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:07:40 [INFO]      : Show: Main menu
+23.04.2023 14:07:40 [MESSAGE]   : Enter menu number
+23.04.2023 14:07:42 [COMMAND]   : 2
+23.04.2023 14:07:42 [INFO]      : Menu Item: View flight information
+23.04.2023 14:07:47 [INFO]      : Show: Main menu
+23.04.2023 14:07:47 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:08:11 [START]     : ======================= Application started =======================
+23.04.2023 14:08:11 [INFO]      : Loading data...
+23.04.2023 14:08:11 [INFO]      : Loading user data
+23.04.2023 14:08:12 [INFO]      : Loaded 1 users
+23.04.2023 14:08:12 [INFO]      : Loading flight data
+23.04.2023 14:08:12 [INFO]      : Loaded 0 flights
+23.04.2023 14:08:12 [INFO]      : Loading booking data
+23.04.2023 14:08:12 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:08:12 [INFO]      : Show: Auth menu
+23.04.2023 14:08:12 [MESSAGE]   : Enter menu number
+23.04.2023 14:08:16 [COMMAND]   : 3
+23.04.2023 14:08:16 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:08:16 [INFO]      : Show: Main menu
+23.04.2023 14:08:16 [MESSAGE]   : Enter menu number
+23.04.2023 14:08:17 [COMMAND]   : 1
+23.04.2023 14:08:17 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:08:17 [INFO]      : Show: Main menu
+23.04.2023 14:08:17 [MESSAGE]   : Enter menu number
+23.04.2023 14:08:17 [COMMAND]   : 2
+23.04.2023 14:08:18 [INFO]      : Menu Item: View flight information
+23.04.2023 14:08:19 [INFO]      : Show: Main menu
+23.04.2023 14:08:19 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:08:53 [START]     : ======================= Application started =======================
+23.04.2023 14:08:53 [INFO]      : Loading data...
+23.04.2023 14:08:53 [INFO]      : Loading user data
+23.04.2023 14:08:53 [INFO]      : Loaded 1 users
+23.04.2023 14:08:53 [INFO]      : Loading flight data
+23.04.2023 14:08:53 [INFO]      : Loaded 0 flights
+23.04.2023 14:08:53 [INFO]      : Loading booking data
+23.04.2023 14:08:53 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:08:53 [INFO]      : Show: Auth menu
+23.04.2023 14:08:53 [MESSAGE]   : Enter menu number
+23.04.2023 14:08:58 [COMMAND]   : 3
+23.04.2023 14:08:58 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:08:58 [INFO]      : Show: Main menu
+23.04.2023 14:08:58 [MESSAGE]   : Enter menu number
+23.04.2023 14:09:00 [COMMAND]   : 1
+23.04.2023 14:09:00 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:09:00 [INFO]      : Show: Main menu
+23.04.2023 14:09:00 [MESSAGE]   : Enter menu number
+23.04.2023 14:09:01 [COMMAND]   : 2
+23.04.2023 14:09:01 [INFO]      : Menu Item: View flight information
+23.04.2023 14:09:03 [INFO]      : Show: Main menu
+23.04.2023 14:09:03 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:09:29 [START]     : ======================= Application started =======================
+23.04.2023 14:09:29 [INFO]      : Loading data...
+23.04.2023 14:09:30 [INFO]      : Loading user data
+23.04.2023 14:09:30 [INFO]      : Loaded 1 users
+23.04.2023 14:09:30 [INFO]      : Loading flight data
+23.04.2023 14:09:30 [INFO]      : Loaded 0 flights
+23.04.2023 14:09:30 [INFO]      : Loading booking data
+23.04.2023 14:09:30 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:09:30 [INFO]      : Show: Auth menu
+23.04.2023 14:09:30 [MESSAGE]   : Enter menu number
+23.04.2023 14:09:32 [COMMAND]   : 3
+23.04.2023 14:09:32 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:09:32 [INFO]      : Show: Main menu
+23.04.2023 14:09:32 [MESSAGE]   : Enter menu number
+23.04.2023 14:09:33 [COMMAND]   : 1
+23.04.2023 14:09:33 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:09:33 [INFO]      : Show: Main menu
+23.04.2023 14:09:33 [MESSAGE]   : Enter menu number
+23.04.2023 14:09:34 [COMMAND]   : 2
+23.04.2023 14:09:34 [INFO]      : Menu Item: View flight information
+23.04.2023 14:09:35 [INFO]      : Show: Main menu
+23.04.2023 14:09:35 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:10:06 [START]     : ======================= Application started =======================
+23.04.2023 14:10:07 [INFO]      : Loading data...
+23.04.2023 14:10:07 [INFO]      : Loading user data
+23.04.2023 14:10:07 [INFO]      : Loaded 1 users
+23.04.2023 14:10:07 [INFO]      : Loading flight data
+23.04.2023 14:10:07 [INFO]      : Loaded 0 flights
+23.04.2023 14:10:07 [INFO]      : Loading booking data
+23.04.2023 14:10:07 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:10:07 [INFO]      : Show: Auth menu
+23.04.2023 14:10:07 [MESSAGE]   : Enter menu number
+23.04.2023 14:10:09 [COMMAND]   : 3
+23.04.2023 14:10:09 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:10:09 [INFO]      : Show: Main menu
+23.04.2023 14:10:09 [MESSAGE]   : Enter menu number
+23.04.2023 14:10:10 [COMMAND]   : 1
+23.04.2023 14:10:10 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:10:10 [INFO]      : Show: Main menu
+23.04.2023 14:10:10 [MESSAGE]   : Enter menu number
+23.04.2023 14:10:11 [COMMAND]   : 2
+23.04.2023 14:10:11 [INFO]      : Menu Item: View flight information
+23.04.2023 14:10:12 [INFO]      : Show: Main menu
+23.04.2023 14:10:12 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:10:55 [START]     : ======================= Application started =======================
+23.04.2023 14:10:56 [INFO]      : Loading data...
+23.04.2023 14:10:56 [INFO]      : Loading user data
+23.04.2023 14:10:56 [INFO]      : Loaded 1 users
+23.04.2023 14:10:56 [INFO]      : Loading flight data
+23.04.2023 14:10:56 [INFO]      : Loaded 0 flights
+23.04.2023 14:10:56 [INFO]      : Loading booking data
+23.04.2023 14:10:56 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:10:56 [INFO]      : Show: Auth menu
+23.04.2023 14:10:56 [MESSAGE]   : Enter menu number
+23.04.2023 14:10:59 [COMMAND]   : 3
+23.04.2023 14:10:59 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:10:59 [INFO]      : Show: Main menu
+23.04.2023 14:10:59 [MESSAGE]   : Enter menu number
+23.04.2023 14:11:03 [COMMAND]   : 1
+23.04.2023 14:11:03 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:11:03 [INFO]      : Show: Main menu
+23.04.2023 14:11:03 [MESSAGE]   : Enter menu number
+23.04.2023 14:11:03 [COMMAND]   : 2
+23.04.2023 14:11:03 [INFO]      : Menu Item: View flight information
+23.04.2023 14:11:04 [INFO]      : Show: Main menu
+23.04.2023 14:11:04 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:11:34 [START]     : ======================= Application started =======================
+23.04.2023 14:11:35 [INFO]      : Loading data...
+23.04.2023 14:11:35 [INFO]      : Loading user data
+23.04.2023 14:11:35 [INFO]      : Loaded 1 users
+23.04.2023 14:11:35 [INFO]      : Loading flight data
+23.04.2023 14:11:35 [INFO]      : Loaded 0 flights
+23.04.2023 14:11:35 [INFO]      : Loading booking data
+23.04.2023 14:11:35 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:11:35 [INFO]      : Show: Auth menu
+23.04.2023 14:11:35 [MESSAGE]   : Enter menu number
+23.04.2023 14:11:37 [COMMAND]   : 3
+23.04.2023 14:11:37 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:11:37 [INFO]      : Show: Main menu
+23.04.2023 14:11:37 [MESSAGE]   : Enter menu number
+23.04.2023 14:11:38 [COMMAND]   : 1
+23.04.2023 14:11:38 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:11:38 [INFO]      : Show: Main menu
+23.04.2023 14:11:38 [MESSAGE]   : Enter menu number
+23.04.2023 14:11:38 [COMMAND]   : 2
+23.04.2023 14:11:38 [INFO]      : Menu Item: View flight information
+23.04.2023 14:11:40 [INFO]      : Show: Main menu
+23.04.2023 14:11:40 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:01 [COMMAND]   : 3
+23.04.2023 14:12:01 [INFO]      : Menu Item: Search & booking
+23.04.2023 14:12:01 [INFO]      : Show: Main menu
+23.04.2023 14:12:01 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:03 [COMMAND]   : 1
+23.04.2023 14:12:03 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:12:03 [INFO]      : Show: Main menu
+23.04.2023 14:12:03 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:04 [COMMAND]   : 2
+23.04.2023 14:12:04 [INFO]      : Menu Item: View flight information
+23.04.2023 14:12:10 [INFO]      : Show: Main menu
+23.04.2023 14:12:10 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:12:33 [START]     : ======================= Application started =======================
+23.04.2023 14:12:33 [INFO]      : Loading data...
+23.04.2023 14:12:33 [INFO]      : Loading user data
+23.04.2023 14:12:33 [INFO]      : Loaded 1 users
+23.04.2023 14:12:33 [INFO]      : Loading flight data
+23.04.2023 14:12:33 [INFO]      : Loaded 0 flights
+23.04.2023 14:12:33 [INFO]      : Loading booking data
+23.04.2023 14:12:33 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:12:34 [INFO]      : Show: Auth menu
+23.04.2023 14:12:34 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:36 [COMMAND]   : 3
+23.04.2023 14:12:36 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:12:36 [INFO]      : Show: Main menu
+23.04.2023 14:12:36 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:37 [COMMAND]   : 1
+23.04.2023 14:12:37 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:12:37 [INFO]      : Show: Main menu
+23.04.2023 14:12:37 [MESSAGE]   : Enter menu number
+23.04.2023 14:12:37 [COMMAND]   : 2
+23.04.2023 14:12:37 [INFO]      : Menu Item: View flight information
+23.04.2023 14:12:39 [INFO]      : Show: Main menu
+23.04.2023 14:12:40 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:13:10 [START]     : ======================= Application started =======================
+23.04.2023 14:13:10 [INFO]      : Loading data...
+23.04.2023 14:13:10 [INFO]      : Loading user data
+23.04.2023 14:13:11 [INFO]      : Loaded 1 users
+23.04.2023 14:13:11 [INFO]      : Loading flight data
+23.04.2023 14:13:11 [INFO]      : Loaded 0 flights
+23.04.2023 14:13:11 [INFO]      : Loading booking data
+23.04.2023 14:13:11 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:13:11 [INFO]      : Show: Auth menu
+23.04.2023 14:13:11 [MESSAGE]   : Enter menu number
+23.04.2023 14:13:13 [COMMAND]   : 3
+23.04.2023 14:13:13 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:13:13 [INFO]      : Show: Main menu
+23.04.2023 14:13:13 [MESSAGE]   : Enter menu number
+23.04.2023 14:13:13 [COMMAND]   : 1
+23.04.2023 14:13:13 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:13:13 [INFO]      : Show: Main menu
+23.04.2023 14:13:14 [MESSAGE]   : Enter menu number
+23.04.2023 14:13:14 [COMMAND]   : 2
+23.04.2023 14:13:14 [INFO]      : Menu Item: View flight information
+23.04.2023 14:13:15 [INFO]      : Show: Main menu
+23.04.2023 14:13:15 [MESSAGE]   : Enter menu number
+
+23.04.2023 14:15:47 [START]     : ======================= Application started =======================
+23.04.2023 14:15:48 [INFO]      : Loading data...
+23.04.2023 14:15:48 [INFO]      : Loading user data
+23.04.2023 14:15:48 [INFO]      : Loaded 1 users
+23.04.2023 14:15:48 [INFO]      : Loading flight data
+23.04.2023 14:15:48 [INFO]      : Loaded 0 flights
+23.04.2023 14:15:48 [INFO]      : Loading booking data
+23.04.2023 14:15:48 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+23.04.2023 14:15:48 [INFO]      : Show: Auth menu
+23.04.2023 14:15:48 [MESSAGE]   : Enter menu number
+23.04.2023 14:15:51 [COMMAND]   : 3
+23.04.2023 14:15:51 [INFO]      : Menu Item: Continue as Guest
+23.04.2023 14:15:51 [INFO]      : Show: Main menu
+23.04.2023 14:15:51 [MESSAGE]   : Enter menu number
+23.04.2023 14:15:51 [COMMAND]   : 1
+23.04.2023 14:15:51 [INFO]      : Menu Item: Flight schedules
+23.04.2023 14:15:52 [INFO]      : Show: Main menu
+23.04.2023 14:15:52 [MESSAGE]   : Enter menu number
+23.04.2023 14:15:53 [COMMAND]   : 2
+23.04.2023 14:15:53 [INFO]      : Menu Item: View flight information
+23.04.2023 14:16:00 [INFO]      : Show: Main menu
+23.04.2023 14:16:00 [MESSAGE]   : Enter menu number
