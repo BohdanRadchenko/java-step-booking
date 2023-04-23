@@ -11,8 +11,6 @@ import org.booking.utils.FileWorker;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BookingController implements IController {
     private final ServiceBooking service = new ServiceBooking();
@@ -79,8 +77,8 @@ public class BookingController implements IController {
         return res;
     }
 
-    public Booking createBooking(List<Flight> flights, User creator, User passenger) {
-        return service.add(new Booking(flights, creator, passenger));
+    public Booking createBooking(Flight flight, User creator, User passenger) {
+        return service.add(new Booking(flight, creator, passenger));
     }
 
     @Override

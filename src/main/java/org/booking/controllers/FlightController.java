@@ -31,7 +31,7 @@ public class FlightController implements IController {
     }
 
     private List<Flight> generateFlights(int count) {
-        // TODO: 21.04.2023 MVP2
+        // TODO: 21.04.2023 MVP2 in SB-087
         // TODO: 21.04.2023 create airport from generator
         // TODO: 21.04.2023 create airport to generator
         // TODO: 21.04.2023 create flight id generator
@@ -46,13 +46,18 @@ public class FlightController implements IController {
             Airline airline = Airline.values()[Randomize.num(Airline.values().length)];
             int fromIdx = Randomize.num(0, Airport.values().length);
             int toIdx = Randomize.num(0, Airport.values().length, fromIdx);
-            if (i % 2 == 0) {
+
+            // TODO: 23.04.2023 Remove test code in release
+            if (i == 0) {
                 fromIdx = 0;
                 toIdx = 6;
-            } else {
+            } else if (i == 1) {
                 fromIdx = 6;
                 toIdx = 2;
+                long t = DateUtil.of(times.get(i)).plusHours(5).getMillis();
+                times.set(i, t);
             }
+
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[toIdx];
             flights.add(new Flight(times.get(i), from, to, airline, aircraft, id));
@@ -63,7 +68,7 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(100));
+            service.upload(generateFlights(10));
             return service.size();
         }
         // TODO: 20.04.2023 load data from file. загрузка данных с файла
@@ -101,7 +106,7 @@ public class FlightController implements IController {
         DateUtil s = DateUtil.of(start);
         DateUtil e = DateUtil.of(end);
         try {
-            List<Flight> flights = service.getFlightByFromToTime(s.getMillis(), e.getMillis());
+            List<Flight> flights = service.getFlightsByTime(s.getMillis(), e.getMillis());
             if (flights.size() < limit && refreshCount <= maxRefreshCount) {
                 return getFlightByTime(start, e.plusHours(24).getMillis(), limit);
             }

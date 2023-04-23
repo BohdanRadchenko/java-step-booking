@@ -67,7 +67,7 @@ public class ServiceFlight implements IServices<Flight> {
         return flight.get();
     }
 
-    public List<Flight> getFlightByFromToTime(long start, long end) throws RuntimeException {
+    public List<Flight> getFlightsByTime(long start, long end) throws RuntimeException {
         List<Flight> list = getAll()
                 .stream()
                 .filter(f -> f.getDepartureTimeStamp() >= start && f.getDepartureTimeStamp() <= end)
@@ -78,21 +78,15 @@ public class ServiceFlight implements IServices<Flight> {
         return list;
     }
 
-    public List<Flight> getFlightNextHour(int hour) throws RuntimeException {
-        long startTime = DateUtil.of().getMillis();
-        long endTime = DateUtil.of(startTime).plusHours(hour).getMillis();
-        return getFlightByFromToTime(startTime, endTime);
-    }
-
-    public List<Flight> getFlightNextTime(long time) throws RuntimeException {
+    public List<Flight> getFlightsNextTime(long time) throws RuntimeException {
         long startTime = DateUtil.of(time).getMillis();
-        long endTime = DateUtil.of(startTime).plusHours(23).getMillis();
-        return getFlightByFromToTime(startTime, endTime);
+        long endTime = DateUtil.of(startTime).plusHours(24).getMillis();
+        return getFlightsByTime(startTime, endTime);
     }
 
     public List<Flight> getFlightsForBooking(Airport from, Airport to, long time, int seats) throws RuntimeException {
         try {
-            List<Flight> flightOnTime = getFlightNextTime(time);
+            List<Flight> flightOnTime = getFlightsNextTime(time);
             return flightOnTime
                     .stream()
                     .filter(f -> f.getFrom() == from && f.getTo() == to && f.getFreeSeats() >= seats)
@@ -103,22 +97,29 @@ public class ServiceFlight implements IServices<Flight> {
     }
 
     public List<List<Flight>> getFlightsForBookingWithTrans(Airport from, Airport to, long time, int seats) {
-        List<Flight> flightsFrom = getFlightNextTime(time)
+        long startTime = DateUtil.of(time).getMillis();
+        long endTransTime = DateUtil.of(time).plusDays(3).getMillis();
+
+        List<Flight> flightsFrom = getFlightsNextTime(startTime)
                 .stream()
                 .filter(f -> f.getFrom() == from && f.getFreeSeats() >= seats)
                 .toList();
-        List<Flight> flightsTo = getAll()
+
+        List<Flight> flightsTo = getFlightsByTime(startTime, endTransTime)
                 .stream()
                 .filter(f -> f.getTo() == to && f.getFreeSeats() >= seats)
                 .toList();
-        ArrayList<List<Flight>> flights = new ArrayList<>();
 
+        List<List<Flight>> flights = new ArrayList<>();
+        int idx = 0;
         for (Flight ff : flightsFrom) {
             for (Flight ft : flightsTo) {
                 if (ff.getTo() != ft.getFrom()) continue;
                 long arrMaxTime = DateUtil.of(ff.getArrivalTimeStamp()).plusHours(12).getMillis();
-                if (ft.getDepartureTimeStamp() < ff.getArrivalTimeStamp()
-                        || ft.getDepartureTimeStamp() < arrMaxTime) continue;
+                if (ff.getArrivalTimeStamp() > ft.getDepartureTimeStamp()
+                        || ft.getDepartureTimeStamp() > arrMaxTime) continue;
+                long diffHours = DateUtil.betweenDuration(ff.getArrivalTimeStamp(), ft.getDepartureTimeStamp()).toHours();
+                if (diffHours < 1) continue;
                 ArrayList<Flight> res = new ArrayList<>();
                 res.add(ff);
                 res.add(ft);

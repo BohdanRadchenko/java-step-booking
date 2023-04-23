@@ -11,7 +11,6 @@ import org.booking.helpers.Validation;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.*;
 
-import java.awt.*;
 import java.time.format.FormatStyle;
 import java.util.*;
 import java.util.List;
@@ -53,7 +52,7 @@ public class BookingCreate extends Command {
         String str = Console.readString();
 
         if (Parser.parseIsExit(str)) {
-            MenuStack.exit();
+            MenuStack.refresh();
             return null;
         }
 
@@ -95,15 +94,10 @@ public class BookingCreate extends Command {
 
     private Airport enterAirport() {
         String str = readUserInput();
-        try {
-            int code = Parser.parseInt(str);
-            if (code == Constants.helpCode) {
-                displayAllAirports();
-                Console.caret();
-                return enterAirport();
-            }
-        } catch (NumberFormatException ignored) {
-            Console.print("");
+        if (Parser.parseIsHelp(str)) {
+            displayAllAirports();
+            Console.caret();
+            return enterAirport();
         }
 
         try {
@@ -187,6 +181,10 @@ public class BookingCreate extends Command {
 
     private long enterDate() {
         String readString = Console.readString();
+        if (Parser.parseIsBack(readString) || Parser.parseIsExit(readString)) {
+            MenuStack.refresh();
+            return 1L;
+        }
         try {
             return parseDate(readString);
         } catch (RuntimeException ex) {
@@ -206,8 +204,13 @@ public class BookingCreate extends Command {
     }
 
     private int enterSeatsInt() {
+        String readString = Console.readString();
+        if (Parser.parseIsBack(readString) || Parser.parseIsExit(readString)) {
+            MenuStack.refresh();
+            return 0;
+        }
         try {
-            int n = Console.readInt();
+            int n = Parser.parseInt(readString);
             if (n <= 0) {
                 throw new RuntimeException("Invalid number");
             }
@@ -233,7 +236,7 @@ public class BookingCreate extends Command {
                 .forEach(idx -> {
                     StringBuilder stringBuilder = new StringBuilder();
                     if (idx == 0) {
-                        stringBuilder.append(String.format("| %-3d |", i));
+                        stringBuilder.append(String.format("| %-3d |", i + 1));
                     } else {
                         stringBuilder.append(String.format("%-5s |", " "));
                     }
@@ -249,12 +252,8 @@ public class BookingCreate extends Command {
 
     private List<Flight> chooseFlight(List<List<Flight>> flights) {
         String readString = Console.readString();
-        if (Parser.parseIsBack(readString)) {
+        if (Parser.parseIsBack(readString) || Parser.parseIsExit(readString)) {
             MenuStack.refresh();
-            return null;
-        }
-        if (Parser.parseIsExit(readString)) {
-            MenuStack.exit();
             return null;
         }
         int maxFlightsInOne = flights.stream().mapToInt(List::size).reduce(Integer::max).orElse(0);
@@ -333,12 +332,6 @@ public class BookingCreate extends Command {
 
         int seats = enterSeats();
 
-        // TODO: 23.04.2023 Test data. remove
-        // Airport from = Airport.KBP;
-        // Airport to = Airport.LHR;
-        // long time = DateUtil.of().getMillis();
-        // int seats = 2;
-
         List<List<Flight>> flightsForBooking = controller.flight.getFlightsForBooking(from, to, time, seats);
 
         if (flightsForBooking.size() == 0) {
@@ -347,6 +340,7 @@ public class BookingCreate extends Command {
         }
 
         List<Flight> flights = enterFlight(flightsForBooking);
+
         if (flights == null) {
             Console.error(Message.UE);
             return;
@@ -355,26 +349,13 @@ public class BookingCreate extends Command {
         List<User> passengers = enterPassengers(seats);
 
         passengers.forEach(p -> {
-            Booking booking = controller.booking.createBooking(flights, passengers.get(0), p);
-            if (booking == null) return;
             flights.forEach(f -> {
-                f.addPassenger(p);
+                Booking booking = controller.booking.createBooking(f, passengers.get(0), p);
+                if (booking != null) {
+                    f.addPassenger(p);
+                    p.addBooking(booking);
+                }
             });
-            p.addBooking(booking);
         });
-
-
-        /*
-         * Пользователю предлагается последовательно ввести следующую информацию:
-         * место назначения, дата, количество человек (сколько необходимо купить билетов).
-         * После этого программа должна выполнить поиск рейсов, которые удовлетворяют заданным условиям
-         * (на рейсе свободных мест должно быть не меньше, чем количество указанных пассажиров).
-         * Все найденные рейсы должны быть выведены на экран.
-         * После этого пользователь может выбрать один из найденных рейсов,
-         * указав его порядковый номер, либо вернуться в главное меню (выбрав пункт 0).
-         * Если пользователь решает забронировать рейс,
-         * ему необходимо ввести данные (имя и фамилия) для того количества пассажиров,
-         * которое было указано при поиске.
-         * */
     }
 }

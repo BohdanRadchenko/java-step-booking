@@ -18,14 +18,14 @@ public enum Message {
 
     // AIRPORT
     AIRPORT_EG("(e.g 'BOS', 'USA', 'Boston')"),
-    AIRPORT_EG_2("(e.g 'LHR', 'United Kingdom', 'UK','London', '30U')"),
-    AIRPORT_EG_3("(e.g 'KBP', 'Ukraine', 'UA', 'Kyiv', '36U')"),
+    AIRPORT_EG_2("(e.g 'LHR', 'United Kingdom', 'UK','London')"),
+    AIRPORT_EG_3("(e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')"),
     AIRPORT_WRONG_INSERT_DATA(String.format("Wrong airport data %s", AIRPORT_EG)),
 
     // BOOKING
     BOOKING_ENTER_CODE("Enter booking id"),
     BOOKING_ENTER_AIRPORT_DEPARTURE(String.format("Enter departure airport %s", AIRPORT_EG_3)),
-    BOOKING_ENTER_AIRPORT_ARRIVAL(String.format("Enter airport of arrival %s", AIRPORT_EG)),
+    BOOKING_ENTER_AIRPORT_ARRIVAL(String.format("Enter airport of arrival %s", AIRPORT_EG_2)),
     BOOKING_CHOOSE_AIRPORT("Choose your airport"),
     BOOKING_ENTER_DATE("Enter data"),
     BOOKING_ENTER_SEATS("Enter the number of passengers"),

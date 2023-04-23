@@ -10,7 +10,7 @@ import java.util.Set;
 public class Booking extends Entity implements Comparable<Booking> {
     private final String code;
     private final long time;
-    private final List<Flight> flights;
+    private final Flight flight;
     private final User creator;
     private final User passenger;
 
@@ -18,16 +18,16 @@ public class Booking extends Entity implements Comparable<Booking> {
         bookingCounter++;
     }
 
-    public Booking(List<Flight> flights, User creator, User passenger) {
+    public Booking(Flight flight, User creator, User passenger) {
         this.code = createCode();
         this.time = DateUtil.of().getMillis();
-        this.flights = flights;
+        this.flight = flight;
         this.creator = creator;
         this.passenger = passenger;
     }
 
-    public Booking(List<Flight> flights, User user) {
-        this(flights, user, user);
+    public Booking(Flight flight, User user) {
+        this(flight, user, user);
     }
 
     private String createCode() {
@@ -65,15 +65,13 @@ public class Booking extends Entity implements Comparable<Booking> {
         return passenger.getId();
     }
 
-    public List<Flight> getFlights() {
-        return flights;
+    public Flight getFlight() {
+        return flight;
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        flights.forEach(f -> stringBuilder.append(f.prettyFormatShort()));
-        return new String(stringBuilder);
+        return flight.prettyFormatShort();
     }
 
     @Override
