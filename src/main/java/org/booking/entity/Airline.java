@@ -16,7 +16,7 @@ public enum Airline {
     public final String legalName;
     public final String cao;
     public final String airline;
-    public final String code; //Код для номера рейса
+    public final String code;
     public final String region;
 
     Airline(String legalName, String cao, String airline, String code, String region) {

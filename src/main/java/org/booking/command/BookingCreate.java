@@ -6,7 +6,7 @@ import org.booking.entity.Booking;
 import org.booking.entity.Flight;
 import org.booking.entity.User;
 import org.booking.enums.Message;
-import org.booking.helpers.Constants;
+import org.booking.helpers.PrettyFormat;
 import org.booking.helpers.Validation;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.*;
@@ -236,11 +236,11 @@ public class BookingCreate extends Command {
                 .forEach(idx -> {
                     StringBuilder stringBuilder = new StringBuilder();
                     if (idx == 0) {
-                        stringBuilder.append(String.format("| %-3d |", i + 1));
+                        stringBuilder.append(String.format("| %-3d | ", i + 1));
                     } else {
-                        stringBuilder.append(String.format("%-5s |", " "));
+                        stringBuilder.append(String.format("| %-3s | ", " "));
                     }
-                    stringBuilder.append(flights.get(idx).prettyFormatFull());
+                    stringBuilder.append(PrettyFormat.flightFull(flights.get(idx)));
                     strings.add(new String(stringBuilder));
                 });
         if (i % 2 == 0) {
@@ -252,7 +252,7 @@ public class BookingCreate extends Command {
 
     private List<Flight> chooseFlight(List<List<Flight>> flights) {
         String readString = Console.readString();
-        if (Parser.parseIsBack(readString) || Parser.parseIsExit(readString)) {
+        if (Parser.parseIsBack(readString) || Parser.parseIsExit(readString) || Parser.parseIsHelp(readString)) {
             MenuStack.refresh();
             return null;
         }
@@ -289,7 +289,7 @@ public class BookingCreate extends Command {
     }
 
     private List<Flight> enterFlight(List<List<Flight>> flights) {
-        Console.table1(String.format("| %-3s | %s", "ID", Flight.prettyFormatHead()), true);
+        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightHeadFull()), true);
         IntStream.range(0, flights.size())
                 .forEach(i -> {
                     displayFlights(i, flights.get(i));
@@ -322,13 +322,13 @@ public class BookingCreate extends Command {
     @Override
     public void execute() {
         Airport from = enterAirportFrom();
-        Console.accept(String.format("%-4s -> %s;\n", "FROM", from));
+        Console.access(String.format("%-4s -> %s;\n", "FROM", from));
 
         Airport to = enterAirportTo(from);
-        Console.accept(String.format("%-4s -> %s;\n", "TO", to));
+        Console.access(String.format("%-4s -> %s;\n", "TO", to));
 
         long time = enterDepartureDate();
-        Console.accept(String.format("%s\n", DateUtil.of(time).formatter(FormatStyle.FULL)));
+        Console.access(String.format("%s\n", DateUtil.of(time).formatter(FormatStyle.FULL)));
 
         int seats = enterSeats();
 

@@ -36,7 +36,7 @@ public class Input {
      * @return String value from user input
      * @throws ValidateException if password invalid
      */
-    public static String readPassword() throws ValidateException {
+    public static String readPassword(boolean withCode) throws ValidateException {
         String pass;
         if (console == null) {
             pass = readString();
@@ -44,6 +44,7 @@ public class Input {
             char[] pc = console.readPassword();
             pass = String.valueOf(pc);
         }
+        if (withCode && Parser.parseIsCode(pass)) return pass;
         if (!Validation.password(pass)) {
             throw new ValidateException(
                     String.format(
@@ -53,19 +54,28 @@ public class Input {
         return pass;
     }
 
+    public static String readPassword() throws ValidateException {
+        return readPassword(false);
+    }
+
     /**
      * Read user login.
      *
      * @return String value from user input
      * @throws ValidateException if login invalid
      */
-    public static String readLogin() throws ValidateException {
+    public static String readLogin(boolean withCode) throws ValidateException {
         String login = readString();
+        if (withCode && Parser.parseIsCode(login)) return login;
         if (!Validation.login(login)) {
             throw new ValidateException(
                     String.format(
                             "Invalid input '%s'. Login must be more than %d length.\n", login, Constants.MIN_LOGIN_LENGTH));
         }
         return login;
+    }
+
+    public static String readLogin() throws ValidateException {
+        return readLogin(false);
     }
 }

@@ -1,5 +1,8 @@
 package org.booking.ui.menu;
 
+import org.booking.BookingManager;
+import org.booking.utils.Console;
+
 import java.util.Stack;
 
 public class MenuStack {
@@ -7,7 +10,13 @@ public class MenuStack {
 
     private static boolean isExit = false;
 
+    private static BookingManager app;
+
     private MenuStack() {
+    }
+
+    public static void setApp(BookingManager app) {
+        MenuStack.app = app;
     }
 
     public static void add(Menu menu) {
@@ -29,18 +38,27 @@ public class MenuStack {
 
     public static void exit() {
         setIsExit(true);
+        if (stack.peek().statusItem) {
+            app.save();
+            System.exit(0);
+            Console.hide("Menu exit...");
+        }
+        stack.peek().refresh();
     }
 
     public static void back() {
-        stack.pop();
-        if (isEmpty()) {
-            setIsExit(true);
+        stack.peek().refresh();
+        if (stack.size() == 1) {
+            refresh();
             return;
         }
+        stack.pop();
+        Console.hide("Menu back...");
         stack.peek().run();
     }
 
     public static void refresh() {
+        Console.hide("Menu back...");
         stack.peek().run();
     }
 }

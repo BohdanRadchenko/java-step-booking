@@ -68,7 +68,7 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(10));
+            service.upload(generateFlights(100));
             return service.size();
         }
         // TODO: 20.04.2023 load data from file. загрузка данных с файла

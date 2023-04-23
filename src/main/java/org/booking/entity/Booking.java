@@ -1,6 +1,7 @@
 package org.booking.entity;
 
 import org.booking.helpers.Constants;
+import org.booking.helpers.PrettyFormat;
 import org.booking.utils.DateUtil;
 import org.booking.utils.Parser;
 
@@ -13,10 +14,6 @@ public class Booking extends Entity implements Comparable<Booking> {
     private final Flight flight;
     private final User creator;
     private final User passenger;
-
-    {
-        bookingCounter++;
-    }
 
     public Booking(Flight flight, User creator, User passenger) {
         this.code = createCode();
@@ -71,7 +68,7 @@ public class Booking extends Entity implements Comparable<Booking> {
 
     @Override
     public String toString() {
-        return flight.prettyFormatShort();
+        return PrettyFormat.flightShort(flight);
     }
 
     @Override

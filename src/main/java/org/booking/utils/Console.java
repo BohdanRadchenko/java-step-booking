@@ -3,7 +3,6 @@ package org.booking.utils;
 import org.booking.enums.Message;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Console extends Input implements ConsoleColors {
 
@@ -81,14 +80,14 @@ public class Console extends Input implements ConsoleColors {
     }
 
 
-    public static void accept(String string) {
+    public static void access(String string) {
         print(GREEN);
         print(string);
         reset();
     }
 
-    public static void accept(Message msg) {
-        accept(msg.message);
+    public static void access(Message msg) {
+        access(msg.message);
     }
 
     public static void warning(String string) {

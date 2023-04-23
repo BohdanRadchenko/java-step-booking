@@ -17,10 +17,25 @@ public class AuthLogin extends Command {
         return new AuthLogin(controller);
     }
 
+    private String parseCode(String string) {
+        return string;
+        // TODO: 23.04.2023 MVP2 code
+        //        if (Parser.parseIsBack(string) || Parser.parseIsHelp(string)) {
+        //            MenuStack.refresh();
+        //            return "";
+        //        }
+        //        if (Parser.parseIsExit(string)) {
+        //            MenuStack.exit();
+        //            return "";
+        //        }
+        //        return string;
+    }
+
     private String enterLogin() {
         Console.input(Message.USER_ENTER_LOGIN);
         try {
-            return Console.readLogin();
+            String l = Console.readLogin(true);
+            return parseCode(l);
         } catch (ValidateException ex) {
             Console.error(ex.getMessage());
             return enterLogin();
@@ -30,7 +45,8 @@ public class AuthLogin extends Command {
     private String enterPassword() {
         Console.input(Message.USER_ENTER_PASSWORD);
         try {
-            return Console.readPassword();
+            String pass = Console.readPassword(true);
+            return parseCode(pass);
         } catch (ValidateException ex) {
             Console.error(ex.getMessage());
             return enterPassword();
@@ -46,6 +62,6 @@ public class AuthLogin extends Command {
             execute();
             return;
         }
-        Console.accept(String.format("\nWelcome back %s", user.getFullName()));
+        Console.access(String.format("\nWelcome back %s", user.getFullName()));
     }
 }

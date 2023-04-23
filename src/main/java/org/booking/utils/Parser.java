@@ -28,6 +28,9 @@ public class Parser {
         return containsWords(StringWorker.toLowerCase(str), helpWords);
     }
 
+    public static boolean parseIsCode(String str) {
+        return parseIsExit(str) || parseIsHelp(str) || parseIsBack(str);
+    }
 
     public static int parseInt(String str) throws NumberFormatException {
         try {

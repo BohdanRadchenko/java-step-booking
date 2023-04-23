@@ -4,6 +4,7 @@ import org.booking.dao.BookingDao;
 import org.booking.entity.Booking;
 import org.booking.enums.Message;
 import org.booking.interfaces.IServices;
+import org.booking.utils.StringWorker;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,7 +18,7 @@ public class ServiceBooking implements IServices<Booking> {
         Optional<Booking> booking = db
                 .getAll()
                 .stream()
-                .filter(b -> b.getCode().equals(code))
+                .filter(b -> StringWorker.toLowerCase(b.getCode()).equals(StringWorker.toLowerCase(code)))
                 .findFirst();
         if (booking.isEmpty()) {
             throw new RuntimeException("Booking not found!");
