@@ -34,7 +34,7 @@ public class BookingManager {
     /**
      * saves all data to files
      */
-    private void save() {
+    public void save() {
         Console.ln();
         String msg = "Data storage...";
         Logger.info(msg);
@@ -53,7 +53,7 @@ public class BookingManager {
         Console.ln();
         Menu authMenu = new AuthMenu(controller);
         Menu mainMenu = new MainMenu(controller);
-        
+
         authMenu.run();
 
         while (!MenuStack.isExit()) {
@@ -64,6 +64,7 @@ public class BookingManager {
     }
 
     public void run() {
+        MenuStack.setApp(this);
         init();
         start();
         save();

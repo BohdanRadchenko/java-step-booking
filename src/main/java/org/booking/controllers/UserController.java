@@ -48,6 +48,14 @@ public class UserController implements IController {
         return !isEmpty() && hasUsers();
     }
 
+    public User checkLogin(String login) {
+        try {
+            return service.getByLogin(login);
+        } catch (RuntimeException ignored) {
+            return null;
+        }
+    }
+
     public User login(String login, String password) {
         try {
             User u = service.getByLogin(login);

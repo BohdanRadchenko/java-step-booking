@@ -2,17 +2,13 @@ package org.booking.command;
 
 import org.booking.controllers.Controller;
 import org.booking.entity.Booking;
-import org.booking.entity.Flight;
 import org.booking.entity.User;
 import org.booking.enums.Message;
+import org.booking.helpers.PrettyFormat;
 import org.booking.utils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class BookingView extends Command {
     public BookingView(Controller controller) {
@@ -34,21 +30,20 @@ public class BookingView extends Command {
     }
 
     private void displayBooking(int i, Booking booking) {
-        List<String> stringList = Arrays.stream(booking.toString().split("\n")).toList();
+        String info = PrettyFormat.booking(booking);
         if (i % 2 == 0) {
-            stringList.forEach(Console::table2);
+            Console.table2(info, true);
         } else {
-            stringList.forEach(Console::table1);
+            Console.table1(info, true);
         }
     }
 
     private void displayBookings(List<Booking> bookings) {
-        Console.table1(Flight.prettyFormatShortHead());
+        Console.table1(PrettyFormat.bookingHead());
         IntStream
                 .range(0, bookings.size())
                 .forEach(i -> displayBooking(i, bookings.get(i)));
     }
-
 
     @Override
     public void execute() {
@@ -58,7 +53,10 @@ public class BookingView extends Command {
         } else {
             user = getUserByFullName();
         }
-        if (user == null) return;
+        if (user == null) {
+            Console.warning("User not found!");
+            return;
+        }
         List<Booking> bookings = controller.booking.getBookingsByUserId(user.getId());
         displayBookings(bookings);
     }

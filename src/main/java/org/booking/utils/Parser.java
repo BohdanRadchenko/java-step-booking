@@ -4,7 +4,6 @@ import org.booking.helpers.Constants;
 
 import java.util.Arrays;
 import java.util.Set;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
@@ -28,6 +27,9 @@ public class Parser {
         return containsWords(StringWorker.toLowerCase(str), helpWords);
     }
 
+    public static boolean parseIsCode(String str) {
+        return parseIsExit(str) || parseIsHelp(str) || parseIsBack(str);
+    }
 
     public static int parseInt(String str) throws NumberFormatException {
         try {

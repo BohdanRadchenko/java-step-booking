@@ -21,6 +21,35 @@ public class FileWorker {
     }
 
     /**
+     * Create file or folder
+     *
+     * @param path enum path to file
+     * @return file.exist() boolean
+     */
+    public static boolean create(String path) {
+        File file = new File(path);
+
+        try {
+            if (file.isDirectory()) {
+                return file.mkdir();
+            }
+            return file.createNewFile();
+        } catch (IOException ignored) {
+            return false;
+        }
+    }
+
+    /**
+     * Create file or folder
+     *
+     * @param filePath enum path to file
+     * @return file.exist() boolean
+     */
+    public static boolean create(FilePath filePath) {
+        return create(filePath.path);
+    }
+
+    /**
      * Write binary file.
      *
      * @param filePath enum path to file

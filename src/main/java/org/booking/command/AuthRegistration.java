@@ -5,7 +5,6 @@ import org.booking.entity.User;
 import org.booking.enums.Message;
 import org.booking.exceptions.ValidateException;
 import org.booking.utils.Console;
-import org.booking.utils.Input;
 
 // TODO: 18.04.2023 Example class. Remove.
 public class AuthRegistration extends Command {
@@ -18,11 +17,30 @@ public class AuthRegistration extends Command {
         return new AuthRegistration(controller);
     }
 
+    private String parseCode(String string) {
+        return string;
+        // TODO: 23.04.2023 MVP2 code
+        //        if (Parser.parseIsBack(string) || Parser.parseIsHelp(string)) {
+        //            MenuStack.back();
+        //            return "";
+        //        }
+        //        if (Parser.parseIsExit(string)) {
+        //            MenuStack.exit();
+        //            return "";
+        //        }
+        //        return string;
+    }
+
     private String enterLogin() {
         Console.input(Message.USER_ENTER_LOGIN);
         try {
-            return Console.readLogin();
-        } catch (ValidateException ex) {
+            String login = parseCode(Console.readLogin(true));
+            User u = controller.user.checkLogin(login);
+            if (u != null) {
+                throw new RuntimeException("User already exist");
+            }
+            return login;
+        } catch (RuntimeException ex) {
             Console.error(ex.getMessage());
             return enterLogin();
         }
@@ -31,7 +49,7 @@ public class AuthRegistration extends Command {
     private String enterPassword() {
         Console.input(Message.USER_ENTER_PASSWORD);
         try {
-            return Console.readPassword();
+            return parseCode(Console.readPassword(true));
         } catch (ValidateException ex) {
             Console.error(ex.getMessage());
             return enterPassword();
@@ -41,7 +59,7 @@ public class AuthRegistration extends Command {
     private String enterConfirmPassword(String pass) {
         Console.input(Message.USER_ENTER_CONFIRM_PASSWORD);
         try {
-            String confirm = Console.readPassword();
+            String confirm = parseCode(Console.readPassword(true));
             if (!confirm.equals(pass)) {
                 throw new ValidateException("Invalid confirm password\n");
             }
@@ -54,12 +72,12 @@ public class AuthRegistration extends Command {
 
     private String enterFirstName() {
         Console.input(Message.USER_ENTER_FIRST_NAME);
-        return Console.readString();
+        return parseCode(Console.readString());
     }
 
     private String enterLastName() {
         Console.input(Message.USER_ENTER_LAST_NAME);
-        return Console.readString();
+        return parseCode(Console.readString());
     }
 
     @Override

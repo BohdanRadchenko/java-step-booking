@@ -3,7 +3,6 @@ package org.booking.utils;
 import org.booking.enums.Message;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Console extends Input implements ConsoleColors {
 
