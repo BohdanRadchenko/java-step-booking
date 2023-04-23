@@ -2,7 +2,9 @@ package org.booking.services;
 
 import org.booking.dao.BookingDao;
 import org.booking.entity.Booking;
+import org.booking.enums.Message;
 import org.booking.interfaces.IServices;
+import org.booking.utils.StringWorker;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,7 +18,7 @@ public class ServiceBooking implements IServices<Booking> {
         Optional<Booking> booking = db
                 .getAll()
                 .stream()
-                .filter(b -> b.getCode().equals(code))
+                .filter(b -> StringWorker.toLowerCase(b.getCode()).equals(StringWorker.toLowerCase(code)))
                 .findFirst();
         if (booking.isEmpty()) {
             throw new RuntimeException("Booking not found!");
@@ -40,7 +42,7 @@ public class ServiceBooking implements IServices<Booking> {
         List<Booking> bookings = db
                 .getAll()
                 .stream()
-                .filter(b -> Objects.equals(b.getCreatorId(), id))
+                .filter(b -> b.getCreatorId().equals(id))
                 .toList();
         if (bookings.size() == 0) {
             throw new NoSuchElementException();
@@ -77,8 +79,11 @@ public class ServiceBooking implements IServices<Booking> {
     }
 
     @Override
-    public void add(Booking entity) throws RuntimeException {
-        throw new RuntimeException("Create method");
+    public Booking add(Booking booking) throws RuntimeException {
+        if (!db.add(booking)) {
+            throw new RuntimeException("Booking add exception");
+        }
+        return booking;
     }
 
     @Override

@@ -3,7 +3,6 @@ package org.booking.utils;
 import org.booking.enums.Message;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Console extends Input implements ConsoleColors {
 
@@ -57,18 +56,27 @@ public class Console extends Input implements ConsoleColors {
         input(msg.message);
     }
 
-    public static void table1(String string) {
+    public static void table1(String string, boolean full) {
         String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
-        print(String.format("%s%s", WHITE, BLACK_BACKGROUND));
-        print(String.format("%-110s%s", reduce, RESET));
-        ln();
+        String format = full ? String.format("%s\n", reduce) : String.format("%-120s%s\n", reduce, RESET);
+        print(format);
+        reset();
+    }
+
+    public static void table1(String string) {
+        table1(string, false);
+    }
+
+    public static void table2(String string, boolean full) {
+        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
+        String c = String.format("%s%s", BLACK, WHITE_BACKGROUND);
+        String text = full ? String.format("%s\n", reduce) : String.format("%-120s%s\n", reduce, RESET);
+        print(String.format("%s%s", c, text));
+        reset();
     }
 
     public static void table2(String string) {
-        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
-        print(String.format("%s%s", BLACK, WHITE_BACKGROUND));
-        print(String.format("%-110s%s", reduce, RESET));
-        ln();
+        table2(string, false);
     }
 
 
@@ -86,6 +94,7 @@ public class Console extends Input implements ConsoleColors {
         print(YELLOW);
         print(string);
         reset();
+        ln();
     }
 
     public static void warning(Message msg) {
@@ -106,5 +115,9 @@ public class Console extends Input implements ConsoleColors {
 
     public static void log(String msg) {
         System.out.println(msg);
+    }
+
+    public static void caret() {
+        Console.print(">>> ");
     }
 }

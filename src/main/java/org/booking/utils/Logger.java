@@ -54,9 +54,10 @@ public final class Logger {
     }
 
     private static void save(Log log) throws RuntimeException {
+        FilePath path = FilePath.LOG;
+        String msg = log.logType == LogType.START ? String.format("\n%s", log.toString()) : log.toString();
         try {
-            String msg = log.logType == LogType.START ? String.format("\n%s", log.toString()) : log.toString();
-            FileWorker.updateText(FilePath.LOG, msg);
+            FileWorker.updateText(path, msg);
         } catch (IOException ex) {
             throw new RuntimeException(ex.getMessage());
         }

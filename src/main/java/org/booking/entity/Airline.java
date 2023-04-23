@@ -10,14 +10,13 @@ public enum Airline {
     KOREAN_AIR("Korean Air Lines Co.", "KAL", "180", "KE", "Asia Pacific"),
     AMERICAN_AIRLINES("American Airlines", "AAL", "001", "AA", "The Americas"),
     BRITISH_AIRWAYS("British Airways Plc.", "BAW", "125", "BA", "Europe"),
-    TURKISH_AIRLINES("Turkish Airlines Inc.", "THY", "235", "TK", "Europe"),
-    CHARTER_FLY("Charter", "CHR", "000", "CF", "NULL");
+    TURKISH_AIRLINES("Turkish Airlines Inc.", "THY", "235", "TK", "Europe");
 
     public final String name;
     public final String legalName;
     public final String cao;
     public final String airline;
-    public final String code; //Код для номера рейса
+    public final String code;
     public final String region;
 
     Airline(String legalName, String cao, String airline, String code, String region) {

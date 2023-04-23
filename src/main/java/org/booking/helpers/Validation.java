@@ -28,4 +28,15 @@ public class Validation {
             return false;
         }
     }
+
+    public static boolean bookingDate(String str) {
+        String separatorPattern = "[/.-_ ]{1}";
+        String pattern = String.format("\\d{1,2}%s\\d{1,2}%s\\d{4}", separatorPattern, separatorPattern);
+        try {
+            Parser.parseRegex(str, pattern);
+            return true;
+        } catch (RuntimeException ignored) {
+            return false;
+        }
+    }
 }

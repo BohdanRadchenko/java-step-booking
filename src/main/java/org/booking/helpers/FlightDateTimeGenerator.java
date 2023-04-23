@@ -8,7 +8,6 @@ import java.util.Random;
 import java.util.TimeZone;
 
 public class FlightDateTimeGenerator {
-
     private static final int MINUTE_IN_MILLISECONDS = 60 * 1000;
     private static final int QUARTER_HOUR_IN_MILLISECONDS = 15 * MINUTE_IN_MILLISECONDS;
 

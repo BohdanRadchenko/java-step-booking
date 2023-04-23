@@ -6,6 +6,7 @@ import org.booking.interfaces.IController;
 import org.booking.services.ServiceUser;
 import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
+import org.booking.utils.Logger;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +16,14 @@ public class UserController implements IController {
     private final ServiceUser service = new ServiceUser();
     private User user;
     private boolean isAuth = false;
+
+    public boolean hasUsers() {
+        return service.getAll()
+                .stream()
+                .filter(u -> u.getLogin() != null && u.getPassword() != null)
+                .toList()
+                .size() != 0;
+    }
 
     private void loginCurrentUser(User user) {
         this.isAuth = true;
@@ -33,6 +42,18 @@ public class UserController implements IController {
 
     public boolean isEmpty() {
         return service.size() == 0;
+    }
+
+    public boolean canAuth() {
+        return !isEmpty() && hasUsers();
+    }
+
+    public User checkLogin(String login) {
+        try {
+            return service.getByLogin(login);
+        } catch (RuntimeException ignored) {
+            return null;
+        }
     }
 
     public User login(String login, String password) {
@@ -78,12 +99,18 @@ public class UserController implements IController {
         try {
             return service.getByFullName(fullName);
         } catch (RuntimeException ex) {
-            // TODO: 21.04.2023 insert Logger.error(ex.getMessage)
-            Console.error(ex.getMessage());
+            Logger.error(ex.getMessage());
             return null;
         }
     }
 
+    public User getOrAddByFull(String first, String last) {
+        try {
+            return service.getByFullName(String.format("%s %s", first, last));
+        } catch (RuntimeException ignored) {
+            return service.add(first, last);
+        }
+    }
 
     @Override
     public int load() throws RuntimeException {

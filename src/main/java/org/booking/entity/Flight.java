@@ -1,34 +1,33 @@
 package org.booking.entity;
 
 import org.booking.helpers.Utm;
-import org.booking.utils.DateUtil;
-import org.booking.utils.StringWorker;
 
 import java.util.*;
 
 public class Flight extends Entity implements Comparable<Flight> {
-    public long departureTimeStamp;
-    public long arrivalTimeStamp;
+    private long departureTimeStamp;
+    private long arrivalTimeStamp;
     private Airport departureAirport;
     private Airport arrivalAirport;
     private Airline airline;
     private Aircraft aircraft;
     private String flightId;
-    private Set<String> passengers;
+    private Set<User> passengers = new HashSet<>();
     private int freeSeats;
     private final String code;
 
-
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport, Airline airline,
-                  Aircraft aircraft, int flightId, Set<String> reserved) {
+                  Aircraft aircraft, int flightId, Set<User> passengers) {
         this.departureTimeStamp = departureTimeStamp;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
         this.airline = airline;
         this.flightId = String.format("%03d", flightId);
-        this.passengers = reserved;
+        if (passengers != null) {
+            this.passengers = passengers;
+        }
         this.aircraft = aircraft;
-        this.freeSeats = aircraft.seats - reserved.size();
+        this.freeSeats = aircraft.seats - this.passengers.size();
         this.arrivalTimeStamp = arrivalTimeMls();
         this.code = String.format("%s%s", this.airline.code, this.flightId);
     }
@@ -38,9 +37,13 @@ public class Flight extends Entity implements Comparable<Flight> {
         this(departureTimeStamp, departureAirport, arrivalAirport, airline, aircraft, flightId, new HashSet<>());
     }
 
+    public boolean addPassenger(User passenger) {
+        return passengers.add(passenger);
+    }
+
     private long arrivalTimeMls() {
         int distance = Utm.distance(departureAirport, arrivalAirport);
-        int cruiserTime = distance / aircraft.speed * 60 * 60 * 100;
+        long cruiserTime = (long) (distance / aircraft.speed) * 3600000;
         return this.departureTimeStamp + cruiserTime + 3600000;
     }
 
@@ -60,12 +63,16 @@ public class Flight extends Entity implements Comparable<Flight> {
         return code;
     }
 
-    public String prettyFormat() {
-        String depTime = DateUtil.of(departureTimeStamp).formatter("yyyy-MM-dd HH:mm");
-        String from = String.format("%s", StringWorker.toUpperCase(departureAirport.city));
-        String to = String.format("%s", StringWorker.toUpperCase(arrivalAirport.city));
-        String aLine = String.format("%s", StringWorker.toUpperCase(airline.legalName));
-        return String.format("%s | %s | %-12s ---> %12s | %s\n", code, depTime, from, to, aLine);
+    public Airport getFrom() {
+        return departureAirport;
+    }
+
+    public Airport getTo() {
+        return arrivalAirport;
+    }
+
+    public Airline getAirline() {
+        return airline;
     }
 
     @Override

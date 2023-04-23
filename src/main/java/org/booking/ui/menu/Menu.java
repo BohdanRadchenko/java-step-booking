@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public abstract class Menu implements IMenu {
+    public boolean statusMenu;
+    public boolean statusItem;
 
     public final Controller controller;
     private final Map<Integer, MenuItem> items;
@@ -101,9 +103,17 @@ public abstract class Menu implements IMenu {
         Logger.out(Message.MENU_ENTER_NUMBER.message);
         String str = Console.readString();
         Logger.input(str);
+
+        if (Parser.parseIsExit(str)) {
+            MenuStack.exit();
+            return Constants.exitCode;
+        }
+        if (Parser.parseIsBack(str)) {
+            MenuStack.back();
+            return Constants.exitCode;
+        }
+
         try {
-            boolean isExit = Parser.parseIsExit(str);
-            if (isExit) return Constants.exitCode;
             int n = Parser.parseInt(str);
             if (!items.containsKey(n)) {
                 throw new RuntimeException(Message.MENU_NOT_EXIST.message);
@@ -117,23 +127,29 @@ public abstract class Menu implements IMenu {
         }
     }
 
+    public void refresh() {
+        statusMenu = true;
+        statusItem = false;
+        reset();
+        set();
+    }
+
     private void show() {
         Logger.info(String.format("Show: %s", title));
         Console.ln();
         displayMenu();
         int menuNum = enterMenu();
-        if (menuNum == Constants.exitCode) {
-            MenuStack.exit();
-            return;
-        }
+        statusMenu = false;
+        statusItem = true;
+        if (menuNum == Constants.exitCode) return;
         items.get(menuNum).run();
     }
 
     public void run() {
         MenuStack.add(this);
-        reset();
-        set();
+        refresh();
         show();
+        refresh();
     }
 
     public void run(int i) {

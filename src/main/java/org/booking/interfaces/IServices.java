@@ -14,7 +14,7 @@ public interface IServices<T extends Entity> {
 
     T getById(String id) throws RuntimeException;
 
-    void add(T entity) throws RuntimeException;
+    T add(T entity) throws RuntimeException;
 
     void delete(String id) throws RuntimeException;
 

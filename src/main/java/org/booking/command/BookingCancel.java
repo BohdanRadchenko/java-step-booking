@@ -3,6 +3,7 @@ package org.booking.command;
 import org.booking.controllers.Controller;
 import org.booking.entity.Booking;
 import org.booking.enums.Message;
+import org.booking.helpers.PrettyFormat;
 import org.booking.helpers.Validation;
 import org.booking.utils.Console;
 
@@ -26,11 +27,7 @@ public class BookingCancel extends Command {
     }
 
     private void displayBooking(Booking booking) {
-        if (booking == null) {
-            Console.error("Booking not found!");
-            return;
-        }
-        controller.booking.cancelBooking(booking);
+
     }
 
     @Override
@@ -43,7 +40,12 @@ public class BookingCancel extends Command {
         String bookingId = enterBookingId();
 
         Booking booking = controller.booking.getByCode(bookingId);
-
-        displayBooking(booking);
+        if (booking == null) {
+            Console.error("Booking not found!");
+            return;
+        }
+        Console.table1(PrettyFormat.flightFull(booking.getFlight()));
+        controller.booking.cancelBooking(booking);
+        Console.accept(String.format("Booking %s cancelled", booking.getCode()));
     }
 }

@@ -3,6 +3,7 @@ package org.booking.command;
 import org.booking.controllers.Controller;
 import org.booking.entity.Flight;
 import org.booking.enums.Message;
+import org.booking.helpers.PrettyFormat;
 import org.booking.helpers.Validation;
 import org.booking.utils.Console;
 
@@ -32,16 +33,15 @@ public class FlightInfo extends Command {
             Console.warning("Nothing found!");
             return;
         }
-        Console.title(flight.toString());
+        Console.title(PrettyFormat.flight(flight));
     }
-
 
     @Override
     public void execute() {
         String flightId = enterFlightId();
         Flight flight = controller.flight.getByFlightId(flightId);
         displayFlight(flight);
-        
+
         /*
          * Пользователю предлагается ввести айди рейса.
          * Далее по этому рейсу выводится вся информация
