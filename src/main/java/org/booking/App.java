@@ -30,6 +30,7 @@ public class App {
             Console.error(exMessage);
         }
         Logger.separator();
+        Console.clear();
     }
 
     public void save() {

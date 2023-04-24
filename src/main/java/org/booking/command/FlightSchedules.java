@@ -22,9 +22,9 @@ public class FlightSchedules extends Command {
         String res = String.format("| %-3d | %s", n, PrettyFormat.flightFull(f));
 
         if (n % 2 == 0) {
-            Console.table1(res, Console.FLIGHT_FULL);
-        } else {
             Console.table2(res, Console.FLIGHT_FULL);
+        } else {
+            Console.table1(res, Console.FLIGHT_FULL);
         }
     }
 
