@@ -14,6 +14,10 @@ import java.util.Optional;
 public class ServiceFlight implements IServices<Flight> {
     private final FlightDao db = new FlightDao();
 
+    private final int NEXT_TIME_HOUR = 24;
+    private final int MAX_TRANFER_DIFF = 12;
+    private final int MAX_TRANSFER_DIFF_DAY = 12;
+
     @Override
     public int size() {
         return db.size();
@@ -81,7 +85,7 @@ public class ServiceFlight implements IServices<Flight> {
 
     public List<Flight> getFlightsNextTime(long time) throws RuntimeException {
         long startTime = DateUtil.of(time).getMillis();
-        long endTime = DateUtil.of(startTime).plusHours(24).getMillis();
+        long endTime = DateUtil.of(startTime).plusHours(NEXT_TIME_HOUR).getMillis();
         return getFlightsByTime(startTime, endTime);
     }
 
@@ -99,7 +103,7 @@ public class ServiceFlight implements IServices<Flight> {
 
     public List<List<Flight>> getFlightsForBookingWithTrans(Airport from, Airport to, long time, int seats) {
         long startTime = DateUtil.of(time).getMillis();
-        long endTransTime = DateUtil.of(time).plusDays(3).getMillis();
+        long endTransTime = DateUtil.of(time).plusDays(MAX_TRANSFER_DIFF_DAY).getMillis();
 
         List<Flight> flightsFrom = getFlightsNextTime(startTime)
                 .stream()
@@ -116,7 +120,7 @@ public class ServiceFlight implements IServices<Flight> {
         for (Flight ff : flightsFrom) {
             for (Flight ft : flightsTo) {
                 if (ff.getTo() != ft.getFrom()) continue;
-                long arrMaxTime = DateUtil.of(ff.getArrivalTimeStamp()).plusHours(12).getMillis();
+                long arrMaxTime = DateUtil.of(ff.getArrivalTimeStamp()).plusHours(MAX_TRANFER_DIFF).getMillis();
                 if (ff.getArrivalTimeStamp() > ft.getDepartureTimeStamp()
                         || ft.getDepartureTimeStamp() > arrMaxTime) continue;
                 long diffHours = DateUtil.betweenDuration(ff.getArrivalTimeStamp(), ft.getDepartureTimeStamp()).toHours();

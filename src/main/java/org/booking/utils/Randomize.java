@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Randomize {
 
-    private static final Random random = new Random();
+    private static final Random RANDOM_INSTANCE = new Random();
 
     public static int num(int min, int max) {
-        return random.nextInt(min, max);
+        return RANDOM_INSTANCE.nextInt(min, max);
     }
 
     public static int num(int max) {

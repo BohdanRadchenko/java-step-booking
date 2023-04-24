@@ -40,7 +40,7 @@ public class FlightSchedules extends Command {
     public void execute() {
         List<Flight> flightNextDay = controller.flight.getFlightNextDay();
         if (flightNextDay.size() == 0) {
-            String msg = String.format("%s\n", Constants.sep2.repeat(Constants.repeatSpaceCount));
+            String msg = String.format("%s\n", Constants.SEP_2.repeat(Constants.REPEAT_SPACE_COUNT));
             Console.warning(msg);
             return;
         }

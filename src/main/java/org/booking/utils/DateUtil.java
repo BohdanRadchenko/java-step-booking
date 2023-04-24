@@ -4,6 +4,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Date;
+import java.util.Objects;
 
 public class DateUtil {
     private long timestamp;
@@ -81,6 +82,16 @@ public class DateUtil {
     @Override
     public int hashCode() {
         return new Date(this.timestamp).hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DateUtil that = (DateUtil) o;
+        return timestamp == that.timestamp
+                && Objects.equals(localDateTime, that.localDateTime)
+                && Objects.equals(date, that.date);
     }
 
     public LocalDateTime getLocalDateTime() {
@@ -275,7 +286,8 @@ public class DateUtil {
      * @return new DateUtil instance
      */
     public DateUtil round() {
-        return round(30 * 60 * 1000);
+        final long round15Min = 30 * 60 * 1000;
+        return round(round15Min);
     }
 
     /**
@@ -284,7 +296,8 @@ public class DateUtil {
      * @return new DateUtil instance
      */
     public DateUtil roundDay() {
-        return round(86400000);
+        final long dayInMs = 86400000;
+        return round(dayInMs);
     }
 
     /**

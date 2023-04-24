@@ -3,18 +3,18 @@ package org.booking.helpers;
 import java.nio.file.Paths;
 
 public class Constants {
-    public static final String dbDir = "db";
-    public static final String projectPath = Paths.get("").toAbsolutePath().toString();
-    public static final String dbPath = String.format("%s/%s", projectPath, dbDir);
-    public static final int exitCode = -1;
-    public static final int helpCode = 0;
-    public static final String sep1 = "=";
-    public static final String sep2 = "-";
-    public static final String logo = "BOOKING MANAGER";
-    public static final int repeatSpaceCount = 100;
+    public static final String DB_DIR = "db";
+    public static final String PROJECT_PATH = Paths.get("").toAbsolutePath().toString();
+    public static final String DB_PATH = String.format("%s/%s", PROJECT_PATH, DB_DIR);
+    public static final int EXIT_CODE = -1;
+    public static final int HELP_CODE = 0;
+    public static final String SEP_1 = "=";
+    public static final String SEP_2 = "-";
+    public static final String LOGO = "BOOKING MANAGER";
+    public static final int REPEAT_SPACE_COUNT = 100;
 
     public static final int calcSpaceCount(String string) {
-        return repeatSpaceCount / 2 - string.length() / 2;
+        return REPEAT_SPACE_COUNT / 2 - string.length() / 2;
     }
 
     public static final int FLIGHT_RANDOM_COUNT = 9876;

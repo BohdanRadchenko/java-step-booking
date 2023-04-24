@@ -34,10 +34,14 @@ public abstract class Menu implements IMenu {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(statusMenu, statusItem, controller, items, title, hasExit, count);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Menu)) return false;
-        Menu that = (Menu) o;
+        if (!(o instanceof Menu that)) return false;
         return Objects.equals(that.title, this.title)
                 && that.hasExit == this.hasExit
                 && that.count == this.count
@@ -106,11 +110,11 @@ public abstract class Menu implements IMenu {
 
         if (Parser.parseIsExit(str)) {
             MenuStack.exit();
-            return Constants.exitCode;
+            return Constants.EXIT_CODE;
         }
         if (Parser.parseIsBack(str)) {
             MenuStack.back();
-            return Constants.exitCode;
+            return Constants.EXIT_CODE;
         }
 
         try {
@@ -141,7 +145,7 @@ public abstract class Menu implements IMenu {
         int menuNum = enterMenu();
         statusMenu = false;
         statusItem = true;
-        if (menuNum == Constants.exitCode) return;
+        if (menuNum == Constants.EXIT_CODE) return;
         items.get(menuNum).run();
     }
 

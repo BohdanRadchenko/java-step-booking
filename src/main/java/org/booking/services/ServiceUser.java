@@ -8,7 +8,6 @@ import org.booking.utils.StringWorker;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class ServiceUser implements IServices<User> {
     private final UserDao db = new UserDao();
@@ -73,7 +72,7 @@ public class ServiceUser implements IServices<User> {
         }
         return null;
     }
-    
+
     public User add(String firstName, String lastName) throws RuntimeException {
         User user = new User(firstName, lastName);
         if (db.add(user)) {

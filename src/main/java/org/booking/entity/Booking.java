@@ -23,6 +23,7 @@ public class Booking extends Entity implements Comparable<Booking> {
     }
 
     private String createCode() {
+        final int maxBookingIntLength = 4;
         int nano = DateUtil.of(time).getNano();
 
         StringBuilder sb = new StringBuilder();
@@ -31,7 +32,7 @@ public class Booking extends Entity implements Comparable<Booking> {
 
         String[] splitTime = String.valueOf(nano).split("");
 
-        for (int i = 0; i < (4 - String.valueOf(bookingCounter).length()); i++) {
+        for (int i = 0; i < (maxBookingIntLength - String.valueOf(bookingCounter).length()); i++) {
             sb.append(splitTime[i]);
         }
         return new String(sb);

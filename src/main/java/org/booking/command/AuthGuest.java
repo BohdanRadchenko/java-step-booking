@@ -1,8 +1,6 @@
 package org.booking.command;
 
 import org.booking.controllers.Controller;
-import org.booking.ui.menu.MenuStack;
-import org.booking.utils.Input;
 
 // TODO: 18.04.2023 Example class. Remove.
 public class AuthGuest extends Command {

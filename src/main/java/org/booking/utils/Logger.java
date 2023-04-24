@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 public final class Logger {
-    
+
     enum LogType {
         START,
         ERROR,
@@ -34,13 +34,13 @@ public final class Logger {
         private final LogType logType;
         private final String message;
 
-        public Log(long timestamp, LogType logType, String message) {
+        Log(long timestamp, LogType logType, String message) {
             this.logType = logType;
             this.message = message;
             this.timestamp = timestamp;
         }
 
-        public Log(LogType logType, String message) {
+        Log(LogType logType, String message) {
             this(DateUtil.of().getMillis(), logType, message);
         }
 
@@ -128,14 +128,14 @@ public final class Logger {
 
     public static void start() {
         String msg = " Application started ";
-        int sepLength = Constants.repeatSpaceCount / 2 - (msg.length() / 2);
-        String sep = Constants.sep1.repeat(sepLength - 1);
+        int sepLength = Constants.REPEAT_SPACE_COUNT / 2 - (msg.length() / 2);
+        String sep = Constants.SEP_1.repeat(sepLength - 1);
         String res = String.format("\n%s%s%s", sep, msg, sep);
         insertLog(LogType.START, res);
     }
 
     public static void separator() {
-        String sep = Constants.sep2.repeat(Constants.repeatSpaceCount);
+        String sep = Constants.SEP_2.repeat(Constants.REPEAT_SPACE_COUNT);
         insertLog(LogType.CLEAR, sep);
     }
 }

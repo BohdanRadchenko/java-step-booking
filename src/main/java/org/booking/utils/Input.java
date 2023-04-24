@@ -8,11 +8,11 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class Input {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final Console console = System.console();
+    private static final Scanner SCANNER_INSTANCE = new Scanner(System.in);
+    private static final Console CONSOLE_INSTANCE = System.console();
 
     private static String nextLine() {
-        return scanner.nextLine().trim();
+        return SCANNER_INSTANCE.nextLine().trim();
     }
 
     public static String readString() {
@@ -38,10 +38,10 @@ public class Input {
      */
     public static String readPassword(boolean withCode) throws ValidateException {
         String pass;
-        if (console == null) {
+        if (CONSOLE_INSTANCE == null) {
             pass = readString();
         } else {
-            char[] pc = console.readPassword();
+            char[] pc = CONSOLE_INSTANCE.readPassword();
             pass = String.valueOf(pc);
         }
         if (withCode && Parser.parseIsCode(pass)) return pass;

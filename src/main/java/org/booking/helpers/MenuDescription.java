@@ -7,7 +7,7 @@ public class MenuDescription {
     }
 
     public static String booking() {
-        return String.format("'%d' - show airports or 'Back' to main menu", Constants.helpCode);
+        return String.format("'%d' - show airports or 'Back' to main menu", Constants.HELP_CODE);
     }
 
     public static String bookingCancel() {

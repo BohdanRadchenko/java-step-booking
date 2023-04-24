@@ -17,8 +17,12 @@ import java.util.List;
 
 public class FlightController implements IController {
 
-    private final int maxRefreshCount = 3;
-    private int refreshCount = 0;
+    private final int MAX_REFRESH_COUNT = 3;
+    private int REFRESH_COUNT = 0;
+    private final int MAX_NEXT_LIMIT = 100;
+    private final int PLUS_NEXT_HOURS = 24;
+    private final int GENERATE_ROUND_TIME = 15;
+    private final int FLIGHT_MAX_ID = 999;
     private final ServiceFlight service = new ServiceFlight();
 
     private List<Long> generateTime(int count) {
@@ -26,7 +30,7 @@ public class FlightController implements IController {
         List<Long> timeList = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
-            timeList.add(date.plusMinutes(15).getMillis());
+            timeList.add(date.plusMinutes(GENERATE_ROUND_TIME).getMillis());
         }
         return timeList;
     }
@@ -36,7 +40,7 @@ public class FlightController implements IController {
 
         List<Long> times = generateTime(count);
         for (int i = 0; i < count; i++) {
-            int id = Randomize.num(999);
+            int id = Randomize.num(FLIGHT_MAX_ID);
             Aircraft aircraft = Aircraft.values()[Randomize.num(Aircraft.values().length)];
             Airline airline = Airline.values()[Randomize.num(Airline.values().length)];
             int fromIdx = Randomize.num(0, Airport.values().length);
@@ -87,25 +91,24 @@ public class FlightController implements IController {
     }
 
     public List<Flight> getFlightByTime(long start, long end, int limit) {
-        refreshCount++;
+        REFRESH_COUNT++;
         DateUtil s = DateUtil.of(start);
         DateUtil e = DateUtil.of(end);
         try {
             List<Flight> flights = service.getFlightsByTime(s.getMillis(), e.getMillis());
-            if (flights.size() < limit && refreshCount <= maxRefreshCount) {
-                return getFlightByTime(start, e.plusHours(24).getMillis(), limit);
+            if (flights.size() < limit && REFRESH_COUNT <= MAX_REFRESH_COUNT) {
+                return getFlightByTime(start, e.plusHours(PLUS_NEXT_HOURS).getMillis(), limit);
             }
             return flights.stream().limit(limit).toList();
         } catch (RuntimeException ex) {
-            return getFlightByTime(start, e.plusHours(24).getMillis(), limit);
+            return getFlightByTime(start, e.plusHours(PLUS_NEXT_HOURS).getMillis(), limit);
         }
     }
 
     public List<Flight> getFlightNextDay() {
         DateUtil now = DateUtil.of();
         DateUtil next = DateUtil.of().plusDays(1);
-        int limit = 100;
-        List<Flight> flights = getFlightByTime(now.getMillis(), next.getMillis(), limit);
+        List<Flight> flights = getFlightByTime(now.getMillis(), next.getMillis(), MAX_NEXT_LIMIT);
         List<Flight> sortedList = new ArrayList<>(flights);
         Collections.sort(sortedList);
         return sortedList;

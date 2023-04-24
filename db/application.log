@@ -74,3 +74,39 @@
 ----------------------------------------------------------------------------------------------------
 24.04.2023 15:40:07 [INFO]      : Show: Auth menu
 24.04.2023 15:40:07 [MESSAGE]   : Enter menu number
+24.04.2023 16:33:46 [START]     : 
+======================================= Application started =======================================
+24.04.2023 16:33:46 [INFO]      : Loading data...
+24.04.2023 16:33:46 [INFO]      : Loading user data
+24.04.2023 16:33:46 [INFO]      : Loaded 0 users
+24.04.2023 16:33:46 [INFO]      : Loading flight data
+24.04.2023 16:33:47 [INFO]      : Loaded 9876 flights
+24.04.2023 16:33:47 [INFO]      : Loading booking data
+24.04.2023 16:33:47 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 16:33:47 [INFO]      : Show: Auth menu
+24.04.2023 16:33:47 [MESSAGE]   : Enter menu number
+24.04.2023 16:34:37 [START]     : 
+======================================= Application started =======================================
+24.04.2023 16:34:37 [INFO]      : Loading data...
+24.04.2023 16:34:37 [INFO]      : Loading user data
+24.04.2023 16:34:37 [INFO]      : Loaded 0 users
+24.04.2023 16:34:37 [INFO]      : Loading flight data
+24.04.2023 16:34:37 [INFO]      : Loaded 9876 flights
+24.04.2023 16:34:38 [INFO]      : Loading booking data
+24.04.2023 16:34:38 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 16:34:38 [INFO]      : Show: Auth menu
+24.04.2023 16:34:38 [MESSAGE]   : Enter menu number
+24.04.2023 16:43:42 [START]     : 
+======================================= Application started =======================================
+24.04.2023 16:43:42 [INFO]      : Loading data...
+24.04.2023 16:43:42 [INFO]      : Loading user data
+24.04.2023 16:43:42 [INFO]      : Loaded 0 users
+24.04.2023 16:43:42 [INFO]      : Loading flight data
+24.04.2023 16:43:43 [INFO]      : Loaded 9876 flights
+24.04.2023 16:43:43 [INFO]      : Loading booking data
+24.04.2023 16:43:43 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 16:43:43 [INFO]      : Show: Auth menu
+24.04.2023 16:43:43 [MESSAGE]   : Enter menu number

@@ -49,8 +49,9 @@ public class Flight extends Entity implements Comparable<Flight> {
     private long arrivalTimeMls() {
         int distance = Utm.distance(departureAirport, arrivalAirport);
         double cruiser = (double) distance / aircraft.speed;
-        long cruiserTime = cruiser > 1 ? 3600000 : (long) (cruiser * 3600000);
-        return this.departureTimeStamp + cruiserTime + 3600000;
+        final long hourInMs = 3600000;
+        long cruiserTime = cruiser > 1 ? hourInMs : (long) (cruiser * hourInMs);
+        return this.departureTimeStamp + cruiserTime + hourInMs;
     }
 
     public int getFreeSeats() {

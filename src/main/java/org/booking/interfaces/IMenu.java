@@ -8,11 +8,11 @@ import java.util.Arrays;
 public interface IMenu {
 
     default void showSeparator() {
-        Console.hide(String.format("%s\n", Constants.sep1.repeat(Constants.repeatSpaceCount)));
+        Console.hide(String.format("%s\n", Constants.SEP_1.repeat(Constants.REPEAT_SPACE_COUNT)));
     }
 
     default void showSubSeparator() {
-        Console.hide(String.format("\n%s\n\n", Constants.sep2.repeat(Constants.repeatSpaceCount)));
+        Console.hide(String.format("\n%s\n\n", Constants.SEP_2.repeat(Constants.REPEAT_SPACE_COUNT)));
     }
 
     default void displayTitle(String title) {
@@ -36,7 +36,7 @@ public interface IMenu {
     }
 
     default void displayLogo() {
-        displayTitle(Constants.logo);
+        displayTitle(Constants.LOGO);
         Console.ln();
     }
 

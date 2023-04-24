@@ -11,7 +11,6 @@ import org.booking.helpers.Validation;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.*;
 
-import java.lang.reflect.Parameter;
 import java.time.format.FormatStyle;
 import java.util.*;
 import java.util.List;
@@ -144,10 +143,12 @@ public class BookingCreate extends Command {
         int year;
         int month;
         int day;
+        final int spreadYear = 100;
+        final int minYears = 2000;
         try {
             year = Parser.parseInt(splits.get(2));
-            if (year < 100) {
-                year += 2000;
+            if (year < spreadYear) {
+                year += minYears;
             }
             if (year < currentYear) {
                 throw new RuntimeException("Invalid year!");

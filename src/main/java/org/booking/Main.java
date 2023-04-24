@@ -7,8 +7,8 @@ import org.booking.utils.Logger;
 
 public class Main {
     private static void init() throws RuntimeException {
-        FileWorker.createFolder(Constants.dbPath);
-        if (!FileWorker.exist(Constants.dbPath)) {
+        FileWorker.createFolder(Constants.DB_PATH);
+        if (!FileWorker.exist(Constants.DB_PATH)) {
             throw new RuntimeException("Critical error. db folder is not exist");
         }
     }

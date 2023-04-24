@@ -8,8 +8,8 @@ import org.booking.helpers.Validation;
 import org.booking.utils.Console;
 
 public class FlightInfo extends Command {
-    private int refreshCounter = 0;
-    private int maxRefresh = 3;
+    private int REFRESH_COUNTER = 0;
+    private final int MAX_REFRESH_COUNTER = 3;
 
     public FlightInfo(Controller controller) {
         super(controller);
@@ -20,14 +20,14 @@ public class FlightInfo extends Command {
     }
 
     private String enterFlightId() {
-        refreshCounter++;
+        REFRESH_COUNTER++;
         Console.input(Message.FLIGHT_ENTER_CODE);
         String readString = Console.readString();
         boolean b = Validation.flightId(readString);
 
         if (!b) {
             Console.error("Invalid flight id!");
-            if (refreshCounter <= maxRefresh) {
+            if (REFRESH_COUNTER <= MAX_REFRESH_COUNTER) {
                 return enterFlightId();
             }
         }

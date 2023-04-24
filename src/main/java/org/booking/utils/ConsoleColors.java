@@ -58,18 +58,18 @@ public interface ConsoleColors {
     String BLACK_BOLD_BRIGHT = "\033[1;90m"; // BLACK
     String RED_BOLD_BRIGHT = "\033[1;91m";   // RED
     String GREEN_BOLD_BRIGHT = "\033[1;92m"; // GREEN
-    String YELLOW_BOLD_BRIGHT = "\033[1;93m";// YELLOW
+    String YELLOW_BOLD_BRIGHT = "\033[1;93m"; // YELLOW
     String BLUE_BOLD_BRIGHT = "\033[1;94m";  // BLUE
-    String PURPLE_BOLD_BRIGHT = "\033[1;95m";// PURPLE
+    String PURPLE_BOLD_BRIGHT = "\033[1;95m"; // PURPLE
     String CYAN_BOLD_BRIGHT = "\033[1;96m";  // CYAN
     String WHITE_BOLD_BRIGHT = "\033[1;97m"; // WHITE
 
     // High Intensity backgrounds
-    String BLACK_BACKGROUND_BRIGHT = "\033[0;100m";// BLACK
-    String RED_BACKGROUND_BRIGHT = "\033[0;101m";// RED
-    String GREEN_BACKGROUND_BRIGHT = "\033[0;102m";// GREEN
-    String YELLOW_BACKGROUND_BRIGHT = "\033[0;103m";// YELLOW
-    String BLUE_BACKGROUND_BRIGHT = "\033[0;104m";// BLUE
+    String BLACK_BACKGROUND_BRIGHT = "\033[0;100m"; // BLACK
+    String RED_BACKGROUND_BRIGHT = "\033[0;101m"; // RED
+    String GREEN_BACKGROUND_BRIGHT = "\033[0;102m"; // GREEN
+    String YELLOW_BACKGROUND_BRIGHT = "\033[0;103m"; // YELLOW
+    String BLUE_BACKGROUND_BRIGHT = "\033[0;104m"; // BLUE
     String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m"; // PURPLE
     String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
     String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE

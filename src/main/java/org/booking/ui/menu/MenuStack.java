@@ -6,7 +6,7 @@ import org.booking.utils.Console;
 import java.util.Stack;
 
 public class MenuStack {
-    private static final Stack<Menu> stack = new Stack<>();
+    private static final Stack<Menu> MENU_STACK = new Stack<>();
 
     private static boolean isExit = false;
 
@@ -20,8 +20,8 @@ public class MenuStack {
     }
 
     public static void add(Menu menu) {
-        if (!isEmpty() && menu.equals(stack.peek())) return;
-        stack.push(menu);
+        if (!isEmpty() && menu.equals(MENU_STACK.peek())) return;
+        MENU_STACK.push(menu);
     }
 
     private static void setIsExit(boolean value) {
@@ -33,32 +33,32 @@ public class MenuStack {
     }
 
     private static boolean isEmpty() {
-        return stack.empty();
+        return MENU_STACK.empty();
     }
 
     public static void exit() {
         setIsExit(true);
-        if (stack.peek().statusItem) {
+        if (MENU_STACK.peek().statusItem) {
             app.save();
             System.exit(0);
             Console.hide("Menu exit...");
         }
-        stack.peek().refresh();
+        MENU_STACK.peek().refresh();
     }
 
     public static void back() {
-        stack.peek().refresh();
-        if (stack.size() == 1) {
+        MENU_STACK.peek().refresh();
+        if (MENU_STACK.size() == 1) {
             refresh();
             return;
         }
-        stack.pop();
+        MENU_STACK.pop();
         Console.hide("Menu back...");
-        stack.peek().run();
+        MENU_STACK.peek().run();
     }
 
     public static void refresh() {
         Console.hide("Menu back...");
-        stack.peek().run();
+        MENU_STACK.peek().run();
     }
 }

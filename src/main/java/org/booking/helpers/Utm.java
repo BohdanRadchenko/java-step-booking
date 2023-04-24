@@ -10,16 +10,15 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Utm {
+    private static final int ONE_UTM_DISTANCE = 200;
 
     private static class ParsedUtm {
         private final String[] ws
                 = {"x", "w", "v", "u", "t", "s", "r", "q", "p", "n", "m", "l", "k", "j", "h", "g", "f", "e", "d", "c"};
-        private final String utm;
         public final int utmCoordX;
         public final int utmCoordY;
 
-        public ParsedUtm(String utm) {
-            this.utm = utm;
+        ParsedUtm(String utm) {
             Pattern pattern = Pattern.compile("^(\\d+)(\\w+)");
             Matcher matcher = pattern.matcher(utm);
             if (!matcher.find()) {
@@ -37,12 +36,10 @@ public class Utm {
         }
     }
 
-    private final String utm;
     private final ParsedUtm parsedUtm;
 
     public Utm(String utm) {
-        this.utm = Parser.parseUtm(utm);
-        this.parsedUtm = new ParsedUtm(this.utm);
+        this.parsedUtm = new ParsedUtm(utm);
     }
 
     public ParsedUtm getUtm() {
@@ -53,7 +50,7 @@ public class Utm {
         if (u1.getUtm() == null || u2.getUtm() == null) return 0;
         int a = Math.abs(u1.parsedUtm.utmCoordX - u2.parsedUtm.utmCoordX);
         int b = Math.abs(u1.parsedUtm.utmCoordY - u2.parsedUtm.utmCoordY);
-        return (int) Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)) * 200;
+        return (int) Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)) * ONE_UTM_DISTANCE;
     }
 
     public static int distance(Airport a1, Airport a2) {
