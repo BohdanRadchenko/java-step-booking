@@ -19,7 +19,7 @@ public class FlightController implements IController {
     private int REFRESH_COUNT = 0;
     private final int MAX_NEXT_LIMIT = 100;
     private final int PLUS_NEXT_HOURS = 24;
-    private final int GENERATE_ROUND_TIME = 15;
+    private final int GENERATE_ROUND_TIME = 10;
     private final int FLIGHT_MAX_ID = 999;
     private final int MIN_PASSENGERS_GENERATE = 6;
     private final double MAX_PASSENGERS_GENERATE_COF = 0.9;

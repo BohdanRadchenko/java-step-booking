@@ -19,7 +19,9 @@ public class App {
         Console.hide(msg);
         Console.ln();
         try {
+            Logger.setSave(false);
             controller.load();
+            Logger.setSave(true);
             Console.success("Loading success.");
             Console.clear();
         } catch (Exception ex) {

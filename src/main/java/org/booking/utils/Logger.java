@@ -8,6 +8,8 @@ import java.util.*;
 
 public final class Logger {
 
+    private static boolean doSave = true;
+
     enum LogType {
         START,
         ERROR,
@@ -79,6 +81,10 @@ public final class Logger {
     private Logger() {
     }
 
+    public static void setSave(boolean set) {
+        Logger.doSave = set;
+    }
+
     private static void save() throws RuntimeException {
         FilePath path = FilePath.LOG;
         Collections.sort(logger);
@@ -94,6 +100,7 @@ public final class Logger {
     }
 
     private static void insertLog(LogType logType, String message) {
+        if (!doSave) return;
         Log log = new Log(logType, message);
         logger.add(log);
         try {
