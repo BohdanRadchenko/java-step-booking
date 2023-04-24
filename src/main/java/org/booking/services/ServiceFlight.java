@@ -8,6 +8,7 @@ import org.booking.utils.DateUtil;
 import org.booking.utils.StringWorker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,12 +111,13 @@ public class ServiceFlight implements IServices<Flight> {
                 .filter(f -> f.getFrom() == from && f.getFreeSeats() >= seats)
                 .toList();
 
-        List<Flight> flightsTo = getFlightsByTime(startTime, endTransTime)
+        List<Flight> flightsTo = new ArrayList<>(getFlightsByTime(startTime, endTransTime)
                 .stream()
                 .filter(f -> f.getTo() == to && f.getFreeSeats() >= seats)
-                .toList();
+                .toList());
 
         List<List<Flight>> flights = new ArrayList<>();
+        Collections.sort(flightsTo);
 
         for (Flight ff : flightsFrom) {
             for (Flight ft : flightsTo) {

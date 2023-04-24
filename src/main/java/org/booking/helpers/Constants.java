@@ -17,8 +17,6 @@ public class Constants {
         return REPEAT_SPACE_COUNT / 2 - string.length() / 2;
     }
 
-    public static final int FLIGHT_RANDOM_COUNT = 9876;
-
     public static final int MIN_LOGIN_LENGTH = 5;
     public static final int MIN_PASSWORD_LENGTH = 8;
 

@@ -2,7 +2,6 @@ package org.booking.controllers;
 
 import org.booking.entity.*;
 import org.booking.enums.FilePath;
-import org.booking.helpers.Constants;
 import org.booking.interfaces.IController;
 import org.booking.services.ServiceFlight;
 import org.booking.utils.DateUtil;
@@ -11,18 +10,19 @@ import org.booking.utils.Logger;
 import org.booking.utils.Randomize;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class FlightController implements IController {
-
+    public static final int FLIGHT_RANDOM_COUNT = 9876;
     private final int MAX_REFRESH_COUNT = 3;
     private int REFRESH_COUNT = 0;
     private final int MAX_NEXT_LIMIT = 100;
     private final int PLUS_NEXT_HOURS = 24;
     private final int GENERATE_ROUND_TIME = 15;
     private final int FLIGHT_MAX_ID = 999;
+    private final int MIN_PASSENGERS_GENERATE = 6;
+    private final double MAX_PASSENGERS_GENERATE_COF = 0.9;
     private final ServiceFlight service = new ServiceFlight();
 
     private List<Long> generateTime(int count) {
@@ -35,19 +35,55 @@ public class FlightController implements IController {
         return timeList;
     }
 
-    private List<Flight> generateFlights(int count) {
-        List<Flight> flights = new ArrayList<>();
+    private Set<User> generatePassenger(Aircraft aircraft) {
+        Set<User> users = new HashSet<>();
+        IntStream
+                .range(0, Randomize.num(MIN_PASSENGERS_GENERATE, (int) (aircraft.seats * MAX_PASSENGERS_GENERATE_COF)))
+                .forEach(c -> {
+                    String fn = String.valueOf(Randomize.num(Integer.MAX_VALUE - 1));
+                    String ln = String.valueOf(Randomize.num(Integer.MAX_VALUE - 1));
+                    users.add(new User(fn, ln));
+                });
+        return users;
+    }
 
+    private List<Flight> generateFlights(int count) {
+        final int numFrom1 = 15;
+        final int numTo1 = 20;
+        final int numTo2 = 25;
+        final int numTo3 = 30;
+
+        List<Flight> flights = new ArrayList<>();
         List<Long> times = generateTime(count);
+
         for (int i = 0; i < count; i++) {
             int id = Randomize.num(FLIGHT_MAX_ID);
             Aircraft aircraft = Aircraft.values()[Randomize.num(Aircraft.values().length)];
             Airline airline = Airline.values()[Randomize.num(Airline.values().length)];
             int fromIdx = Randomize.num(0, Airport.values().length);
             int toIdx = Randomize.num(0, Airport.values().length, fromIdx);
+
+            if (i % numFrom1 == 0) {
+                fromIdx = Airport.KBP.ordinal();
+                toIdx = Airport.FRA.ordinal();
+            }
+            if (i % numTo1 == 0) {
+                fromIdx = Airport.FRA.ordinal();
+                toIdx = Airport.LHR.ordinal();
+            }
+
+            if (i % numTo2 == 0) {
+                fromIdx = Airport.FRA.ordinal();
+                toIdx = Airport.GYD.ordinal();
+            }
+            if (i % numTo3 == 0) {
+                fromIdx = Airport.FRA.ordinal();
+                toIdx = Airport.MAD.ordinal();
+            }
+
             Airport from = Airport.values()[fromIdx];
             Airport to = Airport.values()[toIdx];
-            flights.add(new Flight(times.get(i), from, to, airline, aircraft, id));
+            flights.add(new Flight(times.get(i), from, to, airline, aircraft, id, generatePassenger(aircraft)));
         }
         return flights;
     }
@@ -55,14 +91,14 @@ public class FlightController implements IController {
     @Override
     public int load() throws RuntimeException {
         if (!FileWorker.exist(FilePath.FLIGHT)) {
-            service.upload(generateFlights(Constants.FLIGHT_RANDOM_COUNT));
+            service.upload(generateFlights(FLIGHT_RANDOM_COUNT));
             return service.size();
         }
         try {
             List<Flight> flights = FileWorker.readBinary(FilePath.FLIGHT);
             service.upload(flights);
-            if (flights.size() < Constants.FLIGHT_RANDOM_COUNT) {
-                service.upload(generateFlights(Constants.FLIGHT_RANDOM_COUNT));
+            if (flights.size() < FLIGHT_RANDOM_COUNT) {
+                service.upload(generateFlights(FLIGHT_RANDOM_COUNT - flights.size()));
             }
             return service.size();
         } catch (IOException | ClassNotFoundException e) {
@@ -115,6 +151,7 @@ public class FlightController implements IController {
     }
 
     public List<List<Flight>> getFlightsForBooking(Airport from, Airport to, long time, int seats) {
+        final int minForTrans = 1;
         try {
             List<List<Flight>> res = new ArrayList<>();
             service.getFlightsForBooking(from, to, time, seats)
@@ -125,6 +162,14 @@ public class FlightController implements IController {
                     });
             if (res.size() == 0) {
                 throw new RuntimeException("Nothing found!");
+            }
+            if (res.size() <= minForTrans) {
+                try {
+                    List<List<Flight>> flightsForBookingWithTrans = service.getFlightsForBookingWithTrans(from, to, time, seats);
+                    res.addAll(flightsForBookingWithTrans);
+                } catch (RuntimeException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
             return res;
         } catch (RuntimeException ex) {

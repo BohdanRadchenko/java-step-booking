@@ -46,7 +46,7 @@ public final class Controller {
             Logger.error(exceptionMessage);
             Console.error(exceptionMessage);
         }
-
+        
         try {
             String msg = "Loading booking data";
             Logger.info(msg);

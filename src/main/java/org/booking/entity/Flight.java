@@ -14,7 +14,6 @@ public class Flight extends Entity implements Comparable<Flight> {
     private Aircraft aircraft;
     private String flightId;
     private Set<User> passengers = new HashSet<>();
-    private int freeSeats;
     private final String code;
 
     public Flight(long departureTimeStamp, Airport departureAirport, Airport arrivalAirport, Airline airline,
@@ -28,7 +27,6 @@ public class Flight extends Entity implements Comparable<Flight> {
             this.passengers = passengers;
         }
         this.aircraft = aircraft;
-        this.freeSeats = aircraft.seats - this.passengers.size();
         this.arrivalTimeStamp = arrivalTimeMls();
         this.code = String.format("%s%s", this.airline.code, this.flightId);
     }
@@ -55,7 +53,7 @@ public class Flight extends Entity implements Comparable<Flight> {
     }
 
     public int getFreeSeats() {
-        return freeSeats;
+        return aircraft.seats - passengers.size();
     }
 
     public long getDepartureTimeStamp() {

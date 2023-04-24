@@ -1,0 +1,719 @@
+24.04.2023 17:48:18 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:48:18 [INFO]      : Loading data...
+24.04.2023 17:48:18 [INFO]      : Loading user data
+24.04.2023 17:48:18 [INFO]      : Loaded 0 users
+24.04.2023 17:48:18 [INFO]      : Loading flight data
+24.04.2023 17:48:19 [INFO]      : Loaded 9876 flights
+24.04.2023 17:48:19 [INFO]      : Loading booking data
+24.04.2023 17:48:19 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:48:19 [INFO]      : Show: Auth menu
+24.04.2023 17:48:19 [MESSAGE]   : Enter menu number
+24.04.2023 17:48:23 [COMMAND]   : 2
+24.04.2023 17:48:23 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:48:23 [INFO]      : Show: Main menu
+24.04.2023 17:48:23 [MESSAGE]   : Enter menu number
+24.04.2023 17:48:24 [COMMAND]   : 1
+24.04.2023 17:48:24 [INFO]      : Menu Item: Departure board
+24.04.2023 17:48:24 [INFO]      : Show: Main menu
+24.04.2023 17:48:24 [MESSAGE]   : Enter menu number
+24.04.2023 17:48:32 [COMMAND]   : 2
+24.04.2023 17:48:32 [INFO]      : Menu Item: Flight info
+24.04.2023 17:48:35 [INFO]      : Show: Main menu
+24.04.2023 17:48:35 [MESSAGE]   : Enter menu number
+24.04.2023 17:48:55 [COMMAND]   : 4
+24.04.2023 17:48:55 [INFO]      : Menu Item: Bookings
+24.04.2023 17:48:59 [ERROR]     : User not found
+24.04.2023 17:48:59 [INFO]      : Show: Main menu
+24.04.2023 17:48:59 [MESSAGE]   : Enter menu number
+24.04.2023 17:49:11 [COMMAND]   : 3
+24.04.2023 17:49:11 [INFO]      : Menu Item: Search & booking
+24.04.2023 17:49:11 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 17:49:14 [COMMAND]   : User enter KBP airport
+24.04.2023 17:49:14 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 17:49:17 [COMMAND]   : User enter LHR airport
+24.04.2023 17:49:17 [MESSAGE]   : Enter data
+24.04.2023 17:49:57 [ERROR]     : Nothing found!
+24.04.2023 17:49:57 [INFO]      : Show: Main menu
+24.04.2023 17:49:57 [MESSAGE]   : Enter menu number
+24.04.2023 17:50:01 [COMMAND]   : 1
+24.04.2023 17:50:01 [INFO]      : Menu Item: Departure board
+24.04.2023 17:50:01 [INFO]      : Show: Main menu
+24.04.2023 17:50:01 [MESSAGE]   : Enter menu number
+24.04.2023 17:51:26 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:51:26 [INFO]      : Loading data...
+24.04.2023 17:51:26 [INFO]      : Loading user data
+24.04.2023 17:51:26 [INFO]      : Loaded 0 users
+24.04.2023 17:51:26 [INFO]      : Loading flight data
+24.04.2023 17:51:26 [INFO]      : Loaded 9876 flights
+24.04.2023 17:51:26 [INFO]      : Loading booking data
+24.04.2023 17:51:26 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:51:26 [INFO]      : Show: Auth menu
+24.04.2023 17:51:26 [MESSAGE]   : Enter menu number
+24.04.2023 17:51:29 [COMMAND]   : 2
+24.04.2023 17:51:29 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:51:29 [INFO]      : Show: Main menu
+24.04.2023 17:51:29 [MESSAGE]   : Enter menu number
+24.04.2023 17:51:29 [COMMAND]   : 1
+24.04.2023 17:51:29 [INFO]      : Menu Item: Departure board
+24.04.2023 17:51:29 [INFO]      : Show: Main menu
+24.04.2023 17:51:29 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:19 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:53:19 [INFO]      : Loading data...
+24.04.2023 17:53:19 [INFO]      : Loading user data
+24.04.2023 17:53:19 [INFO]      : Loaded 0 users
+24.04.2023 17:53:19 [INFO]      : Loading flight data
+24.04.2023 17:53:20 [INFO]      : Loaded 9876 flights
+24.04.2023 17:53:20 [INFO]      : Loading booking data
+24.04.2023 17:53:20 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:53:20 [INFO]      : Show: Auth menu
+24.04.2023 17:53:20 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:22 [COMMAND]   : 2
+24.04.2023 17:53:22 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:53:22 [INFO]      : Show: Main menu
+24.04.2023 17:53:22 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:22 [COMMAND]   : 1
+24.04.2023 17:53:22 [INFO]      : Menu Item: Departure board
+24.04.2023 17:53:22 [INFO]      : Show: Main menu
+24.04.2023 17:53:22 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:43 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:53:43 [INFO]      : Loading data...
+24.04.2023 17:53:43 [INFO]      : Loading user data
+24.04.2023 17:53:43 [INFO]      : Loaded 0 users
+24.04.2023 17:53:43 [INFO]      : Loading flight data
+24.04.2023 17:53:43 [INFO]      : Loaded 9876 flights
+24.04.2023 17:53:43 [INFO]      : Loading booking data
+24.04.2023 17:53:43 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:53:43 [INFO]      : Show: Auth menu
+24.04.2023 17:53:43 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:44 [COMMAND]   : 2
+24.04.2023 17:53:44 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:53:44 [INFO]      : Show: Main menu
+24.04.2023 17:53:44 [MESSAGE]   : Enter menu number
+24.04.2023 17:53:45 [COMMAND]   : 1
+24.04.2023 17:53:45 [INFO]      : Menu Item: Departure board
+24.04.2023 17:53:45 [INFO]      : Show: Main menu
+24.04.2023 17:53:45 [MESSAGE]   : Enter menu number
+24.04.2023 17:54:08 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:54:08 [INFO]      : Loading data...
+24.04.2023 17:54:08 [INFO]      : Loading user data
+24.04.2023 17:54:08 [INFO]      : Loaded 0 users
+24.04.2023 17:54:08 [INFO]      : Loading flight data
+24.04.2023 17:54:08 [INFO]      : Loaded 9876 flights
+24.04.2023 17:54:08 [INFO]      : Loading booking data
+24.04.2023 17:54:08 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:54:08 [INFO]      : Show: Auth menu
+24.04.2023 17:54:08 [MESSAGE]   : Enter menu number
+24.04.2023 17:54:10 [COMMAND]   : 2
+24.04.2023 17:54:10 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:54:10 [INFO]      : Show: Main menu
+24.04.2023 17:54:10 [MESSAGE]   : Enter menu number
+24.04.2023 17:54:12 [COMMAND]   : 1
+24.04.2023 17:54:12 [INFO]      : Menu Item: Departure board
+24.04.2023 17:54:12 [INFO]      : Show: Main menu
+24.04.2023 17:54:12 [MESSAGE]   : Enter menu number
+24.04.2023 17:54:30 [COMMAND]   : 3
+24.04.2023 17:54:30 [INFO]      : Menu Item: Search & booking
+24.04.2023 17:54:30 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 17:54:31 [COMMAND]   : User enter KBP airport
+24.04.2023 17:54:31 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 17:54:32 [COMMAND]   : User enter LHR airport
+24.04.2023 17:54:32 [MESSAGE]   : Enter data
+24.04.2023 17:54:36 [ERROR]     : Nothing found!
+24.04.2023 17:54:36 [MESSAGE]   : Enter the number of passengers
+24.04.2023 17:54:37 [ERROR]     : Nothing found!
+24.04.2023 17:55:43 [INFO]      : Show: Main menu
+24.04.2023 17:55:43 [MESSAGE]   : Enter menu number
+24.04.2023 17:55:44 [COMMAND]   : 3
+24.04.2023 17:55:44 [INFO]      : Menu Item: Search & booking
+24.04.2023 17:55:44 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 17:55:46 [COMMAND]   : User enter KBP airport
+24.04.2023 17:55:46 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 17:55:47 [COMMAND]   : User enter FRA airport
+24.04.2023 17:55:47 [MESSAGE]   : Enter data
+24.04.2023 17:55:51 [MESSAGE]   : Enter the number of passengers
+24.04.2023 17:59:12 [START]     : 
+======================================= Application started =======================================
+24.04.2023 17:59:12 [INFO]      : Loading data...
+24.04.2023 17:59:12 [INFO]      : Loading user data
+24.04.2023 17:59:12 [INFO]      : Loaded 0 users
+24.04.2023 17:59:12 [INFO]      : Loading flight data
+24.04.2023 17:59:12 [INFO]      : Loaded 9876 flights
+24.04.2023 17:59:12 [INFO]      : Loading booking data
+24.04.2023 17:59:12 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 17:59:12 [INFO]      : Show: Auth menu
+24.04.2023 17:59:12 [MESSAGE]   : Enter menu number
+24.04.2023 17:59:13 [COMMAND]   : 2
+24.04.2023 17:59:13 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 17:59:13 [INFO]      : Show: Main menu
+24.04.2023 17:59:13 [MESSAGE]   : Enter menu number
+24.04.2023 17:59:14 [COMMAND]   : 1
+24.04.2023 17:59:14 [INFO]      : Menu Item: Departure board
+24.04.2023 17:59:14 [INFO]      : Show: Main menu
+24.04.2023 17:59:14 [MESSAGE]   : Enter menu number
+24.04.2023 17:59:16 [COMMAND]   : 3
+24.04.2023 17:59:16 [INFO]      : Menu Item: Search & booking
+24.04.2023 17:59:16 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 17:59:17 [COMMAND]   : User enter KBP airport
+24.04.2023 17:59:17 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 17:59:18 [COMMAND]   : User enter FRA airport
+24.04.2023 17:59:18 [MESSAGE]   : Enter data
+24.04.2023 17:59:21 [MESSAGE]   : Enter the number of passengers
+24.04.2023 18:02:35 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:02:35 [INFO]      : Loading data...
+24.04.2023 18:02:35 [INFO]      : Loading user data
+24.04.2023 18:02:35 [INFO]      : Loaded 0 users
+24.04.2023 18:02:35 [INFO]      : Loading flight data
+24.04.2023 18:02:36 [INFO]      : Loaded 9876 flights
+24.04.2023 18:02:36 [INFO]      : Loading booking data
+24.04.2023 18:02:36 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:02:36 [INFO]      : Show: Auth menu
+24.04.2023 18:02:36 [MESSAGE]   : Enter menu number
+24.04.2023 18:02:47 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:02:47 [INFO]      : Loading data...
+24.04.2023 18:02:47 [INFO]      : Loading user data
+24.04.2023 18:02:47 [INFO]      : Loaded 0 users
+24.04.2023 18:02:47 [INFO]      : Loading flight data
+24.04.2023 18:02:47 [INFO]      : Loaded 9876 flights
+24.04.2023 18:02:47 [INFO]      : Loading booking data
+24.04.2023 18:02:47 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:02:47 [INFO]      : Show: Auth menu
+24.04.2023 18:02:47 [MESSAGE]   : Enter menu number
+24.04.2023 18:02:49 [COMMAND]   : 2
+24.04.2023 18:02:49 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:02:49 [INFO]      : Show: Main menu
+24.04.2023 18:02:49 [MESSAGE]   : Enter menu number
+24.04.2023 18:02:50 [COMMAND]   : 1
+24.04.2023 18:02:50 [INFO]      : Menu Item: Departure board
+24.04.2023 18:02:50 [INFO]      : Show: Main menu
+24.04.2023 18:02:50 [MESSAGE]   : Enter menu number
+24.04.2023 18:02:51 [COMMAND]   : 3
+24.04.2023 18:02:51 [INFO]      : Menu Item: Search & booking
+24.04.2023 18:02:51 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:02:52 [COMMAND]   : User enter KBP airport
+24.04.2023 18:02:52 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 18:02:54 [COMMAND]   : User enter LHR airport
+24.04.2023 18:02:54 [MESSAGE]   : Enter data
+24.04.2023 18:03:01 [ERROR]     : Nothing found!
+24.04.2023 18:03:01 [MESSAGE]   : Enter the number of passengers
+24.04.2023 18:03:02 [ERROR]     : Nothing found!
+24.04.2023 18:03:56 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:03:57 [INFO]      : Loading data...
+24.04.2023 18:03:57 [INFO]      : Loading user data
+24.04.2023 18:03:57 [INFO]      : Loaded 0 users
+24.04.2023 18:03:57 [INFO]      : Loading flight data
+24.04.2023 18:03:57 [INFO]      : Loaded 9876 flights
+24.04.2023 18:03:57 [INFO]      : Loading booking data
+24.04.2023 18:03:57 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:03:57 [INFO]      : Show: Auth menu
+24.04.2023 18:03:57 [MESSAGE]   : Enter menu number
+24.04.2023 18:03:59 [COMMAND]   : 2
+24.04.2023 18:03:59 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:03:59 [INFO]      : Show: Main menu
+24.04.2023 18:03:59 [MESSAGE]   : Enter menu number
+24.04.2023 18:04:00 [COMMAND]   : 1
+24.04.2023 18:04:00 [INFO]      : Menu Item: Departure board
+24.04.2023 18:04:00 [INFO]      : Show: Main menu
+24.04.2023 18:04:00 [MESSAGE]   : Enter menu number
+24.04.2023 18:04:02 [COMMAND]   : 3
+24.04.2023 18:04:02 [INFO]      : Menu Item: Search & booking
+24.04.2023 18:04:02 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:04:03 [COMMAND]   : User enter KBP airport
+24.04.2023 18:04:03 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 18:04:04 [ERROR]     : Nothing found!
+24.04.2023 18:04:04 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:04:05 [COMMAND]   : User enter LHR airport
+24.04.2023 18:04:05 [MESSAGE]   : Enter data
+24.04.2023 18:04:11 [ERROR]     : Nothing found!
+24.04.2023 18:04:11 [MESSAGE]   : Enter the number of passengers
+24.04.2023 18:04:12 [ERROR]     : Nothing found!
+24.04.2023 18:07:30 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:07:30 [INFO]      : Loading data...
+24.04.2023 18:07:30 [INFO]      : Loading user data
+24.04.2023 18:07:30 [INFO]      : Loaded 0 users
+24.04.2023 18:07:30 [INFO]      : Loading flight data
+24.04.2023 18:07:31 [INFO]      : Loaded 9876 flights
+24.04.2023 18:07:31 [INFO]      : Loading booking data
+24.04.2023 18:07:31 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:07:31 [INFO]      : Show: Auth menu
+24.04.2023 18:07:31 [MESSAGE]   : Enter menu number
+24.04.2023 18:07:31 [COMMAND]   : 1
+24.04.2023 18:07:31 [INFO]      : Menu Item: Sign up
+24.04.2023 18:07:35 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:07:36 [INFO]      : Loading data...
+24.04.2023 18:07:36 [INFO]      : Loading user data
+24.04.2023 18:07:36 [INFO]      : Loaded 0 users
+24.04.2023 18:07:36 [INFO]      : Loading flight data
+24.04.2023 18:07:36 [INFO]      : Loaded 9876 flights
+24.04.2023 18:07:36 [INFO]      : Loading booking data
+24.04.2023 18:07:36 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:07:36 [INFO]      : Show: Auth menu
+24.04.2023 18:07:36 [MESSAGE]   : Enter menu number
+24.04.2023 18:07:38 [COMMAND]   : 2
+24.04.2023 18:07:38 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:07:38 [INFO]      : Show: Main menu
+24.04.2023 18:07:38 [MESSAGE]   : Enter menu number
+24.04.2023 18:07:39 [COMMAND]   : 1
+24.04.2023 18:07:39 [INFO]      : Menu Item: Departure board
+24.04.2023 18:07:39 [INFO]      : Show: Main menu
+24.04.2023 18:07:39 [MESSAGE]   : Enter menu number
+24.04.2023 18:08:10 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:08:10 [INFO]      : Loading data...
+24.04.2023 18:08:10 [INFO]      : Loading user data
+24.04.2023 18:08:10 [INFO]      : Loaded 0 users
+24.04.2023 18:08:10 [INFO]      : Loading flight data
+24.04.2023 18:08:10 [INFO]      : Loaded 9876 flights
+24.04.2023 18:08:10 [INFO]      : Loading booking data
+24.04.2023 18:08:10 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:08:10 [INFO]      : Show: Auth menu
+24.04.2023 18:08:10 [MESSAGE]   : Enter menu number
+24.04.2023 18:08:11 [COMMAND]   : 3
+24.04.2023 18:08:11 [ERROR]     : Enter menu error: Menu does not exist
+24.04.2023 18:08:11 [MESSAGE]   : Enter menu number
+24.04.2023 18:08:13 [COMMAND]   : 2
+24.04.2023 18:08:13 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:08:13 [INFO]      : Show: Main menu
+24.04.2023 18:08:13 [MESSAGE]   : Enter menu number
+24.04.2023 18:08:14 [COMMAND]   : 3
+24.04.2023 18:08:14 [INFO]      : Menu Item: Search & booking
+24.04.2023 18:08:14 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:08:16 [COMMAND]   : User enter KBP airport
+24.04.2023 18:08:16 [MESSAGE]   : Enter airport of arrival (e.g 'LHR', 'United Kingdom', 'UK','London')
+24.04.2023 18:08:20 [ERROR]     : Nothing found!
+24.04.2023 18:08:20 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:08:24 [COMMAND]   : User enter GYD airport
+24.04.2023 18:08:24 [MESSAGE]   : Enter data
+24.04.2023 18:08:27 [ERROR]     : Nothing found!
+24.04.2023 18:08:27 [MESSAGE]   : Enter the number of passengers
+24.04.2023 18:08:28 [ERROR]     : Nothing found!
+24.04.2023 18:18:16 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:18:16 [INFO]      : Loading data...
+24.04.2023 18:18:16 [INFO]      : Loading user data
+24.04.2023 18:18:16 [INFO]      : Loaded 0 users
+24.04.2023 18:18:16 [INFO]      : Loading flight data
+24.04.2023 18:18:16 [INFO]      : Loaded 9876 flights
+24.04.2023 18:18:16 [INFO]      : Loading booking data
+24.04.2023 18:18:16 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:18:16 [INFO]      : Show: Auth menu
+24.04.2023 18:18:16 [MESSAGE]   : Enter menu number
+24.04.2023 18:18:25 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:18:26 [INFO]      : Loading data...
+24.04.2023 18:18:26 [INFO]      : Loading user data
+24.04.2023 18:18:26 [INFO]      : Loaded 0 users
+24.04.2023 18:18:26 [INFO]      : Loading flight data
+24.04.2023 18:18:26 [INFO]      : Loaded 9876 flights
+24.04.2023 18:18:26 [INFO]      : Loading booking data
+24.04.2023 18:18:26 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:18:26 [INFO]      : Show: Auth menu
+24.04.2023 18:18:26 [MESSAGE]   : Enter menu number
+24.04.2023 18:18:30 [COMMAND]   : 3
+24.04.2023 18:18:30 [ERROR]     : Enter menu error: Menu does not exist
+24.04.2023 18:18:30 [MESSAGE]   : Enter menu number
+24.04.2023 18:18:32 [COMMAND]   : 2
+24.04.2023 18:18:32 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:18:32 [INFO]      : Show: Main menu
+24.04.2023 18:18:32 [MESSAGE]   : Enter menu number
+24.04.2023 18:18:33 [COMMAND]   : 1
+24.04.2023 18:18:33 [INFO]      : Menu Item: Departure board
+24.04.2023 18:18:33 [INFO]      : Show: Main menu
+24.04.2023 18:18:33 [MESSAGE]   : Enter menu number
+24.04.2023 18:20:29 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:20:29 [INFO]      : Loading data...
+24.04.2023 18:20:29 [INFO]      : Loading user data
+24.04.2023 18:20:29 [INFO]      : Loaded 0 users
+24.04.2023 18:20:29 [INFO]      : Loading flight data
+24.04.2023 18:20:30 [INFO]      : Loaded 9876 flights
+24.04.2023 18:20:30 [INFO]      : Loading booking data
+24.04.2023 18:20:30 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:20:30 [INFO]      : Show: Auth menu
+24.04.2023 18:20:30 [MESSAGE]   : Enter menu number
+24.04.2023 18:20:35 [COMMAND]   : 2
+24.04.2023 18:20:35 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:20:35 [INFO]      : Show: Main menu
+24.04.2023 18:20:35 [MESSAGE]   : Enter menu number
+24.04.2023 18:20:37 [COMMAND]   : 1
+24.04.2023 18:20:37 [INFO]      : Menu Item: Departure board
+24.04.2023 18:20:37 [INFO]      : Show: Main menu
+24.04.2023 18:20:37 [MESSAGE]   : Enter menu number
+24.04.2023 18:22:07 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:22:07 [INFO]      : Loading data...
+24.04.2023 18:22:07 [INFO]      : Loading user data
+24.04.2023 18:22:07 [INFO]      : Loaded 0 users
+24.04.2023 18:22:07 [INFO]      : Loading flight data
+24.04.2023 18:22:08 [INFO]      : Loaded 9876 flights
+24.04.2023 18:22:08 [INFO]      : Loading booking data
+24.04.2023 18:22:08 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:22:08 [INFO]      : Show: Auth menu
+24.04.2023 18:22:08 [MESSAGE]   : Enter menu number
+24.04.2023 18:22:10 [COMMAND]   : 2
+24.04.2023 18:22:10 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:22:10 [INFO]      : Show: Main menu
+24.04.2023 18:22:10 [MESSAGE]   : Enter menu number
+24.04.2023 18:22:10 [COMMAND]   : 3
+24.04.2023 18:22:10 [INFO]      : Menu Item: Search & booking
+24.04.2023 18:22:10 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:22:15 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:22:15 [INFO]      : Loading data...
+24.04.2023 18:22:15 [INFO]      : Loading user data
+24.04.2023 18:22:15 [INFO]      : Loaded 0 users
+24.04.2023 18:22:15 [INFO]      : Loading flight data
+24.04.2023 18:22:16 [INFO]      : Loaded 9876 flights
+24.04.2023 18:22:16 [INFO]      : Loading booking data
+24.04.2023 18:22:16 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:22:16 [INFO]      : Show: Auth menu
+24.04.2023 18:22:16 [MESSAGE]   : Enter menu number
+24.04.2023 18:22:22 [COMMAND]   : 2
+24.04.2023 18:22:22 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:22:22 [INFO]      : Show: Main menu
+24.04.2023 18:22:22 [MESSAGE]   : Enter menu number
+24.04.2023 18:22:22 [COMMAND]   : 1
+24.04.2023 18:22:22 [INFO]      : Menu Item: Departure board
+24.04.2023 18:22:22 [INFO]      : Show: Main menu
+24.04.2023 18:22:22 [MESSAGE]   : Enter menu number
+24.04.2023 18:23:43 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:23:43 [INFO]      : Loading data...
+24.04.2023 18:23:43 [INFO]      : Loading user data
+24.04.2023 18:23:43 [INFO]      : Loaded 0 users
+24.04.2023 18:23:43 [INFO]      : Loading flight data
+24.04.2023 18:23:43 [INFO]      : Loaded 9876 flights
+24.04.2023 18:23:43 [INFO]      : Loading booking data
+24.04.2023 18:23:43 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:23:43 [INFO]      : Show: Auth menu
+24.04.2023 18:23:43 [MESSAGE]   : Enter menu number
+24.04.2023 18:23:44 [COMMAND]   : 2
+24.04.2023 18:23:44 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:23:44 [INFO]      : Show: Main menu
+24.04.2023 18:23:44 [MESSAGE]   : Enter menu number
+24.04.2023 18:23:45 [COMMAND]   : 1
+24.04.2023 18:23:45 [INFO]      : Menu Item: Departure board
+24.04.2023 18:23:45 [INFO]      : Show: Main menu
+24.04.2023 18:23:45 [MESSAGE]   : Enter menu number
+24.04.2023 18:24:18 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:24:18 [INFO]      : Loading data...
+24.04.2023 18:24:18 [INFO]      : Loading user data
+24.04.2023 18:24:18 [INFO]      : Loaded 0 users
+24.04.2023 18:24:18 [INFO]      : Loading flight data
+24.04.2023 18:24:18 [INFO]      : Loaded 10 flights
+24.04.2023 18:24:18 [INFO]      : Loading booking data
+24.04.2023 18:24:18 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:24:18 [INFO]      : Show: Auth menu
+24.04.2023 18:24:18 [MESSAGE]   : Enter menu number
+24.04.2023 18:26:24 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:26:24 [INFO]      : Loading data...
+24.04.2023 18:26:24 [INFO]      : Loading user data
+24.04.2023 18:26:24 [INFO]      : Loaded 0 users
+24.04.2023 18:26:24 [INFO]      : Loading flight data
+24.04.2023 18:26:24 [INFO]      : Loaded 10 flights
+24.04.2023 18:26:24 [INFO]      : Loading booking data
+24.04.2023 18:26:24 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:26:24 [INFO]      : Show: Auth menu
+24.04.2023 18:26:24 [MESSAGE]   : Enter menu number
+24.04.2023 18:26:26 [COMMAND]   : 2
+24.04.2023 18:26:26 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:26:26 [INFO]      : Show: Main menu
+24.04.2023 18:26:26 [MESSAGE]   : Enter menu number
+24.04.2023 18:26:27 [COMMAND]   : 1
+24.04.2023 18:26:27 [INFO]      : Menu Item: Departure board
+24.04.2023 18:26:27 [INFO]      : Show: Main menu
+24.04.2023 18:26:27 [MESSAGE]   : Enter menu number
+24.04.2023 18:29:24 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:29:24 [INFO]      : Loading data...
+24.04.2023 18:29:24 [INFO]      : Loading user data
+24.04.2023 18:29:24 [INFO]      : Loaded 0 users
+24.04.2023 18:29:24 [INFO]      : Loading flight data
+24.04.2023 18:29:24 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:29:24 [INFO]      : Loading booking data
+24.04.2023 18:29:24 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:29:24 [INFO]      : Show: Auth menu
+24.04.2023 18:29:24 [MESSAGE]   : Enter menu number
+24.04.2023 18:30:09 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:30:09 [INFO]      : Loading data...
+24.04.2023 18:30:09 [INFO]      : Loading user data
+24.04.2023 18:30:09 [INFO]      : Loaded 0 users
+24.04.2023 18:30:09 [INFO]      : Loading flight data
+24.04.2023 18:30:09 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:30:09 [INFO]      : Loading booking data
+24.04.2023 18:30:09 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:30:09 [INFO]      : Show: Auth menu
+24.04.2023 18:30:09 [MESSAGE]   : Enter menu number
+24.04.2023 18:30:21 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:30:21 [INFO]      : Loading data...
+24.04.2023 18:30:21 [INFO]      : Loading user data
+24.04.2023 18:30:21 [INFO]      : Loaded 0 users
+24.04.2023 18:30:21 [INFO]      : Loading flight data
+24.04.2023 18:30:21 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:30:21 [INFO]      : Loading booking data
+24.04.2023 18:30:21 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:30:21 [INFO]      : Show: Auth menu
+24.04.2023 18:30:21 [MESSAGE]   : Enter menu number
+24.04.2023 18:31:10 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:31:10 [INFO]      : Loading data...
+24.04.2023 18:31:10 [INFO]      : Loading user data
+24.04.2023 18:31:10 [INFO]      : Loaded 0 users
+24.04.2023 18:31:10 [INFO]      : Loading flight data
+24.04.2023 18:31:11 [INFO]      : Loaded 10 flights
+24.04.2023 18:31:11 [INFO]      : Loading booking data
+24.04.2023 18:31:11 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:31:11 [INFO]      : Show: Auth menu
+24.04.2023 18:31:11 [MESSAGE]   : Enter menu number
+24.04.2023 18:31:54 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:31:54 [INFO]      : Loading data...
+24.04.2023 18:31:54 [INFO]      : Loading user data
+24.04.2023 18:31:54 [INFO]      : Loaded 0 users
+24.04.2023 18:31:54 [INFO]      : Loading flight data
+24.04.2023 18:31:55 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:31:55 [INFO]      : Loading booking data
+24.04.2023 18:31:55 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:31:55 [INFO]      : Show: Auth menu
+24.04.2023 18:31:55 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:00 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:32:00 [INFO]      : Loading data...
+24.04.2023 18:32:00 [INFO]      : Loading user data
+24.04.2023 18:32:00 [INFO]      : Loaded 0 users
+24.04.2023 18:32:00 [INFO]      : Loading flight data
+24.04.2023 18:32:00 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:32:00 [INFO]      : Loading booking data
+24.04.2023 18:32:00 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:32:00 [INFO]      : Show: Auth menu
+24.04.2023 18:32:00 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:16 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:32:16 [INFO]      : Loading data...
+24.04.2023 18:32:16 [INFO]      : Loading user data
+24.04.2023 18:32:16 [INFO]      : Loaded 0 users
+24.04.2023 18:32:16 [INFO]      : Loading flight data
+24.04.2023 18:32:16 [INFO]      : Loaded 10 flights
+24.04.2023 18:32:16 [INFO]      : Loading booking data
+24.04.2023 18:32:16 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:32:16 [INFO]      : Show: Auth menu
+24.04.2023 18:32:16 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:20 [COMMAND]   : 2
+24.04.2023 18:32:20 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:32:20 [INFO]      : Show: Main menu
+24.04.2023 18:32:20 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:21 [COMMAND]   : 1
+24.04.2023 18:32:21 [INFO]      : Menu Item: Departure board
+24.04.2023 18:32:21 [INFO]      : Show: Main menu
+24.04.2023 18:32:21 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:54 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:32:54 [INFO]      : Loading data...
+24.04.2023 18:32:54 [INFO]      : Loading user data
+24.04.2023 18:32:54 [INFO]      : Loaded 0 users
+24.04.2023 18:32:54 [INFO]      : Loading flight data
+24.04.2023 18:32:54 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:32:54 [INFO]      : Loading booking data
+24.04.2023 18:32:54 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:32:54 [INFO]      : Show: Auth menu
+24.04.2023 18:32:54 [MESSAGE]   : Enter menu number
+24.04.2023 18:32:58 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:32:58 [INFO]      : Loading data...
+24.04.2023 18:32:58 [INFO]      : Loading user data
+24.04.2023 18:32:58 [INFO]      : Loaded 0 users
+24.04.2023 18:32:58 [INFO]      : Loading flight data
+24.04.2023 18:32:59 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:32:59 [INFO]      : Loading booking data
+24.04.2023 18:32:59 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:32:59 [INFO]      : Show: Auth menu
+24.04.2023 18:32:59 [MESSAGE]   : Enter menu number
+24.04.2023 18:33:15 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:33:15 [INFO]      : Loading data...
+24.04.2023 18:33:15 [INFO]      : Loading user data
+24.04.2023 18:33:15 [INFO]      : Loaded 0 users
+24.04.2023 18:33:15 [INFO]      : Loading flight data
+24.04.2023 18:33:16 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:33:16 [INFO]      : Loading booking data
+24.04.2023 18:33:16 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:33:16 [INFO]      : Show: Auth menu
+24.04.2023 18:33:16 [MESSAGE]   : Enter menu number
+24.04.2023 18:33:20 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:33:20 [INFO]      : Loading data...
+24.04.2023 18:33:20 [INFO]      : Loading user data
+24.04.2023 18:33:20 [INFO]      : Loaded 0 users
+24.04.2023 18:33:20 [INFO]      : Loading flight data
+24.04.2023 18:33:20 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:33:20 [INFO]      : Loading booking data
+24.04.2023 18:33:20 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:33:20 [INFO]      : Show: Auth menu
+24.04.2023 18:33:20 [MESSAGE]   : Enter menu number
+24.04.2023 18:34:46 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:34:46 [INFO]      : Loading data...
+24.04.2023 18:34:46 [INFO]      : Loading user data
+24.04.2023 18:34:46 [INFO]      : Loaded 0 users
+24.04.2023 18:34:46 [ERROR]     : Loading data...
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:34:46 [INFO]      : Show: Auth menu
+24.04.2023 18:34:46 [MESSAGE]   : Enter menu number
+24.04.2023 18:35:03 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:35:03 [INFO]      : Loading data...
+24.04.2023 18:35:03 [INFO]      : Loading user data
+24.04.2023 18:35:03 [INFO]      : Loaded 0 users
+24.04.2023 18:35:03 [ERROR]     : bound must be greater than origin
+24.04.2023 18:35:28 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:35:28 [INFO]      : Loading data...
+24.04.2023 18:35:28 [INFO]      : Loading user data
+24.04.2023 18:35:28 [INFO]      : Loaded 0 users
+24.04.2023 18:37:25 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:25 [INFO]      : Loading data...
+24.04.2023 18:37:25 [INFO]      : Loading user data
+24.04.2023 18:37:25 [INFO]      : Loaded 0 users
+24.04.2023 18:37:25 [INFO]      : Loading flight data
+24.04.2023 18:37:25 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:37:25 [INFO]      : Loading booking data
+24.04.2023 18:37:25 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:25 [INFO]      : Show: Auth menu
+24.04.2023 18:37:25 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:28 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:28 [INFO]      : Loading data...
+24.04.2023 18:37:28 [INFO]      : Loading user data
+24.04.2023 18:37:28 [INFO]      : Loaded 0 users
+24.04.2023 18:37:29 [INFO]      : Loading flight data
+24.04.2023 18:37:29 [ERROR]     : Load flight data error. bound must be greater than origin
+24.04.2023 18:37:29 [INFO]      : Loading booking data
+24.04.2023 18:37:29 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:29 [INFO]      : Show: Auth menu
+24.04.2023 18:37:29 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:34 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:34 [INFO]      : Loading data...
+24.04.2023 18:37:34 [INFO]      : Loading user data
+24.04.2023 18:37:34 [INFO]      : Loaded 0 users
+24.04.2023 18:37:34 [INFO]      : Loading flight data
+24.04.2023 18:37:34 [INFO]      : Loaded 10 flights
+24.04.2023 18:37:34 [INFO]      : Loading booking data
+24.04.2023 18:37:34 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:34 [INFO]      : Show: Auth menu
+24.04.2023 18:37:34 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:37 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:37 [INFO]      : Loading data...
+24.04.2023 18:37:37 [INFO]      : Loading user data
+24.04.2023 18:37:37 [INFO]      : Loaded 0 users
+24.04.2023 18:37:37 [INFO]      : Loading flight data
+24.04.2023 18:37:38 [INFO]      : Loaded 10 flights
+24.04.2023 18:37:38 [INFO]      : Loading booking data
+24.04.2023 18:37:38 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:38 [INFO]      : Show: Auth menu
+24.04.2023 18:37:38 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:40 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:40 [INFO]      : Loading data...
+24.04.2023 18:37:40 [INFO]      : Loading user data
+24.04.2023 18:37:40 [INFO]      : Loaded 0 users
+24.04.2023 18:37:40 [INFO]      : Loading flight data
+24.04.2023 18:37:40 [INFO]      : Loaded 10 flights
+24.04.2023 18:37:40 [INFO]      : Loading booking data
+24.04.2023 18:37:40 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:40 [INFO]      : Show: Auth menu
+24.04.2023 18:37:40 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:42 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:37:42 [INFO]      : Loading data...
+24.04.2023 18:37:42 [INFO]      : Loading user data
+24.04.2023 18:37:42 [INFO]      : Loaded 0 users
+24.04.2023 18:37:42 [INFO]      : Loading flight data
+24.04.2023 18:37:42 [INFO]      : Loaded 10 flights
+24.04.2023 18:37:42 [INFO]      : Loading booking data
+24.04.2023 18:37:42 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:37:42 [INFO]      : Show: Auth menu
+24.04.2023 18:37:42 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:45 [COMMAND]   : 2
+24.04.2023 18:37:45 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:37:45 [INFO]      : Show: Main menu
+24.04.2023 18:37:45 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:46 [COMMAND]   : 1
+24.04.2023 18:37:46 [INFO]      : Menu Item: Departure board
+24.04.2023 18:37:46 [INFO]      : Show: Main menu
+24.04.2023 18:37:46 [MESSAGE]   : Enter menu number
+24.04.2023 18:37:55 [COMMAND]   : 3
+24.04.2023 18:37:55 [INFO]      : Menu Item: Search & booking
+24.04.2023 18:37:55 [MESSAGE]   : Enter departure airport (e.g 'KBP', 'Ukraine', 'UA', 'Kyiv')
+24.04.2023 18:38:05 [START]     : 
+======================================= Application started =======================================
+24.04.2023 18:38:05 [INFO]      : Loading data...
+24.04.2023 18:38:05 [INFO]      : Loading user data
+24.04.2023 18:38:05 [INFO]      : Loaded 0 users
+24.04.2023 18:38:05 [INFO]      : Loading flight data
+24.04.2023 18:38:09 [INFO]      : Loaded 9876 flights
+24.04.2023 18:38:09 [INFO]      : Loading booking data
+24.04.2023 18:38:09 [INFO]      : Loaded 0 bookings
+----------------------------------------------------------------------------------------------------
+24.04.2023 18:38:09 [INFO]      : Show: Auth menu
+24.04.2023 18:38:09 [MESSAGE]   : Enter menu number
+24.04.2023 18:38:11 [COMMAND]   : 2
+24.04.2023 18:38:11 [INFO]      : Menu Item: Continue as Guest
+24.04.2023 18:38:11 [INFO]      : Show: Main menu
+24.04.2023 18:38:11 [MESSAGE]   : Enter menu number
+24.04.2023 18:38:12 [COMMAND]   : 1
+24.04.2023 18:38:12 [INFO]      : Menu Item: Departure board
+24.04.2023 18:38:12 [INFO]      : Show: Main menu
+24.04.2023 18:38:12 [MESSAGE]   : Enter menu number

@@ -20,7 +20,7 @@ public class App {
         Console.ln();
         try {
             controller.load();
-        } catch (RuntimeException ex) {
+        } catch (Exception ex) {
             String exMessage = String.format("Init data error. %s", ex.getMessage());
             Logger.error(msg);
             Console.error(exMessage);
