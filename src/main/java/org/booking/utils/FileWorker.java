@@ -6,6 +6,9 @@ import org.booking.utils.file.ObjectReadStream;
 import org.booking.utils.file.ObjectWriteStream;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class FileWorker {
@@ -16,8 +19,7 @@ public class FileWorker {
      * @return file.exist() boolean
      */
     public static boolean exist(String path) {
-        File file = new File(path);
-        return file.exists();
+        return Files.exists(Paths.get(path));
     }
 
     /**

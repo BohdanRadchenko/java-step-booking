@@ -2,7 +2,6 @@ package org.booking;
 
 import org.booking.controllers.Controller;
 import org.booking.entity.User;
-import org.booking.helpers.PrettyFormat;
 import org.booking.ui.menu.AuthMenu;
 import org.booking.ui.menu.MainMenu;
 import org.booking.ui.menu.Menu;
@@ -10,12 +9,9 @@ import org.booking.ui.menu.MenuStack;
 import org.booking.utils.Console;
 import org.booking.utils.Logger;
 
-public class BookingManager {
+public class App {
     private final Controller controller = new Controller();
 
-    /**
-     * read data from files , create init data if db is empty
-     */
     private void init() {
         Console.ln();
         String msg = "Loading data...";
@@ -32,9 +28,6 @@ public class BookingManager {
         Logger.separator();
     }
 
-    /**
-     * saves all data to files
-     */
     public void save() {
         Console.ln();
         String msg = "Data storage...";

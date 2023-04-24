@@ -1,6 +1,6 @@
 package org.booking.ui.menu;
 
-import org.booking.BookingManager;
+import org.booking.App;
 import org.booking.utils.Console;
 
 import java.util.Stack;
@@ -10,12 +10,12 @@ public class MenuStack {
 
     private static boolean isExit = false;
 
-    private static BookingManager app;
+    private static App app;
 
     private MenuStack() {
     }
 
-    public static void setApp(BookingManager app) {
+    public static void setApp(App app) {
         MenuStack.app = app;
     }
 

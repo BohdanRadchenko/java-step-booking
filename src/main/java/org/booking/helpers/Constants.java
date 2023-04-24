@@ -1,7 +1,11 @@
 package org.booking.helpers;
 
+import java.nio.file.Paths;
+
 public class Constants {
     public static final String dbDir = "db";
+    public static final String projectPath = Paths.get("").toAbsolutePath().toString();
+    public static final String dbPath = String.format("%s/%s", projectPath, dbDir);
     public static final int exitCode = -1;
     public static final int helpCode = 0;
     public static final String sep1 = "=";
