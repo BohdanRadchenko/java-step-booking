@@ -355,13 +355,13 @@ public class BookingCreate extends Command {
     @Override
     public void execute() {
         Airport from = enterAirportFrom();
-        Console.accept(String.format("%-4s -> %s;\n", "FROM", from));
+        Console.success(String.format("%-4s -> %s;\n", "FROM", from));
 
         Airport to = enterAirportTo(from);
-        Console.accept(String.format("%-4s -> %s;\n", "TO", to));
+        Console.success(String.format("%-4s -> %s;\n", "TO", to));
 
         long time = enterDepartureDate();
-        Console.accept(String.format("%s\n", DateUtil.of(time).formatter(FormatStyle.FULL)));
+        Console.success(String.format("%s\n", DateUtil.of(time).formatter(FormatStyle.FULL)));
 
         List<List<Flight>> flightsForBookingForOne = controller.flight.getFlightsForBooking(from, to, time, 1);
 
@@ -408,6 +408,6 @@ public class BookingCreate extends Command {
             });
         });
 
-        Console.accept(Message.BOOKING_SUCCESS);
+        Console.success(Message.BOOKING_SUCCESS);
     }
 }

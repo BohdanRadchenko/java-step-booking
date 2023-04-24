@@ -58,6 +58,6 @@ public class BookingCancel extends Command {
             return;
         }
 
-        Console.accept(String.format("Booking %s cancelled", booking.getCode()));
+        Console.success(String.format("Booking %s cancelled", booking.getCode()));
     }
 }

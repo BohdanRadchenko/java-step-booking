@@ -20,6 +20,8 @@ public class App {
         Console.ln();
         try {
             controller.load();
+            Console.success("Loading success.");
+            Console.clear();
         } catch (Exception ex) {
             String exMessage = String.format("Init data error. %s", ex.getMessage());
             Logger.error(msg);
@@ -39,7 +41,7 @@ public class App {
         String byeMsg = user != null
                 ? String.format("See you %s!", user.getFullName())
                 : "See you again!";
-        Console.accept(byeMsg);
+        Console.success(byeMsg);
         Logger.separator();
     }
 

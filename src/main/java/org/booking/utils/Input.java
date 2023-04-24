@@ -5,6 +5,7 @@ import org.booking.helpers.Constants;
 import org.booking.helpers.Validation;
 
 import java.io.Console;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Input {
@@ -77,5 +78,15 @@ public class Input {
 
     public static String readLogin() throws ValidateException {
         return readLogin(false);
+    }
+
+    public static void clear() {
+        if (CONSOLE_INSTANCE == null) return;
+        try {
+            String command = OsUtil.isWindows() ? "cls" : "clear";
+            Runtime.getRuntime().exec(command);
+        } catch (IOException ex) {
+            Logger.error(ex.getMessage());
+        }
     }
 }

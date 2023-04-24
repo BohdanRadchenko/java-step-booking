@@ -19,7 +19,7 @@ public interface IMenu {
         int titleSpaceCount = Constants.calcSpaceCount(title);
 
         showSeparator();
-        Console.accept(String.format("%s %s\n", " ".repeat(titleSpaceCount), title));
+        Console.success(String.format("%s %s\n", " ".repeat(titleSpaceCount), title));
         showSeparator();
     }
 

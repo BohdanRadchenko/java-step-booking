@@ -88,6 +88,6 @@ public class AuthRegistration extends Command {
         String firstName = enterFirstName();
         String lastName = enterLastName();
         User user = controller.user.registration(login, pass, firstName, lastName);
-        Console.accept(String.format("\nWelcome %s", user.getFullName()));
+        Console.success(String.format("\nWelcome %s", user.getFullName()));
     }
 }

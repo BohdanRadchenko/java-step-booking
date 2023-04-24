@@ -4,9 +4,11 @@ import org.booking.helpers.Constants;
 import org.booking.utils.Console;
 import org.booking.utils.FileWorker;
 import org.booking.utils.Logger;
+import org.booking.utils.OsUtil;
 
 public class Main {
     private static void init() throws RuntimeException {
+        OsUtil.osInit();
         FileWorker.createFolder(Constants.DB_PATH);
         if (!FileWorker.exist(Constants.DB_PATH)) {
             throw new RuntimeException("Critical error. db folder is not exist");

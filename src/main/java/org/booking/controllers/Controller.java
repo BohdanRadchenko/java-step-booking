@@ -16,7 +16,7 @@ public final class Controller {
 
     public void load() throws RuntimeException {
         try {
-            String msg = "Loading user data";
+            String msg = "Loading user data...";
             Logger.info(msg);
             Console.hide(msg);
             Console.ln();
@@ -32,7 +32,7 @@ public final class Controller {
         }
 
         try {
-            String msg = "Loading flight data";
+            String msg = "Loading flight data...";
             Logger.info(msg);
             Console.hide(msg);
             Console.ln();
@@ -46,9 +46,9 @@ public final class Controller {
             Logger.error(exceptionMessage);
             Console.error(exceptionMessage);
         }
-        
+
         try {
-            String msg = "Loading booking data";
+            String msg = "Loading booking data...";
             Logger.info(msg);
             Console.hide(msg);
             Console.ln();

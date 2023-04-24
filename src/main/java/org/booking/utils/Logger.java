@@ -15,6 +15,7 @@ public final class Logger {
         EXIT,
         MESSAGE,
         COMMAND,
+        DATA,
         CLEAR;
 
         public final String name;
@@ -100,6 +101,10 @@ public final class Logger {
         } catch (RuntimeException ex) {
             Console.error(String.format("Insert log error. %s", ex.getMessage()));
         }
+    }
+
+    public static void data(String msg) {
+        insertLog(LogType.DATA, msg);
     }
 
     public static void exit(int code) {

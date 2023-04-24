@@ -62,6 +62,6 @@ public class AuthLogin extends Command {
             execute();
             return;
         }
-        Console.accept(String.format("\nWelcome back %s", user.getFullName()));
+        Console.success(String.format("\nWelcome back %s", user.getFullName()));
     }
 }

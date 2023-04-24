@@ -107,14 +107,14 @@ public class Console extends Input implements ConsoleColors {
         table2(string, TableSize.FULL);
     }
 
-    public static void accept(String string) {
+    public static void success(String string) {
         print(GREEN);
         print(string);
         reset();
     }
 
-    public static void accept(Message msg) {
-        accept(msg.message);
+    public static void success(Message msg) {
+        success(msg.message);
     }
 
     public static void warning(String string) {
