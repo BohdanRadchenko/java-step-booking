@@ -28,6 +28,11 @@ public class BookingCancel extends Command {
         return enterBookingId();
     }
 
+    private void display(Booking booking) {
+        Console.table1(PrettyFormat.flightFullHead(), Console.FLIGHT_INFO);
+        Console.table2(PrettyFormat.flightFull(booking.getFlight()), Console.FLIGHT_INFO);
+    }
+
     @Override
     public void execute() {
         if (controller.booking.isEmpty()) {
@@ -40,11 +45,19 @@ public class BookingCancel extends Command {
         Booking booking = controller.booking.getByCode(bookingId);
 
         if (booking == null) {
-            Console.error("Booking not found!");
+            Console.warning("Booking not found!");
             return;
         }
-        Console.table1(PrettyFormat.flightFull(booking.getFlight()));
-        controller.booking.cancelBooking(booking);
+
+        display(booking);
+
+        boolean status = controller.booking.cancelBooking(booking);
+
+        if (!status) {
+            Console.error(Message.UE);
+            return;
+        }
+
         Console.accept(String.format("Booking %s cancelled", booking.getCode()));
     }
 }

@@ -5,6 +5,15 @@ import org.booking.enums.Message;
 import java.util.Arrays;
 
 public class Console extends Input implements ConsoleColors {
+    private enum TableSize {
+        FULL, FLIGHT_FULL, FLIGHT_INFO, BOOKING_FLIGHTS, AIRPORT
+    }
+
+    public static final TableSize FULL = TableSize.FULL;
+    public static final TableSize FLIGHT_FULL = TableSize.FLIGHT_FULL;
+    public static final TableSize FLIGHT_INFO = TableSize.FLIGHT_INFO;
+    public static final TableSize BOOKING_FLIGHTS = TableSize.BOOKING_FLIGHTS;
+    public static final TableSize AIRPORT = TableSize.AIRPORT;
 
     public static void print(String str) {
         System.out.print(str);
@@ -56,29 +65,47 @@ public class Console extends Input implements ConsoleColors {
         input(msg.message);
     }
 
-    public static void table1(String string, boolean full) {
-        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
-        String format = full ? String.format("%s\n", reduce) : String.format("%-131s%s\n", reduce, RESET);
-        print(format);
-        reset();
+    private static String table(String string, TableSize size, int type) {
+        String reduce = Arrays.stream(string.split("\n")).reduce(" ", String::concat);
+        String color;
+        if (type == 1) {
+            color = "";
+        } else {
+            color = String.format("%s%s", BLACK, WHITE_BACKGROUND);
+        }
+
+        String msg = switch (size) {
+            case FULL -> reduce;
+            case FLIGHT_FULL -> String.format("%-133s", reduce);
+            case FLIGHT_INFO -> String.format("%-100s%s", reduce, " ".repeat(2));
+            case BOOKING_FLIGHTS -> String.format("%-100s", reduce);
+            case AIRPORT -> String.format("%-45s", reduce);
+        };
+
+        String end = switch (size) {
+            case FULL -> String.format("\n%s", RESET);
+            case FLIGHT_FULL, FLIGHT_INFO, BOOKING_FLIGHTS, AIRPORT -> String.format("%s\n", RESET);
+        };
+
+        return String.format("%s%s%s", color, msg, end);
+    }
+
+    public static void table1(String string, TableSize size) {
+        print(table(string, size, 1));
     }
 
     public static void table1(String string) {
-        table1(string, false);
+        table1(string, TableSize.FULL);
     }
 
-    public static void table2(String string, boolean full) {
-        String reduce = Arrays.stream(string.split("\n")).reduce("", String::concat);
-        String c = String.format("%s%s", BLACK, WHITE_BACKGROUND);
-        String text = full ? String.format("%s\n", reduce) : String.format("%-131s%s\n", reduce, RESET);
-        print(String.format("%s%s", c, text));
-        reset();
+
+    public static void table2(String string, TableSize size) {
+        print(table(string, size, 2));
     }
 
     public static void table2(String string) {
-        table2(string, false);
+        table2(string, TableSize.FULL);
     }
-
 
     public static void accept(String string) {
         print(GREEN);

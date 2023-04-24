@@ -9,6 +9,7 @@ public class PrettyFormat {
             DateUtil.of().getMillis(), Airport.KBP, Airport.LHR, Airline.UKRAINE_INTERNATIONAL, Aircraft.B777, 23);
     private static final User testUser = new User("test", "test");
     public static final Booking testBooking = new Booking(testFlight, testUser, testUser);
+    public static final Airport testAirport = Airport.KBP;
     private static final String separator = "|";
 
     private static String createHeaderString(String th, String tb, boolean center) {
@@ -115,11 +116,33 @@ public class PrettyFormat {
     }
 
     public static String booking(Booking booking) {
-        return String.format("| %-5s%s %s", booking.getCode(), separator, flightTime(booking.getFlight()));
+        return String.format("%s %-6s %s %s", separator, booking.getCode(), separator, flightTime(booking.getFlight()));
     }
 
     public static String bookingHead() {
-        return String.format("| %-5s%s %s\n", "ID", separator, flightTimeHead());
+        return String.format("%s %-6s %s %s\n", separator, "ID", separator, flightTimeHead());
     }
 
+    public static String airport(Airport airport) {
+        return String.format("%s %s %s %-17s %-2s %s %s %-12s",
+                separator,
+                airport.code,
+                separator,
+                airport.country,
+                separator,
+                airport.countryShort,
+                separator,
+                airport.city);
+    }
+
+    public static String airportHead() {
+        return String.format("%s %-3s %s %-23s %s %-12s",
+                separator,
+                "AI",
+                separator,
+                "COUNTRY",
+                separator,
+                "CITY"
+        );
+    }
 }

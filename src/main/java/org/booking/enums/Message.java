@@ -30,9 +30,11 @@ public enum Message {
     BOOKING_ENTER_DATE("Enter data"),
     BOOKING_ENTER_SEATS("Enter the number of passengers"),
     BOOKING_CHOOSE_FLIGHT("Choose flight (ID or CODE)"),
-    BOOKING_CHOOSE_FLIGHT_INDEX("Enter flight index"),
+    BOOKING_CHOOSE_FLIGHT_INDEX("Enter flight ID"),
     BOOKING_ENTER_PASSENGER_FIRST("Enter passenger first name"),
     BOOKING_ENTER_PASSENGER_LAST("Enter passenger last name"),
+    BOOKING_NEXT("Continue (y/n) ?"),
+    BOOKING_SUCCESS("SUCCESS!"),
 
     // FLIGHT
     FLIGHT_ENTER_CODE("Enter flight id"),

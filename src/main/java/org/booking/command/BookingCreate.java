@@ -11,6 +11,7 @@ import org.booking.helpers.Validation;
 import org.booking.ui.menu.MenuStack;
 import org.booking.utils.*;
 
+import java.lang.reflect.Parameter;
 import java.time.format.FormatStyle;
 import java.util.*;
 import java.util.List;
@@ -26,26 +27,23 @@ public class BookingCreate extends Command {
         return new BookingCreate(controller);
     }
 
-    private void displayAirport(int n, Airport a) {
-        String info = String.format("%d %s\n", n, a.prettyInfo());
-        if (n % 2 == 0) {
-            Console.table1(info);
-            return;
-        }
-        Console.table2(info);
+    private void displayAirports(List<Airport> airports) {
+        Console.table1(PrettyFormat.airportHead(), Console.AIRPORT);
+        IntStream
+                .range(0, airports.size())
+                .forEach(i -> {
+                    String info = String.format("%s\n", PrettyFormat.airport(airports.get(i)));
+                    if (i % 2 == 0) {
+                        Console.table2(info, Console.AIRPORT);
+                    } else {
+                        Console.table1(info, Console.AIRPORT);
+                    }
+                });
     }
 
     private void displayAllAirports() {
-        IntStream
-                .range(0, Airport.values().length)
-                .forEach(i -> {
-                    String info = String.format("%s\n", Airport.values()[i].prettyInfo());
-                    if (i % 2 == 0) {
-                        Console.table1(info);
-                    } else {
-                        Console.table2(info);
-                    }
-                });
+        List<Airport> airports = Arrays.stream(Airport.values()).toList();
+        displayAirports(airports);
     }
 
     private String readUserInput() {
@@ -73,9 +71,7 @@ public class BookingCreate extends Command {
             return airports.get(0);
         }
 
-        IntStream
-                .range(0, airports.size())
-                .forEach(i -> displayAirport(i + 1, airports.get(i)));
+        displayAirports(airports);
 
         Console.input(Message.BOOKING_CHOOSE_AIRPORT);
         String str = readUserInput();
@@ -247,9 +243,9 @@ public class BookingCreate extends Command {
                     strings.add(new String(stringBuilder));
                 });
         if (i % 2 == 0) {
-            strings.forEach(idx -> Console.table2(idx));
+            strings.forEach(idx -> Console.table2(idx, Console.FLIGHT_FULL));
         } else {
-            strings.forEach(idx -> Console.table1(idx));
+            strings.forEach(idx -> Console.table1(idx, Console.FLIGHT_FULL));
         }
     }
 
@@ -291,15 +287,45 @@ public class BookingCreate extends Command {
         }
     }
 
-    private List<Flight> enterFlight(List<List<Flight>> flights) {
-        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead()));
+    private void displayFlights(List<List<Flight>> flights) {
+        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead()), Console.FLIGHT_FULL);
         IntStream.range(0, flights.size())
                 .forEach(i -> {
                     displayFlights(i, flights.get(i));
                 });
-        Message msg = flights.size() == 1
-                ? Message.BOOKING_CHOOSE_FLIGHT_INDEX
-                : Message.BOOKING_CHOOSE_FLIGHT;
+    }
+
+    private boolean chooseNext() throws RuntimeException {
+        String readString = Console.readString();
+        try {
+            if (!Parser.parseIsCode(readString)) {
+                throw new RuntimeException("...?");
+            }
+            boolean isYes = Parser.parseIsYes(readString);
+            boolean isNo = Parser.parseIsNo(readString)
+                    || Parser.parseIsExit(readString)
+                    || Parser.parseIsBack(readString);
+            if (!isYes && !isNo) {
+                throw new RuntimeException("Yes/No");
+            }
+            return isYes;
+        } catch (RuntimeException ex) {
+            Console.warning(ex.getMessage());
+            Console.caret();
+            return chooseNext();
+        }
+    }
+
+    private boolean chooseContinue() {
+        Console.input(Message.BOOKING_NEXT);
+        return chooseNext();
+    }
+
+    private List<Flight> enterFlights(List<List<Flight>> flights) {
+        boolean withoutTrans = flights.stream().mapToInt(List::size).reduce(Integer::max).orElse(0) == 1;
+        Message msg = withoutTrans
+                ? Message.BOOKING_CHOOSE_FLIGHT
+                : Message.BOOKING_CHOOSE_FLIGHT_INDEX;
         Console.input(msg);
         return chooseFlight(flights);
     }
@@ -336,6 +362,13 @@ public class BookingCreate extends Command {
         long time = enterDepartureDate();
         Console.accept(String.format("%s\n", DateUtil.of(time).formatter(FormatStyle.FULL)));
 
+        List<List<Flight>> flightsForBookingForOne = controller.flight.getFlightsForBooking(from, to, time, 1);
+
+        if (flightsForBookingForOne.size() == 0) {
+            Console.warning("Nothing found!");
+            return;
+        }
+
         int seats = enterSeats();
 
         List<List<Flight>> flightsForBooking = controller.flight.getFlightsForBooking(from, to, time, seats);
@@ -345,7 +378,17 @@ public class BookingCreate extends Command {
             return;
         }
 
-        List<Flight> flights = enterFlight(flightsForBooking);
+
+        displayFlights(flightsForBooking);
+
+        boolean isNext = chooseContinue();
+
+        if (!isNext) {
+            Console.hide("Back to main menu");
+            return;
+        }
+
+        List<Flight> flights = enterFlights(flightsForBooking);
 
         if (flights == null) {
             Console.error(Message.UE);
@@ -363,5 +406,7 @@ public class BookingCreate extends Command {
                 }
             });
         });
+
+        Console.accept(Message.BOOKING_SUCCESS);
     }
 }

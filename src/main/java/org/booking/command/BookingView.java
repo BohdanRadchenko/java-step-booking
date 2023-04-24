@@ -32,14 +32,14 @@ public class BookingView extends Command {
     private void displayBooking(int i, Booking booking) {
         String info = PrettyFormat.booking(booking);
         if (i % 2 == 0) {
-            Console.table2(info, true);
+            Console.table2(info, Console.BOOKING_FLIGHTS);
         } else {
-            Console.table1(info, true);
+            Console.table1(info, Console.BOOKING_FLIGHTS);
         }
     }
 
     private void displayBookings(List<Booking> bookings) {
-        Console.table1(PrettyFormat.bookingHead());
+        Console.table1(PrettyFormat.bookingHead(), Console.BOOKING_FLIGHTS);
         IntStream
                 .range(0, bookings.size())
                 .forEach(i -> displayBooking(i, bookings.get(i)));

@@ -9,7 +9,7 @@ public enum Aircraft {
     B787("Boeing", "787", 1050, 300),
     PC24("Pilatus", "PC-24", 815, 10),
     CSBR("Cessna", "Bravo", 750, 8),
-    EMPH3("Embraer", "Phenom 300", 840, 10),
+    EMH3("Embraer", "Phenom 300", 840, 10),
     BMGE("Bombardier", "Global Express", 910, 10);
 
     public final String code;

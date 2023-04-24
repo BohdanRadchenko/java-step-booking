@@ -39,8 +39,8 @@ public class FlightInfo extends Command {
             Console.warning("Nothing found!");
             return;
         }
-        Console.table1(PrettyFormat.flightFullHead());
-        Console.table2(flight.toString());
+        Console.table1(PrettyFormat.flightFullHead(), Console.FLIGHT_INFO);
+        Console.table2(flight.toString(), Console.FLIGHT_INFO);
     }
 
     @Override

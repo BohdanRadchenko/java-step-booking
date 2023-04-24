@@ -50,10 +50,6 @@ public enum Airport {
         return Parser.containsWords(string, contains);
     }
 
-    public String prettyInfo() {
-        return String.format("| %s | %-15s | %s | %-10s | ", code, country, countryShort, city);
-    }
-
     @Override
     public String toString() {
         return String.format("%s: %s %s", code, country, city);

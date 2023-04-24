@@ -10,6 +10,8 @@ public class Parser {
     private static final Set<String> exitWords = Set.of("exit", "ex", "e", "quit", "q", String.valueOf(Constants.exitCode));
     private static final Set<String> backWords = Set.of("back", "b");
     private static final Set<String> helpWords = Set.of("help", "h", String.valueOf(Constants.helpCode));
+    private static final Set<String> yesWords = Set.of("yes", "y", "yep", "next");
+    private static final Set<String> noWords = Set.of("no", "n", "nope", "not");
 
     public static boolean containsWords(String str, Set<String> words) {
         return Arrays.stream(StringWorker.toLowerCase(str).split(" ")).anyMatch(words::contains);
@@ -27,8 +29,20 @@ public class Parser {
         return containsWords(str, helpWords);
     }
 
+    public static boolean parseIsYes(String str) {
+        return containsWords(str, yesWords);
+    }
+
+    public static boolean parseIsNo(String str) {
+        return containsWords(str, noWords);
+    }
+
     public static boolean parseIsCode(String str) {
-        return parseIsExit(str) || parseIsHelp(str) || parseIsBack(str);
+        return parseIsExit(str)
+                || parseIsHelp(str)
+                || parseIsBack(str)
+                || parseIsNo(str)
+                || parseIsYes(str);
     }
 
     public static int parseInt(String str) throws NumberFormatException {

@@ -7,6 +7,7 @@ import org.booking.helpers.PrettyFormat;
 import org.booking.utils.Console;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class FlightSchedules extends Command {
     public FlightSchedules(Controller controller) {
@@ -21,10 +22,18 @@ public class FlightSchedules extends Command {
         String res = String.format("| %-3d | %s", n, PrettyFormat.flightFull(f));
 
         if (n % 2 == 0) {
-            Console.table1(res);
+            Console.table1(res, Console.FLIGHT_FULL);
         } else {
-            Console.table2(res);
+            Console.table2(res, Console.FLIGHT_FULL);
         }
+    }
+
+    private void displayFlights(List<Flight> flights) {
+        String head = String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead());
+        Console.table1(head, Console.FLIGHT_FULL);
+        IntStream.range(0, flights.size()).forEach(i -> {
+            displayFlight(i, flights.get(i));
+        });
     }
 
     @Override
@@ -35,9 +44,6 @@ public class FlightSchedules extends Command {
             Console.warning(msg);
             return;
         }
-        Console.table1(String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead()));
-        for (int i = 0; i < flightNextDay.size(); i++) {
-            displayFlight(i + 1, flightNextDay.get(i));
-        }
+        displayFlights(flightNextDay);
     }
 }

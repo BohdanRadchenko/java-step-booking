@@ -4,11 +4,10 @@ import org.booking.enums.FilePath;
 import org.booking.helpers.Constants;
 
 import java.io.IOException;
+import java.util.*;
 
 public final class Logger {
-
-    private static final int pre = 34;
-
+    
     enum LogType {
         START,
         ERROR,
@@ -30,7 +29,7 @@ public final class Logger {
         }
     }
 
-    static class Log {
+    static class Log implements Comparable<Log> {
         private final long timestamp;
         private final LogType logType;
         private final String message;
@@ -39,6 +38,30 @@ public final class Logger {
             this.logType = logType;
             this.message = message;
             this.timestamp = timestamp;
+        }
+
+        public Log(LogType logType, String message) {
+            this(DateUtil.of().getMillis(), logType, message);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(timestamp, logType, message);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Log that = (Log) o;
+            return timestamp == that.timestamp && logType == that.logType && message.equals(that.message);
+        }
+
+        @Override
+        public int compareTo(Log that) {
+            if (this.timestamp < that.timestamp) return -1;
+            if (this.timestamp > that.timestamp) return +1;
+            return 0;
         }
 
         @Override
@@ -50,24 +73,30 @@ public final class Logger {
         }
     }
 
+    private static List<Log> logger = new ArrayList<>();
+
     private Logger() {
     }
 
-    private static void save(Log log) throws RuntimeException {
+    private static void save() throws RuntimeException {
         FilePath path = FilePath.LOG;
-        String msg = log.logType == LogType.START ? String.format("\n%s", log.toString()) : log.toString();
-        try {
-            FileWorker.updateText(path, msg);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex.getMessage());
+        Collections.sort(logger);
+        for (int i = 0; i < logger.size(); i++) {
+            Log log = logger.get(i);
+            try {
+                FileWorker.updateText(path, log.toString());
+                logger.remove(i);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 
     private static void insertLog(LogType logType, String message) {
-        long timestamp = DateUtil.of().getMillis();
-        Log log = new Log(timestamp, logType, message);
+        Log log = new Log(logType, message);
+        logger.add(log);
         try {
-            save(log);
+            save();
         } catch (RuntimeException ex) {
             Console.error(String.format("Insert log error. %s", ex.getMessage()));
         }
@@ -99,9 +128,9 @@ public final class Logger {
 
     public static void start() {
         String msg = " Application started ";
-        int sepLength = (Constants.repeatSpaceCount - pre) / 2 - (msg.length() / 2);
-        String sep = Constants.sep1.repeat(sepLength);
-        String res = String.format("%s%s%s", sep, msg, sep);
+        int sepLength = Constants.repeatSpaceCount / 2 - (msg.length() / 2);
+        String sep = Constants.sep1.repeat(sepLength - 1);
+        String res = String.format("\n%s%s%s", sep, msg, sep);
         insertLog(LogType.START, res);
     }
 
