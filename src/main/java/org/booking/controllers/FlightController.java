@@ -14,7 +14,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 public class FlightController implements IController {
-    public static final int FLIGHT_RANDOM_COUNT = 9876;
+    public static final int FLIGHT_RANDOM_COUNT = 4321;
     private final int MAX_REFRESH_COUNT = 3;
     private int REFRESH_COUNT = 0;
     private final int MAX_NEXT_LIMIT = 100;
