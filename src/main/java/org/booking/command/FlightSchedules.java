@@ -32,7 +32,7 @@ public class FlightSchedules extends Command {
         String head = String.format("| %-3s | %s", "ID", PrettyFormat.flightFullHead());
         Console.table1(head, Console.FLIGHT_FULL);
         IntStream.range(0, flights.size()).forEach(i -> {
-            displayFlight(i, flights.get(i));
+            displayFlight(i + 1, flights.get(i));
         });
     }
 

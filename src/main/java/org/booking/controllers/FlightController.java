@@ -50,8 +50,10 @@ public class FlightController implements IController {
     private List<Flight> generateFlights(int count) {
         final int numFrom1 = 15;
         final int numTo1 = 20;
-        final int numTo2 = 25;
-        final int numTo3 = 30;
+        final int numFrom2 = 25;
+        final int numTo2 = 30;
+        final int numFrom3 = 35;
+        final int numTo3 = 40;
 
         List<Flight> flights = new ArrayList<>();
         List<Long> times = generateTime(count);
@@ -72,13 +74,22 @@ public class FlightController implements IController {
                 toIdx = Airport.LHR.ordinal();
             }
 
+            if (i % numFrom2 == 0) {
+                fromIdx = Airport.KBP.ordinal();
+                toIdx = Airport.BUD.ordinal();
+            }
             if (i % numTo2 == 0) {
-                fromIdx = Airport.FRA.ordinal();
-                toIdx = Airport.GYD.ordinal();
+                fromIdx = Airport.BUD.ordinal();
+                toIdx = Airport.LHR.ordinal();
+            }
+
+            if (i % numFrom3 == 0) {
+                fromIdx = Airport.KBP.ordinal();
+                toIdx = Airport.VIE.ordinal();
             }
             if (i % numTo3 == 0) {
-                fromIdx = Airport.FRA.ordinal();
-                toIdx = Airport.MAD.ordinal();
+                fromIdx = Airport.VIE.ordinal();
+                toIdx = Airport.LHR.ordinal();
             }
 
             Airport from = Airport.values()[fromIdx];
